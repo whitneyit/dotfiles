@@ -1,13 +1,69 @@
 #!/bin/bash
 
+#
 REPO_NAME=".dotfiles"
 
+#
 DOTFILES_DIRECTORY="${HOME}/${REPO_NAME}"
-BACKUPS_ROOT_DIRECTORY="${DOTFILES_DIRECTORY}/backups"
+DOTFILES_ROOT_BACKUP_DIRECTORY="${DOTFILES_DIRECTORY}/backups"
+
+# Header logging
+e_header() {
+    printf "\n$(tput setaf 5)%s$(tput sgr0)\n" "$@"
+}
+
+# Success logging
+e_success() {
+    printf "$(tput setaf 64)✓ %s$(tput sgr0)\n" "$@"
+}
+
+# Error logging
+e_error() {
+    printf "$(tput setaf 1)x %s$(tput sgr0)\n" "$@"
+}
+
+# Warning logging
+e_warning() {
+    printf "$(tput setaf 136)! %s$(tput sgr0)\n" "$@"
+}
+
+# Check for git
+if ! type_exists 'git'; then
+    e_error 'Aborting! Git not installed!'
+    exit 1
+fi
+
+#
+if [ ! -d ${DOTFILES_DIRECTORY} ]; then
+    mkdir ${DOTFILES_DIRECTORY}
+fi
 
 #
 cd ${DOTFILES_DIRECTORY}
 
+# Initialize the git repository if it's missing
+if ! is_git_repo; then
+
+    e_header 'Initializing git repository...'
+
+    git clone https://github.com/whitneyit/dotfiles.git temp
+
+    mv temp/.git ./.git
+
+    rm -rf temp
+
+    git reset --hard
+
+    git clean -fd
+fi
+
+e_header "Syncing dotfiles..."
+
+git pull --rebase origin master
+
+git submodule update --recursive --init --quiet
+
+#
 source ./lib/help
 source ./lib/list
 source ./lib/utils

@@ -1,5 +1,11 @@
-# ~/.bash_logout
+#!/bin/bash
+
+# Record the previous directory
 pwd > ~/.prev_dir
-clear
+
+# when leaving the console clear the screen to increase privacy
+if [ "$SHLVL" = 1 ]; then
+    [ -x /usr/bin/clear_console ] && /usr/bin/clear_console -q
+fi
 
 # vim: set syn=sh :

@@ -1,0 +1,29 @@
+#!/bin/bash
+
+run_list() {
+
+cat <<EOT
+
+Additional software to install
+
+Browsers:
+    Google Chrome
+
+OSX:
+    Filezilla
+    VirtualBox
+    Vagrant
+
+Win:
+    Cygwin
+    Filezilla
+    VirtualBox
+    Vagrant
+    
+Copyright (c) James Whitney <james@whitney.io>
+Licensed under the MIT license.
+EOT
+
+}
+
+# vim: set syn=sh :

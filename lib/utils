@@ -1,0 +1,92 @@
+#!/bin/bash
+
+# Header logging
+e_header() {
+    printf "\n$(tput setaf 7)%s$(tput sgr0)\n" "$@"
+}
+
+# Success logging
+e_success() {
+    printf "$(tput setaf 64)✓ %s$(tput sgr0)\n" "$@"
+}
+
+# Error logging
+e_error() {
+    printf "$(tput setaf 1)x %s$(tput sgr0)\n" "$@"
+}
+
+# Warning logging
+e_warning() {
+    printf "$(tput setaf 136)! %s$(tput sgr0)\n" "$@"
+}
+
+backup_prev() {
+
+    # Define our directories to work with
+    TIMESTAMP_DIRECTORY="$(date +%Y-%m-%d_%H-%M-%S)"
+    BACKUP_DIRECTORY="${BACKUPS_ROOT_DIRECTORY}/${TIMESTAMP_DIRECTORY}"
+
+    # If the user is spamming this button more than once per second,
+    # we should just bail now.
+    if [ -d ${BACKUP_DIRECTORY} ]; then
+        exit
+    fi
+
+    # Create the timestamped backup directory
+    mkdir ${BACKUP_DIRECTORY}
+
+    # Define an array of items to backup
+
+    declare -a items_to_backup=(
+        .gitattributes
+        .gitconfig
+        .gitignore_global
+        .curlrc
+        .bash
+        .bash_profile
+        .bashrc
+        .inputrc
+        .profile
+        .minttyrc
+        .vim
+        .vimrc
+    )
+
+    # Move all the matching items
+    for item in "${items_to_backup[@]}"
+    do
+        mv $HOME/$item ${BACKUP_DIRECTORY}/$item 2> /dev/null
+    done;
+
+    # If the directory is empty, we can just delete it because
+    # nothing was backed up
+    if [ ! "$(ls -A ${BACKUP_DIRECTORY})" ]; then
+        rm -rf ${BACKUP_DIRECTORY}
+    fi
+}
+
+# Force create/replace the symlink.
+link() {
+    ln -fs "${DOTFILES_DIRECTORY}/${1}" "${HOME}/${2}"
+}
+
+#
+linkfiles() {
+
+    backup_prev
+
+    link "git/gitattributes"     ".gitattributes"
+    link "git/gitconfig"         ".gitconfig"
+    link "git/gitignore_global"  ".gitignore_global"
+    link "shell/curlrc"          ".curlrc"
+    link "shell/bashrc"          ".bashrc"
+    link "shell/bash_profile"    ".bash_profile"
+    link "shell/inputrc"         ".inputrc"
+    link "shell/profile"         ".profile"
+    link "shell/minttyrc"        ".minttyrc"
+    link "vim"                   ".vim"
+    link "vim/vimrc"             ".vimrc"
+
+}
+
+# vim: set syn=sh :

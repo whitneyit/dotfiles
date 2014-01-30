@@ -1,0 +1,201 @@
+" !silent is used to suppress error messages if the config line
+" references plugins/colorschemes that might be missing
+
+" Disable vi-compatibility
+set nocompatible
+
+" Point to location of pathogen submodule (since it's not in .vim/autoload)
+silent! runtime bundle/vim-pathogen/autoload/pathogen.vim
+
+" Call pathogen plugin management
+silent! call pathogen#infect()
+
+if has("autocmd")
+
+	" Load files for specific filetypes
+	filetype on
+	filetype plugin on
+	filetype indent on
+
+	" Languages with specific tabs/space requirements
+	autocmd FileType make tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+
+	" Automatically strip trailing whitespace on file save
+	autocmd BufWritePre *.css, *.html, *.js, *.json, *.md, *.php, *.scss, *.sh, *.txt :call StripTrailingWhitespace()
+
+endif
+
+if has("syntax")
+
+	" Enable syntax highlighting
+	syntax on
+
+	" Set 256 color terminal support
+	set t_Co=256
+
+	" Treat the syntax highlighting for razor files the same as plain html files
+	autocmd BufNewFile,BufRead *.cshtml set filetype=html
+
+endif
+
+if has("cmdline_info")
+
+	" Show the cursor line and column number
+	set ruler
+
+	" Show partial commands in status line
+	set showcmd
+
+	" Show whether in insert or replace mode
+	set noshowmode
+
+endif
+
+if has("statusline")
+
+	" Always show status line
+	set laststatus=2
+
+	" Broken down into easily includeable segments
+	set statusline=%<%f\
+
+	" Options
+	set statusline+=%w%h%m%r
+
+	" Current dir
+	set statusline+=\ [%{getcwd()}]
+	
+	" Right aligned file nav info
+	set statusline+=%=%-14.(%l,%c%V%)\ %p%%
+
+endif
+
+if has("extra_search")
+
+	" Highlight searches [use :noh to clear]
+	set hlsearch
+
+	" Highlight dynamically as pattern is typed
+	set incsearch
+
+	" Ignore case of searches...
+	set ignorecase
+
+	" ...unless has mixed case
+	set smartcase
+
+endif
+
+" Show hidden files when using ctrlp
+let g:ctrlp_show_hidden = 1
+
+" Change mapleader
+let mapleader=","
+
+" Backspace through everything in INSERT mode
+set backspace=indent,eol,start
+
+" Optimize for fast terminal connections
+set ttyfast
+
+" Use UTF-8 without BOM
+set encoding=utf-8 nobomb
+
+" No line wrapping
+set nowrap
+
+" Don't expand tab to spaces
+set noexpandtab
+
+" Enable line numbers
+set number
+
+" Highlight current line
+set cursorline
+
+" Start scrolling three lines before the horizontal window border
+set scrolloff=3
+
+" Don't reset cursor to start of line when moving around.
+set nostartofline
+
+" Removes top toolbar
+set guioptions-=T
+
+" Removes right hand scroll bar
+set guioptions-=r
+
+" Removes left hand scroll bar
+set go-=L
+
+" Sets the lineheight
+set linespace=15
+
+" Define our tags file
+set tags=tags
+
+" always set autoindenting on
+set autoindent
+
+" copy the previous indentation on autoindenting
+set copyindent
+
+set timeout timeoutlen=200 ttimeoutlen=100
+" don't beep
+set visualbell
+
+" don't beep
+set noerrorbells
+
+" Save on buffer switch
+set autowrite
+
+" Show 'invisible' characters
+set list
+
+" Set characters used to indicate 'invisible' characters
+set listchars=tab:▸\
+set listchars+=trail:·
+set listchars+=nbsp:_
+set listchars+=eol:¬
+
+" Centralize backups, swapfiles and undo history
+set backupdir=$HOME/.vim/backups
+set directory=$HOME/.vim/swaps
+if exists("&undodir")
+	set undodir=$HOME/.vim/undo
+endif
+set viminfo+=n$HOME/.vim/.viminfo
+
+" Strip trailing whitespace (,$)
+noremap <leader>$ :call StripTrailingWhitespace()<CR>
+
+" Force myself to not use the arrow keys
+ino <left> <Nop>
+ino <down> <Nop>
+ino <up> <Nop>
+ino <right> <nop>
+
+" And even in visual mode ...
+vno <left> <Nop> 
+vno <down> <Nop>
+vno <up> <Nop>
+vno <right> <Nop>
+
+" Except in normal. Where <up> and <down> now switch lines
+no <left> <Nop>
+no <down> ddp
+no <up> ddkP
+no <right> <Nop>
+
+let g:Powerline_symbols = 'fancy'    " Make the powerline use the enhanced font icons
+let g:NERDTreeWinSize = 40           " Set default width for NERDTree panel
+nmap <C-b> :NERDTreeToggle<cr>       " Bind a key to hide and show the nerdtree page
+ 
+colorscheme xoria256
+set guifont=menlo\ for\ powerline:h32
+
+" Load local machine settings if they exist
+if filereadable(glob("$HOME/.vimrc.local"))
+	source $HOME/.vimrc.local
+endif

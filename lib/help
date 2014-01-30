@@ -1,0 +1,19 @@
+#!/bin/bash
+
+run_help() {
+
+cat <<EOT
+
+Usage: $(basename "$0") [options]
+
+Options:
+    -h, --help      Print this help text
+    -l, --list      Print a list of additional software to install
+
+Copyright (c) James Whitney <james@whitney.io>
+Licensed under the MIT license.
+EOT
+
+}
+
+# vim: set syn=sh :

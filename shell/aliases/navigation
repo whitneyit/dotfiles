@@ -1,0 +1,23 @@
+#!/bin/bash
+
+alias desktop="cd ~/Desktop/"
+alias downloads="cd ~/Downloads/"
+alias dropbox="cd ~/Dropbox/"
+alias sites="cd ~/Sites/"
+
+alias ..="cd ../"
+alias ...="cd ../../"
+alias ....="cd ../../../"
+alias .....="cd ../../../../"
+
+alias  ll="ls -ll"
+alias  la="ls -la"
+alias lsd="ls -d */"
+alias lld="ls -lld */"
+alias lad="ls -lad */"
+
+# Allow my windows muscle memmory to be a bit more forgiving
+alias cls="clear"
+alias dir="ls -la"
+
+# vim: set syn=sh :

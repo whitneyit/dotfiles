@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ -f ~/.prev_dir ]; then
+	touch ~/.prev_dir
+fi
+
+# vim: set syn=sh :

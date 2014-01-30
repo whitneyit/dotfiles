@@ -1,0 +1,76 @@
+alias    ga="git add"
+alias   gaa="git add --all ."
+alias   gap="git add --patch"
+alias   gbl="git blame --show-number --show-email"
+alias   gbr="git branch"
+alias  gbrl="git branch --all --verbose" # -a -v, -av
+alias  gbrd="git branch --delete" # -d, or -D to ignore merge status
+alias   gco="git checkout"
+alias  gcom="git checkout master"
+alias  gcod="git checkout develop"
+alias  gcob="git checkout -b" # no such thing as --branch
+alias  gcop="git checkout --patch" # -p
+alias  gcoa="git checkout ." # This is a fake alias to git checkout --all which does not exist
+alias   gcl="git clone"
+alias   gcm="git commit --verbose" # -v
+alias  gcms="git commit --verbose --message" # -v -m, -vm
+alias  gcma="git commit --all --verbose --message" # -a -m -b, -avm
+alias    gd="git diff"
+alias   gds="git diff --cached"
+alias    gi="git init"
+alias    gl="git log -p"
+alias   gla="git log --no-merges        --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d'"
+alias  glsa="git log --no-merges --stat --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d %n'"
+alias  glga="git log --graph            --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d'"
+alias glgsa="git log --graph     --stat --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d %n'"
+alias   gmg="git merge         --no-ff --progress"
+alias  gmgd="git merge develop --no-ff --progress"
+alias   gmo="git status --porcelain | cut -c 4-"
+alias   gps="git push --progress"
+alias  gpsf="git push --progress -f"
+alias   gpl="git pull --progress"
+alias   grb="git rebase"
+alias  grfa="git reflog --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(blue)%gs %C(cyan)%ae %C(reset)%s %C(white)%d'"
+alias grfsa="git reflog --stat --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(blue)%gs %C(cyan)%ae %C(reset)%s %C(white)%d %n'"
+alias    gr="git reset"
+alias  grhd="git reset --hard 'HEAD^'"
+alias   grh="git reset HEAD --"
+alias   grs="git reset --soft 'HEAD^'"
+alias   grp="git reset --patch"
+alias   grm="git rm"
+alias  grmc="git rm --cached"
+alias grmca="git rm --cached -r ."
+alias   gsm="git submodule"
+alias  gsma="git submodule add"
+alias  gsmu="git submodule update --recursive"
+alias   gsh="git show --no-merges        --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d %n'"
+alias  gshs="git show --no-merges --stat --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d %n'"
+alias   gst="git status"
+
+# This is a way of viewing unpushed commits
+alias  glua="git log --branches --not --remotes --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d'"
+alias gluma="glua origin/master..HEAD"
+alias gluda="glua origin/develop..HEAD"
+
+# Here we create an alias to see the commits that are merged in
+alias  glfa="gla --first-parent"
+
+# Normal logging shortcuts
+alias    gl="gla   -10" # Git log
+alias   glf="glfa  -10" # Git log --first-parent
+alias   gls="glsa  -10" # Git log --stat
+alias   glg="glga  -10" # Git log --graph
+alias  glgs="glgsa -10" # Git log --graph --stat
+
+# See unpushed commits
+alias   glu="glua  -10" # Git log *unpushed* *all*
+alias  glum="gluma -10" # Git log *unpushed* master
+alias  glud="gluda -10" # Git log *develop* master
+
+alias   grf="grfa  -10" # Git reflog *all*
+alias  grfs="grfsa -10" # Git reflog *all* --stat
+
+# Here we provide double ups
+alias  gacm="gcma"      # Git commit --all --message
+alias  glsg="glgs"      # Git log --stat --graph
+alias glsga="glgsa"     # Git log --stat --graph *all*

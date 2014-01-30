@@ -1,0 +1,10 @@
+BoldAsFont=no
+Columns=120
+Rows=40
+PgUpDnScroll=yes
+CursorType=block
+Transparency=low
+CursorBlinks=no
+Scrollbar=none
+ScrollMod=off
+Term=xterm

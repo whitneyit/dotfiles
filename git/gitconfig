@@ -1,0 +1,46 @@
+[user]
+	name = James Whitney
+	email = james@whitney.io
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore_global
+	quotepath = false
+	whitespace = space-before-tab,cr-at-eol
+	
+[apply]
+    whitespace = error
+[push]
+	default = current
+
+[color]
+	ui = true
+[color "branch"]
+	current = green
+	remote = cyan
+	plain = normal
+	local = yellow
+	upstream = white
+[color "diff"]
+	commit = normal
+	frag = normal reverse
+	meta = normal
+	new = green
+	old = red
+	plain = normal
+	whitespace = yellow reverse
+[color "grep"]
+	context = normal
+	filename = normal
+	function = normal
+	linenumber = normal
+	match = normal
+	selected = normal
+	separator = normal
+[color "status"]
+	header = normal
+	added = yellow
+	branch = white
+	changed = magenta
+	nobranch = normal
+	updated = green
+	untracked = red

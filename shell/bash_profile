@@ -1,0 +1,48 @@
+#!/bin/bash
+
+REPO_NAME=".dotfiles"
+
+sauce() {
+    
+    declare -a files=(
+        $HOME/${REPO_NAME}/shell/bash_options
+        $HOME/${REPO_NAME}/shell/bash_exports
+        $HOME/${REPO_NAME}/shell/prev_dir
+        $HOME/${REPO_NAME}/shell/aliases/git
+        $HOME/${REPO_NAME}/shell/aliases/git_flow
+        $HOME/${REPO_NAME}/shell/aliases/navigation
+        $HOME/${REPO_NAME}/shell/aliases/vagrant
+        $HOME/${REPO_NAME}/shell/aliases/company
+        $HOME/${REPO_NAME}/shell/functions/*
+        $HOME/${REPO_NAME}/shell/bash_prompt
+        $HOME/${REPO_NAME}/shell/bash_paths
+        $HOME/${REPO_NAME}/shell/cygwin 
+        $HOME/.bash_profile.local
+    )
+
+    declare -a comps=(
+        $HOME/${REPO_NAME}/shell/completions/*
+    )
+
+    for index in ${!files[*]}
+    do
+        if [[ -r ${files[$index]} ]]; then
+            source ${files[$index]}
+        fi
+    done
+    
+    for index in ${!comps[*]}
+    do
+        if [[ -f ${comps[$index]} ]]; then
+            . ${comps[$index]}
+        fi
+    done
+    
+}
+
+sauce
+
+# This converts the input type of bash over to vim style
+set -o vi
+
+# vim: set syn=sh :

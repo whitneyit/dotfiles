@@ -1,0 +1,5 @@
+# ~/.bash_logout
+pwd > ~/.prev_dir
+clear
+
+# vim: set syn=sh :

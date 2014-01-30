@@ -1,0 +1,41 @@
+#!/bin/bash
+
+REPO_NAME=".dotfiles"
+
+DOTFILES_DIRECTORY="${HOME}/${REPO_NAME}"
+BACKUPS_ROOT_DIRECTORY="${DOTFILES_DIRECTORY}/backups"
+
+#
+cd ${DOTFILES_DIRECTORY}
+
+source ./lib/help
+source ./lib/list
+source ./lib/utils
+
+# Help text
+if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+	run_help
+	exit
+fi
+
+# List additional software to install
+if [[ "$1" == "-l" || "$1" == "--list" ]]; then
+	run_list
+	exit
+fi
+
+# Test for known flags
+for opt in $@
+do
+	case $opt in
+		-*|--*) e_warning "Warning: invalid option $opt" ;;
+	esac
+done
+
+#
+linkfiles
+
+#
+e_success "dotfiles update complete!"
+
+# vim: set syn=sh :

@@ -14,21 +14,20 @@ declare -a dirs_to_append=(
     "$HOME/${REPO_NAME}/bin"
 )
 
-# Prepend directories to PATH
-for index in ${!dirs_to_prepend[*]}
+for index in "${dirs_to_prepend[@]}"
 do
-    if [ -d ${dirs_to_prepend[$index]} ]; then
+    if [ -d $index ]; then
         # If these directories exist, then prepend them to existing PATH
-        PATH="${dirs_to_prepend[$index]}:$PATH"
+        PATH="${index}:$PATH"
     fi
 done
 
 # Append directories to PATH
-for index in ${!dirs_to_append[*]}
+for index in "${dirs_to_append[@]}"
 do
-    if [ -d ${dirs_to_append[$index]} ]; then
+    if [ -d $index ]; then
         # If these bins exist, then append them to existing PATH
-        PATH="$PATH:${dirs_to_append[$index]}"
+        PATH="$PATH:${index}"
     fi
 done
 

@@ -12,77 +12,77 @@ silent! call pathogen#infect()
 
 if has("autocmd")
 
-	" Load files for specific filetypes
-	filetype on
-	filetype plugin on
-	filetype indent on
+    " Load files for specific filetypes
+    filetype on
+    filetype plugin on
+    filetype indent on
 
-	" Languages with specific tabs/space requirements
-	autocmd FileType make tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+    " Languages with specific tabs/space requirements
+    autocmd FileType make tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 
-	" Automatically strip trailing whitespace on file save
-	autocmd BufWritePre *.css, *.html, *.js, *.json, *.md, *.php, *.scss, *.sh, *.txt :call StripTrailingWhitespace()
+    " Automatically strip trailing whitespace on file save
+    autocmd BufWritePre *.css, *.html, *.js, *.json, *.md, *.php, *.scss, *.sh, *.txt :call StripTrailingWhitespace()
 
 endif
 
 if has("syntax")
 
-	" Enable syntax highlighting
-	syntax on
+    " Enable syntax highlighting
+    syntax on
 
-	" Set 256 color terminal support
-	set t_Co=256
+    " Set 256 color terminal support
+    set t_Co=256
 
-	" Treat the syntax highlighting for razor files the same as plain html files
-	autocmd BufNewFile,BufRead *.cshtml set filetype=html
+    " Treat the syntax highlighting for razor files the same as plain html files
+    autocmd BufNewFile,BufRead *.cshtml set filetype=html
 
 endif
 
 if has("cmdline_info")
 
-	" Show the cursor line and column number
-	set ruler
+    " Show the cursor line and column number
+    set ruler
 
-	" Show partial commands in status line
-	set showcmd
+    " Show partial commands in status line
+    set showcmd
 
-	" Show whether in insert or replace mode
-	set noshowmode
+    " Show whether in insert or replace mode
+    set noshowmode
 
 endif
 
 if has("statusline")
 
-	" Always show status line
-	set laststatus=2
+    " Always show status line
+    set laststatus=2
 
-	" Broken down into easily includeable segments
-	set statusline=%<%f\
+    " Broken down into easily includeable segments
+    set statusline=%<%f\
 
-	" Options
-	set statusline+=%w%h%m%r
+    " Options
+    set statusline+=%w%h%m%r
 
-	" Current dir
-	set statusline+=\ [%{getcwd()}]
-	
-	" Right aligned file nav info
-	set statusline+=%=%-14.(%l,%c%V%)\ %p%%
+    " Current dir
+    set statusline+=\ [%{getcwd()}]
+    
+    " Right aligned file nav info
+    set statusline+=%=%-14.(%l,%c%V%)\ %p%%
 
 endif
 
 if has("extra_search")
 
-	" Highlight searches [use :noh to clear]
-	set hlsearch
+    " Highlight searches [use :noh to clear]
+    set hlsearch
 
-	" Highlight dynamically as pattern is typed
-	set incsearch
+    " Highlight dynamically as pattern is typed
+    set incsearch
 
-	" Ignore case of searches...
-	set ignorecase
+    " Ignore case of searches...
+    set ignorecase
 
-	" ...unless has mixed case
-	set smartcase
+    " ...unless has mixed case
+    set smartcase
 
 endif
 
@@ -163,7 +163,7 @@ set listchars+=eol:¬
 set backupdir=$HOME/.vim/backups
 set directory=$HOME/.vim/swaps
 if exists("&undodir")
-	set undodir=$HOME/.vim/undo
+    set undodir=$HOME/.vim/undo
 endif
 set viminfo+=n$HOME/.vim/.viminfo
 
@@ -197,5 +197,5 @@ set guifont=menlo\ for\ powerline:h32
 
 " Load local machine settings if they exist
 if filereadable(glob("$HOME/.vimrc.local"))
-	source $HOME/.vimrc.local
+    source $HOME/.vimrc.local
 endif

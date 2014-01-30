@@ -1,6 +1,6 @@
 # Make a directory and navigate into it
 function mkcdir () {
-	mkdir -p "$@" && cd "$@";
+    mkdir -p "$@" && cd "$@";
 }
 
 # vim: set syn=sh :

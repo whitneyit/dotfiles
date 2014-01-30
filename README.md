@@ -7,7 +7,7 @@ My dotfiles.
 The installation only requires curl, and git to be installed. Pretty much any
 of your previous files will be backed up to;
 
-	~/.dotfiles/backupes/${date_time}
+    ~/.dotfiles/backupes/${date_time}
 
 To actually kick off the instalation run;
 
@@ -32,14 +32,14 @@ $ dotfiles
 Options:
 
 <table>
-    <tr>
-        <td><code>-h</code>, <code>--help</code></td>
-        <td>Help</td>
-    </tr>
-    <tr>
-        <td><code>-l</code>, <code>--list</code></td>
-        <td>List of additional applications to install</td>
-    </tr>
+        <tr>
+                <td><code>-h</code>, <code>--help</code></td>
+                <td>Help</td>
+        </tr>
+        <tr>
+                <td><code>-l</code>, <code>--list</code></td>
+                <td>List of additional applications to install</td>
+        </tr>
 </table>
 
 ## Adding new git submodules
@@ -90,8 +90,8 @@ changes made to those submodules.
 Inspiration and code was taken from many sources, including:
 
 * [@necolas](https://github.com/necolas) (Nicolas Gallagher)
-  [https://github.com/mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles)
+    [https://github.com/mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles)
 * [@sabiddle](https://github.com/shawncplus) (Shawn Biddle)
-  [https://github.com/shawncplus/dotfiles](https://github.com/shawncplus/dotfiles)
+    [https://github.com/shawncplus/dotfiles](https://github.com/shawncplus/dotfiles)
 * [@cowboy](https://github.com/cowboy) (Ben Alman)
-  [https://github.com/cowboy/dotfiles](https://github.com/cowboy/dotfiles)
+    [https://github.com/cowboy/dotfiles](https://github.com/cowboy/dotfiles)

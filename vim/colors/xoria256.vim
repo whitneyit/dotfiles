@@ -2,7 +2,7 @@
 "
 " Name:       xoria256.vim
 " Version:    1.5
-" Maintainer:	Dmitriy Y. Zotikov (xio) <xio@ungrund.org>
+" Maintainer: Dmitriy Y. Zotikov (xio) <xio@ungrund.org>
 "
 " Should work in recent 256 color terminals.  88-color terms like urxvt are
 " NOT supported.
@@ -18,10 +18,10 @@
 
 " Initialization {{{
 if &t_Co != 256 && ! has("gui_running")
-  echomsg ""
-  echomsg "err: please use GUI or a 256-color terminal (so that t_Co=256 could be set)"
-  echomsg ""
-  finish
+    echomsg ""
+    echomsg "err: please use GUI or a 256-color terminal (so that t_Co=256 could be set)"
+    echomsg ""
+    finish
 endif
 
 set background=dark
@@ -29,7 +29,7 @@ set background=dark
 hi clear
 
 if exists("syntax_on")
-  syntax reset
+    syntax reset
 endif
 
 let colors_name = "xoria256"
@@ -103,12 +103,12 @@ hi diffText     ctermfg=bg  guifg=bg      ctermbg=174 guibg=#df8787 cterm=none g
 " hi htmlEndTag   ctermfg=146  guifg=#afafdf
 hi htmlTag      ctermfg=244
 hi htmlEndTag   ctermfg=244
-hi htmlArg	ctermfg=182  guifg=#dfafdf
-hi htmlValue	ctermfg=187  guifg=#dfdfaf
-hi htmlTitle	ctermfg=254  ctermbg=95
-" hi htmlArg	ctermfg=146
-" hi htmlTagName	ctermfg=146
-" hi htmlString	ctermfg=187
+hi htmlArg  ctermfg=182  guifg=#dfafdf
+hi htmlValue  ctermfg=187  guifg=#dfdfaf
+hi htmlTitle  ctermfg=254  ctermbg=95
+" hi htmlArg  ctermfg=146
+" hi htmlTagName  ctermfg=146
+" hi htmlString ctermfg=187
 """ django {{{3
 hi djangoVarBlock ctermfg=180
 hi djangoTagBlock ctermfg=150

@@ -13,16 +13,16 @@ sauce() {
         $HOME/${REPO_NAME}/shell/aliases/navigation
         $HOME/${REPO_NAME}/shell/aliases/vagrant
         $HOME/${REPO_NAME}/shell/aliases/company
-        # $HOME/${REPO_NAME}/shell/functions/*
-        # $HOME/${REPO_NAME}/shell/bash_prompt
+        $HOME/${REPO_NAME}/shell/functions/*
+        $HOME/${REPO_NAME}/shell/bash_prompt
         $HOME/${REPO_NAME}/shell/bash_paths
         $HOME/${REPO_NAME}/shell/cygwin 
         $HOME/.bash_profile.local
     )
 
-    # declare -a comps=(
-    #     $HOME/${REPO_NAME}/shell/completions/*
-    # )
+    declare -a comps=(
+        $HOME/${REPO_NAME}/shell/completions/*
+    )
 
     for file in "${files[@]}"
     do
@@ -31,12 +31,12 @@ sauce() {
         fi
     done
     
-    # for comp in "${comps[@]}"
-    # do
-    #     if [ -f $comp ]; then
-    #         . $comp
-    #     fi
-    # done
+    for comp in "${comps[@]}"
+    do
+        if [ -f $comp ]; then
+            . $comp
+        fi
+    done
     
 }
 

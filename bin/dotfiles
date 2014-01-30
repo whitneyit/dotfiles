@@ -94,7 +94,7 @@ do
 done
 
 #
-# linkfiles
+link_files
 
 #
 e_success 'dotfiles update complete!'

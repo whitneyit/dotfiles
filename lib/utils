@@ -58,19 +58,19 @@ link() {
 }
 
 #
-linkfiles() {
+link_files() {
 
     backup_prev
 
     link "git/gitattributes"     ".gitattributes"
     link "git/gitconfig"         ".gitconfig"
     link "git/gitignore_global"  ".gitignore_global"
-    link "shell/curlrc"          ".curlrc"
-    link "shell/bashrc"          ".bashrc"
-    link "shell/bash_profile"    ".bash_profile"
-    link "shell/inputrc"         ".inputrc"
-    link "shell/profile"         ".profile"
-    link "shell/minttyrc"        ".minttyrc"
+    # link "shell/curlrc"          ".curlrc"
+    # link "shell/bashrc"          ".bashrc"
+    # link "shell/bash_profile"    ".bash_profile"
+    # link "shell/inputrc"         ".inputrc"
+    # link "shell/profile"         ".profile"
+    # link "shell/minttyrc"        ".minttyrc"
     link "vim"                   ".vim"
     link "vim/vimrc"             ".vimrc"
 

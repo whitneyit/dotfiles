@@ -14,12 +14,12 @@ e_header() {
 
 # Success logging
 e_success() {
-    printf "$(tput setaf 64)✓ %s$(tput sgr0)\n" "$@"
+    printf "$(tput setaf 64)✔ %s$(tput sgr0)\n" "$@"
 }
 
 # Error logging
 e_error() {
-    printf "$(tput setaf 1)x %s$(tput sgr0)\n" "$@"
+    printf "$(tput setaf 1)✘ %s$(tput sgr0)\n" "$@"
 }
 
 # Warning logging
@@ -27,8 +27,13 @@ e_warning() {
     printf "$(tput setaf 136)! %s$(tput sgr0)\n" "$@"
 }
 
+# Test whether we're in a git repo
+is_git_repo() {
+    $(git rev-parse --is-inside-work-tree &> /dev/null)
+}
+
 # Check for git
-if ! type_exists 'git'; then
+if [ ! $(type -P git) ]; then
     e_error 'Aborting! Git not installed!'
     exit 1
 fi
@@ -42,7 +47,7 @@ fi
 cd ${DOTFILES_DIRECTORY}
 
 # Initialize the git repository if it's missing
-if ! is_git_repo; then
+if [ ! -d .git ]; then
 
     e_header 'Initializing git repository...'
 
@@ -57,7 +62,7 @@ if ! is_git_repo; then
     git clean -fd
 fi
 
-e_header "Syncing dotfiles..."
+e_header 'Syncing dotfiles...'
 
 git pull --rebase origin master
 
@@ -89,9 +94,11 @@ do
 done
 
 #
-linkfiles
+# linkfiles
 
 #
-e_success "dotfiles update complete!"
+e_success 'dotfiles update complete!'
+
+cd $HOME
 
 # vim: set syn=sh :

@@ -1,5 +1,12 @@
 #!/bin/bash
 
+#
+REPO_NAME=".dotfiles"
+
+#
+DOTFILES_DIRECTORY="${HOME}/${REPO_NAME}"
+DOTFILES_ROOT_BACKUP_DIRECTORY="${DOTFILES_DIRECTORY}/backups"
+
 backup_prev() {
 
     # Define our directories to work with

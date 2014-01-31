@@ -18,13 +18,23 @@ if has("autocmd")
     filetype indent on
 
     " Languages with specific tabs/space requirements
-    autocmd FileType make tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+    autocmd FileType make tabstop=4 | softtabstop=4 | shiftwidth=4 | noexpandtab
 
     " Automatically strip trailing whitespace on file save
     autocmd BufWritePre *.css, *.html, *.js, *.json, *.md, *.php, *.scss, *.sh, *.txt :call StripTrailingWhitespace()
 
+    " Make sure we set the correct wrapping size for git commits
+    autocmd FileType gitcommit              set textwidth=72
+
     " Treat the syntax highlighting for razor files the same as plain html files
-    autocmd BufNewFile,BufRead *.cshtml set filetype=html
+    autocmd BufNewFile,BufRead *.cshtml     set filetype=html
+
+    " Make sure markdown files are treated correctly
+    autocmd BufNewFile,BufRead *.md         set filetype=markdown
+
+    " Set up some settings for ruby
+    autocmd BufNewFile,BufRead *.rb         set filetype=ruby
+    autocmd BufNewFile,BufRead Vagrantfile  set filetype=ruby
 
 endif
 
@@ -103,6 +113,11 @@ set encoding=utf-8 nobomb
 
 " No line wrapping
 set nowrap
+
+" Define some default tab widths
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 
 " Don't expand tab to spaces
 set noexpandtab

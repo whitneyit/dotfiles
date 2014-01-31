@@ -1,4 +1,6 @@
-alias   gfl="git flow"
+#!/bin/bash
+
+#!/bin/bashalias   gfl="git flow"
 alias  gflh="git flow help"
 alias  gfli="git flow init"
 alias  gflf="git flow feature"
@@ -10,3 +12,5 @@ alias gflhf="git flow hotfix finish"
 alias  gflr="git flow release"
 alias gflrs="git flow release start"
 alias gflrf="git flow release finish"
+
+# vim: set syn=sh :

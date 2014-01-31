@@ -1,3 +1,5 @@
+#!/bin/bash
+
 alias    ga="git add"
 alias   gaa="git add --all ."
 alias   gap="git add --patch"
@@ -25,7 +27,6 @@ alias  glga="git log --graph            --pretty=format:'%C(yellow)%h %C(green)[
 alias glgsa="git log --graph     --stat --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d %n'"
 alias   gmg="git merge         --no-ff --progress"
 alias  gmgd="git merge develop --no-ff --progress"
-alias   gmo="git status --porcelain | cut -c 4-"
 alias   gps="git push --progress"
 alias  gpsf="git push --progress -f"
 alias   gpl="git pull --progress"
@@ -40,9 +41,10 @@ alias   grp="git reset --patch"
 alias   grm="git rm"
 alias  grmc="git rm --cached"
 alias grmca="git rm --cached -r ."
+alias   gmo="git status --porcelain | cut -c 4-"
 alias   gsm="git submodule"
 alias  gsma="git submodule add"
-alias  gsmu="git submodule update --recursive"
+alias  gsmu="git submodule update --recursive --init"
 alias   gsh="git show --no-merges        --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d %n'"
 alias  gshs="git show --no-merges --stat --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d %n'"
 alias   gst="git status"
@@ -74,3 +76,5 @@ alias  grfs="grfsa -10" # Git reflog *all* --stat
 alias  gacm="gcma"      # Git commit --all --message
 alias  glsg="glgs"      # Git log --stat --graph
 alias glsga="glgsa"     # Git log --stat --graph *all*
+
+# vim: set syn=sh :

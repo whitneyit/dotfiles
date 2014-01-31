@@ -43,6 +43,6 @@ sauce() {
 sauce
 
 # This converts the input type of bash over to vim style
-# set -o vi
+set -o vi
 
 # vim: set syn=sh :

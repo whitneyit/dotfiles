@@ -23,6 +23,9 @@ if has("autocmd")
     " Automatically strip trailing whitespace on file save
     autocmd BufWritePre *.css, *.html, *.js, *.json, *.md, *.php, *.scss, *.sh, *.txt :call StripTrailingWhitespace()
 
+    " Treat the syntax highlighting for razor files the same as plain html files
+    autocmd BufNewFile,BufRead *.cshtml set filetype=html
+
 endif
 
 if has("syntax")
@@ -32,9 +35,6 @@ if has("syntax")
 
     " Set 256 color terminal support
     set t_Co=256
-
-    " Treat the syntax highlighting for razor files the same as plain html files
-    autocmd BufNewFile,BufRead *.cshtml set filetype=html
 
 endif
 
@@ -154,7 +154,7 @@ set autowrite
 set list
 
 " Set characters used to indicate 'invisible' characters
-set listchars=tab:▸\
+set listchars=tab:▸\-
 set listchars+=trail:·
 set listchars+=nbsp:_
 set listchars+=eol:¬

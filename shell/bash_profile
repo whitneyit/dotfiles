@@ -45,4 +45,7 @@ sauce
 # This converts the input type of bash over to vim style
 set -o vi
 
+# Ensure that <C-l> Will clear the screen in insert mode
+bind -m vi-insert ‘Control-l: clear-screen’
+
 # vim: set syn=sh :

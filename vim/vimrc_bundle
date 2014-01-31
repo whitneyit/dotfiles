@@ -1,0 +1,22 @@
+" vim powerline                             "
+" https://github.com/Lokaltog/vim-powerline "
+"""""""""""""""""""""""""""""""""""""""""""""
+
+" Make the powerline use the enhanced font icons
+let g:Powerline_symbols = 'fancy'
+
+" NERDTree                               "
+" https://github.com/scrooloose/nerdtree "
+""""""""""""""""""""""""""""""""""""""""""
+
+" Make sure we see bookmarks and help at the top
+let g:NERDTreeMinimalUI = 0
+
+" Enable fancy arrows
+let g:NERDTreeDirArrows = 1
+
+" Set default width for NERDTree panel
+let g:NERDTreeWinSize = 40
+
+" Bind a key to hide and show the nerdtree page
+nmap <C-b> :NERDTreeToggle<cr>

@@ -46,6 +46,6 @@ sauce
 set -o vi
 
 # Ensure that <C-l> Will clear the screen in insert mode
-bind -m vi-insert ‘Control-l: clear-screen’
+bind -m vi-insert 'Control-l: clear-screen'
 
 # vim: set syn=sh :

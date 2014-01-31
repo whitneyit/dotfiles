@@ -188,11 +188,19 @@ no <down> ddp
 no <up> ddkP
 no <right> <Nop>
 
-let g:Powerline_symbols = 'fancy'    " Make the powerline use the enhanced font icons
-let g:NERDTreeWinSize = 40           " Set default width for NERDTree panel
-nmap <C-b> :NERDTreeToggle<cr>       " Bind a key to hide and show the nerdtree page
- 
+" Make the powerline use the enhanced font icons
+let g:Powerline_symbols = 'fancy'
+
+" Set default width for NERDTree panel
+let g:NERDTreeWinSize = 40
+
+" Bind a key to hide and show the nerdtree page
+nmap <C-b> :NERDTreeToggle<cr>
+
+" Set the colorscheme
 colorscheme xoria256
+
+" Define the font to use. Make sure that it is compatible with vim-powerline
 set guifont=menlo\ for\ powerline:h32
 
 " Load local machine settings if they exist

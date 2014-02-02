@@ -64,7 +64,9 @@ fi
 
 e_header 'Syncing dotfiles...'
 
-git pull --rebase origin master
+git reset --hard
+
+git pull origin master
 
 git submodule update --recursive --init --quiet
 

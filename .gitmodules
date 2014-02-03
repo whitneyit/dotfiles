@@ -7,3 +7,6 @@
 [submodule "vim/bundle/vim-powerline"]
 	path = vim/bundle/vim-powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
+[submodule "shell/fonts"]
+	path = shell/fonts
+	url = https://github.com/Lokaltog/powerline-fonts.git

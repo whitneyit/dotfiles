@@ -1,0 +1,18 @@
+#!/bin/bash
+
+#
+if [ $(os) == "CYGWIN" ]; then
+	
+	#
+	alias ls="ls -Gh --ignore='ntuser*' --ignore='NTUSER*' --ignore='\$RECYCLE\.BIN' --ignore='System\ Volume\ Information'"
+
+	#
+	alias c="cd /cygdrive/c"
+	alias d="cd /cygdrive/d"
+
+	#
+	alias d2u="find . -type f -exec dos2unix {} \;"
+
+fi
+
+# vim: set syn=sh :

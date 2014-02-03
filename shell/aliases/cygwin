@@ -2,13 +2,29 @@
 
 #
 if [ $(os) == "CYGWIN" ]; then
-	
-	#
-	alias ls="ls -Gh --ignore='ntuser*' --ignore='NTUSER*' --ignore='\$RECYCLE\.BIN' --ignore='System\ Volume\ Information'"
 
 	#
-	alias c="cd /cygdrive/c"
-	alias d="cd /cygdrive/d"
+	alias ls="ls -Gh \
+	--ignore='bootmgr' \
+	--ignore='BOOTNXT' \
+	--ignore='hiberfil.sys' \
+	--ignore='pagefile.sys' \
+	--ignore='swapfile.sys' \
+	--ignore='ntuser*' \
+	--ignore='NTUSER*' \
+	--ignore='\$Recycle\.Bin' \
+	--ignore='\$RECYCLE\.BIN' \
+	--ignore='System\ Volume\ Information'"
+
+	#
+	if [ -d /cygdrive/c ]; then
+		alias c="cd /cygdrive/c"
+	fi
+
+	#
+	if [ -d /cygdrive/d ]; then
+		alias d="cd /cygdrive/d"
+	fi
 
 	#
 	alias d2u="find . -type f -exec dos2unix {} \;"

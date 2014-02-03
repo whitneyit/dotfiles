@@ -6,16 +6,6 @@ if [ $(os) == "CYGWIN" ]; then
 	# Complete foo.exe as foo, not foo.exe
 	shopt -s completion_strip_exe
 
-	#
-	alias ls="ls -Gh --ignore='ntuser*' --ignore='NTUSER*' --ignore='\$RECYCLE\.BIN' --ignore='System\ Volume\ Information'"
-
-	#
-	alias c="cd /cygdrive/c"
-	alias d="cd /cygdrive/d"
-
-	#
-	alias d2u="find . -type f -exec dos2unix {} \;"
-
 fi
 
 # vim: set syn=sh :

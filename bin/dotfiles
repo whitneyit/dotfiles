@@ -9,7 +9,7 @@ DOTFILES_ROOT_BACKUP_DIRECTORY="${DOTFILES_DIRECTORY}/backups"
 
 # Header logging
 e_header() {
-    printf "\n$(tput setaf 5)%s$(tput sgr0)\n" "$@"
+    printf "$(tput setaf 5)%s$(tput sgr0)\n" "$@"
 }
 
 # Success logging

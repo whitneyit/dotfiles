@@ -5,6 +5,8 @@ if [ $(os) == "CYGWIN" ]; then
 
 	#
 	alias ls="ls -Gh \
+	--color \
+	--group-directories-first \
 	--ignore='bootmgr' \
 	--ignore='BOOTNXT' \
 	--ignore='hiberfil.sys' \

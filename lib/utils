@@ -30,7 +30,6 @@ backup_prev() {
         .gitignore_global
         .fonts
         .curlrc
-        .bash
         .bash_profile
         .bashrc
         .inputrc

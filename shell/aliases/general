@@ -1,7 +1,8 @@
 #!/bin/bash
 
-alias vbp="vim ~/.bash_profile" 
-alias vrc="vim ~/.vimrc"
+alias vbp="vim ~/.dotfiles/shell/bash_profile"
+alias vrc="vim ~/.dotfiles/vim/vimrc"
+alias vrcb="vim ~/.dotfiles/vim/vimrc_bundle"
 
 alias desktop="cd ~/Desktop/"
 alias downloads="cd ~/Downloads/"

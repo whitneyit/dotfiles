@@ -12,7 +12,6 @@ sauce() {
         $HOME/${REPO_NAME}/shell/aliases/*
         $HOME/${REPO_NAME}/shell/functions/*
         $HOME/${REPO_NAME}/shell/bash_prompt
-        $HOME/${REPO_NAME}/shell/cygwin 
         $HOME/.bash_profile.local
     )
 

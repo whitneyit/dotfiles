@@ -13,4 +13,12 @@ shopt -s histappend
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
 
+#
+if [ $(os) == "CYGWIN" ]; then
+
+	# Complete foo.exe as foo, not foo.exe
+	shopt -s completion_strip_exe
+
+fi
+
 # vim: set syn=sh :

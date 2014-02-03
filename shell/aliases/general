@@ -1,5 +1,8 @@
 #!/bin/bash
 
+alias vbp="vim ~/.bash_profile" 
+alias vrc="vim ~/.vimrc"
+
 alias desktop="cd ~/Desktop/"
 alias downloads="cd ~/Downloads/"
 alias dropbox="cd ~/Dropbox/"

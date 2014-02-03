@@ -28,6 +28,7 @@ backup_prev() {
         .gitattributes
         .gitconfig
         .gitignore_global
+        .fonts
         .curlrc
         .bash
         .bash_profile
@@ -65,6 +66,7 @@ link_files() {
     link "git/gitattributes"     ".gitattributes"
     link "git/gitconfig"         ".gitconfig"
     link "git/gitignore_global"  ".gitignore_global"
+    link "shell/fonts"           ".fonts"
     link "shell/curlrc"          ".curlrc"
     link "shell/bashrc"          ".bashrc"
     link "shell/bash_profile"    ".bash_profile"

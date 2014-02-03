@@ -5,6 +5,6 @@ PgUpDnScroll=yes
 CursorType=block
 Transparency=low
 CursorBlinks=no
-Scrollbar=right
+Scrollbar=none
 ScrollMod=off
 Term=xterm

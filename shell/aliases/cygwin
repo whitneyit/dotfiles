@@ -27,6 +27,9 @@ if [ $(os) == "CYGWIN" ]; then
 	fi
 
 	#
+	alias open="cygstart"
+
+	#
 	alias d2u="find . -type f -exec dos2unix {} \;"
 
 fi

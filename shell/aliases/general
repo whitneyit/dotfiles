@@ -16,7 +16,7 @@ alias .....="cd ../../../../"
 
 # We do not want to overwrite our cygwin specific ls
 if [ $(os) != "CYGWIN" ]; then
-	alias  ls="ls --color --group-directories-first"
+	alias  ls="ls -hG"
 fi
 
 alias  ll="ls -ll"

@@ -7,6 +7,7 @@ alias   gbl="git blame --show-number --show-email"
 alias   gbr="git branch"
 alias  gbrl="git branch --all --verbose" # -a -v, -av
 alias  gbrd="git branch --delete" # -d, or -D to ignore merge status
+alias grblw="git for-each-ref --sort=-committerdate refs/remotes/ --format='%(authordate) %09 %(refname:short)'"
 alias   gco="git checkout"
 alias  gcom="git checkout master"
 alias  gcod="git checkout develop"

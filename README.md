@@ -90,7 +90,7 @@ changes made to those submodules.
 Inspiration and code was taken from many sources, including:
 
 * [@necolas](https://github.com/necolas) (Nicolas Gallagher)
-    [https://github.com/mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles)
+    [https://github.com/mathiasbynens/dotfiles](https://github.com/necolas/dotfiles)
 * [@sabiddle](https://github.com/shawncplus) (Shawn Biddle)
     [https://github.com/shawncplus/dotfiles](https://github.com/shawncplus/dotfiles)
 * [@cowboy](https://github.com/cowboy) (Ben Alman)

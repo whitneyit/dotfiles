@@ -4,7 +4,9 @@
 if [ $(os) == "CYGWIN" ]; then
 
 	#
-	alias ls="ls -Gh \
+	alias ls="ls \
+	-G \
+	-h \
 	--color \
 	--group-directories-first \
 	--ignore='bootmgr' \

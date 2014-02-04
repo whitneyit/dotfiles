@@ -18,5 +18,8 @@ let g:NERDTreeDirArrows = 1
 " Set default width for NERDTree panel
 let g:NERDTreeWinSize = 40
 
+" Make NERDTree show hidden files
+let NERDTreeShowHidden=1
+
 " Bind a key to hide and show the nerdtree page
 nmap <C-b> :NERDTreeToggle<cr>

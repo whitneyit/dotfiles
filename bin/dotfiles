@@ -64,7 +64,7 @@ fi
 
 e_header 'Syncing dotfiles...'
 
-git reset --hard
+git reset --hard --quiet
 
 git pull origin master
 

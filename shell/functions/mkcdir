@@ -1,5 +1,7 @@
+#!/bin/bash
+
 # Make a directory and navigate into it
-function mkcdir () {
+mkcdir() {
     mkdir -p "$@" && cd "$@";
 }
 

@@ -62,14 +62,6 @@ if [ ! -d .git ]; then
     git clean -fd
 fi
 
-e_header 'Syncing dotfiles...'
-
-git reset --hard --quiet
-
-git pull origin master
-
-git submodule update --recursive --init --quiet
-
 #
 source ./lib/help
 source ./lib/list
@@ -94,6 +86,12 @@ do
         -*|--*) e_warning "Warning: invalid option $opt" ;;
     esac
 done
+
+#
+e_header 'Syncing dotfiles...'
+git reset --hard --quiet
+git pull origin master
+git submodule update --recursive --init --quiet
 
 #
 link_files

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+alias dtui="cd ~/Sites/dtui"
+alias iq="cd ~/Sites/iq"
+alias marketplace="cd ~/Sites/marketplace"
+alias icebox="cd ~/Sites/icebox/Telstra.Marketplace.Web"
+
+# vim: set syn=sh :

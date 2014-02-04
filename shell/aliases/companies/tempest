@@ -1,0 +1,8 @@
+#!/bin/bash
+
+alias tempest-deploy="git commit --allow-empty -m '*Tempest deployed* at $(date +%Y-%m-%d) $(date +%T)' && git push -uf origin --all && git push -uf fortrabbit master"
+alias tempest-deploy-composer="git commit --allow-empty -m '*Tempest deployed* at $(date +%Y-%m-%d) $(date +%T)' && git commit --allow-empty -m '[trigger:composer]' && git push -uf origin --all && git push -uf fortrabbit master"
+alias tempest-ssh="ssh u-tempest@ssh2.eu1.frbit.com"
+alias tempest-sshkey="cat ~/.ssh/tempest.pub | pbcopy && echo 'Tempest SSH key copied to clipboard.'"
+
+# vim: set syn=sh :

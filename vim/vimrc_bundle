@@ -3,7 +3,7 @@
 """""""""""""""""""""""""""""""""""""""""""""
 
 " Make the powerline use the enhanced font icons
-let g:Powerline_symbols = 'fancy'
+let g:Powerline_symbols = 'compatible'
 
 " NERDTree                               "
 " https://github.com/scrooloose/nerdtree "

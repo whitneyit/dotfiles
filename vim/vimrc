@@ -149,7 +149,11 @@ set autoindent
 " copy the previous indentation on autoindenting
 set copyindent
 
-set timeout timeoutlen=200 ttimeoutlen=100
+" timeout stuff
+set timeout
+set timeoutlen=200
+set ttimeoutlen=100
+
 " don't beep
 set visualbell
 

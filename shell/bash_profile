@@ -5,12 +5,12 @@ REPO_NAME=".dotfiles"
 sauce() {
 
     declare -a files=(
-        $HOME/${REPO_NAME}/shell/aliases/*
-        $HOME/${REPO_NAME}/shell/aliases/companies/*
-        $HOME/${REPO_NAME}/shell/functions/*
         $HOME/${REPO_NAME}/shell/bash_paths
         $HOME/${REPO_NAME}/shell/bash_options
         $HOME/${REPO_NAME}/shell/bash_exports
+        $HOME/${REPO_NAME}/shell/aliases/*
+        $HOME/${REPO_NAME}/shell/aliases/companies/*
+        $HOME/${REPO_NAME}/shell/functions/*
         $HOME/${REPO_NAME}/shell/prev_dir
         $HOME/${REPO_NAME}/shell/bash_prompt
         $HOME/.bash_profile.local

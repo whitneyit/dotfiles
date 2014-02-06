@@ -101,6 +101,17 @@ let g:ctrlp_show_hidden = 1
 
 " Change mapleader
 let mapleader=","
+let g:mapleader=","
+
+" Fast saves
+nmap <leader>w :w!<cr>
+
+" Pressing `j` and `k` really do move you to the next or prev lines
+nnoremap j gj
+nnoremap k gk
+
+" Auto change directory to match current file ,cd
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " Backspace through everything in INSERT mode
 set backspace=indent,eol,start
@@ -187,6 +198,10 @@ noremap <leader>$ :call StripTrailingWhitespace()<CR>
 
 " Clear search results
 command! H let @/=""
+
+" Stuff taken from https://github.com/r00k/dotfiles/blob/master/vimrc
+command! Q q
+command! W w
 
 " Force myself to not use the arrow keys
 ino <left> <Nop>

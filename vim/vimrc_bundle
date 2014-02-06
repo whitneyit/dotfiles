@@ -23,3 +23,10 @@ let NERDTreeShowHidden=1
 
 " Bind a key to hide and show the nerdtree page
 nmap <C-b> :NERDTreeToggle<cr>
+
+" Easy motion                                "
+" https://github.com/Lokaltog/vim-easymotion "
+""""""""""""""""""""""""""""""""""""""""""""""
+
+" Set the default `<leader>` key
+let g:EasyMotion_leader_key = '<Leader>'

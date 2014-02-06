@@ -1,0 +1,14 @@
+#!/bin/bash
+
+chrome() {
+
+	# This needs to be updated to get the absolute windows style path
+	FILE_PATH=$1
+
+	if [ $(os) == "CYGWIN" ]; then
+		cygstart /cygdrive/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe $FILE_PATH
+	fi
+	
+}
+
+# vim: set syn=sh :

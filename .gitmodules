@@ -19,3 +19,6 @@
 [submodule "shell/fonts/powerline-fonts"]
 	path = shell/fonts/powerline-fonts
 	url = https://github.com/Lokaltog/powerline-fonts.git
+[submodule "vim/bundle/vim-easymotion"]
+	path = vim/bundle/vim-easymotion
+	url = https://github.com/Lokaltog/vim-easymotion

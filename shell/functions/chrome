@@ -6,7 +6,9 @@ chrome() {
 	FILE_PATH=$1
 
 	if [ $(os) == "CYGWIN" ]; then
-		cygstart /cygdrive/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe $FILE_PATH
+		open /cygdrive/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe $FILE_PATH
+	elif [ $(os) == "Mac" ]; then
+		open -a Google\ Chrome "$1"
 	fi
 	
 }

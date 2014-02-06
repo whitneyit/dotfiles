@@ -1,0 +1,8 @@
+#!/bin/bash
+
+alias vrc="vim ~/.dotfiles/vim/vimrc"
+alias vrcb="vim ~/.dotfiles/vim/vimrc_bundle"
+alias vrcl="vim ~/.dotfiles/vim/vimrc_leaders"
+alias vrcm="vim ~/.dotfiles/vim/vimrc_mappings"
+
+# vim: set syn=sh :

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+alias desktop="cd ~/Desktop/"
+alias downloads="cd ~/Downloads/"
+alias dropbox="cd ~/Dropbox/"
+alias sites="cd ~/Sites/"
+
+# vim: set syn=sh :

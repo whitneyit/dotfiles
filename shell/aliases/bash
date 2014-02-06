@@ -1,5 +1,0 @@
-#!/bin/bash
-
-alias vbp="vim ~/.dotfiles/shell/bash_profile"
-
-# vim: set syn=sh :

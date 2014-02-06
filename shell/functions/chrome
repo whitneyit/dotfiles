@@ -2,13 +2,16 @@
 
 chrome() {
 
-	# This needs to be updated to get the absolute windows style path
-	FILE_PATH=$1
-
 	if [ $(os) == "CYGWIN" ]; then
+
+		# This needs to be updated to get the absolute windows style path
+		CYG_PATH=$1
+
 		open /cygdrive/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe $FILE_PATH
+
 	elif [ $(os) == "Mac" ]; then
 		open -a Google\ Chrome "$1"
+
 	fi
 	
 }

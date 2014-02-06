@@ -8,3 +8,4 @@ CursorBlinks=yes
 Scrollbar=none
 ScrollMod=off
 Term=xterm
+Font=Consolas for Powerline FixedD

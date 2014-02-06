@@ -209,9 +209,6 @@ no <right> <Nop>
 " Set the colorscheme
 colorscheme xoria256
 
-" Define the font to use. Make sure that it is compatible with vim-powerline
-set guifont=menlo\ for\ powerline:h32
-
 " Load up our bundle specific keybinds
 if filereadable(glob("$HOME/.vim/vimrc_bundle"))
     source $HOME/.vim/vimrc_bundle

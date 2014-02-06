@@ -99,7 +99,7 @@ git reset --hard --quiet
 git pull origin master
 
 e_header 'Updating submodules...'
-git submodule update --recursive --init --quiet
+git submodule update --recursive --init 
 
 #
 link_files

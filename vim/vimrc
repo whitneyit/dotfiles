@@ -185,6 +185,9 @@ set viminfo+=n$HOME/.vim/.viminfo
 " Strip trailing whitespace (,$)
 noremap <leader>$ :call StripTrailingWhitespace()<CR>
 
+" Clear search results
+command! H let @/=""
+
 " Force myself to not use the arrow keys
 ino <left> <Nop>
 ino <down> <Nop>

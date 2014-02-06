@@ -1,0 +1,21 @@
+" Pressing `j` and `k` really do move you to the next or prev lines
+nnoremap j gj
+nnoremap k gk
+
+" Force myself to not use the arrow keys
+ino <left> <Nop>
+ino <down> <Nop>
+ino <up> <Nop>
+ino <right> <nop>
+
+" And even in visual mode ...
+vno <left> <Nop> 
+vno <down> <Nop>
+vno <up> <Nop>
+vno <right> <Nop>
+
+" Except in normal. Where <up> and <down> now switch lines
+no <left> <Nop>
+no <down> ddp
+no <up> ddkP
+no <right> <Nop>

@@ -1,3 +1,5 @@
+" Here we define all of our pluging specific keybinds
+
 " vim powerline                             "
 " https://github.com/Lokaltog/vim-powerline "
 """""""""""""""""""""""""""""""""""""""""""""
@@ -30,3 +32,10 @@ nmap <C-b> :NERDTreeToggle<cr>
 
 " Set the default `<leader>` key
 let g:EasyMotion_leader_key = '<Leader>'
+
+" Ctrl P                            "
+" https://github.com/kien/ctrlp.vim "
+"""""""""""""""""""""""""""""""""""""
+
+" Show hidden files when using ctrlp
+let g:ctrlp_show_hidden = 1

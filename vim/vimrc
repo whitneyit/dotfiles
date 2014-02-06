@@ -96,23 +96,6 @@ if has("extra_search")
 
 endif
 
-" Show hidden files when using ctrlp
-let g:ctrlp_show_hidden = 1
-
-" Change mapleader
-let mapleader=","
-let g:mapleader=","
-
-" Fast saves
-nmap <leader>w :w!<cr>
-
-" Pressing `j` and `k` really do move you to the next or prev lines
-nnoremap j gj
-nnoremap k gk
-
-" Auto change directory to match current file ,cd
-nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
-
 " Backspace through everything in INSERT mode
 set backspace=indent,eol,start
 
@@ -193,41 +176,14 @@ if exists("&undodir")
 endif
 set viminfo+=n$HOME/.vim/.viminfo
 
-" Strip trailing whitespace (,$)
-noremap <leader>$ :call StripTrailingWhitespace()<CR>
-
-" Clear search results
-command! H let @/=""
-
-" Stuff taken from https://github.com/r00k/dotfiles/blob/master/vimrc
-command! Q q
-command! W w
-
-" Force myself to not use the arrow keys
-ino <left> <Nop>
-ino <down> <Nop>
-ino <up> <Nop>
-ino <right> <nop>
-
-" And even in visual mode ...
-vno <left> <Nop> 
-vno <down> <Nop>
-vno <up> <Nop>
-vno <right> <Nop>
-
-" Except in normal. Where <up> and <down> now switch lines
-no <left> <Nop>
-no <down> ddp
-no <up> ddkP
-no <right> <Nop>
-
 " Set the colorscheme
 colorscheme xoria256
 
-" Load up our bundle specific keybinds
-if filereadable(glob("$HOME/.vim/vimrc_bundle"))
-    source $HOME/.vim/vimrc_bundle
-endif
+" Load up our other keybinds
+source $HOME/.vim/vimrc_commands
+source $HOME/.vim/vimrc_leaders
+source $HOME/.vim/vimrc_mappings
+source $HOME/.vim/vimrc_bundle
 
 " Load local machine settings if they exist
 if filereadable(glob("$HOME/.vimrc.local"))

@@ -30,12 +30,15 @@ nmap <C-b> :NERDTreeToggle<cr>
 " https://github.com/Lokaltog/vim-easymotion "
 """"""""""""""""""""""""""""""""""""""""""""""
 
+" Set the default `<leader>` key
+let g:EasyMotion_leader_key = '<Leader><leader>'
+
 " Match target keys by smartcase
 " Type 'v' and matches 'v' & 'V', and 'V' matches only 'V'.
 let g:EasyMotion_smartcase = 1
 
-" Set the default `<leader>` key
-let g:EasyMotion_leader_key = '<Leader><leader>'
+" Use uppercase target labels and type as a lower case
+let g:EasyMotion_use_upper = 1
 
 " Completly replace vims search functionality
 map  / <Plug>(easymotion-sn)

@@ -151,7 +151,7 @@ set copyindent
 
 " timeout stuff
 set timeout
-set timeoutlen=200
+set timeoutlen=1000
 set ttimeoutlen=100
 
 " don't beep

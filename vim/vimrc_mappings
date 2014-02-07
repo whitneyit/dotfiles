@@ -2,6 +2,9 @@
 nnoremap j gj
 nnoremap k gk
 
+" Make sure I don't enter that bullshit ex mode
+nnoremap Q <Nop>
+
 " Force myself to not use the arrow keys
 ino <left> <Nop>
 ino <down> <Nop>

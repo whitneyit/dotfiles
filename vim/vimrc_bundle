@@ -30,8 +30,26 @@ nmap <C-b> :NERDTreeToggle<cr>
 " https://github.com/Lokaltog/vim-easymotion "
 """"""""""""""""""""""""""""""""""""""""""""""
 
+" Match target keys by smartcase
+" Type 'v' and matches 'v' & 'V', and 'V' matches only 'V'.
+let g:EasyMotion_smartcase = 1
+
 " Set the default `<leader>` key
 let g:EasyMotion_leader_key = '<Leader><leader>'
+
+" Completly replace vims search functionality
+map  / <Plug>(easymotion-sn)
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+
+" Include easy motions line support
+map <Leader>h <Plug>(easymotion-linebackward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>l <Plug>(easymotion-lineforward)
+
+" keep cursor colum when JK motion
+let g:EasyMotion_startofline = 0
 
 " Ctrl P                            "
 " https://github.com/kien/ctrlp.vim "

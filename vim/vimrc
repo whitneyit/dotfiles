@@ -125,6 +125,9 @@ set cursorline
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
 
+" Set a vertical column
+set colorcolumn=80
+
 " Don't reset cursor to start of line when moving around.
 set nostartofline
 

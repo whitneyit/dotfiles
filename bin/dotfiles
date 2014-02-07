@@ -100,6 +100,7 @@ git pull origin master
 
 e_header 'Updating submodules...'
 git submodule update --recursive --init 
+git pull origin master --quiet
 
 #
 link_files

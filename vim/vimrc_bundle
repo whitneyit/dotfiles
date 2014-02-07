@@ -60,3 +60,7 @@ let g:EasyMotion_startofline = 0
 
 " Show hidden files when using ctrlp
 let g:ctrlp_show_hidden = 1
+
+" Make sure these directories are not included in the results panel
+set wildignore+=*/vendor/**
+set wildignore+=*/vim/bundle/**

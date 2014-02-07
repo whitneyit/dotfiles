@@ -4,6 +4,7 @@ alias vbp="vim ~/.dotfiles/shell/bash_profile"
 
 alias vrc="vim ~/.dotfiles/vim/vimrc"
 alias vrcb="vim ~/.dotfiles/vim/vimrc_bundle"
+alias vrcc="vim ~/.dotfiles/vim/vimrc_commands"
 alias vrcl="vim ~/.dotfiles/vim/vimrc_leaders"
 alias vrcm="vim ~/.dotfiles/vim/vimrc_mappings"
 

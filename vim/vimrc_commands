@@ -1,6 +1,13 @@
-" Clear search results
-command! H let @/=""
+if has("user_commands")
 
-" Stuff taken from https://github.com/r00k/dotfiles/blob/master/vimrc
-command! Q q
-command! W w
+	" Clear search results
+	command! H let @/=""
+
+	" Make sure that I can actually quit
+	command! -bang Q q<bang>
+	command! Q q
+
+	" Ensure that I can always save
+	command! W w
+
+endif

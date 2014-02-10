@@ -96,6 +96,9 @@ if has("extra_search")
 
 endif
 
+" Set the colorscheme
+colorscheme xoria256
+
 " Backspace through everything in INSERT mode
 set backspace=indent,eol,start
 
@@ -182,9 +185,6 @@ if exists("&undodir")
     set undodir=$HOME/.vim/undo
 endif
 set viminfo+=n$HOME/.vim/.viminfo
-
-" Set the colorscheme
-colorscheme xoria256
 
 " Load up our other keybinds
 source $HOME/.vim/vimrc_commands

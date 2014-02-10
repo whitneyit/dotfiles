@@ -11,14 +11,14 @@ ino <down> <Nop>
 ino <up> <Nop>
 ino <right> <nop>
 
-" And even in visual mode ...
+" And in visual mode ...
 vno <left> <Nop> 
 vno <down> <Nop>
 vno <up> <Nop>
 vno <right> <Nop>
 
-" Except in normal. Where <up> and <down> now switch lines
+" And even in normal mode
 no <left> <Nop>
-no <down> ddp
-no <up> ddkP
+no <down> <Nop>
+no <up> <Nop>
 no <right> <Nop>

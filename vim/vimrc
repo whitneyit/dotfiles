@@ -99,6 +99,9 @@ endif
 " Set the colorscheme
 colorscheme xoria256
 
+" Set a vertical column only on the lines that bleed over
+call matchadd('ColorColumn', '\%81v', 100)
+
 " Backspace through everything in INSERT mode
 set backspace=indent,eol,start
 
@@ -127,9 +130,6 @@ set cursorline
 
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
-
-" Set a vertical column
-set colorcolumn=80
 
 " Don't reset cursor to start of line when moving around.
 set nostartofline

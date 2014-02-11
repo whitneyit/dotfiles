@@ -96,6 +96,7 @@ git submodule update --recursive --init
 git pull origin master --quiet
 
 #
+e_header 'Linking files...'
 link_files $PWD
 
 #

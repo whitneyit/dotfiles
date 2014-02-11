@@ -61,6 +61,9 @@ let g:EasyMotion_startofline = 0
 " Show hidden files when using ctrlp
 let g:ctrlp_show_hidden = 1
 
+" Define the location of the cache dir
+let g:ctrlp_cache_dir = $HOME/.vim/plugin/ctrlp_cache
+
 " Make sure these directories are not included in the results panel
 set wildignore+=*/vendor/**
 set wildignore+=*/vim/bundle/**

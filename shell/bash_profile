@@ -1,42 +1,10 @@
 #!/bin/bash
 
-REPO_NAME=".dotfiles"
+# This value should actually be read from a tmp file somewhere
+INSTALL_DIRECTORY=$HOME/dotfiles
 
-sauce() {
-
-    declare -a files=(
-        $HOME/${REPO_NAME}/shell/bash_paths
-        $HOME/${REPO_NAME}/shell/bash_options
-        $HOME/${REPO_NAME}/shell/bash_exports
-        $HOME/${REPO_NAME}/shell/aliases/*
-        $HOME/${REPO_NAME}/shell/aliases/companies/*
-        $HOME/${REPO_NAME}/shell/functions/*
-        $HOME/${REPO_NAME}/shell/prev_dir
-        $HOME/${REPO_NAME}/shell/bash_prompt
-        $HOME/.bash_profile.local
-    )
-
-    declare -a comps=(
-        $HOME/${REPO_NAME}/shell/completions/*
-    )
-
-    for file in "${files[@]}"
-    do
-        if [ -f $file ]; then
-            source $file
-        fi
-    done
-
-    for comp in "${comps[@]}"
-    do
-        if [ -f $comp ]; then
-            . $comp
-        fi
-    done
-
-}
-
-sauce
+# And here we boot of the scripts
+source $INSTALL_DIRECTORY/shell/bash_profile
 
 # This converts the input type of bash over to vim style
 set -o vi

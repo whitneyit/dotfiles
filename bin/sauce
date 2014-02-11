@@ -1,21 +1,21 @@
 #!/bin/bash
 
-echo $1
+INSTALL_DIR=$HOME/Sites/dotfiles
 
 declare -a files=(
-    ${1}/shell/bash_paths
-    ${1}/shell/bash_options
-    ${1}/shell/bash_exports
-    ${1}/shell/aliases/*
-    ${1}/shell/aliases/companies/*
-    ${1}/shell/functions/*
-    ${1}/shell/prev_dir
-    ${1}/shell/bash_prompt
-    ${1}/.bash_profile.local
+    ${INSTALL_DIR}/shell/bash_paths
+    ${INSTALL_DIR}/shell/bash_options
+    ${INSTALL_DIR}/shell/bash_exports
+    ${INSTALL_DIR}/shell/aliases/*
+    ${INSTALL_DIR}/shell/aliases/companies/*
+    ${INSTALL_DIR}/shell/functions/*
+    ${INSTALL_DIR}/shell/prev_dir
+    ${INSTALL_DIR}/shell/bash_prompt
+    ${INSTALL_DIR}/.bash_profile.local
 )
 
 declare -a comps=(
-    ${1}/shell/completions/*
+    ${INSTALL_DIR}/shell/completions/*
 )
 
 for file in "${files[@]}"

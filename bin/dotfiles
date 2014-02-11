@@ -1,12 +1,5 @@
 #!/bin/bash
 
-#
-REPO_NAME=".dotfiles"
-
-#
-DOTFILES_DIRECTORY="${HOME}/${REPO_NAME}"
-DOTFILES_ROOT_BACKUP_DIRECTORY="${DOTFILES_DIRECTORY}/backups"
-
 # Header logging
 e_header() {
     printf "$(tput setaf 5)%s$(tput sgr0)\n" "$@"

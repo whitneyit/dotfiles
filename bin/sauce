@@ -1,21 +1,19 @@
 #!/bin/bash
 
-INSTALL_DIR=$HOME/Sites/dotfiles
-
 declare -a files=(
-    ${INSTALL_DIR}/shell/bash_paths
-    ${INSTALL_DIR}/shell/bash_options
-    ${INSTALL_DIR}/shell/bash_exports
-    ${INSTALL_DIR}/shell/aliases/*
-    ${INSTALL_DIR}/shell/aliases/companies/*
-    ${INSTALL_DIR}/shell/functions/*
-    ${INSTALL_DIR}/shell/prev_dir
-    ${INSTALL_DIR}/shell/bash_prompt
-    ${INSTALL_DIR}/.bash_profile.local
+    $DOTFILES_DIRECTORY/shell/bash_paths
+    $DOTFILES_DIRECTORY/shell/bash_options
+    $DOTFILES_DIRECTORY/shell/bash_exports
+    $DOTFILES_DIRECTORY/shell/aliases/*
+    $DOTFILES_DIRECTORY/shell/aliases/companies/*
+    $DOTFILES_DIRECTORY/shell/functions/*
+    $DOTFILES_DIRECTORY/shell/prev_dir
+    $DOTFILES_DIRECTORY/shell/bash_prompt
+    $DOTFILES_DIRECTORY/.bash_profile.local
 )
 
 declare -a comps=(
-    ${INSTALL_DIR}/shell/completions/*
+    $DOTFILES_DIRECTORY/shell/completions/*
 )
 
 for file in "${files[@]}"

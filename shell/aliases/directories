@@ -2,6 +2,7 @@
 
 alias desktop="cd ~/Desktop/"
 alias downloads="cd ~/Downloads/"
+alias documents="cd ~/Documents/"
 alias dropbox="cd ~/Dropbox/"
 alias sites="cd ~/Sites/"
 

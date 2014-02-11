@@ -49,7 +49,7 @@ fi
 # Initialize the git repository if it's missing
 if [ ! -d .git ]; then
 
-    e_header 'Initializing git repository...'
+    e_header 'Fetching repo...'
 
     git clone https://github.com/whitneyit/dotfiles.git temp
 

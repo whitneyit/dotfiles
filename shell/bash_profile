@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # This value should actually be read from a tmp file somewhere
-INSTALL_DIRECTORY=$HOME/dotfiles
+INSTALL_DIR=$HOME/Sites/dotfiles
 
 # And here we boot of the scripts
-source $INSTALL_DIRECTORY/shell/bash_profile
+source $INSTALL_DIR/shell/bash_profile
 
 # This converts the input type of bash over to vim style
 set -o vi

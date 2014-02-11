@@ -4,7 +4,7 @@
 INSTALL_DIR=$HOME/Sites/dotfiles
 
 # And here we boot of the scripts
-source $INSTALL_DIR/shell/bash_profile
+source $INSTALL_DIR/bin/sauce
 
 # This converts the input type of bash over to vim style
 set -o vi

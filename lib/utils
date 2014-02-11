@@ -60,6 +60,10 @@ link() {
 #
 link_files() {
 
+echo 'a'
+echo $1
+echo 'b'
+
     backup_prev
 
     link "git/gitattributes"     ".gitattributes"

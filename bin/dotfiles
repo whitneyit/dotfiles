@@ -103,7 +103,7 @@ git submodule update --recursive --init
 git pull origin master --quiet
 
 #
-link_files
+link_files $PWD
 
 #
 e_success 'dotfiles update complete!'

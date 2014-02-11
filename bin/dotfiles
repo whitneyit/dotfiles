@@ -39,12 +39,12 @@ if [ ! $(type -P git) ]; then
 fi
 
 #
-if [ ! -d ${DOTFILES_DIRECTORY} ]; then
-    mkdir ${DOTFILES_DIRECTORY}
-fi
+# if [ ! -d ${DOTFILES_DIRECTORY} ]; then
+#     mkdir ${DOTFILES_DIRECTORY}
+# fi
 
 #
-cd ${DOTFILES_DIRECTORY}
+# cd ${DOTFILES_DIRECTORY}
 
 # Initialize the git repository if it's missing
 if [ ! -d .git ]; then

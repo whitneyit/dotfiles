@@ -1,36 +1,35 @@
 #!/bin/bash
 
-do_sauce() {
+echo $1
 
-    declare -a files=(
-        ${1}/shell/bash_paths
-        ${1}/shell/bash_options
-        ${1}/shell/bash_exports
-        ${1}/shell/aliases/*
-        ${1}/shell/aliases/companies/*
-        ${1}/shell/functions/*
-        ${1}/shell/prev_dir
-        ${1}/shell/bash_prompt
-        ${1}/.bash_profile.local
-    )
+declare -a files=(
+    ${1}/shell/bash_paths
+    ${1}/shell/bash_options
+    ${1}/shell/bash_exports
+    ${1}/shell/aliases/*
+    ${1}/shell/aliases/companies/*
+    ${1}/shell/functions/*
+    ${1}/shell/prev_dir
+    ${1}/shell/bash_prompt
+    ${1}/.bash_profile.local
+)
 
-    declare -a comps=(
-        ${1}/shell/completions/*
-    )
+declare -a comps=(
+    ${1}/shell/completions/*
+)
 
-    for file in "${files[@]}"
-    do
-        if [ -f $file ]; then
-            source $file
-        fi
-    done
+for file in "${files[@]}"
+do
+    if [ -f $file ]; then
+        source $file
+    fi
+done
 
-    for comp in "${comps[@]}"
-    do
-        if [ -f $comp ]; then
-            . $comp
-        fi
-    done
-}
+for comp in "${comps[@]}"
+do
+    if [ -f $comp ]; then
+        . $comp
+    fi
+done
 
 # vim: set syn=sh :

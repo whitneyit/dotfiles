@@ -1,17 +1,13 @@
 #!/bin/bash
 
-#
-REPO_NAME=".dotfiles"
-
-#
-DOTFILES_DIRECTORY="${HOME}/${REPO_NAME}"
-DOTFILES_ROOT_BACKUP_DIRECTORY="${DOTFILES_DIRECTORY}/backups"
+# The directory in which to store the backups of our files
+DOTFILES_BACKUP_DIRECTORY="backups"
 
 backup_prev() {
 
     # Define our directories to work with
     TIMESTAMP_DIRECTORY="$(date +%Y-%m-%d_%H-%M-%S)"
-    BACKUP_DIRECTORY="${DOTFILES_ROOT_BACKUP_DIRECTORY}/${TIMESTAMP_DIRECTORY}"
+    BACKUP_DIRECTORY="${1}/${DOTFILES_BACKUP_DIRECTORY}/${TIMESTAMP_DIRECTORY}"
 
     # If the user is spamming this button more than once per second,
     # we should just bail now.
@@ -54,30 +50,26 @@ backup_prev() {
 
 # Force create/replace the symlink.
 link() {
-    ln -fs "${DOTFILES_DIRECTORY}/${1}" "${HOME}/${2}"
+    ln -fs "${1}" "${HOME}/${2}"
 }
 
 #
 link_files() {
 
-echo 'a'
-echo $1
-echo 'b'
+    backup_prev $1
 
-    backup_prev
-
-    link "git/gitattributes"     ".gitattributes"
-    link "git/gitconfig"         ".gitconfig"
-    link "git/gitignore_global"  ".gitignore_global"
-    link "shell/fonts"           ".fonts"
-    link "shell/curlrc"          ".curlrc"
-    link "shell/bashrc"          ".bashrc"
-    link "shell/bash_profile"    ".bash_profile"
-    link "shell/inputrc"         ".inputrc"
-    link "shell/profile"         ".profile"
-    link "shell/minttyrc"        ".minttyrc"
-    link "vim"                   ".vim"
-    link "vim/vimrc"             ".vimrc"
+    link "${1}/git/gitattributes"     ".gitattributes"
+    link "${1}/git/gitconfig"         ".gitconfig"
+    link "${1}/git/gitignore_global"  ".gitignore_global"
+    link "${1}/shell/fonts"           ".fonts"
+    link "${1}/shell/curlrc"          ".curlrc"
+    link "${1}/shell/bashrc"          ".bashrc"
+    link "${1}/shell/bash_profile"    ".bash_profile"
+    link "${1}/shell/inputrc"         ".inputrc"
+    link "${1}/shell/profile"         ".profile"
+    link "${1}/shell/minttyrc"        ".minttyrc"
+    link "${1}/vim"                   ".vim"
+    link "${1}/vim/vimrc"             ".vimrc"
 
 }
 

@@ -21,7 +21,6 @@ alias  gcma="git commit --all --verbose --message" # -a -m -b, -avm
 alias    gd="git diff"
 alias   gds="git diff --cached"
 alias    gi="git init"
-alias    gl="git log -p"
 alias   gla="git log --no-merges        --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d'"
 alias  glsa="git log --no-merges --stat --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d %n'"
 alias  glga="git log --graph            --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d'"

@@ -21,12 +21,13 @@ alias  gcma="git commit --all --verbose --message" # -a -m -b, -avm
 alias    gd="git diff"
 alias   gds="git diff --cached"
 alias    gi="git init"
-alias   gla="git log --no-merges        --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d'"
-alias  glsa="git log --no-merges --stat --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d %n'"
-alias  glga="git log --graph            --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d'"
-alias glgsa="git log --graph     --stat --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d %n'"
-alias   gmg="git merge         --no-ff --progress"
-alias  gmgd="git merge develop --no-ff --progress"
+alias   gla="git log --no-merges         --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d'"
+alias  glda="git log --no-merges --patch --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d'"
+alias  glsa="git log --no-merges  --stat --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d %n'"
+alias  glga="git log --graph             --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d'"
+alias glgsa="git log --graph      --stat --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d %n'"
+alias   gmg="git merge           --no-ff --progress"
+alias  gmgd="git merge develop   --no-ff --progress"
 alias   gps="git push --progress"
 alias  gpsf="git push --progress -f"
 alias   gpl="git pull --progress"
@@ -61,6 +62,7 @@ alias  glfa="gla --first-parent"
 alias    gl="gla   -10" # Git log
 alias   glf="glfa  -10" # Git log --first-parent
 alias   gls="glsa  -10" # Git log --stat
+alias   gld="glda  -10" # Git log --patch
 alias   glg="glga  -10" # Git log --graph
 alias  glgs="glgsa -10" # Git log --graph --stat
 

@@ -37,7 +37,7 @@ if [ -f $HOME/.dotfiles ]; then
 fi
 
 #
-if [ -d $HOME/.dotfiles]; then
+if [ -d $HOME/.dotfiles ]; then
 	cd $HOME/.dotfiles
 fi
 

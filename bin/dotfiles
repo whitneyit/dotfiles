@@ -37,15 +37,17 @@ if [ -d $HOME/.dotfiles ]; then
 else
 
     #
-    if [ $PWD == $HOME ]; then
-        mkdir .dotfiles
-    fi
-
-    #
     if [ -f $HOME/.dotfiles ]; then
         cd $(<$HOME/.dotfiles)
     else
-        echo "${PWD%/}" > $HOME/.dotfiles
+
+        #
+        if [ $PWD == $HOME ]; then
+            mkdir .dotfiles
+        else
+            echo "${PWD%/}" > $HOME/.dotfiles
+        fi
+
     fi
 
 fi

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # This value should actually be read from a tmp file somewhere
-DOTFILES_DIRECTORY=$HOME/Sites/dotfiles
+DOTFILES_DIRECTORY=$(<$HOME/.dotfiles)
 
 # Now we make the variable globally accesible
 export DOTFILES_DIRECTORY

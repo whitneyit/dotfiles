@@ -32,15 +32,26 @@ if [ ! $(type -P git) ]; then
 fi
 
 #
-# if [ ! -d ${DOTFILES_DIRECTORY} ]; then
-#     mkdir ${DOTFILES_DIRECTORY}
-# fi
+if [ -f $HOME/.dotfiles ]; then
+	cd $(<$HOME/.dotfiles)
+fi
 
 #
-# cd ${DOTFILES_DIRECTORY}
+if [ -d $HOME/.dotfiles]; then
+	cd $HOME/.dotfiles
+fi
+
+#
+if [ $PWD == $HOME ]; then
+	mkdir .dotfiles
+	cd .dotfiles
+fi
 
 # Initialize the git repository if it's missing
 if [ ! -d .git ]; then
+
+	# Save the location of this directory	
+	echo $PWD > $HOME/.dotfiles
 
     e_header 'Fetching repo...'
 

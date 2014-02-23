@@ -1,7 +1,11 @@
 #!/bin/bash
 
 # This value should actually be read from a tmp file somewhere
-DOTFILES_DIRECTORY=$(<$HOME/.dotfiles)
+if [ -f $HOME/.dotfiles ]; then
+    DOTFILES_DIRECTORY=$(<$HOME/.dotfiles)
+else
+    DOTFILES_DIRECTORY=$HOME/.dotfiles
+fi
 
 # Now we make the variable globally accesible
 export DOTFILES_DIRECTORY

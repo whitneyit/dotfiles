@@ -51,7 +51,7 @@ fi
 if [ ! -d .git ]; then
 
 	# Save the location of this directory	
-	echo $PWD > $HOME/.dotfiles
+	echo "${PWD%/}" > $HOME/.dotfiles
 
     e_header 'Fetching repo...'
 

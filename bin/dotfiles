@@ -32,19 +32,22 @@ if [ ! $(type -P git) ]; then
 fi
 
 #
-if [ $PWD == $HOME ]; then
-    mkdir .dotfiles
-fi
-
-#
 if [ -d $HOME/.dotfiles ]; then
     cd $HOME/.dotfiles
 else
+
+    #
+    if [ $PWD == $HOME ]; then
+        mkdir .dotfiles
+    fi
+
+    #
     if [ -f $HOME/.dotfiles ]; then
         cd $(<$HOME/.dotfiles)
     else
         echo "${PWD%/}" > $HOME/.dotfiles
     fi
+
 fi
 
 # Initialize the git repository if it's missing

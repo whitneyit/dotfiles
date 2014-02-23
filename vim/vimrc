@@ -18,7 +18,7 @@ if has("autocmd")
     filetype indent on
 
     " Languages with specific tabs/space requirements
-    autocmd FileType make tabstop=4 | softtabstop=4 | shiftwidth=4 | noexpandtab
+    autocmd FileType make tabstop=4 | softtabstop=4 | shiftwidth=4 | expandtab
 
     " Automatically strip trailing whitespace on file save
     autocmd BufWritePre *.css, *.html, *.js, *.json, *.md, *.php, *.scss, *.sh, *.txt :call StripTrailingWhitespace()
@@ -114,13 +114,13 @@ set encoding=utf-8 nobomb
 " No line wrapping
 set nowrap
 
+" Expand tab to spaces
+set expandtab
+
 " Define some default tab widths
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-
-" Don't expand tab to spaces
-set noexpandtab
 
 " Enable line numbers
 set number

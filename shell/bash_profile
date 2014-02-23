@@ -7,7 +7,7 @@ DOTFILES_DIRECTORY=$(<$HOME/.dotfiles)
 export DOTFILES_DIRECTORY
 
 # And here we boot of the scripts
-source "${DOTFILES_DIRECTORY}"bin/sauce
+source $DOTFILES_DIRECTORY/bin/sauce
 
 # This converts the input type of bash over to vim style
 set -o vi

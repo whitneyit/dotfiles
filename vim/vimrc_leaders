@@ -10,3 +10,7 @@ nmap <leader>$ :call StripTrailingWhitespace()<CR>
 
 " Auto change directory to match current file ,cd
 nmap <leader>cd :cd %:p:h<CR>:pwd<CR>
+
+" Custom keybind to enter paste mode, paste, then exit out
+nmap <leader>p :set paste<cr>"+p:set nopaste<cr>
+

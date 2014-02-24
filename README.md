@@ -7,7 +7,7 @@ My dotfiles.
 The installation only requires curl, and git to be installed. Pretty much any
 of your previous files will be backed up to;
 
-    ~/.dotfiles/backupes/${date_time}
+    $DOTFILES_DIRECTORY/backupes/${date_time}
 
 To actually kick off the instalation run;
 

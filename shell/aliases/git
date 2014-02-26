@@ -1,6 +1,6 @@
 #!/bin/bash
 
-alias    ga="git add --ignore-removal"
+alias    ga="git add" 
 alias   gaa="git add --all ."
 alias   gap="git add --patch"
 alias   gbl="git blame --show-number --show-email"

@@ -70,7 +70,7 @@ link_files() {
     link "${1}/vim"                   ".vim"
     link "${1}/vim/vimrc"             ".vimrc"
 
-    cp "${1}/git/gitconfig"         ".gitconfig"
+    cp   "${1}/git/gitconfig"         "${HOME}/.gitconfig"
 
 }
 

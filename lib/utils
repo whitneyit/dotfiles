@@ -59,7 +59,6 @@ link_files() {
     backup_prev $1
 
     link "${1}/git/gitattributes"     ".gitattributes"
-    link "${1}/git/gitconfig"         ".gitconfig"
     link "${1}/git/gitignore_global"  ".gitignore_global"
     link "${1}/shell/fonts"           ".fonts"
     link "${1}/shell/curlrc"          ".curlrc"
@@ -70,6 +69,8 @@ link_files() {
     link "${1}/shell/minttyrc"        ".minttyrc"
     link "${1}/vim"                   ".vim"
     link "${1}/vim/vimrc"             ".vimrc"
+
+    cp "${1}/git/gitconfig"         ".gitconfig"
 
 }
 

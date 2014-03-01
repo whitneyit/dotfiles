@@ -1,0 +1,5 @@
+#!/bin/bash
+
+alias seed="cd ~/Code/seed"
+
+# vim: set syn=sh :

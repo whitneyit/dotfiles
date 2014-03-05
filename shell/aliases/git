@@ -49,6 +49,7 @@ alias  gsmu="git submodule update --recursive --init"
 alias   gsh="git show --no-merges        --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d %n'"
 alias  gshs="git show --no-merges --stat --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d %n'"
 alias   gst="git status"
+alias   gsg="git stage"
 
 # This is a way of viewing unpushed commits
 alias  glua="git log --branches --not --remotes --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d'"

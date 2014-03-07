@@ -6,19 +6,19 @@ nnoremap k gk
 nnoremap Q <Nop>
 
 " Force myself to not use the arrow keys
-ino <left> <Nop>
-ino <down> <Nop>
-ino <up> <Nop>
+ino <left>  <Nop>
+ino <down>  <Nop>
+ino <up>    <Nop>
 ino <right> <nop>
 
 " And in visual mode ...
-vno <left> <Nop> 
-vno <down> <Nop>
-vno <up> <Nop>
+vno <left>  <Nop>
+vno <down>  <Nop>
+vno <up>    <Nop>
 vno <right> <Nop>
 
 " And even in normal mode
-no <left> <Nop>
-no <down> <Nop>
-no <up> <Nop>
+no <left>  <Nop>
+no <down>  <Nop>
+no <up>    <Nop>
 no <right> <Nop>

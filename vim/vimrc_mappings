@@ -5,20 +5,37 @@ nnoremap k gk
 " Make sure I don't enter that bullshit ex mode
 nnoremap Q <Nop>
 
-" Force myself to not use the arrow keys
+" Unmap the arrow keys
 ino <left>  <Nop>
 ino <down>  <Nop>
 ino <up>    <Nop>
 ino <right> <nop>
-
-" And in visual mode ...
 vno <left>  <Nop>
 vno <down>  <Nop>
 vno <up>    <Nop>
 vno <right> <Nop>
+no <left>   <Nop>
+no <down>   <Nop>
+no <up>     <Nop>
+no <right>  <Nop>
 
-" And even in normal mode
-no <left>  <Nop>
-no <down>  <Nop>
-no <up>    <Nop>
-no <right> <Nop>
+" NERDTree                               "
+" https://github.com/scrooloose/nerdtree "
+""""""""""""""""""""""""""""""""""""""""""
+
+" Bind a key to hide and show the nerdtree page
+nmap <C-k><C-b> :NERDTreeToggle<cr>
+
+" Easy motion                                "
+" https://github.com/Lokaltog/vim-easymotion "
+""""""""""""""""""""""""""""""""""""""""""""""
+" Completly replace vims search functionality
+map  / <Plug>(easymotion-sn)
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+
+" Include easy motions line support
+map <Leader>h <Plug>(easymotion-linebackward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>l <Plug>(easymotion-lineforward)

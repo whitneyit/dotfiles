@@ -8,9 +8,10 @@ nmap <leader>x :tabclose<cr>
 
 " Fast saves and quits
 nmap <leader>w  :w!<cr>
-nmap <leader>q  :q!<cr>
 nmap <leader>wq :wq!<cr>
-
+nmap <leader>q  :q<cr>
+nmap <leader>qq :q!<cr>
+nmap <leader>qa :qa!<cr>
 " Select all text on the page
 nmap <leader>a gg0vG$
 

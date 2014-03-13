@@ -1,0 +1,5 @@
+#!/bin/bash
+
+alias ssh-agent-cyg="eval `ssh-agent -s`"
+
+# vim: set syn=sh :

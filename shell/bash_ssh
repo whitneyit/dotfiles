@@ -4,7 +4,7 @@
 ssh-agent
 
 #
-ssh-add ~/.ssh/rsa_james@whitney.io
-ssh-add ~/.ssh/rsa_james.whitney@tempest.io
+ssh-add ~/.ssh/rsa_2014-03-14_james@whitney.io
+ssh-add ~/.ssh/rsa_2014-03-14_james.whitney@tempest.io
 
 # vim: set syn=sh :

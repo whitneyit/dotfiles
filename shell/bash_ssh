@@ -1,0 +1,10 @@
+#!/bin/bash
+
+#
+ssh-agent
+
+#
+ssh-add ~/.ssh/rsa_james@whitney.io
+ssh-add ~/.ssh/rsa_james.whitney@tempest.io
+
+# vim: set syn=sh :

@@ -48,9 +48,9 @@ backup_prev() {
     fi
 }
 
-# Force create/replace the symlink.
+# Force create/replace symbolic symlink.
 link() {
-    ln -fs "${1}" "${HOME}/${2}"
+    ln -fs "${1}" "${2}"
 }
 
 #
@@ -58,17 +58,21 @@ link_files() {
 
     backup_prev $1
 
-    link "${1}/git/gitattributes"     ".gitattributes"
-    link "${1}/git/gitignore_global"  ".gitignore_global"
-    link "${1}/shell/fonts"           ".fonts"
-    link "${1}/shell/curlrc"          ".curlrc"
-    link "${1}/shell/bashrc"          ".bashrc"
-    link "${1}/shell/bash_profile"    ".bash_profile"
-    link "${1}/shell/inputrc"         ".inputrc"
-    link "${1}/shell/profile"         ".profile"
-    link "${1}/shell/minttyrc"        ".minttyrc"
-    link "${1}/vim"                   ".vim"
-    link "${1}/vim/vimrc"             ".vimrc"
+    link "${1}/git/gitattributes"     "${HOME}/.gitattributes"
+    link "${1}/git/gitignore_global"  "${HOME}/.gitignore_global"
+    link "${1}/shell/fonts"           "${HOME}/.fonts"
+    link "${1}/shell/curlrc"          "${HOME}/.curlrc"
+    link "${1}/shell/bashrc"          "${HOME}/.bashrc"
+    link "${1}/shell/bash_profile"    "${HOME}/.bash_profile"
+    link "${1}/shell/inputrc"         "${HOME}/.inputrc"
+    link "${1}/shell/profile"         "${HOME}/.profile"
+    link "${1}/shell/minttyrc"        "${HOME}/.minttyrc"
+    link "${1}/vim"                   "${HOME}/.vim"
+    link "${1}/vim/vimrc"             "${HOME}/.vimrc"
+
+    if [ $(os) == "CYGWIN" ]; then
+        link "${1}/bin/cygwin/subl"   "/usr/local/bin/subl"
+    fi
 
     cp   "${1}/git/gitconfig"         "${HOME}/.gitconfig"
 

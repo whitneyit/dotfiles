@@ -1,0 +1,5 @@
+#!/bin/bash
+
+/cygdrive/c/Program\ Files/Sublime\ Text\ 3/sublime_text.exe $1 &
+
+# vim: set syn=sh :

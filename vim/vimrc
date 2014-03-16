@@ -196,3 +196,9 @@ source $HOME/.vim/vimrc_bundle
 if filereadable(glob("$HOME/.vimrc.local"))
     source $HOME/.vimrc.local
 endif
+
+" Load up any project specific settings
+if filereadable(glob("$PWD/.vimrc.local"))
+    source $PWD/.vimrc.local
+endif
+

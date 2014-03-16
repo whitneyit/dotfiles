@@ -21,7 +21,13 @@ let g:NERDTreeDirArrows = 1
 let g:NERDTreeWinSize = 40
 
 " Make NERDTree show hidden files
-let NERDTreeShowHidden=1
+let NERDTreeShowHidden = 1
+
+" Hide certain files/folders from NERDTree.
+" In `.vimrc` we have the ability to load a `.vimrc.local` per project, using
+" that technique we should hide and show folders on a case by case basis. This
+" just works similar to a `.global_gitignore` file expect with RegEx instea
+let NERDTreeIgnore = ['\.git$', 'node_modules']
 
 " Easy motion                                "
 " https://github.com/Lokaltog/vim-easymotion "

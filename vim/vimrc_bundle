@@ -53,3 +53,5 @@ let g:ctrlp_cache_dir = '~/.vim/plugin/ctrlp_cache'
 " Make sure these directories are not included in the results panel
 set wildignore+=*/vendor/**
 set wildignore+=*/vim/bundle/**
+set wildignore+=*/dist/**
+set wildignore+=*/node_modules/**

@@ -19,6 +19,9 @@ no <down>   <Nop>
 no <up>     <Nop>
 no <right>  <Nop>
 
+" Experiment with inserting new line at cursor
+nnoremap <C-j> i<CR><Esc>k$
+
 " NERDTree                               "
 " https://github.com/scrooloose/nerdtree "
 """"""""""""""""""""""""""""""""""""""""""

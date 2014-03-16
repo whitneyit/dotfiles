@@ -170,7 +170,7 @@ set noerrorbells
 set autowrite
 
 " Show 'invisible' characters
-set nolist
+set list
 
 " Set characters used to indicate 'invisible' characters
 set listchars=tab:▸\-

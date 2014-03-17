@@ -169,8 +169,8 @@ set noerrorbells
 " Save on buffer switch
 set autowrite
 
-" Show 'invisible' characters
-set list
+" Hide 'invisible' characters
+set nolist
 
 " Set characters used to indicate 'invisible' characters
 set listchars=tab:▸\-

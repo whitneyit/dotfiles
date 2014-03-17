@@ -4,10 +4,13 @@ if has("user_commands")
 	command! H let @/=""
 
 	" Make sure that I can actually quit
-	command! -bang Q q<bang>
 	command! Q q
+	command! -bang Q q<bang>
 
 	" Ensure that I can always save
 	command! W w
+	command! Wq wq
+	command! -bang W w<bang>
+	command! -bang Wq wq<bang>
 
 endif

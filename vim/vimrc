@@ -102,6 +102,9 @@ colorscheme xoria256
 " Set a vertical column only on the lines that bleed over
 call matchadd('ColorColumn', '\%81v', 100)
 
+" Set to auto read when a file is changed from the outside
+set autoread
+
 " Backspace through everything in INSERT mode
 set backspace=indent,eol,start
 
@@ -186,7 +189,21 @@ if exists("&undodir")
 endif
 set viminfo+=n$HOME/.vim/.viminfo
 
+" Turn backup off, since most stuff is in git anyway. The above stuff is just
+" so we get the folder structure correct so if we ever turn swaps on, they
+" don't pollute our local directories
+set nobackup
+set nowb
+set noswapfile
+
+" Easier window navigation
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+
 " Load up our other keybinds
+source $HOME/.vim/vimrc_abbr
 source $HOME/.vim/vimrc_commands
 source $HOME/.vim/vimrc_leaders
 source $HOME/.vim/vimrc_mappings

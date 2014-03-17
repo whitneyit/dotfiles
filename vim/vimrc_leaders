@@ -27,3 +27,6 @@ nmap <leader>p :set paste<cr>"+p:set nopaste<cr>
 " Define a quick way to toggle hiding/showing special characters
 nmap <leader>s :set list<cr>
 nmap <leader>S :set nolist<cr>
+
+" Allow quick editing of the projects TODO file
+nmap <leader>todo :edit TODO.md<cr>

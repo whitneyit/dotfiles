@@ -24,3 +24,6 @@ nmap <leader>cd :cd %:p:h<CR>:pwd<CR>
 " Custom keybind to enter paste mode, paste, then exit out
 nmap <leader>p :set paste<cr>"+p:set nopaste<cr>
 
+" Define a quick way to toggle hiding/showing special characters
+nmap <leader>s :set list<cr>
+nmap <leader>S :set nolist<cr>

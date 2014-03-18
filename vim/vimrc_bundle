@@ -27,7 +27,7 @@ let NERDTreeShowHidden = 1
 " In `.vimrc` we have the ability to load a `.vimrc.local` per project, using
 " that technique we should hide and show folders on a case by case basis. This
 " just works similar to a `.global_gitignore` file expect with RegEx instea
-let NERDTreeIgnore = ['\.git$', 'node_modules']
+let NERDTreeIgnore = ['\.git$', 'dist', 'lib', 'node_modules', 'vendor']
 
 " Easy motion                                "
 " https://github.com/Lokaltog/vim-easymotion "
@@ -57,7 +57,8 @@ let g:ctrlp_show_hidden = 1
 let g:ctrlp_cache_dir = '~/.vim/plugin/ctrlp_cache'
 
 " Make sure these directories are not included in the results panel
-set wildignore+=*/vendor/**
-set wildignore+=*/vim/bundle/**
-set wildignore+=*/dist/**
-set wildignore+=*/node_modules/**
+set wildignore += */dist/**
+set wildignore += */lib/**
+set wildignore += */node_modules/**
+set wildignore += */vendor/**
+set wildignore += */vim/bundle/**

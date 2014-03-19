@@ -1,5 +1,13 @@
 " Here we define all of our pluging specific keybinds
 
+" Emmet                              "
+" https://github.com/mattn/emmet-vim "
+""""""""""""""""""""""""""""""""""""""
+
+" Here we define the leader key for all Emmet commands. You can easily see all
+" the registered commands by typing `:map <C-e>`
+let g:user_emmet_leader_key = '<C-e>'
+
 " vim powerline                             "
 " https://github.com/Lokaltog/vim-powerline "
 """""""""""""""""""""""""""""""""""""""""""""

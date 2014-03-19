@@ -31,6 +31,3 @@
 [submodule "vim/bundle/vim-rename"]
 	path = vim/bundle/vim-rename
 	url = https://github.com/danro/rename.vim
-[submodule "vim/bundle/vim-emmet"]
-	path = vim/bundle/vim-emmet
-	url = https://github.com/mattn/emmet-vim.git

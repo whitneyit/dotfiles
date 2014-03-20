@@ -148,8 +148,6 @@ link_files $PWD
 
 #
 e_success "Dotfiles update complete"
-
-#
-do_cleanup
+exit
 
 # vim: set syn=sh :

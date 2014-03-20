@@ -9,6 +9,8 @@ alias  gbrl="git branch --all --verbose" # -a -v, -av
 alias  gbrd="git branch --delete" # -d, or -D to ignore merge status
 alias gbrdd="git branch -D" # Force delete
 alias grblw="git for-each-ref --sort=-committerdate refs/remotes/ --format='%(authordate) %09 %(refname:short)'"
+alias   gcf="git config"
+alias  gcfl="git config --list"
 alias   gco="git checkout"
 alias  gcom="git checkout master"
 alias  gcod="git checkout develop"

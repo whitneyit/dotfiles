@@ -10,6 +10,11 @@ e_success() {
     printf "$(tput setaf 64)✔ %s$(tput sgr0)\n" "$@"
 }
 
+# Info logging
+e_info() {
+    printf "$(tput setaf 6)%s$(tput sgr0)\n" "$@"
+}
+
 # Error logging
 e_error() {
     printf "$(tput setaf 1)✘ %s$(tput sgr0)\n" "$@"
@@ -60,6 +65,9 @@ if [ ! -d .git ]; then
 
     #
     git clone https://github.com/whitneyit/dotfiles.git temp
+
+    #
+    e_info "Repo located at: \"$PWD\""
 
     #
     mv temp/.git ./.git

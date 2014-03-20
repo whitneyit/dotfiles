@@ -76,6 +76,14 @@ if [ ! -d .git ]; then
     #
     git reset --hard
     git clean -dfx
+
+    DOTFILES_DIRECTORY=$PWD
+
+    #
+    export DOTFILES_DIRECTORY
+
+    #
+    ./bin/sauce
 fi
 
 #

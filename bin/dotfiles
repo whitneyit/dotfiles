@@ -7,7 +7,7 @@ e_header() {
 
 # Success logging
 e_success() {
-    printf "$(tput setaf 64)✔ %s$(tput sgr0)\n" "$@"
+    printf "$(tput setaf 2)✔ %s$(tput sgr0)\n" "$@"
 }
 
 # Info logging
@@ -28,6 +28,22 @@ e_warning() {
 # Test whether we're in a git repo
 is_git_repo() {
     $(git rev-parse --is-inside-work-tree &> /dev/null)
+}
+
+#
+do_cleanup () {
+
+    #
+    e_header "Updating submodules..."
+    git submodule update --recursive --init
+    git pull origin master --quiet
+
+    #
+    e_header "Linking files..."
+    link_files $PWD
+
+    #
+    e_success "Dotfiles update complete"
 }
 
 # Check for git
@@ -78,7 +94,7 @@ if [ ! -d .git ]; then
     git clean -dfx
 
     #
-    e_success "Dotfiles update complete!"
+    do_cleanup
     exit
 fi
 
@@ -118,17 +134,7 @@ e_header "Updating repo..."
 git reset --hard --quiet
 git pull origin master
 
-e_header "Updating submodules..."
-git submodule update --recursive --init
-git pull origin master --quiet
-
 #
-e_header "Linking files..."
-link_files $PWD
-
-#
-e_success "Dotfiles update complete!"
-
-cd $HOME
+do_cleanup
 
 # vim: set syn=sh :

@@ -1,0 +1,31 @@
+#!/bin/bash
+
+#
+if [ $(os) == "CYGWIN" ]; then
+
+    alias ls="ls \
+    -h \
+    -G \
+    --color \
+    --group-directories-first \
+    --ignore='bootmgr' \
+    --ignore='BOOTNXT' \
+    --ignore='hiberfil.sys' \
+    --ignore='pagefile.sys' \
+    --ignore='swapfile.sys' \
+    --ignore='ntuser*' \
+    --ignore='NTUSER*' \
+    --ignore='\$Recycle\.Bin' \
+    --ignore='\$RECYCLE\.BIN' \
+    --ignore='System\ Volume\ Information'"
+
+else
+    alias  ls="ls -h -G --color"
+fi
+
+# Improve `ls`
+alias ll="ls -ll"
+alias la="ls -la"
+alias ld="ls -lad */"
+
+# vim: set syn=sh :

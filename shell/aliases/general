@@ -5,18 +5,6 @@ alias ...="cd ../../"
 alias ....="cd ../../../"
 alias .....="cd ../../../../"
 
-# We do not want to overwrite our cygwin specific ls
-if [ $(os) != "CYGWIN" ]; then
-	alias  ls="ls -hG"
-fi
-
-# Improve `ls`
-alias  ll="ls -ll"
-alias  la="ls -la"
-alias lsd="ls -d */"
-alias lld="ls -lld */"
-alias lad="ls -lad */"
-
 # Quick way to convert spaces to tabs, and vicer versa
 alias s2ta="find ./ -type f -exec sed -i 's/    /\t/g' {} \;"
 alias t2sa="find ./ -type f -exec sed -i 's/\t/    /g' {} \;"

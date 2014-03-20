@@ -4,23 +4,6 @@
 if [ $(os) == "CYGWIN" ]; then
 
 	#
-	alias ls="ls \
-	-G \
-	-h \
-	--color \
-	--group-directories-first \
-	--ignore='bootmgr' \
-	--ignore='BOOTNXT' \
-	--ignore='hiberfil.sys' \
-	--ignore='pagefile.sys' \
-	--ignore='swapfile.sys' \
-	--ignore='ntuser*' \
-	--ignore='NTUSER*' \
-	--ignore='\$Recycle\.Bin' \
-	--ignore='\$RECYCLE\.BIN' \
-	--ignore='System\ Volume\ Information'"
-
-	#
 	if [ -d /cygdrive/c ]; then
 		alias c="cd /cygdrive/c"
 	fi

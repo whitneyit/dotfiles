@@ -58,15 +58,16 @@ if [ ! -d .git ]; then
 
     e_header 'Fetching repo...'
 
+    #
     git clone https://github.com/whitneyit/dotfiles.git temp
 
+    #
     mv temp/.git ./.git
-
     rm -rf temp
 
+    #
     git reset --hard
-
-    git clean -fd
+    git clean -dfx
 fi
 
 #

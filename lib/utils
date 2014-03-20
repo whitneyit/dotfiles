@@ -7,7 +7,7 @@ backup_prev() {
 
     # Define our directories to work with
     TIMESTAMP_DIRECTORY="$(date +%Y-%m-%d_%H-%M-%S)"
-    BACKUP_DIRECTORY="${1}/${DOTFILES_BACKUP_DIRECTORY}/${TIMESTAMP_DIRECTORY}"
+    BACKUP_DIRECTORY="$DOTFILES_DIRECTORY/${DOTFILES_BACKUP_DIRECTORY}/${TIMESTAMP_DIRECTORY}"
 
     # If the user is spamming this button more than once per second,
     # we should just bail now.
@@ -43,7 +43,7 @@ backup_prev() {
 
     # If the directory is empty, we can just delete it because
     # nothing was backed up
-    if [ ! "$(ls -A ${BACKUP_DIRECTORY})" ]; then
+    if [ ! "$(\ls -A ${BACKUP_DIRECTORY})" ]; then
         rm -rf ${BACKUP_DIRECTORY}
     fi
 }
@@ -71,7 +71,9 @@ link_files() {
     link "${1}/vim/vimrc"             "${HOME}/.vimrc"
 
     if [ $(os) == "CYGWIN" ]; then
-        link "${1}/bin/cygwin/subl"   "/usr/local/bin/subl"
+        if [ ! -L "/usr/local/bin/subl" ]; then
+            link "${1}/bin/cygwin/subl"   "/usr/local/bin/subl"
+        fi
     fi
 
     cp   "${1}/git/gitconfig"         "${HOME}/.gitconfig"

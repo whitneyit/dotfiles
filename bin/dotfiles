@@ -77,13 +77,9 @@ if [ ! -d .git ]; then
     git reset --hard
     git clean -dfx
 
-    DOTFILES_DIRECTORY=$PWD
-
     #
-    export DOTFILES_DIRECTORY
-
-    #
-    ./bin/sauce
+    e_success "Dotfiles update complete!"
+    exit
 fi
 
 #
@@ -131,7 +127,7 @@ e_header "Linking files..."
 link_files $PWD
 
 #
-e_success "dotfiles update complete!"
+e_success "Dotfiles update complete!"
 
 cd $HOME
 

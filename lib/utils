@@ -60,14 +60,14 @@ link_files() {
 
     link "${1}/git/gitattributes"     "${HOME}/.gitattributes"
     link "${1}/git/gitignore_global"  "${HOME}/.gitignore_global"
-    link "${1}/shell/fonts"           "${HOME}/.fonts"
+    link "${1}/shell/fonts/"          "${HOME}/.fonts"
     link "${1}/shell/curlrc"          "${HOME}/.curlrc"
     link "${1}/shell/bashrc"          "${HOME}/.bashrc"
     link "${1}/shell/bash_profile"    "${HOME}/.bash_profile"
     link "${1}/shell/inputrc"         "${HOME}/.inputrc"
     link "${1}/shell/profile"         "${HOME}/.profile"
     link "${1}/shell/minttyrc"        "${HOME}/.minttyrc"
-    link "${1}/vim"                   "${HOME}/.vim"
+    link "${1}/vim/"                  "${HOME}/.vim"
     link "${1}/vim/vimrc"             "${HOME}/.vimrc"
 
     if [ $(os) == "CYGWIN" ]; then

@@ -93,6 +93,10 @@ if [ ! -d .git ]; then
     link_files $PWD
 
     #
+    e_info "Updating origin url..."
+    git remote set-url origin git@github.com:whitneyit/dotfiles.git
+
+    #
     e_success "Dotfiles update complete"
     exit
 fi

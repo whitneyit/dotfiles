@@ -27,7 +27,7 @@ is_git_repo() {
 
 # Check for git
 if [ ! $(type -P git) ]; then
-    e_error 'Aborting! Git not installed!'
+    e_error "Aborting! Git not installed!"
     exit 1
 fi
 
@@ -56,7 +56,7 @@ fi
 # Initialize the git repository if it's missing
 if [ ! -d .git ]; then
 
-    e_header 'Fetching repo...'
+    e_header "Fetching repo..."
 
     #
     git clone https://github.com/whitneyit/dotfiles.git temp
@@ -102,20 +102,20 @@ do
 done
 
 #
-e_header 'Updating repo...'
+e_header "Updating repo..."
 git reset --hard --quiet
 git pull origin master
 
-e_header 'Updating submodules...'
+e_header "Updating submodules..."
 git submodule update --recursive --init
 git pull origin master --quiet
 
 #
-e_header 'Linking files...'
+e_header "Linking files..."
 link_files $PWD
 
 #
-e_success 'dotfiles update complete!'
+e_success "dotfiles update complete!"
 
 cd $HOME
 

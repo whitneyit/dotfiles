@@ -57,6 +57,13 @@ alias  gshs="git show --no-merges --stat --pretty=format:'%C(yellow)%h %C(green)
 alias   gst="git status"
 alias   gsg="git stage"
 
+# Here we just define a few shortcuts to modify the author of a commit. This can
+# be used when you forget to setup the local author details
+alias  gcfa="git commit --amend --reset-author"
+alias  gcfe="git config user.email "
+alias  gcfn="git config user.name "
+alias  gcfo="git remote set-url origin "
+
 # This is a way of viewing unpushed commits
 alias  glua="git log --branches --not --remotes --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d'"
 alias gluma="glua origin/master..HEAD"

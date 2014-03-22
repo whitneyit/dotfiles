@@ -1,5 +1,6 @@
 #!/bin/bash
 
 alias ttag="cd ~/Code/ttag"
+alias seed="cd ~/Code/seed"
 
 # vim: set syn=sh :

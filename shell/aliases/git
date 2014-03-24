@@ -55,7 +55,7 @@ alias  gsma="git submodule add"
 alias  gsmu="git submodule update --recursive --init"
 alias   gsh="git show --no-merges        --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d %n'"
 alias  gshs="git show --no-merges --stat --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d %n'"
-alias   gst="git status"
+alias   gst="git status --untracked-files=all"
 alias   gsg="git stage"
 
 # Here we just define a few shortcuts to modify the author of a commit. This can

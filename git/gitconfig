@@ -6,7 +6,7 @@
     excludesfile = ~/.gitignore_global
     quotepath = false
     whitespace = space-before-tab,cr-at-eol
-    
+
 [apply]
     whitespace = error
 [push]

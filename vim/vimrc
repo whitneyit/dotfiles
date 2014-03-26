@@ -74,7 +74,7 @@ if has("statusline")
 
     " Current dir
     set statusline+=\ [%{getcwd()}]
-    
+
     " Right aligned file nav info
     set statusline+=%=%-14.(%l,%c%V%)\ %p%%
 

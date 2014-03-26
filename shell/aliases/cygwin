@@ -3,21 +3,21 @@
 #
 if [ $(os) == "CYGWIN" ]; then
 
-	#
-	if [ -d /cygdrive/c ]; then
-		alias c="cd /cygdrive/c"
-	fi
+    #
+    if [ -d /cygdrive/c ]; then
+        alias c="cd /cygdrive/c"
+    fi
 
-	#
-	if [ -d /cygdrive/d ]; then
-		alias d="cd /cygdrive/d"
-	fi
+    #
+    if [ -d /cygdrive/d ]; then
+        alias d="cd /cygdrive/d"
+    fi
 
-	#
-	alias open="cygstart"
+    #
+    alias open="cygstart"
 
-	#
-	alias d2u="find . -type f -exec dos2unix {} \;"
+    #
+    alias d2u="find . -type f -exec dos2unix {} \;"
 
 fi
 

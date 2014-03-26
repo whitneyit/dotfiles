@@ -1,16 +1,16 @@
 if has("user_commands")
 
-	" Clear search results
-	command! H let @/=""
+    " Clear search results
+    command! H let @/=""
 
-	" Make sure that I can actually quit
-	command! Q q
-	command! -bang Q q<bang>
+    " Make sure that I can actually quit
+    command! Q q
+    command! -bang Q q<bang>
 
-	" Ensure that I can always save
-	command! W w
-	command! Wq wq
-	command! -bang W w<bang>
-	command! -bang Wq wq<bang>
+    " Ensure that I can always save
+    command! W w
+    command! Wq wq
+    command! -bang W w<bang>
+    command! -bang Wq wq<bang>
 
 endif

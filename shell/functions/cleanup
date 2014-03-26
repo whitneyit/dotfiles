@@ -12,7 +12,7 @@ cleanup() {
     do
         find . -type f -name "$dirt" -ls -delete
     done
-    
+
 }
 
 # vim: set syn=sh :

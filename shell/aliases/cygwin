@@ -6,6 +6,8 @@ if [ $(os) == "CYGWIN" ]; then
     #
     if [ -d /cygdrive/c ]; then
         alias c="cd /cygdrive/c"
+        alias pf32="cd /cygdrive/c/Program\ Files\ \(x86\)/"
+        alias pf64="cd /cygdrive/c/Program\ Files\/"
     fi
 
     #

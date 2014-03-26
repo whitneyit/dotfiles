@@ -6,6 +6,4 @@ alias tempest-deploy-composer="git commit --allow-empty -m '*Tempest deployed* a
 alias tempest-ssh="ssh u-tempest@ssh2.eu1.frbit.com"
 alias tempest-sshkey="cat ~/.ssh/tempest.pub | pbcopy && echo 'Tempest SSH key copied to clipboard.'"
 
-alias storm="cd ~/Code/storm"
-
 # vim: set syn=sh :

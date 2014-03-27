@@ -1,0 +1,3 @@
+let NERDTreeIgnore += ['backups', '^bundle', '\.viminfo']
+set wildignore+=*/.viminfo
+set wildignore+=*/vim/bundle/**

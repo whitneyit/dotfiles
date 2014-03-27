@@ -218,4 +218,3 @@ endif
 if filereadable(glob("$PWD/.vimrc.local"))
     source $PWD/.vimrc.local
 endif
-

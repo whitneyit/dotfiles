@@ -89,6 +89,16 @@ if [ ! -d .git ]; then
     git pull origin master --quiet
 
     #
+    if [ -d $HOME/.dotfiles ]; then
+        $DOTFILES_DIRECTORY=$HOME/.dotfiles
+    else
+        $DOTFILES_DIRECTORY=$(<$HOME/.dotfiles)
+    fi
+
+    #
+    export DOTFILES_DIRECTORY
+
+    #
     e_header "Linking files..."
     link_files $PWD
 

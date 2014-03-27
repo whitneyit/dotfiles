@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Only do this SSH setup if we are not in a vagrant instance
-if [ $(os) == "Vagrant" ]; then
+if [ $(os) != "Vagrant" ]; then
 
     #
     ssh-agent

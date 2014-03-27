@@ -3,7 +3,10 @@
 LOCAL_OS="other"
 
 # Mac OS X
-if [ "$(uname)" == "Darwin" ]; then
+if [ -d /home/vagrant ]; then
+    LOCAL_OS="Vagrant"
+
+elif [ "$(uname)" == "Darwin" ]; then
     LOCAL_OS="Mac"
 
 # Linux

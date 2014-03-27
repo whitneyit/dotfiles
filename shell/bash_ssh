@@ -1,10 +1,15 @@
 #!/bin/bash
 
-#
-ssh-agent
+# Only do this SSH setup if we are not in a vagrant instance
+if [ $(os) == "Vagrant" ]; then
 
-#
-ssh-add ~/.ssh/james@whitney.io
-ssh-add ~/.ssh/james.whitney@tempest.io
+    #
+    ssh-agent
+
+    #
+    ssh-add ~/.ssh/james@whitney.io
+    ssh-add ~/.ssh/james.whitney@tempest.io
+
+fi
 
 # vim: set syn=sh :

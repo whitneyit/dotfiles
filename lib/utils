@@ -7,7 +7,7 @@ DOTFILES_BACKUP_DIRECTORY="backups"
 TARGET_LINK_DIR=$HOME
 
 # If we are in a vagrant instance, we will manually override that link here
-if [ -d /home/vagrant ]; then
+if [ $(os) == "Vagrant" ]; then
     TARGET_LINK_DIR="/home/vagrant"
     DOTFILES_DIRECTORY="/home/vagrant/.dotfiles"
 fi

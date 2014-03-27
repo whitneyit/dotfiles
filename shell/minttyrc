@@ -1,6 +1,6 @@
 BoldAsFont=no
-Columns=120
-Rows=40
+Columns=80
+Rows=24
 PgUpDnScroll=yes
 CursorType=block
 Transparency=low

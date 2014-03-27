@@ -9,13 +9,14 @@ TARGET_LINK_DIR=$HOME
 # If we are in a vagrant instance, we will manually override that link here
 if [ -d /home/vagrant ]; then
     TARGET_LINK_DIR="/home/vagrant"
+    DOTFILES_DIRECTORY="/home/vagrant/.dotfiles"
 fi
 
 backup_prev() {
 
     # Define our directories to work with
     TIMESTAMP_DIRECTORY="$(date +%Y-%m-%d_%H-%M-%S)"
-    BACKUP_DIRECTORY="$DOTFILES_DIRECTORY/${DOTFILES_BACKUP_DIRECTORY}/${TIMESTAMP_DIRECTORY}"
+    BACKUP_DIRECTORY="${DOTFILES_DIRECTORY}/${DOTFILES_BACKUP_DIRECTORY}/${TIMESTAMP_DIRECTORY}"
 
     # If the user is spamming this button more than once per second,
     # we should just bail now.

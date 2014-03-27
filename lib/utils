@@ -3,6 +3,14 @@
 # The directory in which to store the backups of our files
 DOTFILES_BACKUP_DIRECTORY="backups"
 
+# This is the location in which we will be linking our files
+TARGET_LINK_DIR=$HOME
+
+# If we are in a vagrant instance, we will manually override that link here
+if [ -d /home/vagrant ]; then
+    TARGET_LINK_DIR="/home/vagrant"
+fi
+
 backup_prev() {
 
     # Define our directories to work with
@@ -58,17 +66,17 @@ link_files() {
 
     backup_prev $1
 
-    link "${1}/git/gitattributes"     "${HOME}/.gitattributes"
-    link "${1}/git/gitignore_global"  "${HOME}/.gitignore_global"
-    link "${1}/shell/fonts/"          "${HOME}/.fonts"
-    link "${1}/shell/curlrc"          "${HOME}/.curlrc"
-    link "${1}/shell/bashrc"          "${HOME}/.bashrc"
-    link "${1}/shell/bash_profile"    "${HOME}/.bash_profile"
-    link "${1}/shell/inputrc"         "${HOME}/.inputrc"
-    link "${1}/shell/profile"         "${HOME}/.profile"
-    link "${1}/shell/minttyrc"        "${HOME}/.minttyrc"
-    link "${1}/vim/"                  "${HOME}/.vim"
-    link "${1}/vim/vimrc"             "${HOME}/.vimrc"
+    link "${1}/git/gitattributes"     "${TARGET_LINK_DIR}/.gitattributes"
+    link "${1}/git/gitignore_global"  "${TARGET_LINK_DIR}/.gitignore_global"
+    link "${1}/shell/fonts/"          "${TARGET_LINK_DIR}/.fonts"
+    link "${1}/shell/curlrc"          "${TARGET_LINK_DIR}/.curlrc"
+    link "${1}/shell/bashrc"          "${TARGET_LINK_DIR}/.bashrc"
+    link "${1}/shell/bash_profile"    "${TARGET_LINK_DIR}/.bash_profile"
+    link "${1}/shell/inputrc"         "${TARGET_LINK_DIR}/.inputrc"
+    link "${1}/shell/profile"         "${TARGET_LINK_DIR}/.profile"
+    link "${1}/shell/minttyrc"        "${TARGET_LINK_DIR}/.minttyrc"
+    link "${1}/vim/"                  "${TARGET_LINK_DIR}/.vim"
+    link "${1}/vim/vimrc"             "${TARGET_LINK_DIR}/.vimrc"
 
     if [ $(os) == "CYGWIN" ]; then
         if [ ! -L "/usr/local/bin/subl" ]; then

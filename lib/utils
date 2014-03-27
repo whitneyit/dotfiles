@@ -36,6 +36,7 @@ backup_prev() {
         .fonts
         .curlrc
         .bash_profile
+        .bash_logout
         .bashrc
         .inputrc
         .profile
@@ -73,6 +74,7 @@ link_files() {
     link "${1}/shell/curlrc"          "${TARGET_LINK_DIR}/.curlrc"
     link "${1}/shell/bashrc"          "${TARGET_LINK_DIR}/.bashrc"
     link "${1}/shell/bash_profile"    "${TARGET_LINK_DIR}/.bash_profile"
+    link "${1}/shell/bash_logout"     "${TARGET_LINK_DIR}/.bash_logout"
     link "${1}/shell/inputrc"         "${TARGET_LINK_DIR}/.inputrc"
     link "${1}/shell/profile"         "${TARGET_LINK_DIR}/.profile"
     link "${1}/shell/minttyrc"        "${TARGET_LINK_DIR}/.minttyrc"

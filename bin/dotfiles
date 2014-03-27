@@ -81,22 +81,22 @@ if [ ! -d .git ]; then
     PATH="./bin:$PATH"
 
     #
+    if [ -d $HOME/.dotfiles ]; then
+        DOTFILES_DIRECTORY=$HOME/.dotfiles
+    else
+        DOTFILES_DIRECTORY=$(<$HOME/.dotfiles)
+    fi
+
+    #
+    export DOTFILES_DIRECTORY
+
+    #
     source ./lib/utils
 
     #
     e_header "Fetching submodules..."
     git submodule update --recursive --init
     git pull origin master --quiet
-
-    #
-    if [ -d $HOME/.dotfiles ]; then
-        $DOTFILES_DIRECTORY=$HOME/.dotfiles
-    else
-        $DOTFILES_DIRECTORY=$(<$HOME/.dotfiles)
-    fi
-
-    #
-    export DOTFILES_DIRECTORY
 
     #
     e_header "Linking files..."

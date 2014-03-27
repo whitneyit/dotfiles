@@ -1,0 +1,5 @@
+#!/bin/bash
+
+alias vg="cd ~/Code/vagrant"
+
+# vim: set syn=sh :

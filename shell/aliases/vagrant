@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 alias vd="vagrant destroy"
-alias vu="vagrant up"
+alias vh="vagrant halt"
 alias vs="vagrant ssh"
+alias vu="vagrant up"
 
 # vim: set syn=sh :

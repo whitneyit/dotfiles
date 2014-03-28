@@ -36,9 +36,6 @@ if has("autocmd")
     autocmd BufNewFile,BufRead *.rb         set filetype=ruby
     autocmd BufNewFile,BufRead Vagrantfile  set filetype=ruby
 
-    " Start up NERDTree every tinme we open a file
-    autocmd VimEnter * NERDTree
-
 endif
 
 if has("syntax")

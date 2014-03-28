@@ -1,0 +1,5 @@
+#!/bin/bash
+
+alias artian="php artisan"
+
+# vim: set syn=sh :

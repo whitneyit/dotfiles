@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#!/bin/bashalias   gfl="git flow"
+alias   gfl="git flow"
 alias  gflh="git flow help"
 alias  gfli="git flow init"
 alias  gflf="git flow feature"

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Set user-defined locale
 export LANG=$(locale -uU)

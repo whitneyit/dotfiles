@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 alias tempest="cd ~/Code/tempest"
 alias storm="cd ~/Code/storm"

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # The directory in which to store the backups of our files
 DOTFILES_BACKUP_DIRECTORY="backups"

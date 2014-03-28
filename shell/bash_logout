@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Record the previous directory
 pwd > ~/.prev_dir

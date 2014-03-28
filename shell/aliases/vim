@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 alias   vi="vim"
 alias  vbp="vim $DOTFILES_DIRECTORY/shell/bash_profile"

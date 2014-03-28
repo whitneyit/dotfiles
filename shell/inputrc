@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Use case-insensitive TAB autocompletion
 set completion-ignore-case on

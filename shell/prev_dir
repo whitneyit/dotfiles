@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [ -f ~/.prev_dir ]; then
     touch ~/.prev_dir

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 alias   gfl="git flow"
 alias  gflh="git flow help"

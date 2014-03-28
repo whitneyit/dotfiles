@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # This value should actually be read from a tmp file somewhere
 if [ -f $HOME/.dotfiles ]; then

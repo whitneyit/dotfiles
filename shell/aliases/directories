@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 alias code="cd ~/Code/"
 alias desktop="cd ~/Desktop/"

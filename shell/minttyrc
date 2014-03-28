@@ -10,3 +10,7 @@ ScrollMod=off
 Term=xterm
 Font=Consolas for Powerline FixedD
 FontHeight=12
+Locale=en_AU
+Charset=UTF-8
+AllowBlinking=yes
+CopyAsRTF=no

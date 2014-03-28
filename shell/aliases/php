@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-alias artian="php artisan"
+alias artisan="php artisan"
 
 # vim: set syn=sh :

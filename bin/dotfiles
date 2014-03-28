@@ -32,7 +32,7 @@ is_git_repo() {
 
 # Check for git
 if [ ! $(type -P git) ]; then
-    e_error "Aborting! Git not installed!"
+    e_error "Aborting. Git not installed"
     exit 1
 fi
 

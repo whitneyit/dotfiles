@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+alias ar="sudo service apache2 restart"
+alias as="sudo service apache2 start"
+alias ak="sudo service apache2 stop"
+
+# vim: set syn=sh :

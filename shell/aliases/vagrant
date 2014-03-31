@@ -2,6 +2,8 @@
 
 alias vd="vagrant destroy"
 alias vh="vagrant halt"
+alias vi="vagrant init"
+alias vp="vagrant provision"
 alias vs="vagrant ssh"
 alias vu="vagrant up"
 

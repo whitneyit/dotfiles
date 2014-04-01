@@ -161,8 +161,8 @@ set copyindent
 
 " timeout stuff
 set timeout
-set timeoutlen=1000
-set ttimeoutlen=100
+set timeoutlen=300
+set ttimeoutlen=300
 
 " don't beep
 set visualbell

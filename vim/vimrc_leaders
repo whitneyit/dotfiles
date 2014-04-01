@@ -13,6 +13,10 @@ nmap <leader>wq :wq!<cr>
 nmap <leader>q  :q<cr>
 nmap <leader>qq :q!<cr>
 nmap <leader>qa :qa!<cr>
+
+" Quickly show the diff in the current file
+nmap <leader>d :w !diff % -<cr>
+
 " Select all text on the page
 nmap <leader>a gg0vG$
 

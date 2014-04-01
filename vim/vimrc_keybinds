@@ -27,6 +27,8 @@ no <right>  <Nop>
 nmap <leader>t :tabnew<cr>
 nmap <leader>x :tabclose<cr>
 nmap <leader>X :tabclose!<cr>
+nmap <leader>o :tabonly<cr>
+nmap <leader>O :tabonly!<cr>
 
 " Fast saves and quits
 nmap <leader>w :w!<cr>

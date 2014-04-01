@@ -6,15 +6,21 @@ if has("user_commands")
     " Make sure that I can actually quit
     command! Q q
     command! Qa qa
+    command! QA qa
     command! -bang Q q<bang>
     command! -bang Qa qa<bang>
+    command! -bang QA qa<bang>
 
     " Ensure that I can always save
     command! W w
     command! Wq wq
     command! Wqa wqa
+    command! WQa wqa
+    command! WQA wqa
     command! -bang W w<bang>
     command! -bang Wq wq<bang>
     command! -bang Wqa wqa<bang>
+    command! -bang WQa wqa<bang>
+    command! -bang WQA wqa<bang>
 
 endif

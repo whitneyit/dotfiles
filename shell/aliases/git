@@ -28,14 +28,18 @@ alias   gds="git diff --cached"
 alias   gin="git init"
 alias    gf="git fetch --progress --verbose"
 alias   gig="git ls-files --ignored --exclude-standard"
-alias   gla="git log --no-merges         --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d'"
-alias  glda="git log --no-merges --patch --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d'"
-alias  glsa="git log --no-merges  --stat --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d %n'"
-alias  glga="git log --graph             --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d'"
-alias  glua="git log --no-merges         --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d'    ..@{upstream}"
-alias gluda="git log --no-merges --patch --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d'    ..@{upstream}"
-alias glusa="git log --no-merges  --stat --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d %n' ..@{upstream}"
-alias gluga="git log --graph             --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d'    ..@{upstream}"
+alias   gla="git log --no-merges                        --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d'"
+alias  glda="git log --no-merges                --patch --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d'"
+alias  glsa="git log --no-merges                --stat  --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d %n'"
+alias  glga="git log                            --graph --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d'"
+alias  glia="git log --no-merges                        --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d'    ..@{upstream}"
+alias glida="git log --no-merges                --patch --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d'    ..@{upstream}"
+alias glisa="git log --no-merges                --stat  --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d %n' ..@{upstream}"
+alias gliga="git log                            --graph --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d'    ..@{upstream}"
+alias  gloa="git log --branches --not --remotes         --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d'"
+alias glosa="git log --branches --not --remotes --stat  --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d'"
+alias gloda="git log --branches --not --remotes --patch --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d'"
+alias gloga="git log --branches --not --remotes --graph --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d'"
 alias    gm="git merge --no-ff --progress --verbose"
 alias   gmu="git merge --no-ff --progress --verbose @{upstream}"
 alias   gps="git push          --progress --verbose"
@@ -43,7 +47,7 @@ alias  gpsf="git push          --progress --verbose --force"
 alias  gpsd="git push          --progress --verbose --delete"
 alias   gpl="git pull          --progress --verbose"
 alias   grb="git rebase"
-alias  grfa="git reflog --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(blue)%gs %C(cyan)%ae %C(reset)%s %C(white)%d'"
+alias  grfa="git reflog        --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(blue)%gs %C(cyan)%ae %C(reset)%s %C(white)%d'"
 alias grfsa="git reflog --stat --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(blue)%gs %C(cyan)%ae %C(reset)%s %C(white)%d %n'"
 alias   grs="git reset"
 alias grshd="git reset --hard 'HEAD^'"
@@ -71,39 +75,32 @@ alias  gcfn="git config user.name "
 alias  gcfo="git remote set-url origin "
 
 # This is a way of viewing unpushed commits
-alias   glo="git log --branches --not --remotes         --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d'"
-alias  glos="git log --branches --not --remotes --stat  --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d'"
-alias  glod="git log --branches --not --remotes --patch --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d'"
 
-# Here we create an alias to see the commits that are merged in
-alias  glfa="gla  --first-parent"
-alias glufa="glua --first-parent"
+# Logging shortcuts
+alias    gl="gla   -10"
+alias   gls="glsa  -10"
+alias   gld="glda  -10"
+alias   glg="glga  -10"
 
-# Normal logging shortcuts
-alias    gl="gla   -10" # Git log
-alias   glf="glfa  -10" # Git log --first-parent
-alias   gls="glsa  -10" # Git log --stat
-alias   gld="glda  -10" # Git log --patch
-alias   glg="glga  -10" # Git log --graph
+# Incoming commits
+alias   gli="glia  -10"
+alias  glis="glisa -10"
+alias  glid="glida -10"
+alias  glig="gliga -10"
 
-# Here we define logging shortcuts for upstream
-alias   glu="glua   -10" # Git log
-alias  gluf="glufa  -10" # Git log --first-parent
-alias  glus="glusa  -10" # Git log --stat
-alias  glud="gluda  -10" # Git log --patch
-alias  glug="gluga  -10" # Git log --graph
+# Outgoing commits
+alias   glo="gloa  -10"
+alias  glos="glosa -10"
+alias  glod="gloda -10"
+alias  glog="gloga -10"
 
-# See unpushed commits
-alias   glu="glua  -10" # Git log *unpushed* *all*
-alias  glum="gluma -10" # Git log *unpushed* master
-alias  glud="gluda -10" # Git log *develop* master
+# Here we make some aliases to see the latest reflogs
+alias   grf="grfa  -10"
+alias  grfs="grfsa -10"
 
-alias   grf="grfa  -10" # Git reflog *all*
-alias  grfs="grfsa -10" # Git reflog *all* --stat
-
-# Here we provide double ups
-alias  gacm="gcma"      # Git commit --all --message
-alias  glsg="glgs"      # Git log --stat --graph
-alias glsga="glgsa"     # Git log --stat --graph *all*
+# Here we protect against typos
+alias  gacm="gcma"
+alias  glsg="glgs"
+alias glsga="glgsa"
 
 # vim: set syn=sh :

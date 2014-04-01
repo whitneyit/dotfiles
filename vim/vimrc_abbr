@@ -1,3 +1,8 @@
-:iabbrev  adn  and
+:iabbrev adn and
+:iabbrev flase false
+:iabbrev fasle false
+:iabbrev flsae false
 :iabbrev tehn then
+:iabbrev ture true
+:iabbrev treu true
 :iabbrev waht what

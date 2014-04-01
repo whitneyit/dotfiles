@@ -5,7 +5,9 @@ if has("user_commands")
 
     " Make sure that I can actually quit
     command! Q q
+    command! Qa qa
     command! -bang Q q<bang>
+    command! -bang Qa qa<bang>
 
     " Ensure that I can always save
     command! W w

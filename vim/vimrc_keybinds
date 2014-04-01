@@ -10,6 +10,10 @@ nnoremap k gk
 nnoremap Q <Nop>
 
 " Unmap the arrow keys
+no <left>   <Nop>
+no <down>   ddp
+no <up>     ddkP
+no <right>  <Nop>
 ino <left>  <Nop>
 ino <down>  <Nop>
 ino <up>    <Nop>
@@ -18,10 +22,6 @@ vno <left>  <Nop>
 vno <down>  <Nop>
 vno <up>    <Nop>
 vno <right> <Nop>
-no <left>   <Nop>
-no <down>   <Nop>
-no <up>     <Nop>
-no <right>  <Nop>
 
 " Completly replace vims search functionality
 map / <Plug>(easymotion-sn)

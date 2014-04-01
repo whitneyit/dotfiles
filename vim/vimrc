@@ -181,6 +181,9 @@ set listchars+=trail:·
 set listchars+=nbsp:_
 set listchars+=eol:¬
 
+" Enable the wildmenu
+set wildmenu
+
 " Make sure these directories are not included in the results panel
 set wildignore+=*/.git/**
 set wildignore+=*/.vagrant/**

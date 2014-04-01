@@ -46,10 +46,12 @@ nmap <leader>z :tabonly<CR>
 nmap <leader>Z :tabonly!<CR>
 
 " Fast saves and quits
-nmap <leader>w :w!<CR>
+nmap <leader>w :w<CR>
 nmap <leader>W :wq!<CR>
 nmap <leader>q :q<CR>
-nmap <leader>Q :qa!<CR>
+nmap <leader>Q :q!<CR>
+nmap <leader>e :qa<CR>
+nmap <leader>E :qa!<CR>
 
 " Insert a line above or below the current line
 nmap <leader>o o<Esc>k

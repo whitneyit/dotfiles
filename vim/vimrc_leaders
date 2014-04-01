@@ -5,6 +5,7 @@ let g:mapleader=","
 " Basic tab operation
 nmap <leader>t :tabnew<cr>
 nmap <leader>x :tabclose<cr>
+nmap <leader>X :tabclose!<cr>
 
 " Fast saves and quits
 nmap <leader>w  :w!<cr>

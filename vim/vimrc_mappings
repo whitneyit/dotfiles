@@ -5,9 +5,6 @@ nnoremap k gk
 " Make sure I don't enter that bullshit ex mode
 nnoremap Q <Nop>
 
-" Emulate select all
-nmap <C-a> gg0vG$
-
 " Unmap the arrow keys
 ino <left>  <Nop>
 ino <down>  <Nop>

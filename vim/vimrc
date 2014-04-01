@@ -181,6 +181,11 @@ set listchars+=trail:·
 set listchars+=nbsp:_
 set listchars+=eol:¬
 
+" Make sure these directories are not included in the results panel
+set wildignore+=*/.git/**
+set wildignore+=*/.vagrant/**
+set wildignore+=*/node_modules/**
+
 " Centralize backups, swapfiles and undo history
 set backupdir=$HOME/.vim/backups
 set directory=$HOME/.vim/swaps
@@ -205,8 +210,7 @@ nmap <C-l> <C-w>l
 " Load up our other keybinds
 source $HOME/.vim/vimrc_abbr
 source $HOME/.vim/vimrc_commands
-source $HOME/.vim/vimrc_leaders
-source $HOME/.vim/vimrc_mappings
+source $HOME/.vim/vimrc_keybinds
 source $HOME/.vim/vimrc_bundle
 
 " Load local machine settings if they exist

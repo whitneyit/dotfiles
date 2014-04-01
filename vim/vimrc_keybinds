@@ -2,6 +2,27 @@
 let mapleader=","
 let g:mapleader=","
 
+" Pressing `j` and `k` really do move you to the next or prev lines
+nnoremap j gj
+nnoremap k gk
+
+" Make sure I don't enter that bullshit ex mode
+nnoremap Q <Nop>
+
+" Unmap the arrow keys
+ino <left>  <Nop>
+ino <down>  <Nop>
+ino <up>    <Nop>
+ino <right> <nop>
+vno <left>  <Nop>
+vno <down>  <Nop>
+vno <up>    <Nop>
+vno <right> <Nop>
+no <left>   <Nop>
+no <down>   <Nop>
+no <up>     <Nop>
+no <right>  <Nop>
+
 " Basic tab operation
 nmap <leader>t :tabnew<cr>
 nmap <leader>x :tabclose<cr>
@@ -32,5 +53,10 @@ nmap <leader>p :set paste<cr>"+p:set nopaste<cr>
 nmap <leader>s :set list<cr>
 nmap <leader>S :set nolist<cr>
 
+" Include easy motions line support
+map <Leader>h <Plug>(easymotion-linebackward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>l <Plug>(easymotion-lineforward)
 " Allow quick editing of the projects TODO file
 nmap <leader>todo :edit TODO.md<cr>

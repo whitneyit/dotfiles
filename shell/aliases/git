@@ -72,9 +72,9 @@ alias   gsg="git stage"
 alias  gcfa="git commit --amend --reset-author"
 alias  gcfe="git config user.email "
 alias  gcfn="git config user.name "
-alias  gcfo="git remote set-url origin "
 
-# This is a way of viewing unpushed commits
+# A quick way to update the url of a repo
+alias  gcfo="git remote set-url origin "
 
 # Logging shortcuts
 alias    gl="gla   -10"

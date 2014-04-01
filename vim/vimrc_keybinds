@@ -71,8 +71,7 @@ nmap <leader>cd :cd %:p:h<CR>:pwd<CR>
 nmap <leader>p :set paste<CR>"+p:set nopaste<CR>
 
 " Define a quick way to toggle hiding/showing special characters
-nmap <leader>s :set list<CR>
-nmap <leader>S :set nolist<CR>
+nmap <leader>s :set list!<CR>
 
 " Include easy motions line support
 map <Leader>h <Plug>(easymotion-linebackward)

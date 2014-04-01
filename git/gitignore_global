@@ -96,3 +96,5 @@ node_modules
 #         Vagrant        #
 ##########################
 .vagrant
+
+# vim: set syn=gitconfig :

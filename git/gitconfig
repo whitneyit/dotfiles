@@ -44,3 +44,5 @@
     nobranch = normal
     updated = green
     untracked = red
+
+# vim: set syn=gitconfig :

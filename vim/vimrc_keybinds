@@ -28,6 +28,16 @@ map / <Plug>(easymotion-sn)
 map n <Plug>(easymotion-next)
 map N <Plug>(easymotion-prev)
 
+" Easy v-splitting
+nmap <leader>v :vsplit<cr>
+nmap <leader>V <C-w>q<ctr>
+nmap <leader>1 :vertical resize -20<cr>
+nmap <leader>1 :vertical resize -20<cr>
+nmap <leader>2 :vertical resize -5<cr>
+nmap <leader>3 <C-w>=<cr>
+nmap <leader>4 :vertical resize +5<cr>
+nmap <leader>5 :vertical resize +20<cr>
+
 " Basic tab operation
 nmap <leader>t :tabnew<cr>
 nmap <leader>x :tabclose<cr>

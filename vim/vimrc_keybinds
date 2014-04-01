@@ -42,14 +42,18 @@ nmap <leader>5 :vertical resize +20<CR>
 nmap <leader>t :tabnew<CR>
 nmap <leader>x :tabclose<CR>
 nmap <leader>X :tabclose!<CR>
-nmap <leader>o :tabonly<CR>
-nmap <leader>O :tabonly!<CR>
+nmap <leader>z :tabonly<CR>
+nmap <leader>Z :tabonly!<CR>
 
 " Fast saves and quits
 nmap <leader>w :w!<CR>
 nmap <leader>W :wq!<CR>
 nmap <leader>q :q<CR>
 nmap <leader>Q :qa!<CR>
+
+" Insert a line above or below the current line
+nmap <leader>o o<Esc>k
+nmap <leader>O O<Esc>j
 
 " Quickly show the diff in the current file
 nmap <leader>d :w !diff % -<CR>

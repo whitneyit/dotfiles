@@ -37,9 +37,6 @@ let NERDTreeShowHidden = 1
 " just works similar to a `.global_gitignore` file expect with RegEx instea
 let NERDTreeIgnore = ['\.git$', '\.vagrant$', 'node_modules']
 
-" Bind a key to hide and show the nerdtree page
-nmap <C-k><C-b> :NERDTreeToggle<cr>
-
 " Easy motion                                "
 " https://github.com/Lokaltog/vim-easymotion "
 """"""""""""""""""""""""""""""""""""""""""""""
@@ -56,11 +53,6 @@ let g:EasyMotion_use_upper = 1
 
 " keep cursor colum when JK motion
 let g:EasyMotion_startofline = 0
-
-" Completly replace vims search functionality
-map  / <Plug>(easymotion-sn)
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
 
 " Ctrl P                            "
 " https://github.com/kien/ctrlp.vim "

@@ -23,6 +23,11 @@ no <down>   <Nop>
 no <up>     <Nop>
 no <right>  <Nop>
 
+" Completly replace vims search functionality
+map / <Plug>(easymotion-sn)
+map n <Plug>(easymotion-next)
+map N <Plug>(easymotion-prev)
+
 " Basic tab operation
 nmap <leader>t :tabnew<cr>
 nmap <leader>x :tabclose<cr>
@@ -60,3 +65,6 @@ map <Leader>h <Plug>(easymotion-linebackward)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 map <Leader>l <Plug>(easymotion-lineforward)
+
+" Bind a key to hide and show the nerdtree page
+nmap <leader>b :NERDTreeToggle<cr>

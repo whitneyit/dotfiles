@@ -47,8 +47,10 @@ alias  gpsf="git push          --progress --verbose --force"
 alias  gpsd="git push          --progress --verbose --delete"
 alias   gpl="git pull          --progress --verbose"
 alias   grb="git rebase"
-alias  grfa="git reflog        --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(blue)%gs %C(cyan)%ae %C(reset)%s %C(white)%d'"
-alias grfsa="git reflog --stat --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(blue)%gs %C(cyan)%ae %C(reset)%s %C(white)%d %n'"
+alias  grfa="git reflog         --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(blue)%gs %C(cyan)%ae %C(reset)%s %C(white)%d'"
+alias grfsa="git reflog --stat  --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(blue)%gs %C(cyan)%ae %C(reset)%s %C(white)%d %n'"
+alias grfda="git reflog --patch --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(blue)%gs %C(cyan)%ae %C(reset)%s %C(white)%d %n'"
+alias grfga="git reflog --graph --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(blue)%gs %C(cyan)%ae %C(reset)%s %C(white)%d %n'"
 alias   grs="git reset"
 alias grshd="git reset --hard 'HEAD^'"
 alias  grsh="git reset HEAD --"
@@ -94,9 +96,11 @@ alias  glos="glosa -10"
 alias  glod="gloda -10"
 alias  glog="gloga -10"
 
-# Here we make some aliases to see the latest reflogs
+# Reflogs
 alias   grf="grfa  -10"
 alias  grfs="grfsa -10"
+alias  grfd="grfda -10"
+alias  grfg="grfga -10"
 
 # Here we protect against typos
 alias  gacm="gcma"

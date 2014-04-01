@@ -29,30 +29,30 @@ map n <Plug>(easymotion-next)
 map N <Plug>(easymotion-prev)
 
 " Easy v-splitting
-nmap <leader>v :vsplit<cr>
+nmap <leader>v :vsplit<CR>
 nmap <leader>V <C-w>q<ctr>
-nmap <leader>1 :vertical resize -20<cr>
-nmap <leader>1 :vertical resize -20<cr>
-nmap <leader>2 :vertical resize -5<cr>
-nmap <leader>3 <C-w>=<cr>
-nmap <leader>4 :vertical resize +5<cr>
-nmap <leader>5 :vertical resize +20<cr>
+nmap <leader>1 :vertical resize -20<CR>
+nmap <leader>1 :vertical resize -20<CR>
+nmap <leader>2 :vertical resize -5<CR>
+nmap <leader>3 <C-w>=<CR>
+nmap <leader>4 :vertical resize +5<CR>
+nmap <leader>5 :vertical resize +20<CR>
 
 " Basic tab operation
-nmap <leader>t :tabnew<cr>
-nmap <leader>x :tabclose<cr>
-nmap <leader>X :tabclose!<cr>
-nmap <leader>o :tabonly<cr>
-nmap <leader>O :tabonly!<cr>
+nmap <leader>t :tabnew<CR>
+nmap <leader>x :tabclose<CR>
+nmap <leader>X :tabclose!<CR>
+nmap <leader>o :tabonly<CR>
+nmap <leader>O :tabonly!<CR>
 
 " Fast saves and quits
-nmap <leader>w :w!<cr>
-nmap <leader>W :wq!<cr>
-nmap <leader>q :q<cr>
-nmap <leader>Q :qa!<cr>
+nmap <leader>w :w!<CR>
+nmap <leader>W :wq!<CR>
+nmap <leader>q :q<CR>
+nmap <leader>Q :qa!<CR>
 
 " Quickly show the diff in the current file
-nmap <leader>d :w !diff % -<cr>
+nmap <leader>d :w !diff % -<CR>
 
 " Select all text on the page
 nmap <leader>a gg0vG$
@@ -64,11 +64,11 @@ nmap <leader>$ :call StripTrailingWhitespace()<CR>
 nmap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " Custom keybind to enter paste mode, paste, then exit out
-nmap <leader>p :set paste<cr>"+p:set nopaste<cr>
+nmap <leader>p :set paste<CR>"+p:set nopaste<CR>
 
 " Define a quick way to toggle hiding/showing special characters
-nmap <leader>s :set list<cr>
-nmap <leader>S :set nolist<cr>
+nmap <leader>s :set list<CR>
+nmap <leader>S :set nolist<CR>
 
 " Include easy motions line support
 map <Leader>h <Plug>(easymotion-linebackward)
@@ -77,4 +77,4 @@ map <Leader>k <Plug>(easymotion-k)
 map <Leader>l <Plug>(easymotion-lineforward)
 
 " Bind a key to hide and show the nerdtree page
-nmap <leader>b :NERDTreeToggle<cr>
+nmap <leader>b :NERDTreeToggle<CR>

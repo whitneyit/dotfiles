@@ -10,7 +10,9 @@ if has("user_commands")
     " Ensure that I can always save
     command! W w
     command! Wq wq
+    command! Wqa wqa
     command! -bang W w<bang>
     command! -bang Wq wq<bang>
+    command! -bang Wqa wqa<bang>
 
 endif

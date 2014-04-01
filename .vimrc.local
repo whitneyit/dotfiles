@@ -1,3 +1,4 @@
-let NERDTreeIgnore += ['backups', '^bundle', '\.viminfo']
+let NERDTreeIgnore += ['backups', '^bundle', '\.viminfo', '^fonts']
 set wildignore+=*/.viminfo
 set wildignore+=*/vim/bundle/**
+set wildignore+=*/shell/fonts/**

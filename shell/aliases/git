@@ -71,7 +71,9 @@ alias  gcfn="git config user.name "
 alias  gcfo="git remote set-url origin "
 
 # This is a way of viewing unpushed commits
-alias   glo="git log --branches --not --remotes --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d'"
+alias   glo="git log --branches --not --remotes         --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d'"
+alias  glos="git log --branches --not --remotes --stat  --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d'"
+alias  glod="git log --branches --not --remotes --patch --pretty=format:'%C(yellow)%h %C(green)[%cr] %C(cyan)%ae %C(reset)%s %C(white)%d'"
 
 # Here we create an alias to see the commits that are merged in
 alias  glfa="gla  --first-parent"

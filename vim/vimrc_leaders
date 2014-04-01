@@ -8,11 +8,10 @@ nmap <leader>x :tabclose<cr>
 nmap <leader>X :tabclose!<cr>
 
 " Fast saves and quits
-nmap <leader>w  :w!<cr>
-nmap <leader>wq :wq!<cr>
-nmap <leader>q  :q<cr>
-nmap <leader>qq :q!<cr>
-nmap <leader>qa :qa!<cr>
+nmap <leader>w :w!<cr>
+nmap <leader>W :wq!<cr>
+nmap <leader>q :q<cr>
+nmap <leader>Q :qa!<cr>
 
 " Quickly show the diff in the current file
 nmap <leader>d :w !diff % -<cr>

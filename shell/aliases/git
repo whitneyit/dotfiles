@@ -106,6 +106,9 @@ alias  grfg="grfga -10"
 
 # Here we protect against typos
 alias  gacm="gcma"
+alias  gmca="gcma"
+alias  gscm="gcms"
+alias  gmcs="gcms"
 alias  glsg="glgs"
 alias glsga="glgsa"
 

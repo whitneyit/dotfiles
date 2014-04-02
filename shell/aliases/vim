@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 alias   vi="vim"
+alias   vm="vim"
 alias  vbp="vim $DOTFILES_DIRECTORY/shell/bash_profile"
 alias  vrc="vim $DOTFILES_DIRECTORY/vim/vimrc"
 alias vrcb="vim $DOTFILES_DIRECTORY/vim/vimrc_bundle"

@@ -184,6 +184,7 @@ set listchars+=eol:¬
 
 " Enable the wildmenu
 set wildmenu
+set wildmode=list:longest
 
 " Make sure these directories are not included in the results panel
 set wildignore+=*/.git/**

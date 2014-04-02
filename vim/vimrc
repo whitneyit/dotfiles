@@ -103,6 +103,9 @@ colorscheme xoria256
 " Set a vertical column only on the lines that bleed over
 call matchadd('ColorColumn', '\%81v', 100)
 
+" Set the title for xterm
+set title
+
 " Set to auto read when a file is changed from the outside
 set autoread
 

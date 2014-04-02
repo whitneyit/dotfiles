@@ -38,6 +38,16 @@ nmap <leader>3 <C-w>=<CR>
 nmap <leader>4 :vertical resize +5<CR>
 nmap <leader>5 :vertical resize +20<CR>
 
+" Here we make easier window navigation
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+nmap <C-H> <C-W>h<C-W>_
+nmap <C-J> <C-W>j<C-W>_
+nmap <C-K> <C-W>k<C-W>_
+nmap <C-L> <C-W>l<C-W>_
+
 " Basic tab operation
 nmap <leader>t :tabnew<CR>
 nmap <leader>x :tabclose<CR>

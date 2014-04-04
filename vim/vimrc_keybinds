@@ -2,6 +2,10 @@
 let mapleader=","
 let g:mapleader=","
 
+" Because we just killed the ',' functionality we need to restore. Vim's
+" default leader key is `\` so we will just use that
+nnoremap \ ,
+
 " Pressing `j` and `k` really do move you to the next or prev lines
 nnoremap j gj
 nnoremap k gk

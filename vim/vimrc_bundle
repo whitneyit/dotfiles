@@ -71,7 +71,7 @@ let g:ctrlp_cache_dir = '~/.vim/plugins/ctrlp'
 
 " Let me define my own mappings
 let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_next_key='<C-d>'
-let g:multi_cursor_prev_key='<C-f>'
-let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_next_key='<C-f>'
+let g:multi_cursor_prev_key='<C-k>'
+let g:multi_cursor_skip_key='<C-j>'
 let g:multi_cursor_quit_key='<Esc>'

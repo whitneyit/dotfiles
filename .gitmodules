@@ -43,3 +43,6 @@
 [submodule "vim/bundle/vim-css-color"]
 	path = vim/bundle/vim-css-color
 	url = https://github.com/ap/vim-css-color
+[submodule "vim/bundle/repmo"]
+	path = vim/bundle/repmo
+	url = https://github.com/vim-scripts/repmo.vim

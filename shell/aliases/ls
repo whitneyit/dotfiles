@@ -23,10 +23,23 @@ else
     alias  ls="ls -h -G --color"
 fi
 
-# Improve `ls`
-alias ll="ls -l      | awk '{k=0;for(i=0;i<=8;i++)k+=((substr(\$1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(\" %0o \",k);print}'"
-alias la="ls -la     | awk '{k=0;for(i=0;i<=8;i++)k+=((substr(\$1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(\" %0o \",k);print}'"
-alias ld="ls -lad */ | awk '{k=0;for(i=0;i<=8;i++)k+=((substr(\$1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(\" %0o \",k);print}'"
-alias lf="ls -la | grep -v '^d' | awk '{k=0;for(i=0;i<=8;i++)k+=((substr(\$1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(\" %0o \",k);print}'"
+# This is a command that will output a numeric versios of the file permissions
+OCTAL_PERMISSIONS="{k=0;for(i=0;i<=8;i++)k+=((substr(\$1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(\" %0o \",k);print}"
+
+function ll () {
+    ls -l $1 | awk "$OCTAL_PERMISSIONS"
+}
+
+function la () {
+    ls -la $1 | awk "$OCTAL_PERMISSIONS"
+}
+
+function ld () {
+    ls -lad */ $1 | awk "$OCTAL_PERMISSIONS"
+}
+
+function lf () {
+    ls -la $1 | grep -v '^d' | awk "$OCTAL_PERMISSIONS"
+}
 
 # vim: set syn=sh :

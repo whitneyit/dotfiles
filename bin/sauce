@@ -7,7 +7,6 @@ declare -a files=(
     $DOTFILES_DIRECTORY/shell/bash_logout
     $DOTFILES_DIRECTORY/shell/aliases/*
     $DOTFILES_DIRECTORY/shell/aliases/companies/*
-    $DOTFILES_DIRECTORY/shell/functions/*
     $DOTFILES_DIRECTORY/shell/bash_ssh
     $DOTFILES_DIRECTORY/shell/bash_prompt
     $DOTFILES_DIRECTORY/.bash_profile.local

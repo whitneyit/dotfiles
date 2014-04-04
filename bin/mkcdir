@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
 # Make a directory and navigate into it
-mkcdir() {
-    mkdir -p "$@" && cd "$@";
-}
+mkdir -p "$@" && cd "$@";
 
 # vim: set syn=sh :

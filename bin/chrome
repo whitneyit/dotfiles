@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+if [ $(os) == "CYGWIN" ]; then
+
+    # This needs to be updated to get the absolute windows style path
+    open /cygdrive/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe $1
+
+elif [ $(os) == "Mac" ]; then
+    open -a Google\ Chrome "$1"
+
+fi
+
+# vim: set syn=sh :

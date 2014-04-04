@@ -24,7 +24,7 @@ do
 
             # If a .gitmodules file is detected, update the submodules
             if [ -f .gitmodules ]; then
-                git submodule update --recursive
+                git submodule update --recursive --init
             fi
 
         fi

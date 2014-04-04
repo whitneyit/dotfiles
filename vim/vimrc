@@ -14,24 +14,20 @@ if has("autocmd")
 
     " Load files for specific filetypes
     filetype on
-    filetype plugin on
     filetype indent on
+    filetype plugin on
 
-    " Make sure we set the correct wrapping size for git commits
-    autocmd FileType gitcommit set textwidth=72
-
-    " Treat the syntax highlighting for razor files the same as plain html files
-    autocmd BufNewFile,BufRead *.cshtml set filetype=html
-
-    " Make sure markdown files are treated correctly
-    autocmd BufNewFile,BufRead *.md set filetype=markdown
-
-    " Set up some settings for ruby
-    autocmd BufNewFile,BufRead *.rb set filetype=ruby
-    autocmd BufNewFile,BufRead Vagrantfile  set filetype=ruby
+    " Ensure the correct filetypes are used
+    autocmd BufNewFile,BufRead *.cshtml    set filetype=html
+    autocmd BufNewFile,BufRead *.md        set filetype=markdown
+    autocmd BufNewFile,BufRead *.rb        set filetype=ruby
+    autocmd BufNewFile,BufRead Vagrantfile set filetype=ruby
 
     " Automatically strip trailing whitespace on file save
     autocmd BufWritePre * :call StripTrailingWhitespace()
+
+    " Make sure we set the correct wrapping size for git commits
+    autocmd FileType gitcommit setlocal textwidth=72
 
     " Languages with specific tabs/space requirements
     autocmd FileType html setlocal list tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab

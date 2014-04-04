@@ -120,6 +120,9 @@ set ttyfast
 " Use UTF-8 without BOM
 set encoding=utf-8 nobomb
 
+" Inform vim of the current shell
+set shell=bash
+
 " No line wrapping
 set nowrap
 

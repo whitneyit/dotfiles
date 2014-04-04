@@ -1,0 +1,35 @@
+" Preserve editor state when executing a command
+function! Preserve(command)
+
+    " Save last search, and cursor position
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+
+    " Execute the specified command
+    execute a:command
+
+    " Restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+
+endfunction
+
+" Strip trailing whitespace
+function! StripTrailingWhitespace()
+    call Preserve("%s/\\s\\+$//e")
+endfunction
+
+" Rempoves those fancy characters from MSWord etc
+function! RemoveFancyCharacters()
+    let typo = {}
+    let typo["“"] = '"'
+    let typo["”"] = '"'
+    let typo["‘"] = "'"
+    let typo["’"] = "'"
+    let typo["–"] = '--'
+    let typo["—"] = '---'
+    let typo["…"] = '...'
+    :exe ":%s/".join(keys(typo), '\|').'/\=typo[submatch(0)]/ge'
+endfunction
+command! RemoveFancyCharacters :call RemoveFancyCharacters()

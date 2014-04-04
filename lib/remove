@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-run_remove() {
+function run_remove() {
 
 }
 

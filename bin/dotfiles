@@ -1,32 +1,32 @@
 #!/usr/bin/env bash
 
 # Header logging
-e_header() {
+function e_header() {
     printf "$(tput setaf 5)%s$(tput sgr0)\n" "$@"
 }
 
 # Success logging
-e_success() {
+function e_success() {
     printf "$(tput setaf 2)✔ %s$(tput sgr0)\n" "$@"
 }
 
 # Info logging
-e_info() {
+function e_info() {
     printf "$(tput setaf 6)%s$(tput sgr0)\n" "$@"
 }
 
 # Error logging
-e_error() {
+function e_error() {
     printf "$(tput setaf 1)✘ %s$(tput sgr0)\n" "$@"
 }
 
 # Warning logging
-e_warning() {
+function e_warning() {
     printf "$(tput setaf 136)! %s$(tput sgr0)\n" "$@"
 }
 
 # Test whether we're in a git repo
-is_git_repo() {
+function is_git_repo() {
     $(git rev-parse --is-inside-work-tree &> /dev/null)
 }
 

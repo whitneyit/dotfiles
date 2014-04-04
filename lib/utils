@@ -12,7 +12,7 @@ if [ $(os) == "Vagrant" ]; then
     DOTFILES_DIRECTORY="/home/vagrant/.dotfiles"
 fi
 
-backup_prev() {
+function backup_prev() {
 
     # Define our directories to work with
     TIMESTAMP_DIRECTORY="$(date +%Y-%m-%d_%H-%M-%S)"
@@ -59,12 +59,12 @@ backup_prev() {
 }
 
 # Force create/replace symbolic symlink.
-link() {
+function link() {
     ln -fs "${1}" "${2}"
 }
 
 #
-link_files() {
+function link_files() {
 
     backup_prev $1
 

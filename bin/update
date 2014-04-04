@@ -22,6 +22,11 @@ do
             # Update the repo
             git pull --all --progress --verbose
 
+            # If a .gitmodules file is detected, update the submodules
+            if [ -f .gitmodules ]; then
+                git submodule update --recursive
+            fi
+
         fi
 
         # Lets go back up a directory so that our loop can continue

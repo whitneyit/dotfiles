@@ -123,6 +123,9 @@ set encoding=utf-8 nobomb
 " No line wrapping
 set nowrap
 
+" But when we enter wrap mode, make sure that we dont break on words
+set linebreak
+
 " Expand tab to spaces
 set expandtab
 

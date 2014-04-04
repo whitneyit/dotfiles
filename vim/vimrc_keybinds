@@ -6,9 +6,12 @@ let g:mapleader=","
 " default leader key is `\` so we will just use that
 nnoremap \ ,
 
-" Pressing `j` and `k` really do move you to the next or prev lines
+" When wrapping is enabled make the motion keys behave as normal
 nnoremap j gj
 nnoremap k gk
+nnoremap $ g$
+nnoremap 0 g0
+nnoremap ^ g^
 
 " Make sure I don't enter that bullshit ex mode
 nnoremap Q <Nop>
@@ -26,11 +29,6 @@ vno <left>  <Nop>
 vno <down>  <Nop>
 vno <up>    <Nop>
 vno <right> <Nop>
-
-" Completly replace vims search functionality
-map / <Plug>(easymotion-sn)
-map n <Plug>(easymotion-next)
-map N <Plug>(easymotion-prev)
 
 " Easy v-splitting
 nmap <leader>v :vsplit<CR>
@@ -89,7 +87,10 @@ nmap <leader>p :set paste<CR>"+p:set nopaste<CR>
 " Define a quick way to toggle hiding/showing special characters
 nmap <leader>s :set list!<CR>
 
-" Include easy motions line support
+" Configure easymotion
+map / <Plug>(easymotion-sn)
+map n <Plug>(easymotion-next)
+map N <Plug>(easymotion-prev)
 map <Leader>h <Plug>(easymotion-linebackward)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)

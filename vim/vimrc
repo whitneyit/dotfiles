@@ -26,12 +26,6 @@ if has("autocmd")
     " Automatically strip trailing whitespace on file save
     autocmd BufWritePre * :call StripTrailingWhitespace()
 
-    " Make sure we set the correct wrapping size for git commits
-    autocmd FileType gitcommit setlocal textwidth=72
-
-    " Languages with specific tabs/space requirements
-    autocmd FileType html setlocal list tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
-
 endif
 
 if has("syntax")
@@ -226,6 +220,7 @@ nmap <C-l> <C-w>l
 " Load up our other keybinds
 source $HOME/.vim/vimrc_abbr
 source $HOME/.vim/vimrc_commands
+source $HOME/.vim/vimrc_functions
 source $HOME/.vim/vimrc_keybinds
 source $HOME/.vim/vimrc_bundle
 

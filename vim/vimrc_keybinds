@@ -2,7 +2,7 @@
 let mapleader=","
 let g:mapleader=","
 
-" Because we just killed the ',' functionality we need to restore. Vim's
+" Because we just killed the ',' functionality we need to restore it. Vim's
 " default leader key is `\` so we will just use that
 nnoremap \ ,
 
@@ -17,84 +17,92 @@ nnoremap ^ g^
 nnoremap Q <Nop>
 
 " Unmap the arrow keys
-no <left>   <Nop>
-no <down>   ddp
-no <up>     ddkP
-no <right>  <Nop>
-ino <left>  <Nop>
-ino <down>  <Nop>
-ino <up>    <Nop>
-ino <right> <nop>
-vno <left>  <Nop>
-vno <down>  <Nop>
-vno <up>    <Nop>
-vno <right> <Nop>
+nnoremap <Left>  <Nop>
+nnoremap <Right> <Nop>
+inoremap <Left>  <Nop>
+inoremap <Down>  <Nop>
+inoremap <Up>    <Nop>
+inoremap <Right> <nop>
+vnoremap <Left>  <Nop>
+vnoremap <Down>  <Nop>
+vnoremap <Up>    <Nop>
+vnoremap <Right> <Nop>
+
+" Here up and down will switch the lines
+nnoremap <Down>  ddp
+nnoremap <Up>    ddkP
+
+" Here we create tab indentation
+nnoremap <Tab>   >>llll
+nnoremap <S-Tab> <<hhhh
+vnoremap <Tab>   >
+vnoremap <S-Tab> <
 
 " Easy v-splitting
-nmap <leader>v :vsplit<CR>
-nmap <leader>V <C-w>q<ctr>
-nmap <leader>1 :vertical resize -20<CR>
-nmap <leader>1 :vertical resize -20<CR>
-nmap <leader>2 :vertical resize -5<CR>
-nmap <leader>3 <C-w>=<CR>
-nmap <leader>4 :vertical resize +5<CR>
-nmap <leader>5 :vertical resize +20<CR>
+nnoremap <leader>v :vsplit<CR>
+nnoremap <leader>V <C-w>q<ctr>
+nnoremap <leader>1 :vertical resize -20<CR>
+nnoremap <leader>1 :vertical resize -20<CR>
+nnoremap <leader>2 :vertical resize -5<CR>
+nnoremap <leader>3 <C-w>=<CR>
+nnoremap <leader>4 :vertical resize +5<CR>
+nnoremap <leader>5 :vertical resize +20<CR>
 
 " Here we make easier window navigation
-nmap <C-h> <C-w>h
-nmap <C-j> <C-w>j
-nmap <C-k> <C-w>k
-nmap <C-l> <C-w>l
-nmap <C-H> <C-W>h<C-W>_
-nmap <C-J> <C-W>j<C-W>_
-nmap <C-K> <C-W>k<C-W>_
-nmap <C-L> <C-W>l<C-W>_
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <C-H> <C-W>h<C-W>_
+nnoremap <C-J> <C-W>j<C-W>_
+nnoremap <C-K> <C-W>k<C-W>_
+nnoremap <C-L> <C-W>l<C-W>_
 
 " Basic tab operation
-nmap <leader>t :tabnew<CR>
-nmap <leader>x :tabclose<CR>
-nmap <leader>X :tabclose!<CR>
-nmap <leader>z :tabonly<CR>
-nmap <leader>Z :tabonly!<CR>
+nnoremap <leader>t :tabnew<CR>
+nnoremap <leader>x :tabclose<CR>
+nnoremap <leader>X :tabclose!<CR>
+nnoremap <leader>z :tabonly<CR>
+nnoremap <leader>Z :tabonly!<CR>
 
 " Fast saves and quits
-nmap <leader>w :w<CR>
-nmap <leader>W :wq!<CR>
-nmap <leader>q :q<CR>
-nmap <leader>Q :q!<CR>
-nmap <leader>e :qa<CR>
-nmap <leader>E :qa!<CR>
-
-" Insert a line above or below the current line
-nmap <leader>o o<Esc>k
-nmap <leader>O O<Esc>j
-
-" Quickly show the diff in the current file
-nmap <leader>d :w !diff % -<CR>
+nnoremap <leader>w :w<CR>
+nnoremap <leader>W :wq!<CR>
+nnoremap <leader>q :q<CR>
+nnoremap <leader>Q :q!<CR>
+nnoremap <leader>e :qa<CR>
+nnoremap <leader>E :qa!<CR>
 
 " Select all text on the page
-nmap <leader>a gg0vG$
+nnoremap <leader>a gg0vG$
+
+" Insert a line above or below the current line
+nnoremap <leader>o o<Esc>k
+nnoremap <leader>O O<Esc>j
+
+" Quickly show the diff in the current file
+nnoremap <leader>d :w !diff % -<CR>
 
 " Strip trailing whitespace
-nmap <leader>$ :call StripTrailingWhitespace()<CR>
+nnoremap <leader>$ :call StripTrailingWhitespace()<CR>
 
 " Auto change directory to match current file ,cd
-nmap <leader>cd :cd %:p:h<CR>:pwd<CR>
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " Custom keybind to enter paste mode, paste, then exit out
-nmap <leader>p :set paste<CR>"+p:set nopaste<CR>
+nnoremap <leader>p :set paste<CR>"+p:set nopaste<CR>
 
 " Define a quick way to toggle hiding/showing special characters
-nmap <leader>s :set list!<CR>
+nnoremap <leader>s :set list!<CR>
 
 " Configure easymotion
-map / <Plug>(easymotion-sn)
-map n <Plug>(easymotion-next)
-map N <Plug>(easymotion-prev)
-map <Leader>h <Plug>(easymotion-linebackward)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map <Leader>l <Plug>(easymotion-lineforward)
+nnoremap / <Plug>(easymotion-sn)
+nnoremap n <Plug>(easymotion-next)
+nnoremap N <Plug>(easymotion-prev)
+nnoremap <Leader>h <Plug>(easymotion-linebackward)
+nnoremap <Leader>j <Plug>(easymotion-j)
+nnoremap <Leader>k <Plug>(easymotion-k)
+nnoremap <Leader>l <Plug>(easymotion-lineforward)
 
 " Bind a key to hide and show the nerdtree page
-nmap <leader>b :NERDTreeToggle<CR>
+nnoremap <leader>b :NERDTreeToggle<CR>

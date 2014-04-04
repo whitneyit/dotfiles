@@ -1,6 +1,3 @@
-" !silent is used to suppress error messages if the config line
-" references plugins/colorschemes that might be missing
-
 " Disable vi-compatibility
 set nocompatible
 
@@ -99,6 +96,9 @@ set undofile
 " Make substitution global inside a line
 set gdefault
 
+" This considers 0 prefixed numbers as decimal
+set nrformats-=octal
+
 " Set the title for xterm
 set title
 
@@ -123,14 +123,6 @@ set nowrap
 " But when we enter wrap mode, make sure that we dont break on words
 set linebreak
 
-" Expand tab to spaces
-set expandtab
-
-" Define some default tab widths
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-
 " Enable line numbers
 set number
 
@@ -150,7 +142,7 @@ set guioptions-=T
 set guioptions-=r
 
 " Removes left hand scroll bar
-set go-=L
+set guioptions-=L
 
 " Sets the lineheight
 set linespace=15
@@ -158,21 +150,34 @@ set linespace=15
 " Define our tags file
 set tags=tags
 
-" always set autoindenting on
+" Always set autoindenting on
 set autoindent
 
-" copy the previous indentation on autoindenting
+" This indents deeper per code block, eg an `if statement`
+set smartindent
+
+" Copy the previous indentation on autoindenting
 set copyindent
 
-" timeout stuff
+" Convert tab to spaces
+set expandtab
+
+" Define some default tab widths
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+
+" When using `>` and `<`, this will indent to multiple of `shiftwidth` and not
+" just add to it. Eg an indent of 10 spaces will become 12
+set shiftround
+
+" Timeout stuff
 set timeout
 set timeoutlen=300
 set ttimeoutlen=300
 
-" don't beep
+" Don't beep
 set visualbell
-
-" don't beep
 set noerrorbells
 
 " Save on buffer switch

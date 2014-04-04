@@ -96,11 +96,14 @@ endif
 colorscheme xoria256
 " colorscheme molokai
 
+" Set a vertical column only on the lines that bleed over
+call matchadd('ColorColumn', '\%81v', 100)
+
 " Record undo actions even after files are closed
 set undofile
 
-" Set a vertical column only on the lines that bleed over
-call matchadd('ColorColumn', '\%81v', 100)
+" Make substitution global inside a line
+set gdefault
 
 " Set the title for xterm
 set title

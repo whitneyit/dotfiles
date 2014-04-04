@@ -1,4 +1,5 @@
-let NERDTreeIgnore += ['backups', '^bundle', '\.viminfo', '^fonts']
+let NERDTreeIgnore += ['backups', '^bundle', '\.viminfo', '^fonts', 'ctrlp_cache']
 set wildignore+=*/.viminfo
 set wildignore+=*/vim/bundle/**
+set wildignore+=*/vim/plugin/ctrlp_cache/**
 set wildignore+=*/shell/fonts/**

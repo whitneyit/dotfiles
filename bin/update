@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+# Here we ensure that the user has git installed
+if [ ! $(type -P git) ]; then
+    exit
+fi
+
+# Here we loop over the contents of this directory
+for path in ./*
+do
+
+    # Here we test to see if the item that we have found is in fact a
+    # directory, and if it is, then we will cd into it.
+    if [ -d $path ]; then
+
+        # Now we can navigate into the directory in question
+        cd $path
+
+        # Now lets test to see if this is in fact a ".git" directory
+        if [ -d .git ]; then
+
+            # Update the repo
+            git pull --all --progress --verbose
+
+        fi
+
+        # Lets go back up a directory so that our loop can continue
+        cd ..
+    fi
+
+done
+
+# vim: set syn=sh :

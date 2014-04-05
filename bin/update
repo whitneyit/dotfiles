@@ -5,6 +5,11 @@ if [ ! $(type -P git) ]; then
     exit
 fi
 
+#
+function log() {
+    printf "$(tput setaf 6)%s$(tput sgr0)\n" "$@"
+}
+
 # Here we loop over the contents of this directory
 for path in ./*
 do
@@ -18,6 +23,9 @@ do
 
         # Now lets test to see if this is in fact a ".git" directory
         if [ -d .git ]; then
+
+            # Log out the fact that we are updating the repo
+            log "Updating \"$path\""
 
             # Update the repo
             git pull --all --progress --verbose

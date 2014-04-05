@@ -5,42 +5,62 @@ if [ ! $(type -P git) ]; then
     exit
 fi
 
-#
+# Here we create a method that will do the grunt work of our updates
+function do_update() {
+
+    # Log out the fact that we are updating the repo
+    log "Updating \"$PWD\""
+
+    # Update the repo
+    git pull --all --progress --verbose
+
+    # If a .gitmodules file is detected, update the submodules
+    if [ -f .gitmodules ]; then
+        git submodule update --recursive --init
+    fi
+
+}
+
+# Here we output a teal log message
 function log() {
     printf "$(tput setaf 6)%s$(tput sgr0)\n" "$@"
 }
 
-# Here we loop over the contents of this directory
-for path in ./*
-do
+# If we are inside a git repo we will update on this directory
+if [ -d .git ]; then
 
-    # Here we test to see if the item that we have found is in fact a
-    # directory, and if it is, then we will cd into it.
-    if [ -d $path ]; then
+    # Since we are in a git repo, lets just update away
+    do_update
 
-        # Now we can navigate into the directory in question
-        cd $path
+# It looks like this directory is not a git repo, lets check its children
+else
 
-        # Now lets test to see if this is in fact a ".git" directory
-        if [ -d .git ]; then
+    # Here we loop over the contents of this directory
+    for path in ./*
+    do
 
-            # Log out the fact that we are updating the repo
-            log "Updating \"$path\""
+        # Here we test to see if the item that we have found is in fact a
+        # directory, and if it is, then we will cd into it.
+        if [ -d $path ]; then
 
-            # Update the repo
-            git pull --all --progress --verbose
+            # Now we can navigate into the directory in question
+            cd $path
 
-            # If a .gitmodules file is detected, update the submodules
-            if [ -f .gitmodules ]; then
-                git submodule update --recursive --init
+            # Now lets test to see if this is in fact a ".git" directory
+            if [ -d .git ]; then
+
+                # Since we have a repo, let's update it
+                do_update
+
             fi
 
+            # Lets go back up a directory so that our loop can continue
+            cd ..
         fi
 
-        # Lets go back up a directory so that our loop can continue
-        cd ..
-    fi
+    # And finally, our loop is done
+    done
 
-done
+fi
 
 # vim: set syn=sh :

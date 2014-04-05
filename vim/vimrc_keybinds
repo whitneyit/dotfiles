@@ -98,13 +98,14 @@ nnoremap <leader>p :set paste<CR>"+p:set nopaste<CR>
 nnoremap <leader>s :set list!<CR>
 
 " Configure easymotion
-nnoremap / <Plug>(easymotion-sn)
-nnoremap n <Plug>(easymotion-next)
-nnoremap N <Plug>(easymotion-prev)
-nnoremap <Leader>h <Plug>(easymotion-linebackward)
-nnoremap <Leader>j <Plug>(easymotion-j)
-nnoremap <Leader>k <Plug>(easymotion-k)
-nnoremap <Leader>l <Plug>(easymotion-lineforward)
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+map  <Leader>h <Plug>(easymotion-linebackward)
+map  <Leader>j <Plug>(easymotion-j)
+map  <Leader>k <Plug>(easymotion-k)
+map  <Leader>l <Plug>(easymotion-lineforward)
 
 " Bind a key to hide and show the nerdtree page
 nnoremap <leader>b :NERDTreeToggle<CR>

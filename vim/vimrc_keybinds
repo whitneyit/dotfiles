@@ -35,8 +35,10 @@ nnoremap <Up>    ddkP
 " Here we create tab indentation
 nnoremap <Tab>   >>llll
 nnoremap <S-Tab> <<hhhh
-vnoremap <Tab>   >
-vnoremap <S-Tab> <
+vnoremap >       >gv
+vnoremap <       <gv
+vnoremap <Tab>   >gv
+vnoremap <S-Tab> <gv
 
 " Easy v-splitting
 nnoremap <leader>v :vsplit<CR>

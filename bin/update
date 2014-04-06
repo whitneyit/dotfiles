@@ -12,7 +12,22 @@ function do_update() {
     log "Updating \"$PWD\""
 
     # Update the repo
-    git pull --all --progress --verbose
+    CURRENT=`git rev-parse --abbrev-ref HEAD`
+
+    #
+    git fetch --all
+
+    #
+    for branch in "$@"; do
+        if ["$branch" -ne "$CURRENT"]; then
+            git checkout "$branch"
+            git pull --progress --verbose
+        fi
+    done
+
+    #
+    git checkout "$CURRENT"
+    git pull --progress --verbose
 
     # If a .gitmodules file is detected, update the submodules
     if [ -f .gitmodules ]; then
@@ -36,8 +51,7 @@ if [ -d .git ]; then
 else
 
     # Here we loop over the contents of this directory
-    for path in ./*
-    do
+    for path in ./*; do
 
         # Here we test to see if the item that we have found is in fact a
         # directory, and if it is, then we will cd into it.

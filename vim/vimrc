@@ -7,6 +7,9 @@ silent! runtime bundle/vim-pathogen/autoload/pathogen.vim
 " Call pathogen plugin management
 silent! call pathogen#infect()
 
+" This generates all the "pathogen" plugin helptags
+Helptags
+
 if has("autocmd")
 
     " Load files for specific filetypes

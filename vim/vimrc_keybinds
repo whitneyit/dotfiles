@@ -6,6 +6,9 @@ let g:mapleader=","
 " default leader key is `\` so we will just use that
 nnoremap \ ,
 
+" Here we make a mapping so that I can paste an `ezh` character
+inoremap <C-t> Ƹ
+
 " When wrapping is enabled make the motion keys behave as normal
 nnoremap j gj
 nnoremap k gk

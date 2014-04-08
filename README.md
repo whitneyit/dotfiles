@@ -57,7 +57,16 @@ git add vim/bundle/one-submodule
 # Commit the changes
 git commit -m "Add a new submodule: one-submodule"
 ```
+Also, pathogen will create `tags` for docs if they are not present. This will
+lead to your submodule always being considered **dirty**. To get around this,
+make sure that you edit the `.vim/config` file and add `ignore = dirty` to each
+of the submodule entries. Like so;
 
+```
+[submodule "vim/bundle/emmet-vim"]
+    url = https://github.com/mattn/emmet-vim.git
+    ignore = dirty
+```
 
 ## Updating git submodules
 

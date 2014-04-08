@@ -97,6 +97,9 @@ nnoremap <leader>p :set paste<CR>"+p:set nopaste<CR>
 " Define a quick way to toggle hiding/showing special characters
 nnoremap <leader>s :set list!<CR>
 
+" Bind a key to hide and show the nerdtree page
+nnoremap <leader>b :NERDTreeToggle<CR>
+
 " Configure easymotion
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
@@ -107,5 +110,4 @@ map  <Leader>j <Plug>(easymotion-j)
 map  <Leader>k <Plug>(easymotion-k)
 map  <Leader>l <Plug>(easymotion-lineforward)
 
-" Bind a key to hide and show the nerdtree page
-nnoremap <leader>b :NERDTreeToggle<CR>
+map <Leader>g <Plug>IndentGuidesToggle

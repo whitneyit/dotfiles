@@ -75,3 +75,26 @@ let g:multi_cursor_next_key='<C-f>'
 let g:multi_cursor_prev_key='<C-k>'
 let g:multi_cursor_skip_key='<C-j>'
 let g:multi_cursor_quit_key='<Esc>'
+
+" Indent Guides                                      "
+" https://github.com/nathanaelkane/vim-indent-guides "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Here we make sure the guides run on startup
+let g:indent_guides_enable_on_vim_startup = 1
+
+" This controls at which `level` of indentation to start the plugin at
+let g:indent_guides_start_level = 1
+
+" This determines how wide the guide should be. `0` makes it as wide as the
+" defined value for `shiftwidth`
+let g:indent_guides_guide_size = 0
+
+" Here we disable the auto colours and replace them with our own
+let g:indent_guides_auto_colors = 0
+
+" And he we define the colourscheme to be used
+if has("autocmd")
+    autocmd VimEnter,Colorscheme * :highlight IndentGuidesOdd  ctermbg=237
+    autocmd VimEnter,Colorscheme * :highlight IndentGuidesEven ctermbg=238
+endif

@@ -80,8 +80,8 @@ let g:multi_cursor_quit_key='<Esc>'
 " https://github.com/nathanaelkane/vim-indent-guides "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Here we make sure the guides run on startup
-let g:indent_guides_enable_on_vim_startup = 1
+" This controls whether or not we want the guides to be displayed at startup
+let g:indent_guides_enable_on_vim_startup = 0
 
 " This controls at which `level` of indentation to start the plugin at
 let g:indent_guides_start_level = 1

@@ -25,11 +25,6 @@ function e_warning() {
     printf "$(tput setaf 136)! %s$(tput sgr0)\n" "$@"
 }
 
-# Test whether we're in a git repo
-function is_git_repo() {
-    $(git rev-parse --is-inside-work-tree &> /dev/null)
-}
-
 # Check for git
 if [ ! $(type -P git) ]; then
     e_error "Aborting. Git not installed"
@@ -97,6 +92,10 @@ if [ ! -d .git ]; then
     e_header "Fetching submodules..."
     git submodule update --recursive --init
     git pull origin master --quiet
+
+    # Here we make sure that we don't track changes to the docs `tags`
+    # sed -i 's/"vim\/bundle\/snipmate.vim"]/"vim\/bundle\/snipmate.vim"]\n\tignore = dirty/' .gitmodules
+    # sed -i 's/"vim\/bundle\/vim-multiple-cursors"]/"vim\/bundle\/vim-multiple-cursors"]\n\tignore = dirty/' .gitmodules
 
     #
     e_header "Linking files..."

@@ -16,6 +16,12 @@ if [ $(os) == "CYGWIN" ]; then
     fi
 
     #
+    if [ -e /dev/clipboard ]; then
+        alias pbcopy="cat >/dev/clipboard"
+        alias pbpaste="cat /dev/clipboard"
+    fi
+
+    #
     alias open="cygstart"
 
     #

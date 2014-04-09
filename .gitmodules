@@ -56,4 +56,4 @@
 	url = https://github.com/mattn/webapi-vim
 [submodule "vim/bundle/snippets"]
 	path = vim/bundle/snippets
-	url = git@github.com:whitneyit/snippets.git
+	url = https://github.com/whitneyit/snippets.git

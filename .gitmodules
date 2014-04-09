@@ -51,3 +51,6 @@
 [submodule "vim/bundle/vim-indent-guides"]
 	path = vim/bundle/vim-indent-guides
 	url = https://github.com/nathanaelkane/vim-indent-guides.git
+[submodule "vim/bundle/webapi-vim"]
+	path = vim/bundle/webapi-vim
+	url = https://github.com/mattn/webapi-vim

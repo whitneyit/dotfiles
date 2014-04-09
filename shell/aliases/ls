@@ -35,7 +35,7 @@ function la () {
 }
 
 function ld () {
-    ls -lad */ $1 | awk "$OCTAL_PERMISSIONS"
+    ls -lad . .. */ $1 | awk "$OCTAL_PERMISSIONS"
 }
 
 function lf () {

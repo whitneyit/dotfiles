@@ -93,6 +93,10 @@ colorscheme xoria256
 " Set a vertical column only on the lines that bleed over
 call matchadd('ColorColumn', '\%81v', 100)
 
+" Determines the maximum amount of tabs to be used before we start falling
+" back to buffers
+set tabpagemax=1000
+
 " Record undo actions even after files are closed
 set undofile
 

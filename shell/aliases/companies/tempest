@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 alias tempest="cd ~/Code/tempest"
-alias storm="cd ~/Code/storm"
 
 alias tempest-ssh="ssh u-tempest@ssh2.eu1.frbit.com"
 

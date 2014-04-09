@@ -8,6 +8,9 @@
 " the registered commands by typing `:map <C-e>`
 let g:user_emmet_leader_key = '<C-e>'
 
+" Here we define our custom snippets file
+let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('$DOTFILES_DIRECTORY/vim/bundle/snippets/snippets_custom.json')), "\n"))
+
 " vim powerline                             "
 " https://github.com/Lokaltog/vim-powerline "
 """""""""""""""""""""""""""""""""""""""""""""

@@ -93,10 +93,6 @@ if [ ! -d .git ]; then
     git submodule update --recursive --init
     git pull origin master --quiet
 
-    # Here we make sure that we don't track changes to the docs `tags`
-    # sed -i 's/"vim\/bundle\/snipmate.vim"]/"vim\/bundle\/snipmate.vim"]\n\tignore = dirty/' .gitmodules
-    # sed -i 's/"vim\/bundle\/vim-multiple-cursors"]/"vim\/bundle\/vim-multiple-cursors"]\n\tignore = dirty/' .gitmodules
-
     #
     e_header "Linking files..."
     link_files $PWD

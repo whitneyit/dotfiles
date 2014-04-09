@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+alias snippets="cd ~/Code/snippets"
 alias vg="cd ~/Code/vagrant"
 
 # vim: set syn=sh :

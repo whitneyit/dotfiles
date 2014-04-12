@@ -19,6 +19,8 @@ if has("autocmd")
 
     " Ensure the correct filetypes are used
     autocmd BufNewFile,BufRead *.cshtml    set filetype=html
+    autocmd BufNewFile,BufRead *.eslintrc  set filetype=json
+    autocmd BufNewFile,BufRead *.jslintrc  set filetype=json
     autocmd BufNewFile,BufRead *.md        set filetype=markdown
     autocmd BufNewFile,BufRead *.rb        set filetype=ruby
     autocmd BufNewFile,BufRead Vagrantfile set filetype=ruby

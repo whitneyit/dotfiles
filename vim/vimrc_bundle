@@ -101,3 +101,10 @@ if has("autocmd")
     autocmd VimEnter,Colorscheme * :highlight IndentGuidesOdd  ctermbg=237
     autocmd VimEnter,Colorscheme * :highlight IndentGuidesEven ctermbg=238
 endif
+
+" Better JSON                      "
+" https://github.com/elzr/vim-json "
+""""""""""""""""""""""""""""""""""""
+
+" Disable conceal
+let g:vim_json_syntax_conceal = 0

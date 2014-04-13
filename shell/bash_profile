@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-# This value should actually be read from a tmp file somewhere
-if [ -f $HOME/.dotfiles ]; then
-    DOTFILES_DIRECTORY=$(<$HOME/.dotfiles)
+# Here we determine the location of the `.dotfiles` repo
+if [ -L $HOME/.dotfiles ]; then
+    DOTFILES_DIRECTORY=$(readlink $HOME/.dotfiles)
 else
     DOTFILES_DIRECTORY=$HOME/.dotfiles
 fi

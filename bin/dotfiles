@@ -31,87 +31,107 @@ if [ ! $(type -P git) ]; then
     exit 1
 fi
 
-#
-if [ -d $HOME/.dotfiles ]; then
-    cd $HOME/.dotfiles
-else
+# Check if the `dotfiles` repo is stored within the `.dotfiles` directory.
+if [ ! -d $HOME/.dotfiles ]; then
 
-    #
-    if [ -f $HOME/.dotfiles ]; then
-        cd $(<$HOME/.dotfiles)
-    else
+    # Test to see if there is a symbolic link to the directory. If this fails
+    # the test then we assume that there is no dotfiles repo and that this is
+    # our first time installing the repo.
+    if [ ! -L $HOME/.dotfiles ]; then
 
-        #
+        # If we are installing the repo into our `$HOME` folder, we do not want
+        # to pollute that directory with all of our crap so we will simply
+        # create a new directory named `~/.dotfiles`. This will be the directory
+        # that our code is checked out into.
         if [ $PWD == $HOME ]; then
-            mkdir .dotfiles
-            cd .dotfiles
+            mkdir $HOME/.dotfiles
+
+        # Since we are outside the `$HOME` directoy, we will create a link to
+        # this directory from `$HOME`. This way, if we `cd` into `~/.dotfiles`
+        # we can ensure that we will always end up in the correct place
         else
-            echo "${PWD%/}" > $HOME/.dotfiles
+            ln -fs $PWD $HOME/.dotfiles
         fi
 
     fi
 
 fi
 
+# Navigate into the repo
+cd $HOME/.dotfiles
+
 # Initialize the git repository if it's missing
 if [ ! -d .git ]; then
 
+    # Fetch the repo
     e_header "Fetching repo..."
-
-    #
     git clone https://github.com/whitneyit/dotfiles.git temp
 
-    #
+    # Info the user where the repo is located
     e_info "Repo located at: \"$PWD\""
 
-    #
+    # Do some fancy footwork to move the repo into this given directory. This
+    # works even if the directory is not empty, so a point of caution there...
     mv temp/.git ./.git
     rm -rf temp
 
-    #
+    # Now we restore the repo
     git reset --hard
+
+    # And remove old files
     git clean -dfx
 
-    #
+    # Since this is the first time working with the repo, we need to set some
+    # things up. It is for this reason, that we add our "local bin" directory to
+    # the `$PATH` so that we can utilise some of its methods. This wont happen
+    # every time we run a shell, this is just a once off.
     PATH="./bin:$PATH"
 
-    #
-    if [ -d $HOME/.dotfiles ]; then
-        DOTFILES_DIRECTORY=$HOME/.dotfiles
+    # Here we define a global variable that will act as the "pointer" for where
+    # our repo is located.
+    if [ -L $HOME/.dotfiles ]; then
+        DOTFILES_DIRECTORY=$(readlink $HOME/.dotfiles)
     else
-        DOTFILES_DIRECTORY=$(<$HOME/.dotfiles)
+        DOTFILES_DIRECTORY=$HOME/.dotfiles
     fi
 
-    #
+    # With the "pointer" now defined, we can `export` it.
     export DOTFILES_DIRECTORY
 
-    #
+    # Because we will be using the `link_files` method, we need to source the
+    # `utils` library.
     source ./lib/utils
 
-    #
+    # Now we can update the submodules.
     e_header "Fetching submodules..."
     git submodule update --recursive --init
+
+    # This will set the appropriate tracking refs.
     git pull origin master --quiet
 
-    #
+    # Now we can run our `link_files` script that we generate all the required
+    # symbolic links between our repo directory and the `$HOME` folder.
     e_header "Linking files..."
     link_files $PWD
 
-    #
+    # Now we modify the origin url to use our `ssh` address. We do this so that
+    # when we modify the repo we don't have to worry about passwords
     e_info "Updating origin url..."
     git remote set-url origin git@github.com:whitneyit/dotfiles.git
 
-    #
+    # And here we confirm to the User that we have completed Installing the
+    # `dotfiles` repo.
     e_success "Dotfiles update complete"
     exit
 fi
 
-#
+# We reach this point if this is not our first time running the `dotfiles`
+# command. We source all of our "libs".
 source ./lib/utils
 source ./lib/help
 source ./lib/list
 
-# Help text
+# Listn for "help" flags
 if [[ "$1" == "-h" || "$1" == "--help" ]]; then
     run_help
     exit
@@ -129,7 +149,8 @@ if [[ "$1" == "-r" || "$1" == "--remove" ]]; then
     exit
 fi
 
-# Test for known flags
+# If any other flags are passed through, we just error out. This means that we
+# cannot combine flags; once flag per request.
 for opt in $@
 do
     case $opt in
@@ -137,21 +158,22 @@ do
     esac
 done
 
-#
+# If no flags were passed in, then it is assumed that we need to "sync" the
+# repo. This means that we abandon any local changes and do a `pull`.
 e_header "Updating repo..."
 git reset --hard --quiet
 git pull origin master
 
-#
+# Look for any updates to the submodules.
 e_header "Updating submodules..."
 git submodule update --recursive --init
 git pull origin master --quiet
 
-#
+# Relink the files
 e_header "Linking files..."
 link_files $PWD
 
-#
+# And finally that's it. Repo updated!
 e_success "Dotfiles update complete"
 exit
 

@@ -14,3 +14,5 @@ Locale=en_AU
 Charset=UTF-8
 AllowBlinking=yes
 CopyAsRTF=no
+
+# vim: set syn=sh :

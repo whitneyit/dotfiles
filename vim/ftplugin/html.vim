@@ -1,4 +1,4 @@
-" EnSure that html is formatted correctly
+" Ensure that html is formatted correctly
 setlocal tabstop=4
 setlocal softtabstop=4
 setlocal shiftwidth=4

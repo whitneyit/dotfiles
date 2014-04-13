@@ -3,12 +3,24 @@
 # Only do this SSH setup if we are not in a vagrant instance
 if [ $(os) != "Vagrant" ]; then
 
-    #
+    # Here we fire up `ssh` for every shell
     ssh-agent
 
-    #
-    ssh-add ~/.ssh/james@whitney.io
-    ssh-add ~/.ssh/james.whitney@tempest.io
+    # This is a list of `ssh` keys that we will try and load up upon every shell
+    # start. They keys are given their full path so that we can load a key from
+    # any location on your device
+    declare -a keys=(
+        $HOME/.ssh/james@whitney.io
+        $HOME/.ssh/james.whitney@tempest.io
+    )
+
+    # Next we link up the keys if they exist
+    for key in "${keys[@]}"
+    do
+        if [ -f $key ]; then
+            ssh-add $key
+        fi
+    done
 
 fi
 

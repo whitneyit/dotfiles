@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-#
+# Because `cygwin` has a more enhanced version of `ls` we will target it
+# directly. The "--ignores" that you see below are just there to exclude some
+# system files that shouldn't be showing up anyways.
 if [ $(os) == "CYGWIN" ]; then
 
     alias ls="ls \

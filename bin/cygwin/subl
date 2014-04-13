@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Here we just reference the file sublime executable directly. We use `$1` to
+# pass the "filename" or "directory name" if it was provided, and the we use `&`
+# to stop the terminal waiting for a response from sublime.
 /cygdrive/c/Program\ Files/Sublime\ Text\ 3/sublime_text.exe $1 &
 
 # vim: set syn=sh :

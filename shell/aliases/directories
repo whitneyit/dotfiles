@@ -7,4 +7,5 @@ alias documents="cd ~/Documents/"
 alias dropbox="cd ~/Dropbox/"
 alias sites="cd ~/Sites/"
 alias df="cd $DOTFILES_DIRECTORY"
+
 # vim: set syn=sh :

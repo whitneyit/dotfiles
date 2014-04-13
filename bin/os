@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# Define a fallback `OS`
 LOCAL_OS="other"
 
 # Mac OS X

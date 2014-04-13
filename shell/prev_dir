@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
-if [ -f ~/.prev_dir ]; then
-    touch ~/.prev_dir
+# Here we ensure that the `.prev_dir` file is created so that our interactive
+# shells are smart about where they need to return to.
+if [ -f $HOME/.prev_dir ]; then
+    touch $HOME/.prev_dir
 fi
 
 # vim: set syn=sh :

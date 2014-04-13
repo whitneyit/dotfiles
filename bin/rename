@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-shopt -s globstar
-
-for old in ./**; do
-    new=$(echo $old | sed -e "s/$1/$2/g")
-    mv -v "$old" "$new"
-done

@@ -5,6 +5,11 @@ if [ ! $(type -P git) ]; then
     exit
 fi
 
+# Here we output a teal log message
+function log() {
+    printf "$(tput setaf 6)%s$(tput sgr0)\n" "$@"
+}
+
 # Here we create a method that will do the grunt work of our updates
 function do_update() {
 
@@ -12,21 +17,22 @@ function do_update() {
     log "Updating \"$PWD\""
 
     # Update the repo
-    CURRENT=`git rev-parse --abbrev-ref HEAD`
+    ORIGINAL=`git rev-parse --abbrev-ref HEAD`
 
-    #
+    # Here we fetch all branches
     git fetch --all
 
-    #
+    # Next we loop over the branches, check them out, and perform a `git pull`
     for branch in "$@"; do
-        if ["$branch" -ne "$CURRENT"]; then
+        if ["$branch" -ne "$ORIGINAL"]; then
             git checkout "$branch"
             git pull --progress --verbose
         fi
     done
 
-    #
-    git checkout "$CURRENT"
+    # Now we can checkout the branch that we had checked out when we first ran
+    # this method
+    git checkout "$ORIGINAL"
     git pull --progress --verbose
 
     # If a .gitmodules file is detected, update the submodules
@@ -34,11 +40,6 @@ function do_update() {
         git submodule update --recursive --init
     fi
 
-}
-
-# Here we output a teal log message
-function log() {
-    printf "$(tput setaf 6)%s$(tput sgr0)\n" "$@"
 }
 
 # If we are inside a git repo we will update on this directory

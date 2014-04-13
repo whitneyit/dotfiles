@@ -12,14 +12,17 @@ if [ $(os) == "Vagrant" ]; then
     DOTFILES_DIRECTORY="/home/vagrant/.dotfiles"
 fi
 
+# This function goes through the directory where the files were linked and moves
+# them to a defined "backup" directory that is prefixed by a timestamp.
 function backup_prev() {
 
     # Define our directories to work with
     TIMESTAMP_DIRECTORY="$(date +%Y-%m-%d_%H-%M-%S)"
     BACKUP_DIRECTORY="${DOTFILES_DIRECTORY}/${DOTFILES_BACKUP_DIRECTORY}/${TIMESTAMP_DIRECTORY}"
 
-    # If the user is spamming this button more than once per second,
-    # we should just bail now.
+    # If the user is spamming this button more than once per second, we should
+    # just bail now. What this is actually saying is if the directory already
+    # exists, (defined down to the second), when then just kill the shell.
     if [ -d ${BACKUP_DIRECTORY} ]; then
         exit
     fi
@@ -28,27 +31,26 @@ function backup_prev() {
     mkdir ${BACKUP_DIRECTORY}
 
     # Define an array of items to backup
-
     declare -a items_to_backup=(
-        .gitattributes
-        .gitconfig
-        .gitignore_global
-        .fonts
-        .curlrc
-        .bash_profile
-        .bash_logout
-        .bashrc
-        .inputrc
-        .profile
-        .minttyrc
-        .vim
-        .vimrc
+        "${TARGET_LINK_DIR}/.gitattributes"
+        "${TARGET_LINK_DIR}/.gitconfig"
+        "${TARGET_LINK_DIR}/.gitignore_global"
+        "${TARGET_LINK_DIR}/.fonts"
+        "${TARGET_LINK_DIR}/.curlrc"
+        "${TARGET_LINK_DIR}/.bash_profile"
+        "${TARGET_LINK_DIR}/.bash_logout"
+        "${TARGET_LINK_DIR}/.bashrc"
+        "${TARGET_LINK_DIR}/.inputrc"
+        "${TARGET_LINK_DIR}/.profile"
+        "${TARGET_LINK_DIR}/.minttyrc"
+        "${TARGET_LINK_DIR}/.vim"
+        "${TARGET_LINK_DIR}/.vimrc"
     )
 
     # Move all the matching items
     for item in "${items_to_backup[@]}"
     do
-        mv $HOME/$item ${BACKUP_DIRECTORY}/$item 2> /dev/null
+        mv $item ${BACKUP_DIRECTORY}/$item 2> /dev/null
     done;
 
     # If the directory is empty, we can just delete it because
@@ -63,14 +65,19 @@ function link() {
     ln -fs "${1}" "${2}"
 }
 
-#
+# Link the files from within the repo to a diven "target". We usd a variable
+# here because we don't always want to link to the `$HOME` directory.
 function link_files() {
 
+    # Here we backup any previous versions of the files. Here `$1 refers to the
+    # directory that was passed to `link_files`. This is dynamic because the
+    # repo is not located in a fixed place.
     backup_prev $1
 
+    # This is where we link all the files
     link "${1}/git/gitattributes"     "${TARGET_LINK_DIR}/.gitattributes"
     link "${1}/git/gitignore_global"  "${TARGET_LINK_DIR}/.gitignore_global"
-    link "${1}/shell/fonts/"          "${TARGET_LINK_DIR}/.fonts"
+    link "${1}/shell/fonts"           "${TARGET_LINK_DIR}/.fonts"
     link "${1}/shell/curlrc"          "${TARGET_LINK_DIR}/.curlrc"
     link "${1}/shell/bashrc"          "${TARGET_LINK_DIR}/.bashrc"
     link "${1}/shell/bash_profile"    "${TARGET_LINK_DIR}/.bash_profile"
@@ -78,16 +85,31 @@ function link_files() {
     link "${1}/shell/inputrc"         "${TARGET_LINK_DIR}/.inputrc"
     link "${1}/shell/profile"         "${TARGET_LINK_DIR}/.profile"
     link "${1}/shell/minttyrc"        "${TARGET_LINK_DIR}/.minttyrc"
-    link "${1}/vim/"                  "${TARGET_LINK_DIR}/.vim"
+    link "${1}/vim"                   "${TARGET_LINK_DIR}/.vim"
     link "${1}/vim/vimrc"             "${TARGET_LINK_DIR}/.vimrc"
 
+    # The `.gitconfig` is the only file that is not linked. This is because you
+    # may want to make edits to the file whilst keeping the repo pristine.
+    cp   "${1}/git/gitconfig"         "${TARGET_LINK_DIR}/.gitconfig"
+
+    # Here we do any `cygwin` specific links
     if [ $(os) == "CYGWIN" ]; then
+
+        # Firstly, we have to change the group so that we can actually chmod the
+        # file later.
+        chgrp Users ${TARGET_LINK_DIR}/.gitconfig
+
+        # Next, we link up the `subl` alias
         if [ ! -L "/usr/local/bin/subl" ]; then
-            link "${1}/bin/cygwin/subl"   "/usr/local/bin/subl"
+            mv /usr/local/bin/subl ${BACKUP_DIRECTORY}/$item 2> /dev/null
         fi
+
+        # Now we can link the subl file
+        link "${1}/bin/cygwin/subl" "/usr/local/bin/subl"
     fi
 
-    cp   "${1}/git/gitconfig"         "${HOME}/.gitconfig"
+    # Now we just update the permisisions on the `.gitconfig` file
+    chmod 755 ${TARGET_LINK_DIR}/.gitconfig
 
 }
 

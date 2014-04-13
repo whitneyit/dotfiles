@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+# Here we test to see if a `~/.ssh` directory has been created
+if [ ! -d $HOME/.ssh ]; then
+    echo "~/.ssh directory not found"
+    exit
+fi
+
+# This is the crux of the function. We first test to see if the user has passed
+# in any arguments. If they have not we will look for the key with the default
+# `rsa` name. If a variable was passed in, we will assume that what is being
+# passed in is the name of the key to retreive. It is important to note that we
+# will be adding the `.pub` suffix ourselves
+if [ -z "$1" ]; then
+    key=$HOME/.ssg/id_rsa.pub
+else
+    key=$HOME/.ssh/$1.pub
+fi
+
+# Now we test to see if that key exists
+if [ ! -f $key ]; then
+    echo "Key: \"$key\" not found"
+    exit
+fi
+
+# Because `cygwin` does not have `pbcopy`, we can't simply just use that. Lucky
+# for us, `cygwin` does come with a similar way of accessing the clipboard with
+# the `/dev/clipboard` file.
+if [ $(os) == "CYGWIN" ]; then
+    cat $key | cat >/dev/clipboard
+else
+    cat $key | pbcopy
+fi
+
+# Once we have copied the file, we inform the user of which key has been copied
+echo "Key: \"$key\" copied to clipboard"
+
+# vim: set syn=sh :

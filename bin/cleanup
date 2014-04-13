@@ -3,6 +3,10 @@
 # The array of files to delete
 declare -a dirts=(
     .DS_Store
+    .DS_Store?
+    desktop.ini
+    ehthumbs.db
+    Thumbs.db
 )
 
 # Recursively delete files that match a certain pattern

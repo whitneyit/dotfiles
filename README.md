@@ -12,7 +12,7 @@ of your previous files will be backed up to;
 To actually kick off the instalation run;
 
 ```bash
-$ bash -c "$(curl -fsSL https://raw.githubusercontent.com/whitneyit/dotfiles/master/bin/dotfiles)"
+$ bash -c "$(curl -fsSL https://raw.github.com/whitneyit/dotfiles/master/bin/dotfiles)"
 ```
 
 ## How to update

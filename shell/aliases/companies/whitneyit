@@ -3,6 +3,4 @@
 alias snippets="cd ~/Code/snippets"
 alias vg="cd ~/Code/vagrant"
 
-alias whitneyit-ssh="ssh whitney4@whitney.io"
-
 # vim: set syn=sh :

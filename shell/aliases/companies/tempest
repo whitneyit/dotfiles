@@ -2,6 +2,4 @@
 
 alias tempest="cd ~/Code/tempest"
 
-alias tempest-ssh="ssh u-tempest@ssh2.eu1.frbit.com"
-
 # vim: set syn=sh :

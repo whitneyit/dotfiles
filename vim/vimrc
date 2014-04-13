@@ -92,19 +92,14 @@ if has("extra_search")
 
 endif
 
+" Here we set the color of the divider to a light grey
 if v:version > 702
-
-    " Here we set the color of the divider to a light grey
     highlight ColorColumn ctermbg=235 guibg=#2c2d27
-
 endif
 
 " Determines the maximum amount of tabs to be used before we start falling
 " back to buffers
 set tabpagemax=1000
-
-" Record undo actions even after files are closed
-set undofile
 
 " Make substitution global inside a line
 set gdefault
@@ -217,9 +212,20 @@ set wildignore+=*/node_modules/**
 " Centralize backups, swapfiles and undo history
 set backupdir=$HOME/.vim/backups
 set directory=$HOME/.vim/swaps
+
+" If we are able to store undo history. Basically this allows us to record undo
+" actions even after files are closed
 if exists("&undodir")
+
+	" Set the location of where the undo files will be kept
     set undodir=$HOME/.vim/undo
+
+    " This enables the setting.
+    set undofile
+
 endif
+
+" Specify the location of the `~/.viminfo` file
 set viminfo+=n$HOME/.viminfo
 
 " Turn backup off, since most stuff is in git anyway. The above stuff is just

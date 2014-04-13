@@ -10,6 +10,10 @@ silent! call pathogen#infect()
 " This generates all the "pathogen" plugin helptags
 silent! call pathogen#helptags()
 
+" Set the colorscheme
+colorscheme xoria256
+" colorscheme molokai
+
 if has("autocmd")
 
     " Load files for specific filetypes
@@ -88,12 +92,12 @@ if has("extra_search")
 
 endif
 
-" Set the colorscheme
-colorscheme xoria256
-" colorscheme molokai
+if v:version > 702
 
-" Set a vertical column only on the lines that bleed over
-call matchadd('ColorColumn', '\%81v', 100)
+    " Here we set the color of the divider to a light grey
+    highlight ColorColumn ctermbg=235 guibg=#2c2d27
+
+endif
 
 " Determines the maximum amount of tabs to be used before we start falling
 " back to buffers

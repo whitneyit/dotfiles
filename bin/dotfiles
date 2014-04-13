@@ -76,6 +76,7 @@ if [ ! -d .git ]; then
 
     # With the "pointer" now defined, we can `export` it.
     export DOTFILES_DIRECTORY
+
     # Fetch the repo
     e_header "Fetching repo..."
     git clone https://github.com/whitneyit/dotfiles.git temp
@@ -103,6 +104,28 @@ if [ ! -d .git ]; then
     # Because we will be using the `link_files` method, we need to source the
     # `utils` library.
     source ./lib/utils
+
+    # Here we make sure that we have a `~/.bash_history` file.
+    if [ ! -f $HOME/.bash_history ]; then
+        touch $HOME/.bash_history
+    fi
+
+    # And same goes for a `~/.viminfo` file.
+    if [ ! -f $HOME/.viminfo ]; then
+        touch $HOME/.viminfo
+    fi
+
+    # We change the group on `cygwin` so we are able to change the files
+    # permissions correctly.
+    if [ $(os) == "CYGWIN" ]; then
+        chgrp Users $HOME/.bash_history
+        chgrp Users $HOME/.viminfo
+    fi
+
+    # Next we update the permissions of the two files. The main reason for doing
+    # this is so that we can work with `vagrant` more effectively.
+    chmod 755 $HOME/.bash_history
+    chmod 755 $HOME/.viminfo
 
     # Now we can update the submodules.
     e_header "Fetching submodules..."

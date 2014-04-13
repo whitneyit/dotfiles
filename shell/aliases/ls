@@ -19,7 +19,7 @@ if [ $(os) == "CYGWIN" ]; then
     --ignore='System\ Volume\ Information'"
 
 else
-    alias  ls="ls -h -G --color"
+    alias  ls="ls -h --color"
 fi
 
 # This is a command that will output a numeric versios of the file permissions

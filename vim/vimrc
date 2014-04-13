@@ -216,13 +216,13 @@ set directory=$HOME/.vim/swaps
 if exists("&undodir")
     set undodir=$HOME/.vim/undo
 endif
-set viminfo+=n$HOME/.vim/.viminfo
+set viminfo+=n$HOME/.viminfo
 
 " Turn backup off, since most stuff is in git anyway. The above stuff is just
 " so we get the folder structure correct so if we ever turn swaps on, they
 " don't pollute our local directories
 set nobackup
-set nowb
+set nowritebackup
 set noswapfile
 
 " Easier window navigation

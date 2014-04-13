@@ -6,21 +6,39 @@ if [ $(os) != "Vagrant" ]; then
     # Here we fire up `ssh` for every shell
     ssh-agent
 
-    # This is a list of `ssh` keys that we will try and load up upon every shell
-    # start. They keys are given their full path so that we can load a key from
-    # any location on your device
-    declare -a keys=(
-        $HOME/.ssh/james@whitney.io
-        $HOME/.ssh/james.whitney@tempest.io
-    )
+    # If we have a keys file defined, then we can proceed to extract them. It is
+    # important to note that this file does not contain the keys themselves,
+    # just the location of where the key is stored. You must use absolute paths
+    # when specifying the path.
+    if [ -f $HOME/.keys ]; then
 
-    # Next we link up the keys if they exist
-    for key in "${keys[@]}"
-    do
-        if [ -f $key ]; then
-            ssh-add $key
-        fi
-    done
+        # Here we save a backup to the old `Internal Feed Seperator`, and we
+        # will modify it ot only pickup on new lines.
+        OLDIFS=$IFS
+        IFS=$'\n'
+
+        # Read the file into a variable
+        file=`cat $HOME/.keys`
+
+        # Here we loop over each line in the file
+        for line in $file;  do
+
+            # Here we convert the line of the file into a real variable
+            key=$(eval echo $line)
+
+            # Here we test to see if the `key` provided by the `$HOME/.keys`
+            # file actually points to a file. If it does we will add it to the
+            # `ssh-agent`
+            if [ -f $key ]; then
+                eval ssh-add $key
+            fi
+
+        done
+
+        # Finally we restore the `$IFS` to its previous settings.
+        IFS=$OLDIFS
+
+    fi
 
 fi
 

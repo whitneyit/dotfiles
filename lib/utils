@@ -36,6 +36,7 @@ function backup_prev() {
         "${TARGET_LINK_DIR}/.gitconfig"
         "${TARGET_LINK_DIR}/.gitignore_global"
         "${TARGET_LINK_DIR}/.fonts"
+        "${TARGET_LINK_DIR}/.keys"
         "${TARGET_LINK_DIR}/.curlrc"
         "${TARGET_LINK_DIR}/.bash_profile"
         "${TARGET_LINK_DIR}/.bash_logout"
@@ -88,16 +89,19 @@ function link_files() {
     link "${1}/vim"                   "${TARGET_LINK_DIR}/.vim"
     link "${1}/vim/vimrc"             "${TARGET_LINK_DIR}/.vimrc"
 
-    # The `.gitconfig` is the only file that is not linked. This is because you
-    # may want to make edits to the file whilst keeping the repo pristine.
+    # Here we specify the files that will be copied and not linked. We do this
+    # so that the user is free to modify these files and cause no disturbance to
+    # the repo.
     cp   "${1}/git/gitconfig"         "${TARGET_LINK_DIR}/.gitconfig"
+    cp   "${1}/shell/keys"            "${TARGET_LINK_DIR}/.keys"
 
     # Here we do any `cygwin` specific links
     if [ $(os) == "CYGWIN" ]; then
 
-        # Firstly, we have to change the group so that we can actually chmod the
-        # file later.
+        # Firstly, we have to change the group on the files that we copied over
+        # so that we actually have permission to chmod them later
         chgrp Users ${TARGET_LINK_DIR}/.gitconfig
+        chgrp Users ${TARGET_LINK_DIR}/.keys
 
         # Next, we link up the `subl` alias
         if [ ! -L "/usr/local/bin/subl" ]; then
@@ -108,8 +112,9 @@ function link_files() {
         link "${1}/bin/cygwin/subl" "/usr/local/bin/subl"
     fi
 
-    # Now we just update the permisisions on the `.gitconfig` file
+    # Now we can update the permissions of our copied files
     chmod 755 ${TARGET_LINK_DIR}/.gitconfig
+    chmod 755 ${TARGET_LINK_DIR}/.keys
 
 }
 

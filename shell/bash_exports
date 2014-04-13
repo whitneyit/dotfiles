@@ -29,6 +29,8 @@ export SHELLOPTS
 # Here we define our language settings
 export LANGUAGE=en_AU.UTF-8
 export LANG=en_AU.UTF-8
-export LC_ALL=en_AU.UTF-8
+
+# Here we change the way files are sorted
+export LC_ALL="C"
 
 # vim: set syn=sh :

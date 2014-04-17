@@ -22,6 +22,10 @@ nnoremap Y y$
 " Make sure I don't enter that bullshit ex mode
 nnoremap Q <Nop>
 
+" I find the man page dialouge more harmful than useful. I never use it and
+" when it pops up, it totally ruins my train of thoght.
+nnoremap K <Nop>
+
 " Unmap the arrow keys
 nnoremap <Left>  <Nop>
 nnoremap <Right> <Nop>

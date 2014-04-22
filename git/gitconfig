@@ -6,10 +6,15 @@
     excludesfile = ~/.gitignore_global
     quotepath = false
     whitespace = space-before-tab,cr-at-eol
-[credentials]
-	helper = osxkeychain
+
 [apply]
     whitespace = error
+[credentials]
+	helper = osxkeychain
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
 [push]
     default = current
 

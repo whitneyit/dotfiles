@@ -3,6 +3,7 @@
 :iabbrev consoole   console
 :iabbrev consle     console
 :iabbrev consloe    console
+:iabbrev consoloe   console
 :iabbrev flase      false
 :iabbrev fasle      false
 :iabbrev flsae      false

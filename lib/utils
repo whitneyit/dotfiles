@@ -27,8 +27,10 @@ function backup_prev() {
         exit
     fi
 
-    # Create the timestamped backup directory
-    mkdir ${BACKUP_DIRECTORY}
+    # Create the timestamped backup directory. We use `-p` to ensure that all
+    # the directories leading up to this one is made correctly. And `-v` to see
+    # the location of the final output.
+    mkdir -pv ${BACKUP_DIRECTORY}
 
     # Define an array of items to backup
     declare -a items_to_backup=(

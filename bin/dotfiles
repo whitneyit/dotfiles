@@ -117,7 +117,7 @@ if [ ! -d .git ]; then
 
     # We change the group on `cygwin` so we are able to change the files
     # permissions correctly.
-    if [ $(os) == "CYGWIN" ]; then
+    if [ $(os) == "cygwin" ]; then
         chgrp Users $HOME/.bash_history
         chgrp Users $HOME/.viminfo
     fi

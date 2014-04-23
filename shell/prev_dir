@@ -9,7 +9,7 @@ if [ ! -f $HOME/.prev_dir ]; then
 
     # Now if we want to change the permissions on the file in `cygwin` we need
     # to first change the "group" to `Users`.
-    if [ $(os) == "CYGWIN" ]; then
+    if [ $(os) == "cygwin" ]; then
         chgrp Users $HOME/.prevdir
     fi
 

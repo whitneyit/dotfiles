@@ -7,7 +7,7 @@ DOTFILES_BACKUP_DIRECTORY="backups"
 TARGET_LINK_DIR=$HOME
 
 # If we are in a vagrant instance, we will manually override that link here
-if [ $(os) == "Vagrant" ]; then
+if [ is_vagrant == "yes" ]; then
     TARGET_LINK_DIR="/home/vagrant"
     DOTFILES_DIRECTORY="/home/vagrant/.dotfiles"
 fi
@@ -102,7 +102,7 @@ function link_files() {
     cp   "${1}/shell/keys"            "${TARGET_LINK_DIR}/.keys"
 
     # Here we do any `cygwin` specific links
-    if [ $(os) == "CYGWIN" ]; then
+    if [ $(os) == "cygwin" ]; then
 
         # Firstly, we have to change the group on the files that we copied over
         # so that we actually have permission to chmod them later

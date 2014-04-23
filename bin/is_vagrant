@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# This is not a bullet proof test but it's good enough
+if [ -d /home/vagrant ]; then
+    echo "yes"
+else
+    echo "no"
+fi
+
+# vim: set syn=sh :

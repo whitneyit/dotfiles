@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Only do this SSH setup if we are not in a vagrant instance
-if [ $(os) != "Vagrant" ]; then
+if [ is_vagrant == "no" ]; then
 
     # Here we fire up `ssh` for every shell
     ssh-agent

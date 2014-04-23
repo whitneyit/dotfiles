@@ -18,7 +18,7 @@ shopt -s nocaseglob
 shopt -s globstar
 
 # Complete foo.exe as foo, not foo.exe
-if [ $(os) == "CYGWIN" ]; then
+if [ $(os) == "cygwin" ]; then
     shopt -s completion_strip_exe
 fi
 

@@ -76,8 +76,14 @@ function link_files() {
     backup_prev $1
 
     # Here we delete the previously linked folders
-    rm ${TARGET_LINK_DIR}/.fonts
-    rm ${TARGET_LINK_DIR}/.vim
+    if [ -d ${TARGET_LINK_DIR}/.fonts ]; then
+        rm ${TARGET_LINK_DIR}/.fonts
+    fi
+
+    # Same goes for the vim folder
+    if [ -d ${TARGET_LINK_DIR}/.vim ]; then
+        rm ${TARGET_LINK_DIR}/.vim
+    fi
 
     # Now we can link up the folders without fear of recursion
     link "${1}/shell/fonts/"          "${TARGET_LINK_DIR}/.fonts"

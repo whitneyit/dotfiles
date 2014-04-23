@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ $(os) == "cygwin" ]; then
+if [ is_cygwin == "yes" ]; then
 
     # This needs to be updated to get the absolute windows style path
     open /cygdrive/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe $1

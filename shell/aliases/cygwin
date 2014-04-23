@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #
-if [ $(os) == "cygwin" ]; then
+if [ is_cygwin == "yes" ]; then
 
     #
     if [ -d /cygdrive/c ]; then

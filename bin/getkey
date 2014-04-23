@@ -26,7 +26,7 @@ fi
 # Because `cygwin` does not have `pbcopy`, we can't simply just use that. Lucky
 # for us, `cygwin` does come with a similar way of accessing the clipboard with
 # the `/dev/clipboard` file.
-if [ $(os) == "cygwin" ]; then
+if [ is_cygwin == "yes" ]; then
     cat $key | cat >/dev/clipboard
 else
     cat $key | pbcopy

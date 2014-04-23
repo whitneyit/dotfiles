@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-alias ssh-agent="eval `ssh-agent -s`"
-
-# vim: set syn=sh :

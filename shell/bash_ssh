@@ -1,10 +1,24 @@
 #!/usr/bin/env bash
 
+#
+SSH_BOOTED="no"
+
+#
+function ssh_agent() {
+
+    #
+    if [ $SSH_BOOTED == "no" ]; then
+        eval `ssh-agent -s`
+        SSH_BOOTED="yes"
+    fi
+
+}
+
 # Only do this SSH setup if we are not in a vagrant instance
 if [ is_vagrant == "no" ]; then
 
     # Here we fire up `ssh` for every shell
-    ssh-agent
+    ssh_agent
 
     # If we have a keys file defined, then we can proceed to extract them. It is
     # important to note that this file does not contain the keys themselves,

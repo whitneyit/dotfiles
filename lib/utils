@@ -66,7 +66,7 @@ function link() {
     ln -fs "${1}" "${2}"
 }
 
-# Link the files from within the repo to a diven "target". We usd a variable
+# Link the files from within the repo to a given "target". We usd a variable
 # here because we don't always want to link to the `$HOME` directory.
 function link_files() {
 
@@ -75,10 +75,17 @@ function link_files() {
     # repo is not located in a fixed place.
     backup_prev $1
 
+    # Here we delete the previously linked folders
+    rm ${TARGET_LINK_DIR}/.fonts
+    rm ${TARGET_LINK_DIR}/.vim
+
+    # Now we can link up the folders without fear of recursion
+    link "${1}/shell/fonts/"          "${TARGET_LINK_DIR}/.fonts"
+    link "${1}/vim/"                  "${TARGET_LINK_DIR}/.vim"
+
     # This is where we link all the files
     link "${1}/git/gitattributes"     "${TARGET_LINK_DIR}/.gitattributes"
     link "${1}/git/gitignore_global"  "${TARGET_LINK_DIR}/.gitignore_global"
-    link "${1}/shell/fonts"           "${TARGET_LINK_DIR}/.fonts"
     link "${1}/shell/curlrc"          "${TARGET_LINK_DIR}/.curlrc"
     link "${1}/shell/bashrc"          "${TARGET_LINK_DIR}/.bashrc"
     link "${1}/shell/bash_profile"    "${TARGET_LINK_DIR}/.bash_profile"
@@ -86,7 +93,6 @@ function link_files() {
     link "${1}/shell/inputrc"         "${TARGET_LINK_DIR}/.inputrc"
     link "${1}/shell/profile"         "${TARGET_LINK_DIR}/.profile"
     link "${1}/shell/minttyrc"        "${TARGET_LINK_DIR}/.minttyrc"
-    link "${1}/vim"                   "${TARGET_LINK_DIR}/.vim"
     link "${1}/vim/vimrc"             "${TARGET_LINK_DIR}/.vimrc"
 
     # Here we specify the files that will be copied and not linked. We do this

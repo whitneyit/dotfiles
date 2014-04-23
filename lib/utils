@@ -12,6 +12,11 @@ if [ is_vagrant == "yes" ]; then
     DOTFILES_DIRECTORY="/home/vagrant/.dotfiles"
 fi
 
+# Header logging
+function e_header() {
+    printf "$(tput setaf 5)%s$(tput sgr0)\n" "$@"
+}
+
 # Info logging
 function e_info() {
     printf "$(tput setaf 6)%s$(tput sgr0)\n" "$@"
@@ -69,7 +74,13 @@ function backup_prev() {
     # Move all the matching items
     for item in "${items_to_backup[@]}"
     do
-        mv $item ${BACKUP_DIRECTORY}/$item 2> /dev/null
+
+        # Backup the items if they exist
+        if [ -f $item ] || [ -d $item ]; then
+            e_info "Backing up item \"${item}\""
+            mv $item ${BACKUP_DIRECTORY}
+        fi
+
     done;
 
     # If the directory is empty, we can just delete it because
@@ -78,7 +89,7 @@ function backup_prev() {
         rm -rf ${BACKUP_DIRECTORY}
         e_info "No Files to backup"
     else
-        e_info "Backup located at: \"${BACKUP_DIRECTORY}\""
+        e_header "Backup located at: \"${BACKUP_DIRECTORY}\""
     fi
 }
 

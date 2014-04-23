@@ -13,9 +13,9 @@ if [ ! -f $HOME/.prev_dir ]; then
         chgrp Users $HOME/.prevdir
     fi
 
-    # Now we update the permissions on the file
-    chmod 755 $HOME/.prev_dir
-
 fi
+
+# Now we update the permissions on the file
+chmod 755 $HOME/.prev_dir
 
 # vim: set syn=sh :

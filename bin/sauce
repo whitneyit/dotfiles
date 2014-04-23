@@ -10,7 +10,8 @@ declare -a files=(
     $DOTFILES_DIRECTORY/shell/aliases/companies/*
     $DOTFILES_DIRECTORY/shell/bash_ssh
     $DOTFILES_DIRECTORY/shell/bash_prompt
-    $DOTFILES_DIRECTORY/.bash_profile.local
+    $HOME/.bashrc.local
+    $HOME/.bash_profile.local
 )
 
 # Here we define a list of bash completetion files that we will execute

@@ -12,6 +12,16 @@ if [ is_vagrant == "yes" ]; then
     DOTFILES_DIRECTORY="/home/vagrant/.dotfiles"
 fi
 
+# Info logging
+function e_info() {
+    printf "$(tput setaf 6)%s$(tput sgr0)\n" "$@"
+}
+
+# Error logging
+function e_error() {
+    printf "$(tput setaf 1)✘ %s$(tput sgr0)\n" "$@"
+}
+
 # This function goes through the directory where the files were linked and moves
 # them to a defined "backup" directory that is prefixed by a timestamp.
 function backup_prev() {
@@ -28,9 +38,15 @@ function backup_prev() {
     fi
 
     # Create the timestamped backup directory. We use `-p` to ensure that all
-    # the directories leading up to this one is made correctly. And `-v` to see
-    # the location of the final output.
-    mkdir -pv ${BACKUP_DIRECTORY}
+    # the directories leading up to this one is made correctly.
+    mkdir -p ${BACKUP_DIRECTORY}
+
+    # Test to make sure that our directory was created
+    if [ ! -d ${BACKUP_DIRECTORY} ]; then
+        e_error "Unable to create \"Backup directory\": ${BACKUP_DIRECTORY}.
+        Aborting"
+        exit
+    fi
 
     # Define an array of items to backup
     declare -a items_to_backup=(
@@ -60,6 +76,9 @@ function backup_prev() {
     # nothing was backed up
     if [ ! "$(\ls -A ${BACKUP_DIRECTORY})" ]; then
         rm -rf ${BACKUP_DIRECTORY}
+        e_info "No Files to backup"
+    else
+        e_info "Backup located at: \"${BACKUP_DIRECTORY}\""
     fi
 }
 

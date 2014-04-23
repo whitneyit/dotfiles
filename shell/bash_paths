@@ -12,6 +12,7 @@ declare -a dirs_to_append=(
     "$DOTFILES_DIRECTORY/bin"
 )
 
+# Prepend directories to PATH
 for index in "${dirs_to_prepend[@]}"
 do
     if [ -d $index ]; then
@@ -29,8 +30,10 @@ do
     fi
 done
 
+# Unset the Array variables
 unset dirs_to_prepend dirs_to_append
 
+# Export the `$PATH` variable
 export PATH
 
 # vim: set syn=sh :

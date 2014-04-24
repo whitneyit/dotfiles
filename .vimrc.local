@@ -1,4 +1,4 @@
-let NERDTreeIgnore += ['\.gitkeep', '\.viminfo', 'backups', 'bundle', 'colors', 'fonts', 'plugins', 'swaps', 'undo']
+let NERDTreeIgnore += ['\.gitkeep', '\.viminfo', 'backups', '$bundle', 'colors', 'fonts', 'plugins', 'swaps', 'undo']
 set wildignore+=*/.gitkeep
 set wildignore+=*/.viminfo
 set wildignore+=*/backups/**

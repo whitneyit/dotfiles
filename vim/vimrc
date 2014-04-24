@@ -210,15 +210,15 @@ set wildignore+=*/.vagrant/**
 set wildignore+=*/node_modules/**
 
 " Centralize backups, swapfiles and undo history
-set backupdir=$HOME/.vim/backups
-set directory=$HOME/.vim/swaps
+set backupdir=$VIM_DIRECTORY/backups
+set directory=$VIM_DIRECTORY/swaps
 
 " If we are able to store undo history. Basically this allows us to record undo
 " actions even after files are closed
 if exists("&undodir")
 
 	" Set the location of where the undo files will be kept
-    set undodir=$HOME/.vim/undo
+    set undodir=$VIM_DIRECTORY/undo
 
     " This enables the setting.
     set undofile
@@ -242,11 +242,11 @@ nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
 " Load up our other keybinds
-source $HOME/.vim/vimrc_abbr
-source $HOME/.vim/vimrc_commands
-source $HOME/.vim/vimrc_functions
-source $HOME/.vim/vimrc_keybinds
-source $HOME/.vim/vimrc_bundle
+source $VIM_DIRECTORY/vimrc_abbr
+source $VIM_DIRECTORY/vimrc_commands
+source $VIM_DIRECTORY/vimrc_functions
+source $VIM_DIRECTORY/vimrc_keybinds
+source $VIM_DIRECTORY/vimrc_bundle
 
 " Load local machine settings if they exist
 if filereadable(glob("$HOME/.vimrc.local"))

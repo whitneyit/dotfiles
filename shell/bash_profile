@@ -16,6 +16,17 @@ if [ -z "$DOTFILES_DIRECTORY" ]; then
 
 fi
 
+# We do the same thing for our `$VIM_DIRECTORY`
+if [ -z "$VIM_DIRECTORY" ]; then
+
+    # Unless defined elsewhere, we will use the default location for our folder
+    VIM_DIRECTORY=$HOME/.vim
+
+    # Now we make the variable globally accesible
+    export VIM_DIRECTORY
+
+fi
+
 # And here we boot of the scripts
 source $DOTFILES_DIRECTORY/bin/sauce
 

@@ -1,14 +1,20 @@
 #!/usr/bin/env bash
 
-# Here we determine the location of the `.dotfiles` repo
-if [ -L $HOME/.dotfiles ]; then
-    DOTFILES_DIRECTORY=$(readlink $HOME/.dotfiles)
-else
-    DOTFILES_DIRECTORY=$HOME/.dotfiles
-fi
+# Here we only set the `$DOTFILES_DIRECTORY` if it is undefined. This allows us
+# to define the location in a "unlinked" `.bash_profile` file.
+if [ -z "$DOTFILES_DIRECTORY" ]; then
 
-# Now we make the variable globally accesible
-export DOTFILES_DIRECTORY
+    # Here we determine the location of the `.dotfiles` repo
+    if [ -L $HOME/.dotfiles ]; then
+        DOTFILES_DIRECTORY=$(readlink $HOME/.dotfiles)
+    else
+        DOTFILES_DIRECTORY=$HOME/.dotfiles
+    fi
+
+    # Now we make the variable globally accesible
+    export DOTFILES_DIRECTORY
+
+fi
 
 # And here we boot of the scripts
 source $DOTFILES_DIRECTORY/bin/sauce

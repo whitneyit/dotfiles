@@ -5,35 +5,61 @@ if [ ! $(type -P git) ]; then
     exit
 fi
 
-# Here we output a teal log message
-function log() {
+# Header logging
+function e_header() {
+    printf "$(tput setaf 5)%s$(tput sgr0)\n" "$@"
+}
+
+# Info logging
+function e_info() {
     printf "$(tput setaf 6)%s$(tput sgr0)\n" "$@"
 }
 
 # Here we create a method that will do the grunt work of our updates
 function do_update() {
 
-    # Log out the fact that we are updating the repo
-    log "Updating \"$PWD\""
-
     # Update the repo
     ORIGINAL=`git rev-parse --abbrev-ref HEAD`
 
-    # Here we fetch all branches
-    git fetch --all
+    #
+    BRANCHES=()
+    eval "$(git for-each-ref --shell --format='BRANCHES+=(%(refname:short))' refs/heads/)"
 
-    # Next we loop over the branches, check them out, and perform a `git pull`
-    for branch in "$@"; do
-        if ["$branch" -ne "$ORIGINAL"]; then
-            git checkout "$branch"
-            git pull --progress --verbose
+    #
+    CHANGED="no"
+
+    # Log out the fact that we are updating this branch
+    e_header "Updating \"$PWD\""
+
+    # Next we loop over the branches
+    for BRANCH in "${BRANCHES[@]}"; do
+        if [ $BRANCH != $ORIGINAL ]; then
+
+            #
+            CHANGED="yes"
+
+            # Log out the fact that we are updating this branch
+            e_info "Updating \"$BRANCH\""
+
+            # Here we `checkout` the branch in the loop
+            git checkout "$BRANCH"
+
+            # And finally lets do a pull
+            git pull origin "$BRANCH" --progress --verbose
         fi
     done
 
     # Now we can checkout the branch that we had checked out when we first ran
     # this method
-    git checkout "$ORIGINAL"
-    git pull --progress --verbose
+    if [ $CHANGED == "yes" ]; then
+        git checkout $ORIGINAL
+    fi
+
+    # Finally we log out the fact that we are updating our original branch
+    e_info "Updating \"$ORIGINAL\""
+
+    # And now we update the original branch
+    git pull origin "$ORIGINAL" --progress --verbose
 
     # If a .gitmodules file is detected, update the submodules
     if [ -f .gitmodules ]; then

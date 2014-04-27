@@ -27,16 +27,16 @@ nnoremap Q <Nop>
 nnoremap K <Nop>
 
 " Unmap the arrow keys
-nnoremap <Left>  <Nop>
-nnoremap <Right> <Nop>
-inoremap <Left>  <Nop>
+nnoremap <Left>  zH
+nnoremap <Right> zL
+inoremap <Left>  zH
 inoremap <Down>  <Nop>
 inoremap <Up>    <Nop>
-inoremap <Right> <nop>
-vnoremap <Left>  <Nop>
+inoremap <Right> zL
+vnoremap <Left>  zH
 vnoremap <Down>  <Nop>
 vnoremap <Up>    <Nop>
-vnoremap <Right> <Nop>
+vnoremap <Right> zL
 
 " Here up and down will switch the lines
 nnoremap <Down>  ddp

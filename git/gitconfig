@@ -1,11 +1,15 @@
 [user]
     name = James Whitney
     email = james@whitney.io
+
 [core]
     editor = vim
     excludesfile = ~/.gitignore_global
     quotepath = false
     whitespace = space-before-tab,cr-at-eol
+
+[alias]
+    unchangeable = !git ls-files -v | grep ^[a-z]
 
 [apply]
     whitespace = error

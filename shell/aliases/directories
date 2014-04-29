@@ -1,11 +1,20 @@
 #!/usr/bin/env bash
 
-alias code="cd ~/Code/"
+# This is just a quick way of jumping up directories
+alias ..="cd ../"
+alias ...="cd ../../"
+alias ....="cd ../../../"
+alias .....="cd ../../../../"
+
+# Quickly jump to some system folders
 alias desktop="cd ~/Desktop/"
 alias downloads="cd ~/Downloads/"
 alias documents="cd ~/Documents/"
 alias dropbox="cd ~/Dropbox/"
 alias sites="cd ~/Sites/"
+
+# And now dev folders
+alias code="cd ~/Code/"
 alias df="cd $DOTFILES_DIRECTORY"
 
 # vim: set syn=sh :

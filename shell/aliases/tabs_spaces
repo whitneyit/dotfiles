@@ -1,11 +1,5 @@
 #!/usr/bin/env bash
 
-# This is just a quick way of jumping up directories
-alias ..="cd ../"
-alias ...="cd ../../"
-alias ....="cd ../../../"
-alias .....="cd ../../../../"
-
 # Quick way to convert spaces to tabs, and vicer versa
 alias s2ta="find ./ -type f -exec sed -i 's/    /\t/g' {} \;"
 alias t2sa="find ./ -type f -exec sed -i 's/\t/    /g' {} \;"
@@ -13,9 +7,5 @@ alias t2sa="find ./ -type f -exec sed -i 's/\t/    /g' {} \;"
 # Use this command for a single file, and the above, for a collection
 alias  s2t="sed -i 's/    /\t/g'"
 alias  t2s="sed -i 's/\t/    /g'"
-
-# Allow my windows muscle memmory to be a bit more forgiving
-alias cls="clear"
-alias dir="ls -la"
 
 # vim: set syn=sh :

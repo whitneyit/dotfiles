@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# Because we are going to curry some arguments, we save references here
+FILENAME=$1
+FROM=$2
+TO=$3
+
+# If the final argument was omitted we double up and use the second argument.
+if [ -z $TO ]; then
+    TO=$FROM
+fi
+
+# Here we "dump" the lines into a temp file
+sed -n "$FROM,$TO p" $FILENAME > temp_dump
+
+# Now we output the contents of the file to the terminal
+cat temp_dump
+
+# And finally remove the file
+rm temp_dump
+
+# vim: set syn=sh :

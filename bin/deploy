@@ -3,7 +3,7 @@
 # Here we check for the pressence of a `deploy` file, and if one is found we
 # run whatever script it contains
 if [ -f ./deploy ]; then
-    bash ./deploy
+    bash ./deploy "$@"
 else
     echo "No deploy file found"
 fi

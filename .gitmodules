@@ -45,9 +45,6 @@
 [submodule "vim/bundle/vim-css-color"]
 	path = vim/bundle/vim-css-color
 	url = https://github.com/ap/vim-css-color
-[submodule "vim/bundle/repmo"]
-	path = vim/bundle/repmo
-	url = https://github.com/vim-scripts/repmo.vim
 [submodule "vim/bundle/vim-indent-guides"]
 	path = vim/bundle/vim-indent-guides
 	url = https://github.com/nathanaelkane/vim-indent-guides.git

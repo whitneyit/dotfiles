@@ -113,4 +113,5 @@ alias  gmcs="gcms"
 alias  glsg="glgs"
 alias glsga="glgsa"
 
+# vim: set tw=0 :
 # vim: set syn=sh :

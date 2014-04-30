@@ -20,7 +20,7 @@ function! StripTrailingWhitespace()
     call Preserve("%s/\\s\\+$//e")
 endfunction
 
-" Rempoves those fancy characters from MSWord etc
+" Removes those fancy characters from MSWord etc
 function! RemoveFancyCharacters()
     let typo = {}
     let typo["“"] = '"'

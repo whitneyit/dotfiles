@@ -235,18 +235,12 @@ set nobackup
 set nowritebackup
 set noswapfile
 
-" Easier window navigation
-nmap <C-h> <C-w>h
-nmap <C-j> <C-w>j
-nmap <C-k> <C-w>k
-nmap <C-l> <C-w>l
-
 " Load up our other keybinds
+source $VIM_DIRECTORY/vimrc_bundle
 source $VIM_DIRECTORY/vimrc_abbr
 source $VIM_DIRECTORY/vimrc_commands
 source $VIM_DIRECTORY/vimrc_functions
-source $VIM_DIRECTORY/vimrc_keybinds
-source $VIM_DIRECTORY/vimrc_bundle
+source $VIM_DIRECTORY/vimrc_mappings
 
 " Load local machine settings if they exist
 if filereadable(glob("$HOME/.vimrc.local"))

@@ -12,9 +12,9 @@ inoremap <C-t> Ƹ
 " When wrapping is enabled make the motion keys behave as normal
 nnoremap j gj
 nnoremap k gk
-nnoremap $ g$
-nnoremap 0 g0
-nnoremap ^ g^
+nnoremap $ <End>
+nnoremap 0 <Home>
+nnoremap ^ <Home>^
 
 " Here me way `Y` behave to the end of the line similar to `A`, `S`, `C` etc
 nnoremap Y y$
@@ -25,6 +25,12 @@ nnoremap Q <Nop>
 " I find the man page dialouge more harmful than useful. I never use it and
 " when it pops up, it totally ruins my train of thoght.
 nnoremap K <Nop>
+
+" Easier window navigation
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
 
 " Unmap the arrow keys
 nnoremap <Left>  zH

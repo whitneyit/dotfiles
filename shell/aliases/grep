@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Makes using `grep` all that much easier
-alias  grp="grep -ir"
-alias grpl="grep -irl"
+alias  grp="grep --color -ir"
+alias grpl="grep --color -irl"
 
 # vim: set syn=sh :

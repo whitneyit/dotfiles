@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 
-# Makes using `grep` all that much easier
-alias  grp="grep --color -ir"
-alias grpl="grep --color -irl"
+# Makes using `grep` all that much easier. Where;
+# i: case insensitive
+# r: recursive
+# F: makes grep search with a string instead of regex
+# l: list of filenames instead of contexts
+alias  grp="grep --color -irF"
+alias grpl="grep --color -irFl"
 
 # vim: set syn=sh :

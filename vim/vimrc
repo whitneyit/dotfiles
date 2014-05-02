@@ -98,6 +98,10 @@ if v:version > 702
     highlight ColorColumn ctermbg=235 guibg=#2c2d27
 endif
 
+" Allows scrolling and a few other things to work. Though I don't condone
+" using a mouse, it helps with the *ACCIDENTAL* mouse usage
+set mouse=a
+
 " Determines the maximum amount of tabs to be used before we start falling
 " back to buffers
 set tabpagemax=1000

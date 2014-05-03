@@ -214,6 +214,16 @@ set wildignore+=*/.git/**
 set wildignore+=*/.vagrant/**
 set wildignore+=*/node_modules/**
 
+" Nor these filetypes
+set wildignore+=*.gif
+set wildignore+=*.jpg
+set wildignore+=*.png
+set wildignore+=*.svg
+set wildignore+=*.eot
+set wildignore+=*.otf
+set wildignore+=*.ttf
+set wildignore+=*.woff
+
 " Centralize backups, swapfiles and undo history
 set backupdir=$VIM_DIRECTORY/backups
 set directory=$VIM_DIRECTORY/swaps

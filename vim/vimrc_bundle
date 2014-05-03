@@ -38,7 +38,7 @@ let NERDTreeShowHidden = 1
 " In `.vimrc` we have the ability to load a `.vimrc.local` per project, using
 " that technique we should hide and show folders on a case by case basis. This
 " just works similar to a `.global_gitignore` file expect with RegEx instea
-let NERDTreeIgnore = ['\.git$', '\.vagrant$', 'node_modules']
+let NERDTreeIgnore = ['\.git$', '\.vagrant$', 'node_modules', '\.gif$', '\.jpg$', '\.png$', '\.svg$', '\.eot$', '\.otf$', '\.ttf$', '\.woff$']
 
 " Easy motion                                "
 " https://github.com/Lokaltog/vim-easymotion "

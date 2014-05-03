@@ -99,8 +99,10 @@ if v:version > 702
 endif
 
 " Allows scrolling and a few other things to work. Though I don't condone
-" using a mouse, it helps with the *ACCIDENTAL* mouse usage
-set mouse=a
+" using a mouse, it helps with the *ACCIDENTAL* mouse usage. I had to turn if
+" off though. I kept hitting the trackpad on my Surface and it just started to
+" piss me off after a while
+" set mouse=a
 
 " Determines the maximum amount of tabs to be used before we start falling
 " back to buffers

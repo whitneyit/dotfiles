@@ -26,11 +26,11 @@ nnoremap Q <Nop>
 " when it pops up, it totally ruins my train of thoght.
 nnoremap K <Nop>
 
-" Easier window navigation
-nmap <C-h> <C-w>h
-nmap <C-j> <C-w>j
-nmap <C-k> <C-w>k
-nmap <C-l> <C-w>l
+" Here we make easier window navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " Unmap the arrow keys
 nnoremap <Left>  zH
@@ -65,16 +65,6 @@ nnoremap <leader>2 :vertical resize -5<CR>
 nnoremap <leader>3 <C-w>=<CR>
 nnoremap <leader>4 :vertical resize +5<CR>
 nnoremap <leader>5 :vertical resize +20<CR>
-
-" Here we make easier window navigation
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-nnoremap <C-H> <C-W>h<C-W>_
-nnoremap <C-J> <C-W>j<C-W>_
-nnoremap <C-K> <C-W>k<C-W>_
-nnoremap <C-L> <C-W>l<C-W>_
 
 " Basic tab operation
 nnoremap <leader>t :tabnew<CR>

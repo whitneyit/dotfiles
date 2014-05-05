@@ -201,6 +201,10 @@ set autowrite
 " Hide 'invisible' characters
 set nolist
 
+" Causes the split windows to be focuses upon open
+set splitbelow
+set splitright
+
 " Set characters used to indicate 'invisible' characters
 set listchars=tab:▸\-
 set listchars+=trail:·

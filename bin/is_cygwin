@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # This is not a bullet proof test but it's good enough
-if [ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ]; then
+if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
     echo "yes"
 else
     echo "no"

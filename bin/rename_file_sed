@@ -3,6 +3,6 @@
 # This loop recursed through the current directory and all child directories and
 # renames the file based upon a matching sed pattern.
 for old in ./**; do
-    new=$(echo $old | sed -e "s/$1/$2/g")
+    new=$(echo "$old" | sed -e "s/$1/$2/g")
     mv -v "$old" "$new"
 done

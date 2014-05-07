@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Here we ensure that the user has git installed
-if [ ! $(type -P git) ]; then
+if [ ! "$(type -P git)" ]; then
     exit
 fi
 
@@ -33,7 +33,7 @@ function do_update() {
 
     # Next we loop over the branches
     for BRANCH in "${BRANCHES[@]}"; do
-        if [ $BRANCH != $ORIGINAL ]; then
+        if [ $BRANCH != "$ORIGINAL" ]; then
 
             #
             CHANGED="yes"
@@ -52,7 +52,7 @@ function do_update() {
     # Now we can checkout the branch that we had checked out when we first ran
     # this method
     if [ $CHANGED == "yes" ]; then
-        git checkout $ORIGINAL
+        git checkout "$ORIGINAL"
     fi
 
     # Finally we log out the fact that we are updating our original branch
@@ -82,10 +82,10 @@ else
 
         # Here we test to see if the item that we have found is in fact a
         # directory, and if it is, then we will cd into it.
-        if [ -d $path ]; then
+        if [ -d "$path" ]; then
 
             # Now we can navigate into the directory in question
-            cd $path
+            cd "$path"
 
             # Now lets test to see if this is in fact a ".git" directory
             if [ -d .git ]; then

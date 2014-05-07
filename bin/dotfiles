@@ -26,31 +26,32 @@ function e_warning() {
 }
 
 # Check for git
-if [ ! $(type -P git) ]; then
+if [ ! "$(type -P git)" ]; then
     e_error "Aborting. Git not installed"
     exit 1
 fi
 
 # Check if the `dotfiles` repo is stored within the `.dotfiles` directory.
-if [ ! -d $HOME/.dotfiles ]; then
+if [ ! -d "$HOME/.dotfiles" ]; then
 
     # Test to see if there is a symbolic link to the directory. If this fails
     # the test then we assume that there is no dotfiles repo and that this is
     # our first time installing the repo.
-    if [ ! -L $HOME/.dotfiles ]; then
+    if [ ! -L "$HOME/.dotfiles" ]; then
 
         # If we are installing the repo into our `$HOME` folder, we do not want
         # to pollute that directory with all of our crap so we will simply
         # create a new directory named `~/.dotfiles`. This will be the directory
         # that our code is checked out into.
-        if [ $PWD == $HOME ]; then
-            mkdir $HOME/.dotfiles
+        if [ "$PWD" == "$HOME" ]; then
+            mkdir "$HOME/.dotfiles"
+        fi
 
         # Since we are outside the `$HOME` directoy, we will create a link to
         # this directory from `$HOME`. This way, if we `cd` into `~/.dotfiles`
         # we can ensure that we will always end up in the correct place
         else
-            ln -fs $PWD $HOME/.dotfiles
+            ln -fs "$PWD" "$HOME/.dotfiles"
         fi
 
     fi

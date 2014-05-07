@@ -221,6 +221,7 @@ set wildignore+=*/.vagrant/**
 set wildignore+=*/node_modules/**
 
 " Nor these filetypes
+set wildignore+=*.DS_Store
 set wildignore+=*.gif
 set wildignore+=*.jpg
 set wildignore+=*.png

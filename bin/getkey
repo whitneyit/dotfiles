@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # Here we test to see if a `~/.ssh` directory has been created
-if [ ! -d $HOME/.ssh ]; then
-    echo "~/.ssh directory not found"
+if [ ! -d "$HOME/.ssh" ]; then
+    echo "$HOME/.ssh directory not found"
     exit
 fi
 
@@ -18,18 +18,18 @@ else
 fi
 
 # Now we test to see if that key exists
-if [ ! -f $key ]; then
+if [ ! -f "$key" ]; then
     echo "Key: \"$key\" not found"
     exit
 fi
 
 # Because `cygwin` does not have `pbcopy`, we can't simply just use that. Lucky
-# for us, `cygwin` does come with a similar way of accessing the clipboard with
+# for us, it does come with a similar way of accessing the clipboard with
 # the `/dev/clipboard` file.
-if [ is_cygwin == "yes" ]; then
-    cat $key | cat >/dev/clipboard
+if [ "$(is_cygwin)" == "yes" ]; then
+    cat "$key" > /dev/clipboard
 else
-    cat $key | pbcopy
+    pbcopy < "$key"
 fi
 
 # Once we have copied the file, we inform the user of which key has been copied

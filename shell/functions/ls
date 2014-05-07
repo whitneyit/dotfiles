@@ -20,7 +20,7 @@ if [ is_cygwin == "yes" ]; then
     --ignore='System\ Volume\ Information'"
 
 else
-    alias  ls="ls -h --color"
+    alias  ls="ls -h -G"
 fi
 
 # This is a command that will output a numeric versios of the file permissions

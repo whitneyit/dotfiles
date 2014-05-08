@@ -146,14 +146,6 @@ function link_files() {
         # so that we actually have permission to chmod them later
         chgrp Users $TARGET_LINK_DIR/.gitconfig
         chgrp Users $TARGET_LINK_DIR/.keys
-
-        # Next, we link up the `subl` alias
-        if [ ! -L "/usr/local/bin/subl" ]; then
-            mv /usr/local/bin/subl "$BACKUP_DIRECTORY"/$item 2> /dev/null
-        fi
-
-        # Now we can link the subl file
-        link "${1}/bin/cygwin/subl" "/usr/local/bin/subl"
     fi
 
     # Now we can update the permissions of our copied files

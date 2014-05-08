@@ -21,7 +21,7 @@ if [ "$(is_cygwin)" == "yes" ]; then
             --ignore="NTUSER*" \
             --ignore="\$Recycle\.Bin" \
             --ignore="\$RECYCLE\.BIN" \
-            --ignore="System\ Volume\ Information"
+            --ignore="System\ Volume\ Information" \
             "$1"
     }
 

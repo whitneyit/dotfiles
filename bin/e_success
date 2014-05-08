@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# Success logging
+printf "$(tput setaf 2)✔ %s$(tput sgr0)\n" "$@"
+
+# vim: set syn=sh :

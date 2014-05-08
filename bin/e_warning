@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# Warning logging
+printf "$(tput setaf 136)! %s$(tput sgr0)\n" "$@"
+
+# vim: set syn=sh :

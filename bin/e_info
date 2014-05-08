@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# Info logging
+printf "$(tput setaf 6)%s$(tput sgr0)\n" "$@"
+
+# vim: set syn=sh :

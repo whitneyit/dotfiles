@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
+# Error logging
+function e_error() {
+    printf "$(tput setaf 1)✘ %s$(tput sgr0)\n" "$@"
+}
+
 # Header logging
 function e_header() {
     printf "$(tput setaf 5)%s$(tput sgr0)\n" "$@"
-}
-
-# Success logging
-function e_success() {
-    printf "$(tput setaf 2)✔ %s$(tput sgr0)\n" "$@"
 }
 
 # Info logging
@@ -15,9 +15,9 @@ function e_info() {
     printf "$(tput setaf 6)%s$(tput sgr0)\n" "$@"
 }
 
-# Error logging
-function e_error() {
-    printf "$(tput setaf 1)✘ %s$(tput sgr0)\n" "$@"
+# Success logging
+function e_success() {
+    printf "$(tput setaf 2)✔ %s$(tput sgr0)\n" "$@"
 }
 
 # Warning logging

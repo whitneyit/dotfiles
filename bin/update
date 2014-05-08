@@ -5,16 +5,6 @@ if [ ! "$(type -P git)" ]; then
     exit
 fi
 
-# Header logging
-function e_header() {
-    printf "$(tput setaf 5)%s$(tput sgr0)\n" "$@"
-}
-
-# Info logging
-function e_info() {
-    printf "$(tput setaf 6)%s$(tput sgr0)\n" "$@"
-}
-
 # Here we create a method that will do the grunt work of our updates
 function do_update() {
 

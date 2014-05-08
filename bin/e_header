@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# Header logging
+printf "$(tput setaf 5)%s$(tput sgr0)\n" "$@"
+
+# vim: set syn=sh :

@@ -12,21 +12,6 @@ if [ "$(is_vagrant)" == "yes" ]; then
     DOTFILES_DIRECTORY="/home/vagrant/.dotfiles"
 fi
 
-# Header logging
-function e_header() {
-    printf "$(tput setaf 5)%s$(tput sgr0)\n" "$@"
-}
-
-# Info logging
-function e_info() {
-    printf "$(tput setaf 6)%s$(tput sgr0)\n" "$@"
-}
-
-# Error logging
-function e_error() {
-    printf "$(tput setaf 1)✘ %s$(tput sgr0)\n" "$@"
-}
-
 # This function goes through the directory where the files were linked and moves
 # them to a defined "backup" directory that is prefixed by a timestamp.
 function backup_prev() {

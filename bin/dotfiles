@@ -45,7 +45,6 @@ if [ ! -d "$HOME/.dotfiles" ]; then
         # that our code is checked out into.
         if [ "$PWD" == "$HOME" ]; then
             mkdir "$HOME/.dotfiles"
-        fi
 
         # Since we are outside the `$HOME` directoy, we will create a link to
         # this directory from `$HOME`. This way, if we `cd` into `~/.dotfiles`

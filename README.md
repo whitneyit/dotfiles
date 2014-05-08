@@ -27,8 +27,6 @@ Run the dotfiles command:
 $ dotfiles
 ```
 
-```
-
 Options:
 
 <table>

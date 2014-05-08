@@ -3,7 +3,20 @@
 # Because `cygwin` has a more enhanced version of `ls` we will target it
 # directly. The "--ignores" that you see below are just there to exclude some
 # system files that shouldn't be showing up anyways.
-if [ "$(is_cygwin)" == "yes" ]; then
+if [ "$(os)" == "mac" ]; then
+
+    #
+    function list () {
+
+        #
+        command ls\
+            -h \
+            -G \
+            "$1"
+    }
+
+#
+else
 
     #
     function list () {
@@ -22,19 +35,6 @@ if [ "$(is_cygwin)" == "yes" ]; then
             --ignore="\$Recycle\.Bin" \
             --ignore="\$RECYCLE\.BIN" \
             --ignore="System\ Volume\ Information" \
-            "$1"
-    }
-
-#
-else
-
-    #
-    function list () {
-
-        #
-        command ls\
-            -h \
-            -G \
             "$1"
     }
 

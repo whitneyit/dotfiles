@@ -17,7 +17,7 @@ export HISTFILESIZE=10000
 export HISTSIZE=10000
 
 # This gives history entries a matching timestamp
-export HISTTIMEFORMAT="%Y-%m-%y %T  "
+export HISTTIMEFORMAT="%Y-%m-%d %T  "
 
 # Make new shells get the history lines from all previous
 # shells instead of the default "last window closed" history

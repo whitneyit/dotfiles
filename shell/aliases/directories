@@ -15,6 +15,11 @@ alias sites="cd ~/Sites/"
 
 # And now dev folders
 alias code="cd ~/Code/"
+alias setup="cd ~/Code/setup"
+alias snippets="cd ~/Code/snippets"
+alias vg="cd ~/Code/vagrant"
+
+# And finally lets make an alias back to this repo
 alias df="cd $DOTFILES_DIRECTORY"
 
 # vim: set syn=sh :

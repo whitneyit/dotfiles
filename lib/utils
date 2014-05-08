@@ -125,7 +125,7 @@ function link_files() {
     cp   "${1}/shell/keys"            "$TARGET_LINK_DIR/.keys"
 
     # Here we do any `cygwin` specific links
-    if [ "$(is_cygwin)" == "yes" ]; then
+    if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
 
         # Firstly, we have to change the group on the files that we copied over
         # so that we actually have permission to chmod them later

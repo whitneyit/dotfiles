@@ -169,12 +169,6 @@ if [[ "$1" == "-l" || "$1" == "--list" ]]; then
     exit
 fi
 
-# Remove the exists symlinks
-if [[ "$1" == "-r" || "$1" == "--remove" ]]; then
-    run_remove
-    exit
-fi
-
 # If any other flags are passed through, we just error out. This means that we
 # cannot combine flags; once flag per request.
 for opt in "$@"

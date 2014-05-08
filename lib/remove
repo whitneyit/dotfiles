@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-function run_remove() {
-
-}
-
-# vim: set syn=sh :

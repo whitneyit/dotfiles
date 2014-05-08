@@ -15,7 +15,7 @@ function ssh_agent() {
 }
 
 # Only do this SSH setup if we are not in a vagrant instance
-if [ is_vagrant == "no" ]; then
+if [ $(is_vagrant) == "no" ]; then
 
     # Here we fire up `ssh` for every shell
     ssh_agent

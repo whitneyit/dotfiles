@@ -19,7 +19,7 @@ function e_info() {
 function do_update() {
 
     # Update the repo
-    ORIGINAL=`git rev-parse --abbrev-ref HEAD`
+    ORIGINAL=$(git rev-parse --abbrev-ref HEAD)
 
     #
     BRANCHES=()

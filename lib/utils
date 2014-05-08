@@ -7,7 +7,7 @@ DOTFILES_BACKUP_DIRECTORY="backups"
 TARGET_LINK_DIR=$HOME
 
 # If we are in a vagrant instance, we will manually override that link here
-if [ is_vagrant == "yes" ]; then
+if [ "$(is_vagrant)" == "yes" ]; then
     TARGET_LINK_DIR="/home/vagrant"
     DOTFILES_DIRECTORY="/home/vagrant/.dotfiles"
 fi
@@ -33,42 +33,42 @@ function backup_prev() {
 
     # Define our directories to work with
     TIMESTAMP_DIRECTORY="$(date +%Y-%m-%d_%H-%M-%S)"
-    BACKUP_DIRECTORY="${DOTFILES_DIRECTORY}/${DOTFILES_BACKUP_DIRECTORY}/${TIMESTAMP_DIRECTORY}"
+    BACKUP_DIRECTORY="$DOTFILES_DIRECTORY/$DOTFILES_BACKUP_DIRECTORY/$TIMESTAMP_DIRECTORY"
 
     # If the user is spamming this button more than once per second, we should
     # just bail now. What this is actually saying is if the directory already
     # exists, (defined down to the second), when then just kill the shell.
-    if [ -d ${BACKUP_DIRECTORY} ]; then
+    if [ -d "$BACKUP_DIRECTORY" ]; then
         exit
     fi
 
     # Create the timestamped backup directory. We use `-p` to ensure that all
     # the directories leading up to this one is made correctly.
-    mkdir -p ${BACKUP_DIRECTORY}
+    mkdir -p "$BACKUP_DIRECTORY"
 
     # Test to make sure that our directory was created
-    if [ ! -d ${BACKUP_DIRECTORY} ]; then
-        e_error "Unable to create \"Backup directory\": ${BACKUP_DIRECTORY}.
+    if [ ! -d "$BACKUP_DIRECTORY" ]; then
+        e_error "Unable to create \"Backup directory\": $BACKUP_DIRECTORY.
         Aborting"
         exit
     fi
 
     # Define an array of items to backup
     declare -a items_to_backup=(
-        "${TARGET_LINK_DIR}/.gitattributes"
-        "${TARGET_LINK_DIR}/.gitconfig"
-        "${TARGET_LINK_DIR}/.gitignore_global"
-        "${TARGET_LINK_DIR}/.fonts"
-        "${TARGET_LINK_DIR}/.keys"
-        "${TARGET_LINK_DIR}/.curlrc"
-        "${TARGET_LINK_DIR}/.bash_profile"
-        "${TARGET_LINK_DIR}/.bash_logout"
-        "${TARGET_LINK_DIR}/.bashrc"
-        "${TARGET_LINK_DIR}/.inputrc"
-        "${TARGET_LINK_DIR}/.profile"
-        "${TARGET_LINK_DIR}/.minttyrc"
-        "${TARGET_LINK_DIR}/.vim"
-        "${TARGET_LINK_DIR}/.vimrc"
+        "$TARGET_LINK_DIR/.gitattributes"
+        "$TARGET_LINK_DIR/.gitconfig"
+        "$TARGET_LINK_DIR/.gitignore_global"
+        "$TARGET_LINK_DIR/.fonts"
+        "$TARGET_LINK_DIR/.keys"
+        "$TARGET_LINK_DIR/.curlrc"
+        "$TARGET_LINK_DIR/.bash_profile"
+        "$TARGET_LINK_DIR/.bash_logout"
+        "$TARGET_LINK_DIR/.bashrc"
+        "$TARGET_LINK_DIR/.inputrc"
+        "$TARGET_LINK_DIR/.profile"
+        "$TARGET_LINK_DIR/.minttyrc"
+        "$TARGET_LINK_DIR/.vim"
+        "$TARGET_LINK_DIR/.vimrc"
     )
 
     # Move all the matching items
@@ -78,18 +78,18 @@ function backup_prev() {
         # Backup the items if they exist
         if [ -f $item ] || [ -d $item ]; then
             e_info "Backing up item \"${item}\""
-            mv $item ${BACKUP_DIRECTORY}
+            mv $item "$BACKUP_DIRECTORY"
         fi
 
     done;
 
     # If the directory is empty, we can just delete it because
     # nothing was backed up
-    if [ ! "$(\ls -A ${BACKUP_DIRECTORY})" ]; then
-        rm -rf ${BACKUP_DIRECTORY}
+    if [ ! "$(command ls -A "$BACKUP_DIRECTORY")" ]; then
+        rm -rf "$BACKUP_DIRECTORY"
         e_info "No Files to backup"
     else
-        e_header "Backup located at: \"${BACKUP_DIRECTORY}\""
+        e_header "Backup located at: \"$BACKUP_DIRECTORY\""
     fi
 }
 
@@ -105,51 +105,51 @@ function link_files() {
     # Here we backup any previous versions of the files. Here `$1 refers to the
     # directory that was passed to `link_files`. This is dynamic because the
     # repo is not located in a fixed place.
-    backup_prev $1
+    backup_prev "$1"
 
     # Here we delete the previously linked folders
-    if [ -d ${TARGET_LINK_DIR}/.fonts ]; then
-        rm ${TARGET_LINK_DIR}/.fonts
+    if [ -d $TARGET_LINK_DIR/.fonts ]; then
+        rm $TARGET_LINK_DIR/.fonts
     fi
 
     # Same goes for the vim folder
-    if [ -d ${TARGET_LINK_DIR}/.vim ]; then
-        rm ${TARGET_LINK_DIR}/.vim
+    if [ -d $TARGET_LINK_DIR/.vim ]; then
+        rm $TARGET_LINK_DIR/.vim
     fi
 
     # Now we can link up the folders without fear of recursion
-    link "${1}/shell/fonts/"          "${TARGET_LINK_DIR}/.fonts"
-    link "${1}/vim/"                  "${TARGET_LINK_DIR}/.vim"
+    link "${1}/shell/fonts/"          "$TARGET_LINK_DIR/.fonts"
+    link "${1}/vim/"                  "$TARGET_LINK_DIR/.vim"
 
     # This is where we link all the files
-    link "${1}/git/gitattributes"     "${TARGET_LINK_DIR}/.gitattributes"
-    link "${1}/git/gitignore_global"  "${TARGET_LINK_DIR}/.gitignore_global"
-    link "${1}/shell/curlrc"          "${TARGET_LINK_DIR}/.curlrc"
-    link "${1}/shell/bashrc"          "${TARGET_LINK_DIR}/.bashrc"
-    link "${1}/shell/bash_profile"    "${TARGET_LINK_DIR}/.bash_profile"
-    link "${1}/shell/bash_logout"     "${TARGET_LINK_DIR}/.bash_logout"
-    link "${1}/shell/inputrc"         "${TARGET_LINK_DIR}/.inputrc"
-    link "${1}/shell/profile"         "${TARGET_LINK_DIR}/.profile"
-    link "${1}/shell/minttyrc"        "${TARGET_LINK_DIR}/.minttyrc"
-    link "${1}/vim/vimrc"             "${TARGET_LINK_DIR}/.vimrc"
+    link "${1}/git/gitattributes"     "$TARGET_LINK_DIR/.gitattributes"
+    link "${1}/git/gitignore_global"  "$TARGET_LINK_DIR/.gitignore_global"
+    link "${1}/shell/curlrc"          "$TARGET_LINK_DIR/.curlrc"
+    link "${1}/shell/bashrc"          "$TARGET_LINK_DIR/.bashrc"
+    link "${1}/shell/bash_profile"    "$TARGET_LINK_DIR/.bash_profile"
+    link "${1}/shell/bash_logout"     "$TARGET_LINK_DIR/.bash_logout"
+    link "${1}/shell/inputrc"         "$TARGET_LINK_DIR/.inputrc"
+    link "${1}/shell/profile"         "$TARGET_LINK_DIR/.profile"
+    link "${1}/shell/minttyrc"        "$TARGET_LINK_DIR/.minttyrc"
+    link "${1}/vim/vimrc"             "$TARGET_LINK_DIR/.vimrc"
 
     # Here we specify the files that will be copied and not linked. We do this
     # so that the user is free to modify these files and cause no disturbance to
     # the repo.
-    cp   "${1}/git/gitconfig"         "${TARGET_LINK_DIR}/.gitconfig"
-    cp   "${1}/shell/keys"            "${TARGET_LINK_DIR}/.keys"
+    cp   "${1}/git/gitconfig"         "$TARGET_LINK_DIR/.gitconfig"
+    cp   "${1}/shell/keys"            "$TARGET_LINK_DIR/.keys"
 
     # Here we do any `cygwin` specific links
-    if [ is_cygwin == "yes" ]; then
+    if [ "$(is_cygwin)" == "yes" ]; then
 
         # Firstly, we have to change the group on the files that we copied over
         # so that we actually have permission to chmod them later
-        chgrp Users ${TARGET_LINK_DIR}/.gitconfig
-        chgrp Users ${TARGET_LINK_DIR}/.keys
+        chgrp Users $TARGET_LINK_DIR/.gitconfig
+        chgrp Users $TARGET_LINK_DIR/.keys
 
         # Next, we link up the `subl` alias
         if [ ! -L "/usr/local/bin/subl" ]; then
-            mv /usr/local/bin/subl ${BACKUP_DIRECTORY}/$item 2> /dev/null
+            mv /usr/local/bin/subl "$BACKUP_DIRECTORY"/$item 2> /dev/null
         fi
 
         # Now we can link the subl file
@@ -157,8 +157,8 @@ function link_files() {
     fi
 
     # Now we can update the permissions of our copied files
-    chmod 755 ${TARGET_LINK_DIR}/.gitconfig
-    chmod 755 ${TARGET_LINK_DIR}/.keys
+    chmod 755 $TARGET_LINK_DIR/.gitconfig
+    chmod 755 $TARGET_LINK_DIR/.keys
 
 }
 

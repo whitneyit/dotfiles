@@ -59,7 +59,7 @@ if [ ! -d "$HOME/.dotfiles" ]; then
 fi
 
 # Navigate into the repo
-cd $HOME/.dotfiles
+cd "$HOME/.dotfiles"
 
 # Initialize the git repository if it's missing
 if [ ! -d .git ]; then
@@ -69,10 +69,10 @@ if [ ! -d .git ]; then
     # symbolically linked to another location, and if it is, that will be the
     # value for `$DOTFILES_DIRECTORY`. Otherwise it must be in the fallback
     # location of `$HOME/.dotfiles`
-    if [ -L $HOME/.dotfiles ]; then
-        DOTFILES_DIRECTORY=$(readlink $HOME/.dotfiles)
+    if [ -L "$HOME/.dotfiles" ]; then
+        DOTFILES_DIRECTORY=$(readlink "$HOME/.dotfiles")
     else
-        DOTFILES_DIRECTORY=$HOME/.dotfiles
+        DOTFILES_DIRECTORY="$HOME/.dotfiles"
     fi
 
     # With the "pointer" now defined, we can `export` it.
@@ -107,26 +107,26 @@ if [ ! -d .git ]; then
     source ./lib/utils
 
     # Here we make sure that we have a `~/.bash_history` file.
-    if [ ! -f $HOME/.bash_history ]; then
-        touch $HOME/.bash_history
+    if [ ! -f "$HOME/.bash_history" ]; then
+        touch "$HOME/.bash_history"
     fi
 
     # And same goes for a `~/.viminfo` file.
-    if [ ! -f $HOME/.viminfo ]; then
-        touch $HOME/.viminfo
+    if [ ! -f "$HOME/.viminfo" ]; then
+        touch "$HOME/.viminfo"
     fi
 
     # We change the group on `cygwin` so we are able to change the files
     # permissions correctly.
-    if [ is_cygwin == "yes" ]; then
-        chgrp Users $HOME/.bash_history
-        chgrp Users $HOME/.viminfo
+    if [ "$(is_cygwin)" == "yes" ]; then
+        chgrp Users "$HOME/.bash_history"
+        chgrp Users "$HOME/.viminfo"
     fi
 
     # Next we update the permissions of the two files. The main reason for doing
     # this is so that we can work with `vagrant` more effectively.
-    chmod 755 $HOME/.bash_history
-    chmod 755 $HOME/.viminfo
+    chmod 755 "$HOME/.bash_history"
+    chmod 755 "$HOME/.viminfo"
 
     # Now we can update the submodules.
     e_header "Fetching submodules..."
@@ -138,7 +138,7 @@ if [ ! -d .git ]; then
     # Now we can run our `link_files` script that we generate all the required
     # symbolic links between our repo directory and the `$HOME` folder.
     e_header "Linking files..."
-    link_files $PWD
+    link_files "$PWD"
 
     # Now we modify the origin url to use our `ssh` address. We do this so that
     # when we modify the repo we don't have to worry about passwords
@@ -177,7 +177,7 @@ fi
 
 # If any other flags are passed through, we just error out. This means that we
 # cannot combine flags; once flag per request.
-for opt in $@
+for opt in "$@"
 do
     case $opt in
         -*|--*) e_warning "Warning: invalid option $opt" ;;
@@ -197,7 +197,7 @@ git pull origin master --quiet
 
 # Relink the files
 e_header "Linking files..."
-link_files $PWD
+link_files "$PWD"
 
 # And finally that's it. Repo updated!
 e_success "Dotfiles update complete"

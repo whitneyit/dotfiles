@@ -23,9 +23,6 @@ export HISTTIMEFORMAT="%Y-%m-%d %T  "
 # shells instead of the default "last window closed" history
 export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
-# This enables shell options
-export SHELLOPTS
-
 # Here we define our language settings
 export LANGUAGE=en_AU.UTF-8
 export LANG=en_AU.UTF-8

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
 # Here we just source the `.bash_profile` file instead
-[ -n "$PS1" ] && source $HOME/.bash_profile
+[ -n "$PS1" ] && source "$HOME/.bash_profile"
 
 # vim: set syn=sh :

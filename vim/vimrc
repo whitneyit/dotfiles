@@ -186,6 +186,9 @@ set shiftwidth=4
 " just add to it. Eg an indent of 10 spaces will become 12
 set shiftround
 
+" Don't enforce a `soft` wrapping size
+set textwidth=0
+
 " Timeout stuff
 set timeout
 set timeoutlen=300

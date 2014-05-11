@@ -22,15 +22,12 @@ if has("autocmd")
     filetype plugin on
 
     " Ensure the correct filetypes are used
-    autocmd BufNewFile,BufRead *.cshtml    set filetype=html
-    autocmd BufNewFile,BufRead *.*rc       set filetype=json
-    autocmd BufNewFile,BufRead *.aj        set filetype=java
-    autocmd BufNewFile,BufRead *.md        set filetype=markdown
-    autocmd BufNewFile,BufRead *.rb        set filetype=ruby
-    autocmd BufNewFile,BufRead Vagrantfile set filetype=ruby
-
-    " Automatically strip trailing whitespace on file save
-    autocmd BufWritePre * :call StripTrailingWhitespace()
+    autocmd BufNewFile,BufRead .*rc         set filetype=json
+    autocmd BufNewFile,BufRead *.cshtml     set filetype=html
+    autocmd BufNewFile,BufRead *.aj         set filetype=java
+    autocmd BufNewFile,BufRead *.md         set filetype=markdown
+    autocmd BufNewFile,BufRead *.rb         set filetype=ruby
+    autocmd BufNewFile,BufRead Vagrantfile  set filetype=ruby
 
 endif
 
@@ -173,20 +170,9 @@ set smartindent
 " Copy the previous indentation on autoindenting
 set copyindent
 
-" Convert tab to spaces
-set expandtab
-
-" Define some default tab widths
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-
 " When using `>` and `<`, this will indent to multiple of `shiftwidth` and not
 " just add to it. Eg an indent of 10 spaces will become 12
 set shiftround
-
-" Don't enforce a `soft` wrapping size
-set textwidth=0
 
 " Timeout stuff
 set timeout

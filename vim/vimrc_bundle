@@ -113,3 +113,10 @@ endif
 
 " Disable conceal
 let g:vim_json_syntax_conceal = 0
+
+" Editor Config                                "
+" https://github.com/editorconfig/editorconfig "
+""""""""""""""""""""""""""""""""""""""""""""""""
+
+"
+let g:EditorConfig_verbose = 1

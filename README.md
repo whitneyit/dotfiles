@@ -66,27 +66,6 @@ of the submodule entries. Like so;
     ignore = dirty
 ```
 
-Further more, one of the vim repos `vim-css-color` does an amazing job of
-colouring CSS colours inline so you can make sense of hex codes etc. One down
-side that I have found with with repo is that it also adds color to HTML files
-which I find more annoying than useful. If you want to disable it like I have,
-the easiest option that I have found is this:
-
-```bash
-cd $DOTFILES_DIRECTORY/vim/bundle/vim-css-color
-git update-index --assume-unchanged after/syntax/html.vim
-rm after/syntax/html.vim
-```
-
-What we just did, is remove the file, and tell git to stop tracking any further
-changes that happen to the file. To revert this run the following:
-
-```bash
-cd $DOTFILES_DIRECTORY/vim/bundle/vim-css-color
-git update-index --no-assume-unchanged after/syntax/html.vim
-git checkout after/syntax/html.vim
-```
-
 ## Updating git submodules
 
 Updating individual submodules within the superproject:

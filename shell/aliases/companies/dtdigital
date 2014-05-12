@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+alias tumblr="cd ~/Code/tumblr"
+
+# vim: set syn=sh :

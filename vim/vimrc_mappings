@@ -35,10 +35,10 @@ nnoremap <C-l> <C-w>l
 " Unmap the arrow keys
 nnoremap <Left>  zH
 nnoremap <Right> zL
-inoremap <Left>  zH
+inoremap <Left>  <Esc>zHi
 inoremap <Down>  <Nop>
 inoremap <Up>    <Nop>
-inoremap <Right> zL
+inoremap <Right> <Esc>zLi
 vnoremap <Left>  zH
 vnoremap <Down>  <Nop>
 vnoremap <Up>    <Nop>

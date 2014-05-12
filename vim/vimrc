@@ -29,6 +29,9 @@ if has("autocmd")
     autocmd BufNewFile,BufRead *.rb         set filetype=ruby
     autocmd BufNewFile,BufRead Vagrantfile  set filetype=ruby
 
+    " Open all folds when we load a file
+    autocmd VimEnter    * exe "normal zR"
+    autocmd BufReadPost * exe "normal zR"
 endif
 
 if has("syntax")

@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
 # Directories to be prepended to PATH
+# Ensure that this bin always takes precedence over `/usr/bin`
 declare -a dirs_to_prepend=(
-    "/usr/local/bin" # Ensure that this bin always takes precedence over `/usr/bin`
+    "/usr/local/bin"
 )
 
 # Directories to be appended to PATH
@@ -31,7 +32,8 @@ do
 done
 
 # Unset the Array variables
-unset dirs_to_prepend dirs_to_append
+unset dirs_to_prepend
+unset dirs_to_append
 
 # Export the `$PATH` variable
 export PATH

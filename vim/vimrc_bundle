@@ -118,5 +118,5 @@ let g:vim_json_syntax_conceal = 0
 " https://github.com/editorconfig/editorconfig "
 """"""""""""""""""""""""""""""""""""""""""""""""
 
-"
+" Enable verbose mode
 let g:EditorConfig_verbose = 1

@@ -120,3 +120,6 @@ let g:vim_json_syntax_conceal = 0
 
 " Enable verbose mode
 let g:EditorConfig_verbose = 1
+
+" Specify our custom handler
+let g:EditorConfig_exec_path = 'editorconfig_pre'

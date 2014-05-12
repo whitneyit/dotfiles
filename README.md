@@ -40,6 +40,20 @@ Options:
         </tr>
 </table>
 
+## NOTE
+
+For the `editorconfig` vim plugin to work under cygwin, you need to do the
+following;
+
+```
+cp /cygdrive/c/Chocolatey/bin/editorconfig ~/
+dos2unix ~/editorconfig
+mv ~/editorconfig /cygdrive/c/Chocolatey/bin/
+```
+
+This will give the file the correct line endings so that cygwin won't chuch a
+hissy fit when it tries to run the file
+
 ## Adding new git submodules
 
 If you want to add more git submodules, e.g., Vim plugins to be managed by

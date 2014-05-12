@@ -32,21 +32,19 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" Unmap the arrow keys
+" Map the arrow keys to reposition the viewport
 nnoremap <Left>  zH
+nnoremap <Down>  <C-e>
+nnoremap <Up>    <C-y>
 nnoremap <Right> zL
 inoremap <Left>  <Esc>zHi
-inoremap <Down>  <Nop>
-inoremap <Up>    <Nop>
+inoremap <Down>  <Esc><C-e>i
+inoremap <Up>    <Esc><C-y>i
 inoremap <Right> <Esc>zLi
 vnoremap <Left>  zH
-vnoremap <Down>  <Nop>
-vnoremap <Up>    <Nop>
+vnoremap <Down>  <C-e>
+vnoremap <Up>    <C-y>
 vnoremap <Right> zL
-
-" Here up and down will switch the lines
-nnoremap <Down>  ddp
-nnoremap <Up>    ddkP
 
 " Here we create tab indentation
 nnoremap <Tab>   >>llll

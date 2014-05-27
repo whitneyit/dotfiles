@@ -208,6 +208,7 @@ set wildmode=list:longest
 
 " Make sure these directories are not included in the results panel
 set wildignore+=*/.git/**
+set wildignore+=*/.sass-cache/**
 set wildignore+=*/.vagrant/**
 set wildignore+=*/node_modules/**
 

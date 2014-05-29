@@ -86,8 +86,8 @@ function link() {
 
     # Adjust the permissions of the files
     if [ "$(is_cygwin)" == "yes" ]; then
-        sudo chmod 755 "$2"
-        sudo chown vagrant:vagrant "$2"
+        chmod 755 "$2"
+        chown vagrant:vagrant "$2"
     else
         chmod 755 "$2"
     fi
@@ -138,15 +138,20 @@ function link_files() {
     # Here we do any `cygwin` specific links
     if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
 
-        # Firstly, we have to change the group on the files that we copied over
-        # so that we actually have permission to chmod them later
-        chgrp Users $TARGET_LINK_DIR/.gitconfig
-        chgrp Users $TARGET_LINK_DIR/.keys
+        chgrp Users "$TARGET_LINK_DIR/.gitconfig"
+        chgrp Users "$TARGET_LINK_DIR/.keys"
+
+    # And now `vagrant` specific links
+    elif [ -d /home/vagrant ]; then
+
+        chown vagrant:vagrant "$TARGET_LINK_DIR/.gitconfig"
+        chown vagrant:vagrant "$TARGET_LINK_DIR/.keys"
+
     fi
 
-    # Now we can update the permissions of our copied files
-    chmod 755 $TARGET_LINK_DIR/.gitconfig
-    chmod 755 $TARGET_LINK_DIR/.keys
+    # Now lets change the file permissions
+    chmod 755 "$TARGET_LINK_DIR/.gitconfig"
+    chmod 755 "$TARGET_LINK_DIR/.keys"
 
 }
 

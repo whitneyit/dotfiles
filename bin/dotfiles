@@ -118,12 +118,19 @@ if [ ! -d .git ]; then
     # We change the group on `cygwin` so we are able to change the files
     # permissions correctly.
     if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
+
         chgrp Users "$HOME/.bash_history"
         chgrp Users "$HOME/.viminfo"
+
+    # And here we do the same for `vagrant`
+    elif [ -d /home/vagrant ]; then
+
+        chown vagrant:vagrant "$HOME/.bash_history"
+        chown vagrant:vagrant "$HOME/.viminfo"
+
     fi
 
-    # Next we update the permissions of the two files. The main reason for doing
-    # this is so that we can work with `vagrant` more effectively.
+    # Next we update the permissions of the two files.
     chmod 755 "$HOME/.bash_history"
     chmod 755 "$HOME/.viminfo"
 

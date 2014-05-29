@@ -115,23 +115,31 @@ if [ ! -d .git ]; then
         touch "$HOME/.viminfo"
     fi
 
+    # As well as `~/.prev_dir
+    if [ ! -f "$HOME/.prev_dir" ]; then
+        touch "$HOME/.prev_dir"
+    fi
+
     # We change the group on `cygwin` so we are able to change the files
     # permissions correctly.
     if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
 
         chgrp Users "$HOME/.bash_history"
+        chgrp Users "$HOME/.prev_dir"
         chgrp Users "$HOME/.viminfo"
 
     # And here we do the same for `vagrant`
     elif [ -d /home/vagrant ]; then
 
         chown vagrant:vagrant "$HOME/.bash_history"
+        chown vagrant:vagrant "$HOME/.prev_dir"
         chown vagrant:vagrant "$HOME/.viminfo"
 
     fi
 
     # Next we update the permissions of the two files.
     chmod 755 "$HOME/.bash_history"
+    chmod 755 "$HOME/.prev_dir"
     chmod 755 "$HOME/.viminfo"
 
     # Now we can update the submodules.

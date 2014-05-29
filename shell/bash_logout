@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Record the previous directory
-pwd > ~/.prev_dir
+pwd > "$HOME/.prev_dir"
 
 # when leaving the console clear the screen to increase privacy
 if [ "$SHLVL" = 1 ]; then

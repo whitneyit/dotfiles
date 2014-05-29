@@ -80,7 +80,18 @@ function backup_prev() {
 
 # Force create/replace symbolic symlink.
 function link() {
-    ln -fs "${1}" "${2}"
+
+    # Link the file
+    ln -fs "$1" "$2"
+
+    # Adjust the permissions of the files
+    if [ "$(is_cygwin)" == "yes" ]; then
+        sudo chmod 755 "$2"
+        sudo chown vagrant:vagrant "$2"
+    else
+        chmod 755 "$2"
+    fi
+
 }
 
 # Link the files from within the repo to a given "target". We usd a variable
@@ -103,26 +114,26 @@ function link_files() {
     fi
 
     # Now we can link up the folders without fear of recursion
-    link "${1}/shell/fonts/"          "$TARGET_LINK_DIR/.fonts"
-    link "${1}/vim/"                  "$TARGET_LINK_DIR/.vim"
+    link "$1/shell/fonts/"          "$TARGET_LINK_DIR/.fonts"
+    link "$1/vim/"                  "$TARGET_LINK_DIR/.vim"
 
     # This is where we link all the files
-    link "${1}/git/gitattributes"     "$TARGET_LINK_DIR/.gitattributes"
-    link "${1}/git/gitignore_global"  "$TARGET_LINK_DIR/.gitignore_global"
-    link "${1}/shell/curlrc"          "$TARGET_LINK_DIR/.curlrc"
-    link "${1}/shell/bashrc"          "$TARGET_LINK_DIR/.bashrc"
-    link "${1}/shell/bash_profile"    "$TARGET_LINK_DIR/.bash_profile"
-    link "${1}/shell/bash_logout"     "$TARGET_LINK_DIR/.bash_logout"
-    link "${1}/shell/inputrc"         "$TARGET_LINK_DIR/.inputrc"
-    link "${1}/shell/profile"         "$TARGET_LINK_DIR/.profile"
-    link "${1}/shell/minttyrc"        "$TARGET_LINK_DIR/.minttyrc"
-    link "${1}/vim/vimrc"             "$TARGET_LINK_DIR/.vimrc"
+    link "$1/git/gitattributes"     "$TARGET_LINK_DIR/.gitattributes"
+    link "$1/git/gitignore_global"  "$TARGET_LINK_DIR/.gitignore_global"
+    link "$1/shell/curlrc"          "$TARGET_LINK_DIR/.curlrc"
+    link "$1/shell/bashrc"          "$TARGET_LINK_DIR/.bashrc"
+    link "$1/shell/bash_profile"    "$TARGET_LINK_DIR/.bash_profile"
+    link "$1/shell/bash_logout"     "$TARGET_LINK_DIR/.bash_logout"
+    link "$1/shell/inputrc"         "$TARGET_LINK_DIR/.inputrc"
+    link "$1/shell/profile"         "$TARGET_LINK_DIR/.profile"
+    link "$1/shell/minttyrc"        "$TARGET_LINK_DIR/.minttyrc"
+    link "$1/vim/vimrc"             "$TARGET_LINK_DIR/.vimrc"
 
     # Here we specify the files that will be copied and not linked. We do this
     # so that the user is free to modify these files and cause no disturbance to
     # the repo.
-    cp   "${1}/git/gitconfig"         "$TARGET_LINK_DIR/.gitconfig"
-    cp   "${1}/shell/keys"            "$TARGET_LINK_DIR/.keys"
+    cp   "$1/git/gitconfig"         "$TARGET_LINK_DIR/.gitconfig"
+    cp   "$1/shell/keys"            "$TARGET_LINK_DIR/.keys"
 
     # Here we do any `cygwin` specific links
     if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then

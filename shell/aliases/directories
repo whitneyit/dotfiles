@@ -15,9 +15,10 @@ alias sites="cd ~/Sites/"
 
 # And now dev folders
 alias code="cd ~/Code/"
-alias setup="cd ~/Code/setup"
-alias snippets="cd ~/Code/snippets"
-alias vg="cd ~/Code/vagrant"
+alias dev="cd ~/Dev/"
+alias setup="cd ~/Code/setup/"
+alias snippets="cd ~/Code/snippets/"
+alias vg="cd ~/Code/vagrant/"
 
 # And finally lets make an alias back to this repo
 function df() {

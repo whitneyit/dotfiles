@@ -85,11 +85,8 @@ function link() {
     ln -fs "$1" "$2"
 
     # Adjust the permissions of the files
-    if [ "$(is_cygwin)" == "yes" ]; then
-        chmod 755 "$2"
-        chown vagrant:vagrant "$2"
-    else
-        chmod 755 "$2"
+    if [ "$(is_vagrant)" == "yes" ]; then
+        chown -h vagrant:vagrant "$2"
     fi
 
 }

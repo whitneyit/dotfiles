@@ -26,6 +26,7 @@ if has("autocmd")
     autocmd BufNewFile,BufRead *.cshtml     set filetype=html
     autocmd BufNewFile,BufRead *.aj         set filetype=java
     autocmd BufNewFile,BufRead *.md         set filetype=markdown
+    autocmd BufNewFile,BufRead *.ngdoc      set filetype=markdown
     autocmd BufNewFile,BufRead *.rb         set filetype=ruby
     autocmd BufNewFile,BufRead Vagrantfile  set filetype=ruby
 

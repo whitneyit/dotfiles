@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-alias science="cd ~/Code/science"
-alias tumblr="cd ~/Code/tumblr"
-
-# vim: set syn=sh :

@@ -40,6 +40,9 @@ if has("syntax")
     " Enable syntax highlighting
     syntax on
 
+    " Remove the matching paren highlighting. It keeps trolling me
+    highlight clear MatchParen
+
     " Set 256 color terminal support
     set t_Co=256
 

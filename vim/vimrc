@@ -22,7 +22,6 @@ if has("autocmd")
     filetype plugin on
 
     " Ensure the correct filetypes are used
-    autocmd BufNewFile,BufRead .*rc         set filetype=json
     autocmd BufNewFile,BufRead *.cshtml     set filetype=html
     autocmd BufNewFile,BufRead *.aj         set filetype=java
     autocmd BufNewFile,BufRead *.md         set filetype=markdown
@@ -30,9 +29,14 @@ if has("autocmd")
     autocmd BufNewFile,BufRead *.rb         set filetype=ruby
     autocmd BufNewFile,BufRead Vagrantfile  set filetype=ruby
 
+    " Here we alias files like `.jshintrc`, then we fallback for `.bashrc`
+    autocmd BufNewFile,BufRead .*rc         set filetype=json
+    autocmd BufNewFile,BufRead .bashrc      set filetype=sh
+
     " Open all folds when we load a file
     autocmd VimEnter    * exe "normal zR"
     autocmd BufReadPost * exe "normal zR"
+
 endif
 
 if has("syntax")

@@ -40,6 +40,11 @@ let NERDTreeShowHidden = 1
 " just works similar to a `.global_gitignore` file expect with RegEx instea
 let NERDTreeIgnore = ['\.git$', '\.sass-cache$', '\.vagrant$', 'node_modules', '\.DS_Store', '\.gif$', '\.jpg$', '\.png$', '\.svg$', '\.eot$', '\.otf$', '\.ttf$', '\.woff$']
 
+" Close NERDTree if its the last window left open
+if has("autocmd")
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+endif
+
 " Easy motion                                "
 " https://github.com/Lokaltog/vim-easymotion "
 """"""""""""""""""""""""""""""""""""""""""""""

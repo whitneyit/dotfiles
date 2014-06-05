@@ -21,8 +21,6 @@ alias snippets="cd ~/Code/snippets/"
 alias vg="cd ~/Code/vagrant/"
 
 # And finally lets make an alias back to this repo
-function df() {
-    cd "$DOTFILES_DIRECTORY"
-}
+alias df="cd "$DOTFILES_DIRECTORY""
 
 # vim: set syn=sh :

@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
 
+# Here we create aliases for the various vagrant commands. In the `directories`
+# file we defined an alias to jump to the vagrant dev folder; `vg`, so we can't
+# use that alias
 alias vd="vagrant destroy"
 alias vh="vagrant halt"
 alias vi="vagrant init"
 alias vp="vagrant provision"
+alias vr="vagrant reload"
 alias vs="vagrant ssh"
 alias vu="vagrant up"
 

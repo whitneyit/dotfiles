@@ -11,4 +11,7 @@ alias vr="vagrant reload"
 alias vs="vagrant ssh"
 alias vu="vagrant up"
 
+# Creates an alias to download my "portable" `Vagrantfile`
+alias portable="wget https://raw.github.com/whitneyit/vagrant/master/dist/portable/new/Vagrantfile"
+
 # vim: set syn=sh :

@@ -33,6 +33,9 @@ if has("autocmd")
     autocmd BufNewFile,BufRead .*rc         set filetype=json
     autocmd BufNewFile,BufRead .bashrc      set filetype=sh
 
+    " Add filetype support for .jshintignore and eslintignore files
+    autocmd BufNewFile,BufRead .*lintignore set filetype=conf
+
     " Open all folds when we load a file
     autocmd VimEnter    * exe "normal zR"
     autocmd BufReadPost * exe "normal zR"

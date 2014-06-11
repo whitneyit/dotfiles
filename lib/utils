@@ -54,6 +54,7 @@ function backup_prev() {
         "$TARGET_LINK_DIR/.minttyrc"
         "$TARGET_LINK_DIR/.vim"
         "$TARGET_LINK_DIR/.vimrc"
+        "$TARGET_LINK_DIR/.wgetrc"
     )
 
     # Move all the matching items
@@ -124,6 +125,7 @@ function link_files() {
     link "$1/shell/inputrc"         "$TARGET_LINK_DIR/.inputrc"
     link "$1/shell/profile"         "$TARGET_LINK_DIR/.profile"
     link "$1/shell/minttyrc"        "$TARGET_LINK_DIR/.minttyrc"
+    link "$1/shell/wgetrc"          "$TARGET_LINK_DIR/.wgetrc"
     link "$1/vim/vimrc"             "$TARGET_LINK_DIR/.vimrc"
 
     # Here we specify the files that will be copied and not linked. We do this

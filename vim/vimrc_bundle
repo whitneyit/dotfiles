@@ -32,18 +32,20 @@ let g:NERDTreeDirArrows = 1
 let g:NERDTreeWinSize = 40
 
 " Make NERDTree show hidden files
-let NERDTreeShowHidden = 1
+let g:NERDTreeShowHidden = 1
 
 " Hide certain files/folders from NERDTree.
 " In `.vimrc` we have the ability to load a `.vimrc.local` per project, using
 " that technique we should hide and show folders on a case by case basis. This
 " just works similar to a `.global_gitignore` file expect with RegEx instea
-let NERDTreeIgnore = ['\.git$', '\.sass-cache$', '\.vagrant$', 'node_modules', '\.DS_Store', '\.gif$', '\.jpg$', '\.png$', '\.svg$', '\.eot$', '\.otf$', '\.ttf$', '\.woff$']
+let g:NERDTreeIgnore = ['\.git$', '\.sass-cache$', '\.vagrant$', 'node_modules', '\.DS_Store', '\.gif$', '\.jpg$', '\.png$', '\.svg$', '\.eot$', '\.otf$', '\.ttf$', '\.woff$']
 
-" Close NERDTree if its the last window left open
-if has("autocmd")
-    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-endif
+" NERDTreeTabs                               "
+" https://github.com/jistr/vim-nerdtree-tabs "
+""""""""""""""""""""""""""""""""""""""""""""""
+
+" When switching into a tab, make sure that focus is on the file window
+let g:nerdtree_tabs_focus_on_files = 1
 
 " Easy motion                                "
 " https://github.com/Lokaltog/vim-easymotion "

@@ -106,7 +106,7 @@ nnoremap <leader>y "+y<CR>
 nnoremap <leader>s :set list!<CR>
 
 " Bind a key to hide and show the nerdtree page
-nnoremap <leader>b :NERDTreeToggle<CR>
+nnoremap <leader>b :NERDTreeTabsToggle<CR>
 
 " Configure easymotion
 map  / <Plug>(easymotion-sn)

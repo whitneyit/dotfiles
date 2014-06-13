@@ -36,6 +36,10 @@ if has("autocmd")
     " Add filetype support for .jshintignore and eslintignore files
     autocmd BufNewFile,BufRead .*lintignore set filetype=conf
 
+    " Adjust the colorscheme
+    autocmd BufNewFile,BufRead * highlight clear NonText
+    autocmd BufNewFile,BufRead * highlight NonText ctermfg=NONE
+
     " Open all folds when we load a file
     autocmd VimEnter    * exe "normal zR"
     autocmd BufReadPost * exe "normal zR"
@@ -197,18 +201,21 @@ set noerrorbells
 " Save on buffer switch
 set autowrite
 
-" Hide 'invisible' characters
-set nolist
+" Show 'invisible' characters
+set list
 
 " Causes the split windows to be focuses upon open
 set splitbelow
 set splitright
 
-" Set characters used to indicate 'invisible' characters
-set listchars=tab:▸\-
+" Set characters used to indicate 'invisible' characters.
+" The comment below is required so that er can set the `End Of Line` character
+" to a `space`. If we didn't have the comment, the `editorconfig` plugin would
+" of stripped the trailing whitespace
+set listchars+=tab:▸~
 set listchars+=trail:·
 set listchars+=nbsp:_
-set listchars+=eol:¬
+set listchars+=eol:\  " DO NOT DELETE THIS COMMENT
 
 " Enable the wildmenu
 set wildmenu
@@ -239,7 +246,7 @@ set directory=$VIM_DIRECTORY/swaps
 " actions even after files are closed
 if exists("&undodir")
 
-	" Set the location of where the undo files will be kept
+    " Set the location of where the undo files will be kept
     set undodir=$VIM_DIRECTORY/undo
 
     " This enables the setting.

@@ -5,7 +5,12 @@
 # r: recursive
 # F: makes grep search with a string instead of regex
 # l: list of filenames instead of contexts
-alias  grp="grep --color -irF"
-alias grpl="grep --color -irFl"
+alias   grp="grep --color -iF"
+alias  grpr="grep --color -irF"
+alias  grpl="grep --color -iFl"
+alias grprl="grep --color -irFl"
+
+# Allow for typos
+alias grplr="greprl"
 
 # vim: set syn=sh :

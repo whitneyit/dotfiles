@@ -8,7 +8,6 @@ alias   gbr="git branch"
 alias  gbrl="git branch --all --verbose" # -a -v, -av
 alias  gbrd="git branch --delete" # -d, or -D to ignore merge status
 alias gbrdf="git branch -D" # Force delete
-alias grblw="git for-each-ref --sort=-committerdate refs/remotes/ --format='%(authordate) %09 %(refname:local)'"
 alias   gcf="git config"
 alias  gcfl="git config --list"
 alias   gco="git checkout"
@@ -30,7 +29,6 @@ alias   gds="git diff --cached"
 alias   gdt="git difftool"
 alias   gin="git init"
 alias    gf="git fetch --progress --verbose"
-alias   gig="git ls-files --ignored --exclude-standard"
 alias   gla="git log --no-merges                        --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad] %C(cyan)%ae %C(reset)%s %C(white)%d'"
 alias  glfa="git log --no-merges                        --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad] %C(cyan)%ae %C(reset)%s %C(white)%d' develop.."
 alias  glda="git log --no-merges                --patch --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad] %C(cyan)%ae %C(reset)%s %C(white)%d'"
@@ -51,7 +49,8 @@ alias   gps="git push          --progress --verbose"
 alias  gpsf="git push          --progress --verbose --force"
 alias  gpsd="git push          --progress --verbose --delete"
 alias   gpl="git pull          --progress --verbose"
-alias   grb="git rebase"
+alias   grb="git rebase --interactive"
+alias  grbc="git rebase --continue"
 alias  grfa="git reflog         --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad] %C(blue)%gs %C(cyan)%ae %C(reset)%s %C(white)%d'"
 alias grfsa="git reflog --stat  --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad] %C(blue)%gs %C(cyan)%ae %C(reset)%s %C(white)%d %n'"
 alias grfda="git reflog --patch --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad] %C(blue)%gs %C(cyan)%ae %C(reset)%s %C(white)%d %n'"
@@ -64,7 +63,6 @@ alias  grsp="git reset --patch"
 alias   grm="git rm"
 alias  grmc="git rm --cached"
 alias grmca="git rm --cached -r ."
-alias   gmo="git status --porcelain | cut -c 4-"
 alias   gsm="git submodule"
 alias  gsma="git submodule add"
 alias  gsmu="git submodule update --recursive --init"
@@ -72,9 +70,8 @@ alias   gsh="git show --no-merges        --date=iso --pretty=format:'%C(yellow)%
 alias  gshs="git show --no-merges --stat --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad] %C(cyan)%ae %C(reset)%s %C(white)%d %n'"
 alias   gst="git status --untracked-files=all"
 alias  gsti="git status --untracked-files=all --ignored"
-alias   gsg="git stage"
 
-# Here we just define a few localcuts to modify the author of a commit. This can
+# Here we just define a few shortcuts to modify the author of a commit. This can
 # be used when you forget to setup the local author details
 alias  gcfa="git commit --amend --reset-author"
 alias  gcfe="git config user.email "
@@ -82,6 +79,12 @@ alias  gcfn="git config user.name "
 
 # A quick way to update the url of a repo
 alias  gcfo="git remote set-url origin "
+
+# A way to see modified files
+alias   gmo="git status --porcelain | cut -c 4-"
+
+# List ignored files
+alias   gig="git ls-files --ignored --exclude-standard"
 
 # Logging shortcuts
 alias    gl="gla   -10"
@@ -117,5 +120,4 @@ alias  gmcs="gcms"
 alias  glsg="glgs"
 alias glsga="glgsa"
 
-# vim: set tw=0 :
-# vim: set syn=sh :
+# vim: set tw=0:syn=sh :

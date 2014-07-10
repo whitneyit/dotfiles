@@ -13,11 +13,14 @@ alias documents="cd ~/Documents/"
 alias dropbox="cd ~/Dropbox/"
 alias sites="cd ~/Sites/"
 
-# And now dev folders
+# Dev folders
 alias code="cd ~/Code/"
 alias dev="cd ~/Dev/"
+
+# Project folders
 alias setup="cd ~/Code/setup/"
 alias snippets="cd ~/Code/snippets/"
+alias taskify="cd ~/Code/gulp-taskify/"
 alias vg="cd ~/Code/vagrant/"
 
 # And finally lets make an alias back to this repo

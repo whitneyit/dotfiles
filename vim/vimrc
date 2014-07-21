@@ -33,6 +33,9 @@ if has("autocmd")
     autocmd BufNewFile,BufRead .*rc         set filetype=json
     autocmd BufNewFile,BufRead .bashrc      set filetype=sh
 
+    " Also set "commented json" files to `json`
+    autocmd BufNewFile,BufRead cjson        set filetype=json
+
     " Add filetype support for .jshintignore and eslintignore files
     autocmd BufNewFile,BufRead .*lintignore set filetype=conf
 

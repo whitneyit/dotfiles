@@ -5,6 +5,9 @@ set shiftwidth=4
 set noexpandtab
 set textwidth=0
 
+" Stop `list` from auto turning on
+set nolist
+
 " Make <a> tags appear as normal text
 highlight link htmlLink normal
 

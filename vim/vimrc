@@ -224,23 +224,6 @@ set listchars+=eol:\  " DO NOT DELETE THIS COMMENT
 set wildmenu
 set wildmode=list:longest
 
-" Make sure these directories are not included in the results panel
-set wildignore+=*/.git/**
-set wildignore+=*/.sass-cache/**
-set wildignore+=*/.vagrant/**
-set wildignore+=*/node_modules/**
-
-" Nor these filetypes
-set wildignore+=*.DS_Store
-set wildignore+=*.gif
-set wildignore+=*.jpg
-set wildignore+=*.png
-set wildignore+=*.svg
-set wildignore+=*.eot
-set wildignore+=*.otf
-set wildignore+=*.ttf
-set wildignore+=*.woff
-
 " Centralize backups, swapfiles and undo history
 set backupdir=$VIM_DIRECTORY/backups
 set directory=$VIM_DIRECTORY/swaps
@@ -272,6 +255,7 @@ source $VIM_DIRECTORY/vimrc_bundle
 source $VIM_DIRECTORY/vimrc_abbr
 source $VIM_DIRECTORY/vimrc_commands
 source $VIM_DIRECTORY/vimrc_functions
+source $VIM_DIRECTORY/vimrc_ignore
 source $VIM_DIRECTORY/vimrc_mappings
 
 " Load local machine settings if they exist

@@ -1,0 +1,22 @@
+" Make sure these directories are not included in the results panel
+set wildignore+=*/.git/**
+set wildignore+=*/.sass-cache/**
+set wildignore+=*/.vagrant/**
+set wildignore+=*/bower_components/**
+set wildignore+=*/node_modules/**
+
+" Nor these files
+set wildignore+=*.DS_Store
+set wildignore+=*.Thumbs.db
+set wildignore+=*.npm-debug.log
+set wildignore+=*.sublime-workspace
+
+" Nor these filetypes
+set wildignore+=*.gif
+set wildignore+=*.jpg
+set wildignore+=*.png
+set wildignore+=*.svg
+set wildignore+=*.eot
+set wildignore+=*.otf
+set wildignore+=*.ttf
+set wildignore+=*.woff

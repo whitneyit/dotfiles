@@ -27,6 +27,7 @@ else
             --color \
             --ignore="bootmgr" \
             --ignore="BOOTNXT" \
+            --ignore="desktop.ini" \
             --ignore="hiberfil.sys" \
             --ignore="pagefile.sys" \
             --ignore="swapfile.sys" \

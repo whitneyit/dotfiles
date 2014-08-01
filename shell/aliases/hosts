@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Cygwin
+if [ "$(is_cygwin)" == "yes" ]; then
+    alias hosts="vim /cygdrive/c/Windows/System32/drivers/etc/hosts"
+
+# Mac
+elif [ "$(is_mac)" == "yes" ]; then
+    alias hosts="vim /private/etc/hosts"
+
+# Everything else
+else
+    alias hosts="vim /etc/hosts"
+fi
+
+# vim: set syn=sh :

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Since the Mac OS uses Darwin, we test for that here.
+if [ "$(os)" == "darwin" ]; then
+    echo "yes"
+else
+    echo "no"
+fi
+
+# vim: set syn=sh :

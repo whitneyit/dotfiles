@@ -5,7 +5,7 @@ LOCAL_OS="other"
 
 # Mac OS X
 if [ "$(uname -s | grep -c Darwin)" -gt 0 ]; then
-    LOCAL_OS="mac"
+    LOCAL_OS="darwin"
 
 # Linux
 elif [ "$(uname -s | grep -c Linux)" -gt 0 ]; then

@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-alias seed="cd ~/Code/seed"
-alias ttag="cd ~/Code/ttag"
-alias ttagclient="cd ~/Code/ttag/src/main/client"
-alias ttagwebapp="cd ~/Code/ttag/src/main/webapp"
-
-# vim: set syn=sh :

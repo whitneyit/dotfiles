@@ -16,7 +16,6 @@ alias sites="cd ~/Sites/"
 # Dev folders
 alias code="cd ~/Code/"
 alias dev="cd ~/Dev/"
-alias homestead="cd ~/Homestead/"
 
 # Project folders
 alias setup="cd ~/Code/setup/"

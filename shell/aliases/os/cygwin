@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+# Ensure that these aliases are only ever processed if we are in a cyginw box.
+if [ "$(is_cygwin)" == "yes" ]; then
+
+    # Detect if the C:\ is installed. This should pass almost 100% of the time.
+    # The only time this will fail is if the SYSAdmin has installed windows to
+    # some random other drive.
+    if [ -d /cygdrive/c ]; then
+
+        # Alias the `C:\` drive to just `c`.
+        alias c="cd /cygdrive/c"
+
+        # Here we define some aliases to the Program Files folder, because fuck
+        # typing all of that all the time.
+        alias pf32="cd /cygdrive/c/Program\ Files\ \(x86\)/"
+        alias pf64="cd /cygdrive/c/Program\ Files\/"
+    fi
+
+    # And if a `D:\` drive is installed, alias that as well.
+    if [ -d /cygdrive/d ]; then
+        alias d="cd /cygdrive/d"
+    fi
+
+    # Here we fake `pbcopy` and `pbpaste`
+    if [ -e /dev/clipboard ]; then
+        alias pbcopy="cat >/dev/clipboard"
+        alias pbpaste="cat /dev/clipboard"
+    fi
+
+    # And we fake open
+    alias open="cygstart"
+
+    # Here we create an alias to convert files with Dos line Endings to Unix
+    alias d2u="find . -type f -exec dos2unix {} \;"
+
+fi
+
+# vim: set syn=sh :

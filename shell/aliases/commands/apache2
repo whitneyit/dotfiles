@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# Some aliases to help manage the `apache2` command
 alias ar="sudo service apache2 restart"
 alias as="sudo service apache2 start"
 alias ak="sudo service apache2 stop"

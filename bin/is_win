@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# Determine if the OS is being run on Mac
-if [ "$(os)" == "darwin" ]; then
+# Determine if the OS is being run on Windows
+if [ "$(os)" == "win" ]; then
     echo "yes"
 else
     echo "no"

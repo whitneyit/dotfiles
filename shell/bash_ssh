@@ -1,15 +1,20 @@
 #!/usr/bin/env bash
 
-#
+# Define this flag to determine whether or not we have already booted SSH
 SSH_BOOTED="no"
 
-#
-function ssh_agent() {
+# Here we define a wrapper around `ssh-agent`'
+function ssh_agent_wrapper() {
 
-    #
+    # Only execute this code if we have not already booted SSH.
     if [ $SSH_BOOTED == "no" ]; then
+
+        # Boot SSH
         eval "$(ssh-agent -s)"
+
+        # And update the flag.
         SSH_BOOTED="yes"
+
     fi
 
 }
@@ -18,7 +23,7 @@ function ssh_agent() {
 if [ "$(is_vagrant)" == "no" ]; then
 
     # Here we fire up `ssh` for every shell
-    ssh_agent
+    ssh_agent_wrapper
 
     # If we have a keys file defined, then we can proceed to extract them. It is
     # important to note that this file does not contain the keys themselves,

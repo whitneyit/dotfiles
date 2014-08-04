@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# Some aliases to help manage the `php` command
 alias artisan="php artisan"
 
 # vim: set syn=sh :

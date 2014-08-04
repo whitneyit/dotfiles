@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# Some aliases to certain files.
+alias  vbp="vim ~/.bash_profile"
+alias  vrc="vim ~/.vimrc"
+
+# Alias `vi` over to `vim`.
+alias   vi="vim"
+
+# Help with typos.
+alias   vm="vim"
+alias  vmi="vim"
+alias  mvi="vim"
+
+# vim: set syn=sh :

@@ -11,11 +11,12 @@ function do_update() {
     # Update the repo
     ORIGINAL=$(git rev-parse --abbrev-ref HEAD)
 
-    #
+    # Grab all of the branches
     BRANCHES=()
     eval "$(git for-each-ref --shell --format='BRANCHES+=(%(refname:short))' refs/heads/)"
 
-    #
+    # This variable will store whether or not we have checked out / changed to
+    # another branch in the repo.
     CHANGED="no"
 
     # Log out the fact that we are updating this branch
@@ -25,10 +26,10 @@ function do_update() {
     for BRANCH in "${BRANCHES[@]}"; do
         if [ $BRANCH != "$ORIGINAL" ]; then
 
-            #
+            # We have indeed changed branches
             CHANGED="yes"
 
-            # Log out the fact that we are updating this branch
+            # Log out the fact that we are now updating this branch
             e_info "Updating \"$BRANCH\""
 
             # Here we `checkout` the branch in the loop

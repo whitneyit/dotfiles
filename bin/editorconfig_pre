@@ -1,13 +1,23 @@
 #!/usr/bin/env bash
 
+# The reason that we need to use this wrapper is because the Windows version of
+# `editorconfig` will only accept a Windows filepath, Eg: "C:\Code\Foo\Bar".
 #
+# Since cygwin uses *nix paths, we have to check whether or not we are using
+# cygwin, and convert the path if we are.
+
+# Here we test to see if we are using cygwin.
 if [ "$(is_cygwin)" == "yes" ]; then
+
+    # Since we are, we convert the arguments to an -a Absolute -w Windows path.
     FILENAME="$(cygpath -aw "$@")"
+
+# Otherwise, we can just use the path as is
 else
     FILENAME="$@"
 fi
 
-#
+# Now we can safely proces the file
 editorconfig $FILENAME
 
 # vim: set syn=sh :

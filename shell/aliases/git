@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# If we have hub installed, alias it now
+if [ "$(type -P hub)" ]; then
+    alias git="hub"
+fi
+
 alias    ga="git add"
 alias   gaa="git add --all ."
 alias   gap="git add --patch"

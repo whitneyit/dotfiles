@@ -14,6 +14,7 @@ alias   dropbox="cd ~/Dropbox/"
 alias     sites="cd ~/Sites/"
 
 # Dev folders
+alias   archive="cd ~/Archive/"
 alias      code="cd ~/Code/"
 alias       dev="cd ~/Dev/"
 

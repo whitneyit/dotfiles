@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # Project folders
+alias    pages="cd ~/Code/whitneyit.github.io/"
 alias    setup="cd ~/Code/setup/"
 alias snippets="cd ~/Code/snippets/"
 alias  taskify="cd ~/Code/gulp-taskify/"

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# Aliases to the git repos
+alias qp="cd ~/Code/qp"
+
+# vim: set syn=sh :

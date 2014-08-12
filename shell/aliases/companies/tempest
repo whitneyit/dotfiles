@@ -2,7 +2,7 @@
 
 # Aliases to the git repos
 alias tempest="cd ~/Code/tempest"
-alias storm="cd ~/Code/storm"
+alias   storm="cd ~/Code/storm"
 
 # Here we define a function used to deploy our changes to fortrabbit
 function tempest-deploy() {

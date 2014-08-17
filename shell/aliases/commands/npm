@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 alias  ni="npm install"
+alias nig="npm install --global"
 alias nis="npm install --save"
 alias nid="npm install --save-dev"
 alias  nl="npm list --depth=0"

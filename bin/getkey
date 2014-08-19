@@ -12,7 +12,7 @@ fi
 # passed in is the name of the key to retreive. It is important to note that we
 # will be adding the `.pub` suffix ourselves
 if [ -z "$1" ]; then
-    key=$HOME/.ssg/id_rsa.pub
+    key=$HOME/.ssh/id_rsa.pub
 else
     key=$HOME/.ssh/$1.pub
 fi

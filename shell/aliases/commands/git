@@ -92,6 +92,12 @@ alias   gmo="git status --porcelain | cut -c 4-"
 # List ignored files
 alias   gig="git ls-files --ignored --exclude-standard"
 
+# Updates the indexed `stat` of a file. It does not modify the file though
+# normally this means that you will have to check out the file after updating
+# the index. Git only respects files of `stat` 644 or 755. Yea it's weird...
+alias  g644="git update-index --chmod=-x"
+alias  g755="git update-index --chmod=+x"
+
 # Logging shortcuts
 alias    gl="gla   -10"
 alias   gls="glsa  -10"

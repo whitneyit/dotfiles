@@ -18,13 +18,4 @@ alias   archive="cd ~/Archive/"
 alias      code="cd ~/Code/"
 alias       dev="cd ~/Dev/"
 
-# Project folders
-alias     setup="cd ~/Code/setup/"
-alias  snippets="cd ~/Code/snippets/"
-alias   taskify="cd ~/Code/gulp-taskify/"
-alias        vg="cd ~/Code/vagrant/"
-
-# And finally lets make an alias back to this repo
-alias        df="cd "$DOTFILES_DIRECTORY""
-
 # vim: set syn=sh :

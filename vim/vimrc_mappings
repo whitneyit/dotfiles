@@ -108,6 +108,9 @@ nnoremap <leader>s :set list!<CR>
 " Bind a key to hide and show the nerdtree page
 nnoremap <leader>b :NERDTreeTabsToggle<CR>
 
+" Quickly open the `TODO.md` file
+nnoremap <leader>T :edit TODO.md<CR>
+
 " Configure easymotion
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)

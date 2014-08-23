@@ -65,7 +65,7 @@ nnoremap <leader>4 :vertical resize +5<CR>
 nnoremap <leader>5 :vertical resize +20<CR>
 
 " Basic tab operation
-nnoremap <leader>t :tabnew<CR>
+" nnoremap <leader>t :tabnew<CR>
 nnoremap <leader>x :tabclose<CR>
 nnoremap <leader>X :tabclose!<CR>
 nnoremap <leader>z :tabonly<CR>
@@ -107,6 +107,9 @@ nnoremap <leader>s :set list!<CR>
 
 " Bind a key to hide and show the nerdtree page
 nnoremap <leader>b :NERDTreeTabsToggle<CR>
+
+" Run our gulp tests
+nnoremap <leader>t :!gulp test<CR>
 
 " Quickly open the `TODO.md` file
 nnoremap <leader>T :edit TODO.md<CR>

@@ -108,7 +108,8 @@ nnoremap <leader>s :set list!<CR>
 " Bind a key to hide and show the nerdtree page
 nnoremap <leader>b :NERDTreeTabsToggle<CR>
 
-" Run our gulp tests
+" Run our gulp tasks
+nnoremap <leader>l :!gulp lint<CR>
 nnoremap <leader>t :!gulp test<CR>
 
 " Quickly open the `TODO.md` file
@@ -119,9 +120,9 @@ map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
-map  <Leader>h <Plug>(easymotion-linebackward)
-map  <Leader>j <Plug>(easymotion-j)
-map  <Leader>k <Plug>(easymotion-k)
-map  <Leader>l <Plug>(easymotion-lineforward)
+" map  <Leader>h <Plug>(easymotion-linebackward)
+" map  <Leader>j <Plug>(easymotion-j)
+" map  <Leader>k <Plug>(easymotion-k)
+" map  <Leader>l <Plug>(easymotion-lineforward)
 
 map <Leader>g <Plug>IndentGuidesToggle

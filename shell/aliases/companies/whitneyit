@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 
 # Project folders
-alias    pages="cd ~/Code/whitneyit.github.io/"
-alias    setup="cd ~/Code/setup/"
-alias snippets="cd ~/Code/snippets/"
-alias  taskify="cd ~/Code/gulp-taskify/"
-alias       vg="cd ~/Code/vagrant/"
+alias homestead="cd ~/Code/homestead"
+alias     pages="cd ~/Code/whitneyit.github.io/"
+alias     setup="cd ~/Code/setup/"
+alias  snippets="cd ~/Code/snippets/"
+alias   taskify="cd ~/Code/gulp-taskify/"
+alias        vg="cd ~/Code/vagrant/"
 
-# Here we define a dynamic alias to our "dotfiles" directory
-alias       df="cd "$DOTFILES_DIRECTORY""
+# Here we define a dynamic alias  to our "dotfiles" directory
+alias        df="cd "$DOTFILES_DIRECTORY""
 
 # vim: set syn=sh :

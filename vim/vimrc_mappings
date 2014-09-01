@@ -109,8 +109,8 @@ nnoremap <leader>s :set list!<CR>
 nnoremap <leader>b :NERDTreeTabsToggle<CR>
 
 " Run our gulp tasks
-nnoremap <leader>l :!clear && gulp lint<CR>
-nnoremap <leader>t :!clear && gulp test<CR>
+nnoremap <leader>l :w<cr>:!clear && gulp lint<CR>
+nnoremap <leader>t :w<cr>:!clear && gulp test<CR>
 
 " Quickly open the `TODO.md` file
 nnoremap <leader>T :edit TODO.md<CR>

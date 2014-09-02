@@ -3,14 +3,17 @@
 # Here we create aliases for the various vagrant commands. In the `directories`
 # file we defined an alias to jump to the vagrant dev folder; `vg`, so we can't
 # use that alias
-alias vd="vagrant destroy"
-alias vg="vagrant global-status"
-alias vh="vagrant halt"
-alias vi="vagrant init"
-alias vp="vagrant provision"
-alias vr="vagrant reload"
-alias vs="vagrant ssh"
-alias vu="vagrant up"
+alias  vb="vagrant box"
+alias vba="vagrant box add"
+alias vbl="vagrant box list"
+alias  vd="vagrant destroy"
+alias vgs="vagrant global-status"
+alias  vh="vagrant halt"
+alias  vi="vagrant init"
+alias  vp="vagrant provision"
+alias  vr="vagrant reload"
+alias  vs="vagrant ssh"
+alias  vu="vagrant up"
 
 # Creates an alias to download my "portable" `Vagrantfile`
 alias portable="wget https://raw.github.com/whitneyit/vagrant/master/dist/portable/new/Vagrantfile"

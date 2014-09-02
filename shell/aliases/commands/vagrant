@@ -4,6 +4,7 @@
 # file we defined an alias to jump to the vagrant dev folder; `vg`, so we can't
 # use that alias
 alias vd="vagrant destroy"
+alias vg="vagrant global-status"
 alias vh="vagrant halt"
 alias vi="vagrant init"
 alias vp="vagrant provision"

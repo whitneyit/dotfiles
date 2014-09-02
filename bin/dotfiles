@@ -95,6 +95,16 @@ if [ ! -d .git ]; then
     # And remove old files
     git clean -dfx
 
+    # If we are running inside a `cygwin` environment, we need to change the
+    # "group" on the files so that we can change the permissions of the files.
+    if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
+        chgrp -R Users $DOTFILES_DIRECTORY
+
+    # And here we do the same for a `vagrant` environment.
+    elif [ -d /home/vagrant ]; then
+        chown -R vagrant:vagrant $DOTFILES_DIRECTORY
+    fi
+
     # Since this is the first time working with the repo, we need to set some
     # things up. It is for this reason, that we add our "local bin" directory to
     # the `$PATH` so that we can utilise some of its methods. This wont happen
@@ -120,17 +130,15 @@ if [ ! -d .git ]; then
         touch "$HOME/.prev_dir"
     fi
 
-    # We change the group on `cygwin` so we are able to change the files
-    # permissions correctly.
+    # If we are running inside a `cygwin` environment, we need to change the
+    # "group" on the files so that we can change the permissions of the files.
     if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
-
         chgrp Users "$HOME/.bash_history"
         chgrp Users "$HOME/.prev_dir"
         chgrp Users "$HOME/.viminfo"
 
-    # And here we do the same for `vagrant`
+    # And here we do the same for a `vagrant` environment.
     elif [ -d /home/vagrant ]; then
-
         chown vagrant:vagrant "$HOME/.bash_history"
         chown vagrant:vagrant "$HOME/.prev_dir"
         chown vagrant:vagrant "$HOME/.viminfo"
@@ -161,8 +169,8 @@ if [ ! -d .git ]; then
 
     # And here we confirm to the User that we have completed Installing the
     # `dotfiles` repo.
-    e_success "Dotfiles update complete"
-    exit
+    e_success "Dotfiles install complete"
+    exit 0
 fi
 
 # We reach this point if this is not our first time running the `dotfiles`
@@ -173,7 +181,7 @@ source ./lib/help
 # Listn for "help" flags
 if [[ "$1" == "-h" || "$1" == "--help" ]]; then
     run_help
-    exit
+    exit 0
 fi
 
 # If any other flags are passed through, we just error out. This means that we
@@ -202,6 +210,6 @@ link_files "$PWD"
 
 # And finally that's it. Repo updated!
 e_success "Dotfiles update complete"
-exit
+exit 0
 
 # vim: set syn=sh :

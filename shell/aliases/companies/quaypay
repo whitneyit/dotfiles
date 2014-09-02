@@ -2,6 +2,7 @@
 
 # Aliases to the git repos
 alias   qp="cd ~/Code/qp"
-alias qtpi="cd ~/Code/qtpi"
+alias  qpb="cd ~/Code/qpbox"
+alias qpbm="cd ~/Code/qpboxmake"
 
 # vim: set syn=sh :

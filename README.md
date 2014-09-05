@@ -11,7 +11,7 @@ of your previous files will be backed up to;
 
 To actually kick off the instalation run;
 
-```bash
+```sh
 $ bash -c "$(curl -fsSL https://raw.github.com/whitneyit/dotfiles/master/bin/dotfiles)"
 ```
 
@@ -23,7 +23,7 @@ You should run the update when:
 
 Run the dotfiles command:
 
-```bash
+```sh
 $ dotfiles
 ```
 
@@ -59,7 +59,7 @@ hissy fit when it tries to run the file
 If you want to add more git submodules, e.g., Vim plugins to be managed by
 pathogen, then follow these steps while in the root of the superproject.
 
-```bash
+```sh
 # Add the new submodule
 git submodule add https://example.com/remote/path/to/repo.git vim/bundle/one-submodule
 # Initialize and clone the submodule
@@ -84,7 +84,7 @@ of the submodule entries. Like so;
 
 Updating individual submodules within the superproject:
 
-```bash
+```sh
 # Change to the submodule directory
 cd vim/bundle/one-submodule
 # Checkout the desired branch (of the submodule)

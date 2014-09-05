@@ -2,6 +2,7 @@
 
 # Aliases to the git repos
 alias   qp="cd ~/Code/qp"
+alias  qpa="cd ~/Code/quaypay-api"
 alias  qpb="cd ~/Code/qpbox"
 alias qpbm="cd ~/Code/qpboxmake"
 

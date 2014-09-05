@@ -9,5 +9,6 @@ alias nlg="npm list --depth=0 --global"
 alias  np="npm prune"
 alias  ns="npm start"
 alias  nt="npm test"
+alias  nv="npm --version && node --version"
 
 # vim: set tw=0:syn=sh :

@@ -65,7 +65,7 @@
 	url = https://github.com/jistr/vim-nerdtree-tabs.git
 [submodule "vim/bundle/vim-cucumber"]
 	path = vim/bundle/vim-cucumber
-	url = git://github.com/tpope/vim-cucumber.git
+	url = https://github.com/tpope/vim-cucumber.git
 [submodule "vim/bundle/vim-blade"]
 	path = vim/bundle/vim-blade
 	url = https://github.com/xsbeats/vim-blade

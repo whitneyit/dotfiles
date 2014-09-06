@@ -20,22 +20,22 @@ function backup_prev() {
     TIMESTAMP_DIRECTORY="$(date +%Y-%m-%d_%H-%M-%S)"
     BACKUP_DIRECTORY="$DOTFILES_DIRECTORY/$DOTFILES_BACKUP_DIRECTORY/$TIMESTAMP_DIRECTORY"
 
-    # If the user is spamming this button more than once per second, we should
+    # If the user is spamming this command more than once per second, we should
     # just bail now. What this is actually saying is if the directory already
     # exists, (defined down to the second), when then just kill the shell.
     if [ -d "$BACKUP_DIRECTORY" ]; then
-        exit
+        exit 0
     fi
 
     # Create the timestamped backup directory. We use `-p` to ensure that all
     # the directories leading up to this one is made correctly.
     mkdir -p "$BACKUP_DIRECTORY"
+    chmod 755 "$BACKUP_DIRECTORY"
 
     # Test to make sure that our directory was created
     if [ ! -d "$BACKUP_DIRECTORY" ]; then
-        e_error "Unable to create \"Backup directory\": $BACKUP_DIRECTORY.
-        Aborting"
-        exit
+        e_error "Unable to create \"Backup directory\": $BACKUP_DIRECTORY.  Aborting"
+        exit 1
     fi
 
     # Define an array of items to backup
@@ -74,9 +74,25 @@ function backup_prev() {
     if [ ! "$(command ls -A "$BACKUP_DIRECTORY")" ]; then
         rm -rf "$BACKUP_DIRECTORY"
         e_info "No Files to backup"
+
+    # Since we have files to work with, make sure that we set the ownership
+    # correctly.
     else
+
+        # Set it for `cygwin`.
+        if [ "$(is_cygwin)" == "yes" ]; then
+            chgrp -R Users "$BACKUP_DIRECTORY"
+
+        # And for `vagrant`.
+        elif [ "$(is_vagrant)" == "yes" ]; then
+            chown -R vagrant:vagrant "$BACKUP_DIRECTORY"
+        fi
+
+        # Finally infrom the user where the backup is located.
         e_header "Backup located at: \"$BACKUP_DIRECTORY\""
+
     fi
+
 }
 
 # Force create/replace symbolic symlink.
@@ -87,7 +103,12 @@ function link() {
 
     # Adjust the permissions of the files
     if [ "$(is_vagrant)" == "yes" ]; then
-        chown -h vagrant:vagrant "$2"
+
+        # Taken from `man`:
+        # Affect symbolic links instead of any referenced file (useful only on
+        # systems that can change the ownership of a sym-link
+        chown --no-dereference vagrant:vagrant "$2"
+
     fi
 
 }
@@ -141,14 +162,14 @@ function link_files() {
     fi
 
     # Here we do any `cygwin` specific links
-    if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
+    if [ "$(is_cygwin)" == "yes" ]; then
 
         chgrp Users "$TARGET_LINK_DIR/.gitconfig"
         chgrp Users "$TARGET_LINK_DIR/.keys"
         chgrp Users "$TARGET_LINK_DIR/.NERDTreeBookmarks"
 
     # And now `vagrant` specific links
-    elif [ -d /home/vagrant ]; then
+    elif [ "$(is_vagrant)" == "yes" ]; then
 
         chown vagrant:vagrant "$TARGET_LINK_DIR/.gitconfig"
         chown vagrant:vagrant "$TARGET_LINK_DIR/.keys"

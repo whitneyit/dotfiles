@@ -95,16 +95,6 @@ if [ ! -d .git ]; then
     # And remove old files
     git clean -dfx
 
-    # If we are running inside a `cygwin` environment, we need to change the
-    # "group" on the files so that we can change the permissions of the files.
-    if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
-        chgrp -R Users $DOTFILES_DIRECTORY
-
-    # And here we do the same for a `vagrant` environment.
-    elif [ -d /home/vagrant ]; then
-        chown -R vagrant:vagrant $DOTFILES_DIRECTORY
-    fi
-
     # Since this is the first time working with the repo, we need to set some
     # things up. It is for this reason, that we add our "local bin" directory to
     # the `$PATH` so that we can utilise some of its methods. This wont happen
@@ -166,6 +156,16 @@ if [ ! -d .git ]; then
     # when we modify the repo we don't have to worry about passwords
     e_info "Updating origin url..."
     git remote set-url origin git@github.com:whitneyit/dotfiles.git
+
+    # If we are running inside a `cygwin` environment, we need to change the
+    # "group" on the files so that we can change the permissions of the files.
+    if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
+        chgrp -R Users $DOTFILES_DIRECTORY
+
+    # And here we do the same for a `vagrant` environment.
+    elif [ -d /home/vagrant ]; then
+        chown -R vagrant:vagrant $DOTFILES_DIRECTORY
+    fi
 
     # And here we confirm to the User that we have completed Installing the
     # `dotfiles` repo.

@@ -69,7 +69,7 @@ let g:ctrlp_by_filename = 0
 let g:ctrlp_show_hidden = 1
 
 " From where do we want CtrlP to search
-let g:ctrlp_working_path_mode = 'c'
+let g:ctrlp_working_path_mode = 'a'
 
 " The max amount of files to display
 let g:ctrlp_max_files = 500

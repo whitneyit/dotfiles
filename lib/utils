@@ -105,6 +105,7 @@ function link() {
     if [ "$(is_vagrant)" == "yes" ]; then
 
         # Taken from `man`:
+        # -h, --no-dereference
         # Affect symbolic links instead of any referenced file (useful only on
         # systems that can change the ownership of a sym-link
         chown --no-dereference vagrant:vagrant "$2"

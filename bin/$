@@ -7,3 +7,5 @@
 
 echo "Quit pasting in commands from the internet, you lazy bum."
 "$@"
+
+# vim: set syn=sh :

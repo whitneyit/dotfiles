@@ -2,6 +2,9 @@
     name = James Whitney
     email = james@whitney.io
 
+[init]
+    templatedir = ~/.git_templates
+
 [core]
     editor = vim
     excludesfile = ~/.gitignore_global
@@ -9,6 +12,7 @@
     whitespace = space-before-tab,cr-at-eol
 
 [alias]
+    ctags = !.git/hooks/ctags
     unchangeable = !git ls-files -v | grep ^[a-z]
 
 [apply]

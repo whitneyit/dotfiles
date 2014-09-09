@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+ctags \
+--recurse \
+--exclude=node_modules \
+--exclude=bower_components \
+--tag-relative \
+--languages=-javascript,sql \
+--exclude=.git \
+--sort=yes \
+--append \
+--PHP-kinds=+cf \
+--regex-PHP='/abstract class ([^ ]*)/\1/c/' \
+--regex-PHP='/interface ([^ ]*)/\1/c/' \
+--regex-PHP='/(public |static |abstract |protected |private )+function ([^ (]*)/\2/f/' \
+.
+
+# vim: set syn=sh :

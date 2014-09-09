@@ -43,6 +43,7 @@ function backup_prev() {
         "$TARGET_LINK_DIR/.gitattributes"
         "$TARGET_LINK_DIR/.gitconfig"
         "$TARGET_LINK_DIR/.gitignore_global"
+        "$TARGET_LINK_DIR/.git_templates"
         "$TARGET_LINK_DIR/.fonts"
         "$TARGET_LINK_DIR/.hooks"
         "$TARGET_LINK_DIR/.keys"
@@ -160,7 +161,7 @@ function link_files() {
 
     # Only create the `.NERDTreeBookmarks` file if one doesn't already exist. We
     # do not want to override one.
-    if [ -f "$TARGET_LINK_DIR/.NERDTreeBookmarks" ]; then
+    if [ ! -f "$TARGET_LINK_DIR/.NERDTreeBookmarks" ]; then
         cp "$1/vim/NERDTreeBookmarks" "$TARGET_LINK_DIR/.NERDTreeBookmarks"
     fi
 

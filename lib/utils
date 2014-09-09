@@ -44,6 +44,7 @@ function backup_prev() {
         "$TARGET_LINK_DIR/.gitconfig"
         "$TARGET_LINK_DIR/.gitignore_global"
         "$TARGET_LINK_DIR/.fonts"
+        "$TARGET_LINK_DIR/.hooks"
         "$TARGET_LINK_DIR/.keys"
         "$TARGET_LINK_DIR/.curlrc"
         "$TARGET_LINK_DIR/.bash_profile"
@@ -134,6 +135,7 @@ function link_files() {
     fi
 
     # Now we can link up the folders without fear of recursion
+    link "$1/git/hooks/"            "$TARGET_LINK_DIR/.hooks"
     link "$1/shell/fonts/"          "$TARGET_LINK_DIR/.fonts"
     link "$1/vim/"                  "$TARGET_LINK_DIR/.vim"
 

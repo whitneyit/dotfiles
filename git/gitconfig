@@ -2,6 +2,9 @@
     name = James Whitney
     email = james@whitney.io
 
+[init]
+    templatedir = ~/.hooks
+
 [core]
     editor = vim
     excludesfile = ~/.gitignore_global

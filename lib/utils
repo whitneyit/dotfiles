@@ -135,7 +135,7 @@ function link_files() {
     fi
 
     # Now we can link up the folders without fear of recursion
-    link "$1/git/hooks/"            "$TARGET_LINK_DIR/.hooks"
+    link "$1/git/templates/"        "$TARGET_LINK_DIR/.git_templates"
     link "$1/shell/fonts/"          "$TARGET_LINK_DIR/.fonts"
     link "$1/vim/"                  "$TARGET_LINK_DIR/.vim"
 

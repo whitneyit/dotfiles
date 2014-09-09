@@ -3,7 +3,7 @@
     email = james@whitney.io
 
 [init]
-    templatedir = ~/.hooks
+    templatedir = ~/.git_templates
 
 [core]
     editor = vim
@@ -12,6 +12,7 @@
     whitespace = space-before-tab,cr-at-eol
 
 [alias]
+    ctags = !.git/hooks/ctags
     unchangeable = !git ls-files -v | grep ^[a-z]
 
 [apply]

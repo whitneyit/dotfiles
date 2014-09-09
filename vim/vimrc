@@ -28,6 +28,7 @@ if has("autocmd")
     autocmd BufNewFile,BufRead *.md         set filetype=markdown
     autocmd BufNewFile,BufRead *.ngdoc      set filetype=markdown
     autocmd BufNewFile,BufRead *.rb         set filetype=ruby
+    autocmd BufNewFile,BufRead minttyrc     set filetype=sh
     autocmd BufNewFile,BufRead Vagrantfile  set filetype=ruby
 
     " Here we alias files like `.jshintrc`, then we fallback for `.bashrc`

@@ -12,24 +12,19 @@ declare -a dirs_to_append=(
     "$DOTFILES_DIRECTORY/bin"
     "$HOME/bin"
     "$HOME/.composer/vendor/bin"
+    "./vendor/bin"
 )
 
 # Prepend directories to PATH
 for index in "${dirs_to_prepend[@]}"
 do
-    if [ -d $index ]; then
-        # If these directories exist, then prepend them to existing PATH
-        PATH="${index}:$PATH"
-    fi
+    PATH="${index}:$PATH"
 done
 
 # Append directories to PATH
 for index in "${dirs_to_append[@]}"
 do
-    if [ -d $index ]; then
-        # If these bins exist, then append them to existing PATH
-        PATH="$PATH:${index}"
-    fi
+    PATH="$PATH:${index}"
 done
 
 # Unset the Array variables

@@ -56,13 +56,12 @@ vnoremap <S-Tab> <gv
 
 " Easy v-splitting
 nnoremap <leader>v :vsplit<CR>
-nnoremap <leader>V <C-w>q<ctr>
-nnoremap <leader>1 :vertical resize -20<CR>
-nnoremap <leader>1 :vertical resize -20<CR>
-nnoremap <leader>2 :vertical resize -5<CR>
+nnoremap <leader>V <C-w>q<CR>
+nnoremap <leader>1 :vertical resize +20<CR>
+nnoremap <leader>2 :vertical resize +5<CR>
 nnoremap <leader>3 <C-w>=<CR>
-nnoremap <leader>4 :vertical resize +5<CR>
-nnoremap <leader>5 :vertical resize +20<CR>
+nnoremap <leader>4 :vertical resize -5<CR>
+nnoremap <leader>5 :vertical resize -20<CR>
 
 " Basic tab operation
 " nnoremap <leader>t :tabnew<CR>

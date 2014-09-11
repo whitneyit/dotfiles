@@ -46,6 +46,10 @@ vnoremap <Down>  <C-e>
 vnoremap <Up>    <C-y>
 vnoremap <Right> zL
 
+" Navigate through tags
+nnoremap <leader>m :tn<CR>
+nnoremap <leader>n :tp<CR>
+
 " Here we create tab indentation
 nnoremap <Tab>   >>llll
 nnoremap <S-Tab> <<hhhh

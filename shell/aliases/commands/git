@@ -52,6 +52,7 @@ alias gloda="git log --branches --not --remotes --patch --date=iso --pretty=form
 alias gloga="git log --branches --not --remotes --graph --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad] %C(cyan)%ae %C(reset)%s %C(white)%d'"
 alias    gm="git merge --no-ff --progress --verbose"
 alias   gma="git merge --abort"
+alias   gmd="git merge --no-ff --progress --verbose develop"
 alias   gmu="git merge --no-ff --progress --verbose @{upstream}"
 alias   gps="git push          --progress --verbose"
 alias  gpsf="git push          --progress --verbose --force"

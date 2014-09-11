@@ -65,17 +65,20 @@ let g:EasyMotion_startofline = 0
 " Search by fullpath instead of just filename
 let g:ctrlp_by_filename = 0
 
+" Define the location of the cache dir
+let g:ctrlp_cache_dir = '~/.vim/plugins/ctrlp'
+
+" The max amount of files to display
+let g:ctrlp_max_files = 0
+
+" Show hidden files when using CtrlP
+let g:ctrlp_regexp = 0
+
 " Show hidden files when using CtrlP
 let g:ctrlp_show_hidden = 1
 
 " From where do we want CtrlP to search
 let g:ctrlp_working_path_mode = 'ra'
-
-" The max amount of files to display
-let g:ctrlp_max_files = 0
-
-" Define the location of the cache dir
-let g:ctrlp_cache_dir = '~/.vim/plugins/ctrlp'
 
 " Multiple cursors                                "
 " https://github.com/terryma/vim-multiple-cursors "

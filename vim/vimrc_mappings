@@ -115,6 +115,9 @@ nnoremap <leader>b :NERDTreeTabsToggle<CR>
 nnoremap <leader>l :w<cr>:!clear && gulp lint<CR>
 nnoremap <leader>t :w<cr>:!clear && gulp test<CR>
 
+" Open the tags in CtrlP
+nnoremap <leader>r :CtrlPTag<CR>
+
 " Quickly open the `TODO.md` file
 nnoremap <leader>T :edit TODO.md<CR>
 

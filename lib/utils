@@ -7,7 +7,7 @@ DOTFILES_BACKUP_DIRECTORY="backups"
 TARGET_LINK_DIR=$HOME
 
 # If we are in a vagrant instance, we will manually override that link here
-if [ "$(is_vagrant)" == "yes" ]; then
+if [ -d /home/vagrant ]; then
     TARGET_LINK_DIR="/home/vagrant"
     DOTFILES_DIRECTORY="/home/vagrant/.dotfiles"
 fi
@@ -82,11 +82,11 @@ function backup_prev() {
     else
 
         # Set it for `cygwin`.
-        if [ "$(is_cygwin)" == "yes" ]; then
+        if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
             chgrp -R Users "$BACKUP_DIRECTORY"
 
         # And for `vagrant`.
-        elif [ "$(is_vagrant)" == "yes" ]; then
+        elif [ -d /home/vagrant ]; then
             chown -R vagrant:vagrant "$BACKUP_DIRECTORY"
         fi
 
@@ -104,7 +104,7 @@ function link() {
     ln -fs "$1" "$2"
 
     # Adjust the permissions of the files
-    if [ "$(is_vagrant)" == "yes" ]; then
+    if [ -d /home/vagrant ]; then
 
         # Taken from `man`:
         # -h, --no-dereference
@@ -166,14 +166,14 @@ function link_files() {
     fi
 
     # Here we do any `cygwin` specific links
-    if [ "$(is_cygwin)" == "yes" ]; then
+    if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
 
         chgrp Users "$TARGET_LINK_DIR/.gitconfig"
         chgrp Users "$TARGET_LINK_DIR/.keys"
         chgrp Users "$TARGET_LINK_DIR/.NERDTreeBookmarks"
 
     # And now `vagrant` specific links
-    elif [ "$(is_vagrant)" == "yes" ]; then
+    elif [ -d /home/vagrant ]; then
 
         chown vagrant:vagrant "$TARGET_LINK_DIR/.gitconfig"
         chown vagrant:vagrant "$TARGET_LINK_DIR/.keys"

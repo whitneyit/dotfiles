@@ -10,9 +10,6 @@
 [submodule "vim/bundle/vim-fugitive"]
 	path = vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule "shell/fonts/consolas"]
-	path = shell/fonts/consolas
-	url = https://github.com/eugeneching/consolas-powerline-vim.git
 [submodule "shell/fonts/powerline-fonts"]
 	path = shell/fonts/powerline-fonts
 	url = https://github.com/Lokaltog/powerline-fonts.git

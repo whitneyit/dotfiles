@@ -18,6 +18,9 @@ let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('$VIM_DIRECT
 " Make the powerline use the enhanced font icons
 let g:Powerline_symbols = 'fancy'
 
+" Make powerline support pathogen
+set rtp+=$VIM_DIRECTORY/bundle/powerline/powerline/bindings/vim
+
 " NERDTree                               "
 " https://github.com/scrooloose/nerdtree "
 """"""""""""""""""""""""""""""""""""""""""

@@ -35,11 +35,9 @@
 	path = vim/bundle/emmet-vim
 	url = https://github.com/mattn/emmet-vim.git
 [submodule "vim/bundle/snipmate.vim"]
-	ignore = dirty
 	path = vim/bundle/snipmate.vim
 	url = https://github.com/msanders/snipmate.vim.git
 [submodule "vim/bundle/vim-multiple-cursors"]
-	ignore = dirty
 	path = vim/bundle/vim-multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors
 [submodule "vim/bundle/vim-indent-guides"]

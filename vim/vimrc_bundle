@@ -44,6 +44,9 @@ let g:NERDTreeShowHidden = 1
 " When switching into a tab, make sure that focus is on the file window
 let g:nerdtree_tabs_focus_on_files = 1
 
+" Exit vim if the only window open is NERDTree
+let g:nerdtree_tabs_autoclose = 0
+
 " Easy motion                                "
 " https://github.com/Lokaltog/vim-easymotion "
 """"""""""""""""""""""""""""""""""""""""""""""

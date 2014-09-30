@@ -25,6 +25,7 @@ nnoremap Q <Nop>
 " I find the man page dialouge more harmful than useful. I never use it and
 " when it pops up, it totally ruins my train of thoght.
 nnoremap K <Nop>
+vnoremap K <Nop>
 
 " Here we make easier window navigation
 nnoremap <C-h> <C-w>h

@@ -11,6 +11,9 @@
     quotepath = false
     whitespace = space-before-tab,cr-at-eol
 
+[url "http://"]
+    insteadOf = git://
+
 [alias]
     ctags = !.git/hooks/ctags
     unchangeable = !git ls-files -v | grep ^[a-z]

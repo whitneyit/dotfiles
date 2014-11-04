@@ -50,6 +50,10 @@ if has("autocmd")
     autocmd VimEnter    * exe "normal zR"
     autocmd BufReadPost * exe "normal zR"
 
+    " Adds support for the typescript compiler
+    autocmd QuickFixCmdPost [^l]* nested cwindow
+    autocmd QuickFixCmdPost    l* nested lwindow
+
 endif
 
 if has("syntax")

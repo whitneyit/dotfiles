@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Aliases to the git repos
-alias  ghw="cd ~/Code/gh2_website"
+alias  ghc="cd ~/Code/client"
 alias  gha="cd ~/Code/glasshat-v2"
 alias  ghb="cd ~/Code/ghbox"
 alias ghbm="cd ~/Code/ghboxmake"

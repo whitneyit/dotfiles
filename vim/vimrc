@@ -39,8 +39,9 @@ if has("autocmd")
     " Also set "commented json" files to `json`
     autocmd BufNewFile,BufRead cjson        set filetype=json
 
-    " Add filetype support for .jshintignore and eslintignore files
-    autocmd BufNewFile,BufRead .*lintignore set filetype=conf
+    " Add filetype support for `.eslintignore`, `.jshintignore`, and
+    " `.npmignore` files
+    autocmd BufNewFile,BufRead .*ignore set filetype=conf
 
     " Adjust the colorscheme
     autocmd BufNewFile,BufRead * highlight clear NonText

@@ -2,6 +2,7 @@
 
 # Aliases to the git repos
 alias  ghc="cd ~/Code/client"
+alias  ghs="cd ~/Code/server"
 alias  gha="cd ~/Code/glasshat-v2"
 alias  ghb="cd ~/Code/ghbox"
 alias ghbm="cd ~/Code/ghboxmake"

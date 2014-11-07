@@ -1,27 +1,44 @@
 #!/usr/bin/env bash
 
-# Because `cygwin` has a more enhanced version of `ls` we will target it
-# directly. The "--ignores" that you see below are just there to exclude some
-# system files that shouldn't be showing up anyways.
+# Because this file is in `$DOTFILES_DIRECTORY` and the directory is added
+# to the `$PATH` variable, and this file is named `ls`, any references to `ls`
+# will trigger this command instead of the OS `ls` command.
+#
+# Using this knowledge we can create multiple versions of the `ls` command and
+# target each of them at specific OS's. Now because the Mac version of `ls` does
+# not have all of the options that everyone else has access to, we have to come
+# up with two different commands to handle these needs. Also if an invalid
+# option is passed to `ls` on a Mac it will throw an Error.
+#
+# So here we create two commands, noth called `list`. This `list` command will
+# be defined based upon the running OS.
+#
+# Here we define the `list` command for Mac users.
 if [ "$(os)" == "mac" ]; then
 
-    #
+    # Define a "mac" specific `ls` command.
     function list () {
 
-        #
+        # Target the base OS `ls` command. This outputs filesize sizes in
+        # "human-readable" formats, eg Kb and Gb.
         command ls\
             -h \
-            -G \
             "$@"
     }
 
-#
+# `Cygwin` has a more enhanced version of `ls` we will target it directly. The
+# "--ignores" that you see below are just there to exclude some system files
+# that shouldn't be showing up anyways.
 else
 
-    #
+    # Define a `ls` command for everywhere else
     function list () {
 
-        #
+        # Target the base OS `ls` command. This outputs filesize sizes in
+        # "human-readable" formats, eg Kb and Gb. It also enables coloured
+        # output and hides certain files from being displayed. The files that
+        # are being hidden are all pretty much Windows OS files. This allows the
+        # `ls` command to be run in Cygwin without polluting the output.
         command ls \
             -h \
             --color \
@@ -44,29 +61,30 @@ fi
 # This is a command that will output a numeric versios of the file permissions
 OCTAL_PERMISSIONS="{k=0;for(i=0;i<=8;i++)k+=((substr(\$1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(\" %0o \",k);print}"
 
-#
+# This is where we overrite the `ls` command.
 function ls () {
     list "$@"
 }
 
-#
+# Here we a pseudo alias for `ls -l`.
 function ll () {
     list -l              | awk "$OCTAL_PERMISSIONS"
 }
 
-#
+# Here we a pseudo alias for `ls -la`. The difference here is that we list
+# directories first, then links, then everything else.
 function la () {
     list -la | grep "^d" | awk "$OCTAL_PERMISSIONS" && \
     list -la | grep "^l" | awk "$OCTAL_PERMISSIONS" && \
     list -la | grep "^-" | awk "$OCTAL_PERMISSIONS"
 }
 
-#
+# Here we a pseudo alias for `ls -la` whilst only outputting directories.
 function ld () {
     list -la | grep "^d" | awk "$OCTAL_PERMISSIONS"
 }
 
-#
+# Here we a pseudo alias for `ls -la` whilst only outputting files and links.
 function lf () {
     list -la | grep "^l" | awk "$OCTAL_PERMISSIONS" && \
     list -la | grep "^-" | awk "$OCTAL_PERMISSIONS"

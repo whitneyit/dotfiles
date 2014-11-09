@@ -10,9 +10,16 @@ silent! call pathogen#infect()
 " This generates all the "pathogen" plugin helptags
 silent! call pathogen#helptags()
 
+" Access colors present in 256 colorspace
+let base16colorspace=256
+
+" Set the background colour for our theme
+set background=dark
+
 " Set the colorscheme
-colorscheme xoria256
+colorscheme base16-default
 " colorscheme molokai
+" colorscheme xoria256
 
 if has("autocmd")
 

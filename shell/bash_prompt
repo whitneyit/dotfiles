@@ -46,6 +46,12 @@ export WHITE
 export BOLD
 export RESET
 
+# Define where our base16 colour scheme is found
+export BASE16_SHELL="$DOTFILES_DIRECTORY/shell/base16/base16-default.dark.sh"
+
+# Enable the Base16 colours
+[[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
+
 function parse_git_dirty() {
     [[ $(git status 2> /dev/null | tail -n1) != *"working directory clean"* ]] && echo "*"
 }

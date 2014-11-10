@@ -140,3 +140,19 @@ let g:EditorConfig_verbose = 1
 
 " Specify our custom handler
 let g:EditorConfig_exec_path = 'editorconfig_pre'
+
+" syntastic                               "
+" https://github.com/scrooloose/syntastic "
+"""""""""""""""""""""""""""""""""""""""""""
+
+" Set `eslint` to be the preferred JavaScript checker
+let g:syntastic_javascript_checkers = ['jscs']
+
+" Ensure that the location list window is alwasy populated
+let g:syntastic_always_populate_loc_list = 1
+
+" Open and close the location list automaticly
+let g:syntastic_auto_loc_list = 1
+
+" Display errors from all checkers at once
+let g:syntastic_aggregate_errors = 1

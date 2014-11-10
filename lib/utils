@@ -40,6 +40,7 @@ function backup_prev() {
 
     # Define an array of items to backup
     declare -a items_to_backup=(
+        "$TARGET_LINK_DIR/.config"
         "$TARGET_LINK_DIR/.gitattributes"
         "$TARGET_LINK_DIR/.gitconfig"
         "$TARGET_LINK_DIR/.gitignore_global"
@@ -126,16 +127,22 @@ function link_files() {
     backup_prev "$1"
 
     # Here we delete the previously linked folders
+    if [ -d $TARGET_LINK_DIR/.config ]; then
+        rm $TARGET_LINK_DIR/.config
+    fi
+
+    # Same goes for the fonts folder
     if [ -d $TARGET_LINK_DIR/.fonts ]; then
         rm $TARGET_LINK_DIR/.fonts
     fi
 
-    # Same goes for the vim folder
+    # And the vim folder
     if [ -d $TARGET_LINK_DIR/.vim ]; then
         rm $TARGET_LINK_DIR/.vim
     fi
 
     # Now we can link up the folders without fear of recursion
+    link "$1/config/"               "$TARGET_LINK_DIR/.config"
     link "$1/git/templates/"        "$TARGET_LINK_DIR/.git_templates"
     link "$1/shell/fonts/"          "$TARGET_LINK_DIR/.fonts"
     link "$1/vim/"                  "$TARGET_LINK_DIR/.vim"

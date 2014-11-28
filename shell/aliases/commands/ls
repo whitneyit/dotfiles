@@ -68,26 +68,26 @@ function ls () {
 
 # Here we a pseudo alias for `ls -l`.
 function ll () {
-    list -l              | awk "$OCTAL_PERMISSIONS"
+    list "$@" -l              | awk "$OCTAL_PERMISSIONS"
 }
 
 # Here we a pseudo alias for `ls -la`. The difference here is that we list
 # directories first, then links, then everything else.
 function la () {
-    list -la | grep "^d" | awk "$OCTAL_PERMISSIONS" && \
-    list -la | grep "^l" | awk "$OCTAL_PERMISSIONS" && \
-    list -la | grep "^-" | awk "$OCTAL_PERMISSIONS"
+    list "$@" -la | grep "^d" | awk "$OCTAL_PERMISSIONS" && \
+    list "$@" -la | grep "^l" | awk "$OCTAL_PERMISSIONS" && \
+    list "$@" -la | grep "^-" | awk "$OCTAL_PERMISSIONS"
 }
 
 # Here we a pseudo alias for `ls -la` whilst only outputting directories.
 function ld () {
-    list -la | grep "^d" | awk "$OCTAL_PERMISSIONS"
+    list "$@" -la | grep "^d" | awk "$OCTAL_PERMISSIONS"
 }
 
 # Here we a pseudo alias for `ls -la` whilst only outputting files and links.
 function lf () {
-    list -la | grep "^l" | awk "$OCTAL_PERMISSIONS" && \
-    list -la | grep "^-" | awk "$OCTAL_PERMISSIONS"
+    list "$@" -la | grep "^l" | awk "$OCTAL_PERMISSIONS" && \
+    list "$@" -la | grep "^-" | awk "$OCTAL_PERMISSIONS"
 }
 
 # vim: set syn=sh :

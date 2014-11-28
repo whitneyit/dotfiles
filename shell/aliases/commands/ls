@@ -14,7 +14,7 @@
 # be defined based upon the running OS.
 #
 # Here we define the `list` command for Mac users.
-if [ "$(os)" == "mac" ]; then
+if [ "$(is_mac)" == "yes" ]; then
 
     # Define a "mac" specific `ls` command.
     function list () {

@@ -87,6 +87,7 @@ alias  gsmu="git submodule update --recursive --init"
 alias   gsh="git show --no-merges        --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad] %C(cyan)%ae %C(reset)%s %C(white)%d %n'"
 alias  gshs="git show --no-merges --stat --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad] %C(cyan)%ae %C(reset)%s %C(white)%d %n'"
 alias   gst="git status --untracked-files=all"
+alias  gstc="git status"
 alias  gsti="git status --untracked-files=all --ignored"
 alias    gv="git --version"
 

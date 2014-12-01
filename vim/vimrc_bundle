@@ -148,6 +148,9 @@ let g:EditorConfig_exec_path = 'editorconfig_pre'
 " Set `eslint` to be the preferred JavaScript checker
 let g:syntastic_javascript_checkers = ['jscs']
 
+" Specify the output directory and module type for TypeScript
+let g:syntastic_typescript_tsc_args = '--outDir ./.tsc --module amd'
+
 " Ensure that the location list window is alwasy populated
 let g:syntastic_always_populate_loc_list = 1
 
@@ -156,3 +159,10 @@ let g:syntastic_auto_loc_list = 1
 
 " Display errors from all checkers at once
 let g:syntastic_aggregate_errors = 1
+
+" typescript                                    "
+" https://github.com/leafgarland/typescript-vim "
+"""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Configure which flags we want to pass to `tsc`
+let g:typescript_compiler_options = ' --outDir ./.tsc --module amd'

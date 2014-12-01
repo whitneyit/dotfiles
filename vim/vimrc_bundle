@@ -145,8 +145,8 @@ let g:EditorConfig_exec_path = 'editorconfig_pre'
 " https://github.com/scrooloose/syntastic "
 """""""""""""""""""""""""""""""""""""""""""
 
-" Set `eslint` to be the preferred JavaScript checker
-let g:syntastic_javascript_checkers = ['jscs']
+" Enable `eslint` and `jscs` for JavaScript files
+let g:syntastic_javascript_checkers = ['eslint', 'jscs']
 
 " Specify the output directory and module type for TypeScript
 let g:syntastic_typescript_tsc_args = '--outDir ./.tsc --module amd'

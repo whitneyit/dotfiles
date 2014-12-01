@@ -108,7 +108,7 @@ endif
 if has("extra_search")
 
     " Highlight searches [use :noh to clear]
-    set hlsearch
+    set nohlsearch
 
     " Highlight dynamically as pattern is typed
     set incsearch

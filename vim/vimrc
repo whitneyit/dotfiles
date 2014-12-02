@@ -228,6 +228,10 @@ set autowrite
 " Show 'invisible' characters
 set list
 
+" Enable spell check
+set spell
+set spelllang=en_gb
+
 " Causes the split windows to be focuses upon open
 set splitbelow
 set splitright

@@ -15,3 +15,5 @@ Charset=UTF-8
 AllowBlinking=yes
 CopyAsRTF=no
 FontSmoothing=full
+ForegroundColour=131,148,150
+BackgroundColour=0,43,54

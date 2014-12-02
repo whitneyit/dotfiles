@@ -4,4 +4,4 @@
 " endif
 
 " Set a ruler instead
-set colorcolumn=81
+setlocal colorcolumn=81

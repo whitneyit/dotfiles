@@ -5,6 +5,11 @@ setlocal shiftwidth=4
 setlocal expandtab
 setlocal textwidth=0
 
+" The above settings also impact *.md files. Fix that here
+if &filetype=="markdown"
+    set textwidth=80
+endif
+
 " Make <a> tags appear as normal text
 highlight link htmlLink normal
 

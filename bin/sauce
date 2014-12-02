@@ -12,6 +12,7 @@ declare -a files=(
     $DOTFILES_DIRECTORY/shell/aliases/os/*
     $DOTFILES_DIRECTORY/shell/bash_ssh
     $DOTFILES_DIRECTORY/shell/bash_prompt
+    $DOTFILES_DIRECTORY/shell/bash_shell
     $HOME/.bashrc.local
     $HOME/.bash_profile.local
 )

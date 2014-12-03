@@ -160,6 +160,9 @@ let g:syntastic_auto_loc_list = 1
 " Display errors from all checkers at once
 let g:syntastic_aggregate_errors = 1
 
+" Don't perform checks when trying to quit a file
+let g:syntastic_check_on_wq = 0
+
 " typescript                                    "
 " https://github.com/leafgarland/typescript-vim "
 """""""""""""""""""""""""""""""""""""""""""""""""

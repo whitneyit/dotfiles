@@ -68,7 +68,9 @@ function ls () {
 
 # Here we a pseudo alias for `ls -l`.
 function ll () {
-    list "$@" -l              | awk "$OCTAL_PERMISSIONS"
+    list "$@" -l  | grep "^d" | awk "$OCTAL_PERMISSIONS" && \
+    list "$@" -l  | grep "^l" | awk "$OCTAL_PERMISSIONS" && \
+    list "$@" -l  | grep "^-" | awk "$OCTAL_PERMISSIONS"
 }
 
 # Here we a pseudo alias for `ls -la`. The difference here is that we list

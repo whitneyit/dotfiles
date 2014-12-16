@@ -19,25 +19,25 @@ function ssh_agent_wrapper() {
 
 }
 
-# Only do this SSH setup if we are not in a vagrant instance
-if [ "$(is_vagrant)" == "no" ]; then
+# Here we read the contents of a file and load up its keys.
+function read_keys() {
 
-    # Here we fire up `ssh` for every shell
-    ssh_agent_wrapper
+    # Alias the filepath that was passed in.
+    KEYS="$1"
+
+    # Here we save a backup to the old `Internal Feed Seperator`, and we will
+    # modify it ot only pickup on new lines.
+    OLDIFS=$IFS
+    IFS=$'\n'
 
     # If we have a keys file defined, then we can proceed to extract them. It is
     # important to note that this file does not contain the keys themselves,
     # just the location of where the key is stored. You must use absolute paths
     # when specifying the path.
-    if [ -f "$HOME/.keys" ]; then
-
-        # Here we save a backup to the old `Internal Feed Seperator`, and we
-        # will modify it ot only pickup on new lines.
-        OLDIFS=$IFS
-        IFS=$'\n'
+    if [ -f "$KEYS" ]; then
 
         # Read the file into a variable
-        file="$(cat "$HOME/.keys")"
+        file="$(cat "$KEYS")"
 
         # Here we loop over each line in the file
         for line in $file;  do
@@ -45,7 +45,7 @@ if [ "$(is_vagrant)" == "no" ]; then
             # Here we convert the line of the file into a real variable
             key=$(eval echo "$line")
 
-            # Here we test to see if the `key` provided by the `$HOME/.keys`
+            # Here we test to see if the `key` provided by the `$KEYS`
             # file actually points to a file. If it does we will add it to the
             # `ssh-agent`
             if [ -f "$key" ]; then
@@ -54,10 +54,22 @@ if [ "$(is_vagrant)" == "no" ]; then
 
         done
 
-        # Finally we restore the `$IFS` to its previous settings.
-        IFS=$OLDIFS
-
     fi
+
+    # Finally we restore the `$IFS` to its previous settings.
+    IFS=$OLDIFS
+
+}
+
+# Only do this SSH setup if we are not in a vagrant instance
+if [ "$(is_vagrant)" == "no" ]; then
+
+    # Here we fire up `ssh` for every shell
+    ssh_agent_wrapper
+
+    # Read our .keys files.
+    read_keys "$HOME/.keys"
+    read_keys "$HOME/.keys.local"
 
 fi
 

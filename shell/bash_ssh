@@ -50,6 +50,10 @@ function read_keys() {
             # `ssh-agent`
             if [ -f "$key" ]; then
                 eval ssh-add "$key"
+
+            # Log a warning that we could not find the key
+            else
+                e_error "Could not load key: [$key]"
             fi
 
         done

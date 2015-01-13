@@ -43,7 +43,6 @@ if has("autocmd")
     autocmd BufNewFile,BufRead .bowerrc     set filetype=json
     autocmd BufNewFile,BufRead .eslintrc    set filetype=json
     autocmd BufNewFile,BufRead .jshintrc    set filetype=json
-    autocmd BufNewFile,BufRead .vimrc       set filetype=vim
 
     " Also set "commented json" files to `json`
     autocmd BufNewFile,BufRead cjson        set filetype=json
@@ -295,3 +294,5 @@ endif
 if filereadable(glob("$PWD/.vimrc.local"))
     source $PWD/.vimrc.local
 endif
+
+" vim: set syn=vim :

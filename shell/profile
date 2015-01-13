@@ -1,9 +1,17 @@
 #!/usr/bin/env bash
 
 # If running bash
-if [ -n "${BASH_VERSION}" ]; then
-    if [ -f "${HOME}/.bashrc" ]; then
-        source "${HOME}/.bashrc"
+if [ -n "$BASH_VERSION" ]; then
+    if [ -f "$HOME/.bashrc" ]; then
+
+        # If $DOTFILES_DIRECTORY is a zero length string then we know that we
+        # have not run out `.bash_profile` setup. Because `.profile` has been
+        # called, we should run `.bashrc` instead. I don't know why, just every
+        # example does this.
+        if [ -z "$DOTFILES_DIRECTORY" ]; then
+            source "$HOME/.bashrc"
+        fi
+
     fi
 fi
 

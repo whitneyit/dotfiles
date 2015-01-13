@@ -32,3 +32,8 @@ export LC_ALL="en_US.UTF-8"
 
 # Uncomment to enable bloda detection
 # export CYGWIN="nodosfilewarning mintty detect_bloda"
+
+# Ensure that we use our prompt instead of babuns
+source "$DOTFILES_DIRECTORY"/shell/bash_prompt
+
+# vim: set syn=sh :

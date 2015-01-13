@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-# Here we just source the `.bash_profile` file instead
-[ -n "$PS1" ] && source "$HOME/.bash_profile"
+# If $DOTFILES_DIRECTORY is zero length then source `.bash_profile`
+if [ -z "$DOTFILES_DIRECTORY" ]; then
+    source "$HOME/.bash_profile"
+fi
 
 # vim: set syn=sh :

@@ -17,3 +17,5 @@ CopyAsRTF=no
 FontSmoothing=full
 ForegroundColour=131,148,150
 BackgroundColour=0,43,54
+RightClickAction=menu
+CursorColour=255,255,255

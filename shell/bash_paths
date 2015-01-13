@@ -12,6 +12,7 @@ declare -a dirs_to_append=(
     "$DOTFILES_DIRECTORY/bin"
     "$HOME/bin"
     "$HOME/.composer/vendor/bin"
+    "$HOME/.rvm/bin"
     "./vendor/bin"
 )
 

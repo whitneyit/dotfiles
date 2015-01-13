@@ -120,21 +120,6 @@ if [ ! -d .git ]; then
         touch "$HOME/.prev_dir"
     fi
 
-    # If we are running inside a `cygwin` environment, we need to change the
-    # "group" on the files so that we can change the permissions of the files.
-    if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
-        chgrp Users "$HOME/.bash_history"
-        chgrp Users "$HOME/.prev_dir"
-        chgrp Users "$HOME/.viminfo"
-
-    # And here we do the same for a `vagrant` environment.
-    elif [ -d /home/vagrant ]; then
-        chown vagrant:vagrant "$HOME/.bash_history"
-        chown vagrant:vagrant "$HOME/.prev_dir"
-        chown vagrant:vagrant "$HOME/.viminfo"
-
-    fi
-
     # Next we update the permissions of the two files.
     chmod 755 "$HOME/.bash_history"
     chmod 755 "$HOME/.prev_dir"
@@ -207,6 +192,20 @@ git pull origin master --quiet
 # Relink the files
 e_header "Linking files..."
 link_files "$PWD"
+
+# If we are running inside a `cygwin` environment, we need to change the
+# "group" on the files so that we can change the permissions of the files.
+if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
+    chgrp -R Users "$DOTFILES_DIRECTORY"
+
+# And here we do the same for a `vagrant` environment.
+elif [ -d /home/vagrant ]; then
+    chown -R vagrant:vagrant "$DOTFILES_DIRECTORY"
+
+# Everything else
+else
+    chown -R "$(whoami)":"$(whoami)" "$DOTFILES_DIRECTORY"
+fi
 
 # And finally that's it. Repo updated!
 e_success "Dotfiles update complete"

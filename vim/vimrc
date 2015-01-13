@@ -38,9 +38,12 @@ if has("autocmd")
     autocmd BufNewFile,BufRead minttyrc     set filetype=sh
     autocmd BufNewFile,BufRead Vagrantfile  set filetype=ruby
 
-    " Here we alias files like `.jshintrc`, then we fallback for `.bashrc`
-    autocmd BufNewFile,BufRead .*rc         set filetype=json
-    autocmd BufNewFile,BufRead .bashrc      set filetype=sh
+    " Here we alias files like `.bashrc`, then we fallback for anything else
+    autocmd BufNewFile,BufRead .*rc         set filetype=sh
+    autocmd BufNewFile,BufRead .bowerrc     set filetype=json
+    autocmd BufNewFile,BufRead .eslintrc    set filetype=json
+    autocmd BufNewFile,BufRead .jshintrc    set filetype=json
+    autocmd BufNewFile,BufRead .vimrc       set filetype=vim
 
     " Also set "commented json" files to `json`
     autocmd BufNewFile,BufRead cjson        set filetype=json

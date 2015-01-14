@@ -51,6 +51,7 @@ function backup_prev() {
         "$TARGET_LINK_DIR/.babunrc"
         "$TARGET_LINK_DIR/.bash_profile"
         "$TARGET_LINK_DIR/.bash_logout"
+        "$TARGET_LINK_DIR/.bash_proxy"
         "$TARGET_LINK_DIR/.bashrc"
         "$TARGET_LINK_DIR/.inputrc"
         "$TARGET_LINK_DIR/.profile"
@@ -160,6 +161,7 @@ function link_files() {
     # so that the user is free to modify these files and cause no disturbance to
     # the repo.
     cp   "$1/git/gitconfig"         "$TARGET_LINK_DIR/.gitconfig"
+    cp   "$1/shell/bash_proxy"      "$TARGET_LINK_DIR/.bash_proxy"
 
     # Only create the `.NERDTreeBookmarks` file if one doesn't already exist. We
     # do not want to override one.
@@ -171,18 +173,21 @@ function link_files() {
     if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
 
         chgrp Users "$TARGET_LINK_DIR/.gitconfig"
+        chgrp Users "$TARGET_LINK_DIR/.bash_proxy"
         chgrp Users "$TARGET_LINK_DIR/.NERDTreeBookmarks"
 
     # And now `vagrant` specific links
     elif [ -d /home/vagrant ]; then
 
         chown vagrant:vagrant "$TARGET_LINK_DIR/.gitconfig"
+        chown vagrant:vagrant "$TARGET_LINK_DIR/.bash_proxy"
         chown vagrant:vagrant "$TARGET_LINK_DIR/.NERDTreeBookmarks"
 
     fi
 
     # Now lets change the file permissions
     chmod 755 "$TARGET_LINK_DIR/.gitconfig"
+    chmod 755 "$TARGET_LINK_DIR/.bash_proxy"
     chmod 755 "$TARGET_LINK_DIR/.NERDTreeBookmarks"
 
 }

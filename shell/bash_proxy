@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# Fill in these variables if you are using a proxy
+# export  HTTP_PROXY="http://user:password@website.com:1234"
+# export  http_proxy="http://user:password@website.com:1234"
+# export HTTPS_PROXY="https://user:password@website.com:1234"
+# export https_proxy="https://user:password@website.com:1234"
+
+# vim: set syn=sh :

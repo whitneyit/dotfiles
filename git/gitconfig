@@ -11,7 +11,7 @@
     quotepath = false
     whitespace = space-before-tab,cr-at-eol
 
-[url "http://"]
+[url "https://"]
     insteadOf = git://
 
 [url "ssh://git@github.com"]

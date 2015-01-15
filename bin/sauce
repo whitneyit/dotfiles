@@ -13,11 +13,11 @@ declare -a files=(
     $DOTFILES_DIRECTORY/shell/bash_ssh
     $DOTFILES_DIRECTORY/shell/bash_prompt
     $DOTFILES_DIRECTORY/shell/bash_shell
-    $DOTFILES_DIRECTORY/shell/bash_proxy
     /usr/local/rvm
     $HOME/.rvm/scripts/rvm
     $HOME/.bashrc.local
     $HOME/.bash_profile.local
+    $HOME/.bash_proxy
 )
 
 # Here we define a list of bash completetion files that we will execute

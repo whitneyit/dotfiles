@@ -145,11 +145,19 @@ if [ ! -d .git ]; then
     # If we are running inside a `cygwin` environment, we need to change the
     # "group" on the files so that we can change the permissions of the files.
     if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
-        chgrp -R Users $DOTFILES_DIRECTORY
+        chgrp -R Users .
+        chgrp Users "$DOTFILES_DIRECTORY"
+        chgrp Users "$HOME/.bash_history"
+        chgrp Users "$HOME/.prev_dir"
+        chgrp Users "$HOME/.viminfo"
 
     # And here we do the same for a `vagrant` environment.
     elif [ -d /home/vagrant ]; then
-        chown -R vagrant:vagrant $DOTFILES_DIRECTORY
+        chown -R vagrant:vagrant .
+        chown --no-dereference vagrant:vagrant "$DOTFILES_DIRECTORY"
+        chown vagrant:vagrant "$HOME/.bash_history"
+        chown vagrant:vagrant "$HOME/.prev_dir"
+        chown vagrant:vagrant "$HOME/.viminfo"
     fi
 
     # And here we confirm to the User that we have completed Installing the

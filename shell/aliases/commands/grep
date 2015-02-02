@@ -5,14 +5,14 @@
 # r: recursive
 # F: makes grep search with a string instead of regex
 # l: list of filenames instead of contexts
-alias   grp="grep --exclude-dir bower_components --exclude-dir node_modules --exclude-dir typings --color -inF"
-alias  grpr="grep --exclude-dir bower_components --exclude-dir node_modules --exclude-dir typings --color -inrF"
-alias  grpl="grep --exclude-dir bower_components --exclude-dir node_modules --exclude-dir typings --color -inFl"
-alias grprl="grep --exclude-dir bower_components --exclude-dir node_modules --exclude-dir typings --color -inrFl"
-alias   grp="grep --exclude-dir bower_components --exclude-dir node_modules --exclude-dir typings --color -inF"
-alias  grpr="grep --exclude-dir bower_components --exclude-dir node_modules --exclude-dir typings --color -inrF"
-alias  grpl="grep --exclude-dir bower_components --exclude-dir node_modules --exclude-dir typings --color -inFl"
-alias grprl="grep --exclude-dir bower_components --exclude-dir node_modules --exclude-dir typings --color -inrFl"
+alias   grp="grep --exclude-dir bower_components --exclude-dir --exclude-dir coverage node_modules --exclude-dir typings --color -inF"
+alias  grpr="grep --exclude-dir bower_components --exclude-dir --exclude-dir coverage node_modules --exclude-dir typings --color -inrF"
+alias  grpl="grep --exclude-dir bower_components --exclude-dir --exclude-dir coverage node_modules --exclude-dir typings --color -inFl"
+alias grprl="grep --exclude-dir bower_components --exclude-dir --exclude-dir coverage node_modules --exclude-dir typings --color -inrFl"
+alias   grp="grep --exclude-dir bower_components --exclude-dir --exclude-dir coverage node_modules --exclude-dir typings --color -inF"
+alias  grpr="grep --exclude-dir bower_components --exclude-dir --exclude-dir coverage node_modules --exclude-dir typings --color -inrF"
+alias  grpl="grep --exclude-dir bower_components --exclude-dir --exclude-dir coverage node_modules --exclude-dir typings --color -inFl"
+alias grprl="grep --exclude-dir bower_components --exclude-dir --exclude-dir coverage node_modules --exclude-dir typings --color -inrFl"
 
 # Allow for typos
 alias grplr="greprl"

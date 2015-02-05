@@ -19,6 +19,10 @@ elif [ "$(uname -s | grep -c MINGW32_NT)" -gt 0 ]; then
 elif [ "$(uname -s | grep -c Cygwin)" -gt 0 ]; then
     LOCAL_OS="win"
 
+# Cygwin via Babun
+elif [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
+    LOCAL_OS="win"
+
 fi
 
 # Output the result

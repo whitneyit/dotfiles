@@ -4,7 +4,7 @@
 if [ "$(is_win)" == "yes" ]; then
 
     # This needs to be updated to get the absolute windows style path
-    open /cygdrive/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe "$1"
+    cygstart /cygdrive/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe "$1"
 
 # If we are running on Mac
 elif [ "$(is_mac)" == "yes" ]; then

@@ -114,3 +114,5 @@ and
 and
 urls
 typings
+loglevel
+tsd

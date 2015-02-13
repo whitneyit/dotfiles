@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-# Aliases to the git repos
-alias sac="cd ~/Code/client"
-alias sas="cd ~/Code/server"
-
-# vim: set syn=sh :

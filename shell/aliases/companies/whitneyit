@@ -3,6 +3,7 @@
 # Project folders
 alias boilerplate="cd ~/Code/boilerplate/"
 alias          de="cd ~/Code/detect-environment"
+alias          fr="cd ~/Code/file-require"
 alias   homestead="cd ~/Code/homestead"
 alias       pages="cd ~/Code/whitneyit.github.io/"
 alias       setup="cd ~/Code/setup/"

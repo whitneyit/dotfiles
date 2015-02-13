@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Aliases to the git repos
+alias asc="cd ~/Code/amp-styleguide-core"
+alias asw="cd ~/Code/amp-styleguide-website"
+alias cpc="cd ~/Code/CustomerPortalCSS"
+
+# vim: set syn=sh :

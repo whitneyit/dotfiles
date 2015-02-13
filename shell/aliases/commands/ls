@@ -63,33 +63,53 @@ OCTAL_PERMISSIONS="{k=0;for(i=0;i<=8;i++)k+=((substr(\$1,i+2,1)~/[rwx]/)*2^(8-i)
 
 # This is where we overrite the `ls` command.
 function ls () {
-    list "$@"
+    if [ $(command ls -1 | wc -l) == "0" ]; then
+        echo "no directories or files found"
+    else
+        list "$@"
+    fi
 }
 
 # Here we a pseudo alias for `ls -l`.
 function ll () {
-    list "$@" -l  | grep "^d" | awk "$OCTAL_PERMISSIONS" && \
-    list "$@" -l  | grep "^l" | awk "$OCTAL_PERMISSIONS" && \
-    list "$@" -l  | grep "^-" | awk "$OCTAL_PERMISSIONS"
+    if [ $(command ls -A1 | wc -l) == "0" ]; then
+        echo "no directories or files found"
+    else
+        list "$@" -l  | grep "^d" | awk "$OCTAL_PERMISSIONS" && \
+        list "$@" -l  | grep "^l" | awk "$OCTAL_PERMISSIONS" && \
+        list "$@" -l  | grep "^-" | awk "$OCTAL_PERMISSIONS"
+    fi
 }
 
 # Here we a pseudo alias for `ls -lA`. The difference here is that we list
 # directories first, then links, then everything else.
 function la () {
-    list "$@" -lA | grep "^d" | awk "$OCTAL_PERMISSIONS" && \
-    list "$@" -lA | grep "^l" | awk "$OCTAL_PERMISSIONS" && \
-    list "$@" -lA | grep "^-" | awk "$OCTAL_PERMISSIONS"
+    if [ $(command ls -A1 | wc -l) == "0" ]; then
+        echo "no directories or files found"
+    else
+        list "$@" -lA | grep "^d" | awk "$OCTAL_PERMISSIONS" && \
+        list "$@" -lA | grep "^l" | awk "$OCTAL_PERMISSIONS" && \
+        list "$@" -lA | grep "^-" | awk "$OCTAL_PERMISSIONS"
+    fi
 }
 
 # Here we a pseudo alias for `ls -lA` whilst only outputting directories.
 function ld () {
-    list "$@" -lA | grep "^d" | awk "$OCTAL_PERMISSIONS"
+    if [ $(command ls -A1 | grep "^d" | wc -l) == "0" ]; then
+        echo "no directories found"
+    else
+        list "$@" -lA | grep "^d" | awk "$OCTAL_PERMISSIONS"
+    fi
 }
 
 # Here we a pseudo alias for `ls -lA` whilst only outputting files and links.
 function lf () {
-    list "$@" -lA | grep "^l" | awk "$OCTAL_PERMISSIONS" && \
-    list "$@" -lA | grep "^-" | awk "$OCTAL_PERMISSIONS"
+    if [ $(command ls -A1 | grep "^[l|-]" | wc -l) == "0" ]; then
+        echo "no files found"
+    else
+        list "$@" -lA | grep "^l" | awk "$OCTAL_PERMISSIONS" && \
+        list "$@" -lA | grep "^-" | awk "$OCTAL_PERMISSIONS"
+    fi
 }
 
 # vim: set syn=sh :

@@ -133,3 +133,8 @@ ostype
 sh
 java
 workflow
+devDependencies
+galenframework
+james
+whitney
+io

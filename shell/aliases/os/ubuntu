@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Ensure that these aliases are only ever processed if we are in a cygwin box.
+if [ "$(is_ubuntu)" == "yes" ]; then
+
+    # Replace the `open` command with `gnome-open`. This requires installing
+    # the `libgnome2-bin` binary.
+    #
+    # ```sh
+    # $ sudo apt-get install -y libgnome2-bin
+    # ```
+    alias open="gnome-open"
+
+fi
+
+# vim: set syn=sh :

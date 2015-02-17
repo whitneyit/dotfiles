@@ -12,9 +12,15 @@ if [ "$(is_cygwin)" == "yes" ]; then
         alias c="cd /cygdrive/c"
 
         # Here we define some aliases to the Program Files folder, because fuck
-        # typing all of that all the time.
-        alias pf32="cd /cygdrive/c/Program\ Files\ \(x86\)/"
-        alias pf64="cd /cygdrive/c/Program\ Files\/"
+        # typing all of that all the time. We take into account whether or not
+        # the user has an `x86` version of "Program Files" or not.
+        if [ -d /cygdrive/c/Program\ Files\ \(x86\)/ ]; then
+            alias pf32="cd /cygdrive/c/Program\ Files\ \(x86\)/"
+            alias pf64="cd /cygdrive/c/Program\ Files\/"
+        else
+            alias pf32="cd /cygdrive/c/Program\ Files\/"
+        fi
+
     fi
 
     # And if a `D:\` drive is installed, alias that as well.

@@ -253,15 +253,15 @@ set wildmenu
 set wildmode=list:longest
 
 " Centralize backups, swapfiles and undo history
-set backupdir=$VIM_DIRECTORY/backups
-set directory=$VIM_DIRECTORY/swaps
+set backupdir=$HOME/.vim/backups
+set directory=$HOME/.vim/swaps
 
 " If we are able to store undo history. Basically this allows us to record undo
 " actions even after files are closed
 if exists("&undodir")
 
     " Set the location of where the undo files will be kept
-    set undodir=$VIM_DIRECTORY/undo
+    set undodir=$HOME/.vim/undo
 
     " This enables the setting.
     set undofile
@@ -279,12 +279,12 @@ set nowritebackup
 set noswapfile
 
 " Load up our other keybinds
-source $VIM_DIRECTORY/vimrc_bundle
-source $VIM_DIRECTORY/vimrc_abbr
-source $VIM_DIRECTORY/vimrc_commands
-source $VIM_DIRECTORY/vimrc_functions
-source $VIM_DIRECTORY/vimrc_ignore
-source $VIM_DIRECTORY/vimrc_mappings
+source $HOME/.vim/vimrc_bundle
+source $HOME/.vim/vimrc_abbr
+source $HOME/.vim/vimrc_commands
+source $HOME/.vim/vimrc_functions
+source $HOME/.vim/vimrc_ignore
+source $HOME/.vim/vimrc_mappings
 
 " Load local machine settings if they exist
 if filereadable(glob("$HOME/.vimrc.local"))

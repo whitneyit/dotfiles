@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# If we have a release file. If we do not, then we can rule out this `os`.
+if [ ! -f /etc/os-release ]; then
+    echo "no"
+fi
+
+# Now we check to see if "Ubuntu" is in the release files.
+if [ "$(cat /etc/os-release | grep -c Ubuntu)" -gt 0 ]; then
+    echo "yes"
+else
+    echo "no"
+fi
+
+# vim: set syn=sh :

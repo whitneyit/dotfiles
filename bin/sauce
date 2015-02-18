@@ -13,7 +13,6 @@ declare -a files=(
     $DOTFILES_DIRECTORY/shell/bash_ssh
     $DOTFILES_DIRECTORY/shell/bash_prompt
     $DOTFILES_DIRECTORY/shell/bash_shell
-    /usr/local/rvm
     $HOME/.rvm/scripts/rvm
     $HOME/.nvm/nvm.sh
     $HOME/.bashrc.local

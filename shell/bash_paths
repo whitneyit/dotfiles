@@ -9,6 +9,7 @@ declare -a dirs_to_prepend=(
 # Directories to be appended to PATH
 declare -a dirs_to_append=(
     "/usr/bin"
+    "/usr/local"
     "$DOTFILES_DIRECTORY/bin"
     "$HOME/bin"
     "$HOME/.composer/vendor/bin"

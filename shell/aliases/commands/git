@@ -14,7 +14,7 @@ __git_complete   gaa _git_add
 alias            gap="git add --patch"
 __git_complete   gap _git_add
 alias            gbl="git blame --show-number --show-email"
-# No complete for git blame
+# No completion for `git blame`
 alias            gbr="git branch"
 __git_complete   gbr _git_branch
 alias           gbrl="git branch --all --verbose" # -a -v, -av
@@ -115,6 +115,9 @@ alias            gmm="git merge --no-ff --progress --verbose master"
 __git_complete   gmm _git_merge
 alias            gmu="git merge --no-ff --progress --verbose @{upstream}"
 __git_complete   gmu _git_merge
+alias            gpr="git pr"
+alias           gprc="git pr"
+# No completion for `git pr`
 alias            gps="git push          --progress --verbose"
 __git_complete   gps _git_push
 alias           gpsf="git push          --progress --verbose --force"
@@ -223,7 +226,7 @@ __git_complete   gig _git_ls_files
 # the index. Git only respects files of `stat` 644 or 755. Yea it's weird...
 alias           g644="git update-index --chmod=-x"
 alias           g755="git update-index --chmod=+x"
-# No _git_update_index completion
+# No completion for `git update-index`
 
 # Logging shortcuts
 alias             gl="gla   -10"

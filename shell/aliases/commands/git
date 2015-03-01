@@ -120,10 +120,14 @@ alias           gprc="git pr"
 # No completion for `git pr`
 alias            gps="git push          --progress --verbose"
 __git_complete   gps _git_push
+alias           gpsa="git push          --progress --verbose --all"
+__git_complete  gpsa _git_push
 alias           gpsf="git push          --progress --verbose --force"
 __git_complete  gpsf _git_push
 alias           gpsd="git push          --progress --verbose --delete"
 __git_complete  gpsd _git_push
+alias           gpst="git push          --progress --verbose --tags"
+__git_complete  gpst _git_push
 alias           gpso="git push          --progress --verbose origin"
 __git_complete  gpso _git_push
 alias          gpsod="git push          --progress --verbose origin develop"
@@ -136,6 +140,8 @@ alias          gpsum="git push          --progress --verbose upstream master"
 __git_complete gpsum _git_push
 alias            gpl="git pull          --progress --verbose"
 __git_complete   gpl _git_pull
+alias           gpla="git pull          --progress --verbose --all"
+__git_complete  gpla _git_pull
 alias           gplf="git pull          --progress --verbose --force"
 __git_complete  gplf _git_pull
 alias           gplu="git pull          --progress --verbose upstream"

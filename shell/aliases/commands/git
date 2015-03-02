@@ -23,6 +23,8 @@ alias           gbrd="git branch --delete" # -d, or -D to ignore merge status
 __git_complete  gbrd _git_branch
 alias          gbrdf="git branch -D" # Force delete
 __git_complete gbrdf _git_branch
+alias          gbrdr="git branch --delete --remote"
+__git_complete gbrdr _git_branch
 alias            gcf="git config"
 __git_complete   gcf _git_config
 alias           gcfl="git config --list"

@@ -146,6 +146,12 @@ alias           gpla="git pull          --progress --verbose --all"
 __git_complete  gpla _git_pull
 alias           gplf="git pull          --progress --verbose --force"
 __git_complete  gplf _git_pull
+alias           gplo="git pull          --progress --verbose origin"
+__git_complete  gplo _git_pull
+alias          gplod="git pull          --progress --verbose origin develop"
+__git_complete gplod _git_pull
+alias          gplom="git pull          --progress --verbose origin master"
+__git_complete gplom _git_pull
 alias           gplu="git pull          --progress --verbose upstream"
 __git_complete  gplu _git_pull
 alias          gplud="git pull          --progress --verbose upstream develop"

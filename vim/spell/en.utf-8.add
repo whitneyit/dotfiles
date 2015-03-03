@@ -141,3 +141,6 @@ io
 cygwin
 libgnome2
 sudo
+gzip
+minify
+architected

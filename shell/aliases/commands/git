@@ -166,6 +166,10 @@ alias           grbi="git rebase --interactive"
 __git_complete  grbi _git_rebase
 alias           grbc="git rebase --continue"
 __git_complete  grbc _git_rebase
+alias           grbd="git rebase develop"
+__git_complete  grbd _git_rebase
+alias           grbm="git rebase master"
+__git_complete  grbm _git_rebase
 alias           grfa="git reflog         --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad] %C(blue)%gs %C(cyan)%ae %C(reset)%s %C(white)%d'"
 __git_complete  grfa _git_reflog
 alias          grfsa="git reflog --stat  --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad] %C(blue)%gs %C(cyan)%ae %C(reset)%s %C(white)%d %n'"

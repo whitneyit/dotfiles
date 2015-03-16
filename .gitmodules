@@ -82,9 +82,6 @@
 [submodule "vim/bundle/vim-mustache-handlebars"]
     path = vim/bundle/vim-mustache-handlebars
     url = https://github.com/mustache/vim-mustache-handlebars.git
-[submodule "vim/bundle/vim-css-color"]
-    path = vim/bundle/vim-css-color
-    url = https://github.com/skammer/vim-css-color
 [submodule "vim/bundle/vim-jst"]
     path = vim/bundle/vim-jst
     url = https://github.com/briancollins/vim-jst

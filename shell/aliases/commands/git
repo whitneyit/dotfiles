@@ -118,7 +118,7 @@ __git_complete   gmm _git_merge
 alias            gmu="git merge --no-ff --progress --verbose @{upstream}"
 __git_complete   gmu _git_merge
 alias            gpr="git pr"
-alias           gprc="git pr"
+alias           gprc="git pr-clean"
 # No completion for `git pr`
 alias            gps="git push          --progress --verbose"
 __git_complete   gps _git_push

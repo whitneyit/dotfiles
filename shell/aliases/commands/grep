@@ -2,17 +2,18 @@
 
 # Makes using `grep` all that much easier. Where;
 # i: case insensitive
+# n: line number
 # r: recursive
 # F: makes grep search with a string instead of regex
 # l: list of filenames instead of contexts
-alias   grp="grep --exclude-dir .git --exclude-dir bower_components --exclude-dir coverage --exclude-dir docs --exclude-dir node_modules --exclude-dir typings --color -inF"
-alias  grpr="grep --exclude-dir .git --exclude-dir bower_components --exclude-dir coverage --exclude-dir docs --exclude-dir node_modules --exclude-dir typings --color -inrF"
-alias  grpl="grep --exclude-dir .git --exclude-dir bower_components --exclude-dir coverage --exclude-dir docs --exclude-dir node_modules --exclude-dir typings --color -inFl"
-alias grprl="grep --exclude-dir .git --exclude-dir bower_components --exclude-dir coverage --exclude-dir docs --exclude-dir node_modules --exclude-dir typings --color -inrFl"
-alias   grp="grep --exclude-dir .git --exclude-dir bower_components --exclude-dir coverage --exclude-dir docs --exclude-dir node_modules --exclude-dir typings --color -inF"
-alias  grpr="grep --exclude-dir .git --exclude-dir bower_components --exclude-dir coverage --exclude-dir docs --exclude-dir node_modules --exclude-dir typings --color -inrF"
-alias  grpl="grep --exclude-dir .git --exclude-dir bower_components --exclude-dir coverage --exclude-dir docs --exclude-dir node_modules --exclude-dir typings --color -inFl"
-alias grprl="grep --exclude-dir .git --exclude-dir bower_components --exclude-dir coverage --exclude-dir docs --exclude-dir node_modules --exclude-dir typings --color -inrFl"
+alias   grp="grep   -inF --exclude-dir .git --exclude-dir bower_components --exclude-dir coverage --exclude-dir docs --exclude-dir node_modules --exclude-dir reports --exclude-dir typings --color"
+alias  grpr="grep  -inrF --exclude-dir .git --exclude-dir bower_components --exclude-dir coverage --exclude-dir docs --exclude-dir node_modules --exclude-dir reports --exclude-dir typings --color"
+alias  grpl="grep  -inFl --exclude-dir .git --exclude-dir bower_components --exclude-dir coverage --exclude-dir docs --exclude-dir node_modules --exclude-dir reports --exclude-dir typings --color"
+alias grprl="grep -inrFl --exclude-dir .git --exclude-dir bower_components --exclude-dir coverage --exclude-dir docs --exclude-dir node_modules --exclude-dir reports --exclude-dir typings --color"
+alias   grp="grep   -inF --exclude-dir .git --exclude-dir bower_components --exclude-dir coverage --exclude-dir docs --exclude-dir node_modules --exclude-dir reports --exclude-dir typings --color"
+alias  grpr="grep  -inrF --exclude-dir .git --exclude-dir bower_components --exclude-dir coverage --exclude-dir docs --exclude-dir node_modules --exclude-dir reports --exclude-dir typings --color"
+alias  grpl="grep  -inFl --exclude-dir .git --exclude-dir bower_components --exclude-dir coverage --exclude-dir docs --exclude-dir node_modules --exclude-dir reports --exclude-dir typings --color"
+alias grprl="grep -inrFl --exclude-dir .git --exclude-dir bower_components --exclude-dir coverage --exclude-dir docs --exclude-dir node_modules --exclude-dir reports --exclude-dir typings --color"
 
 # Allow for typos
 alias grplr="greprl"

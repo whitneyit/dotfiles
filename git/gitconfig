@@ -11,6 +11,9 @@
     quotepath = false
     whitespace = space-before-tab,cr-at-eol
 
+[credential]
+    helper = store
+
 [url "https://"]
     insteadOf = git://
 
@@ -22,8 +25,6 @@
 
 [apply]
     whitespace = error
-[credentials]
-    helper = osxkeychain
 [diff]
     tool = vimdiff
 [difftool]

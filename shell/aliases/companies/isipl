@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# Aliases to the git repos
+alias amt="cd ~/Code/AMT"
+
+# vim: set syn=sh :

@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # Aliases to the git repos
-alias amt="cd ~/Code/AMT"
+alias  amt="cd ~/Code/AMT"
+alias amtw="cd ~/Code/AMT/AmtWeb/AmtWeb.Mvc"
 
 # vim: set syn=sh :

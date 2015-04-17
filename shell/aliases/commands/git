@@ -95,18 +95,18 @@ alias           glia="git log                                    --date=iso --pr
 __git_complete  glia _git_log
 alias          glida="git log                            --patch --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %>(14)%ar] %C(cyan)%ae %C(reset)%s %C(white)%d'    ..@{upstream}"
 __git_complete glida _git_log
-alias          glisa="git log                            --stat  --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %>(14)%ar] %C(cyan)%ae %C(reset)%s %C(white)%d %n' ..@{upstream}"
-__git_complete glisa _git_log
 alias          gliga="git log                            --graph --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %>(14)%ar] %C(cyan)%ae %C(reset)%s %C(white)%d'    ..@{upstream}"
 __git_complete gliga _git_log
-alias           gloa="git log --branches --not --remotes         --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %>(14)%ar] %C(cyan)%ae %C(reset)%s %C(white)%d'"
+alias          glisa="git log                            --stat  --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %>(14)%ar] %C(cyan)%ae %C(reset)%s %C(white)%d %n' ..@{upstream}"
+__git_complete glisa _git_log
+alias           gloa="git log                                    --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %>(14)%ar] %C(cyan)%ae %C(reset)%s %C(white)%d'      @{upstream}.."
 __git_complete  gloa _git_log
-alias          glosa="git log --branches --not --remotes --stat  --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %>(14)%ar] %C(cyan)%ae %C(reset)%s %C(white)%d'"
-__git_complete glosa _git_log
-alias          gloda="git log --branches --not --remotes --patch --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %>(14)%ar] %C(cyan)%ae %C(reset)%s %C(white)%d'"
+alias          gloda="git log                            --patch --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %>(14)%ar] %C(cyan)%ae %C(reset)%s %C(white)%d'      @{upstream}.."
 __git_complete gloda _git_log
-alias          gloga="git log --branches --not --remotes --graph --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %>(14)%ar] %C(cyan)%ae %C(reset)%s %C(white)%d'"
+alias          gloga="git log                            --graph --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %>(14)%ar] %C(cyan)%ae %C(reset)%s %C(white)%d'      @{upstream}.."
 __git_complete gloga _git_log
+alias          glosa="git log                            --stat  --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %>(14)%ar] %C(cyan)%ae %C(reset)%s %C(white)%d %n'   @{upstream}.."
+__git_complete glosa _git_log
 alias             gm="git merge --no-ff --progress --verbose"
 __git_complete    gm _git_merge
 alias            gma="git merge --abort"
@@ -115,8 +115,6 @@ alias            gmd="git merge --no-ff --progress --verbose develop"
 __git_complete   gmd _git_merge
 alias            gmm="git merge --no-ff --progress --verbose master"
 __git_complete   gmm _git_merge
-alias            gmu="git merge --no-ff --progress --verbose @{upstream}"
-__git_complete   gmu _git_merge
 alias            gpr="git pr"
 alias           gprc="git pr-clean"
 # No completion for `git pr`
@@ -136,6 +134,8 @@ alias          gpsod="git push          --progress --verbose origin develop"
 __git_complete gpsod _git_push
 alias          gpsom="git push          --progress --verbose origin master"
 __git_complete gpsom _git_push
+alias           gpsu="git push          --progress --verbose upstream"
+__git_complete  gpsu _git_push
 alias          gpsud="git push          --progress --verbose upstream develop"
 __git_complete gpsud _git_push
 alias          gpsum="git push          --progress --verbose upstream master"
@@ -172,12 +172,12 @@ alias           grbm="git rebase master"
 __git_complete  grbm _git_rebase
 alias           grfa="git reflog         --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %>(14)%ar] %C(blue)%gs %C(cyan)%ae %C(reset)%s %C(white)%d'"
 __git_complete  grfa _git_reflog
-alias          grfsa="git reflog --stat  --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %>(14)%ar] %C(blue)%gs %C(cyan)%ae %C(reset)%s %C(white)%d %n'"
-__git_complete grfsa _git_reflog
 alias          grfda="git reflog --patch --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %>(14)%ar] %C(blue)%gs %C(cyan)%ae %C(reset)%s %C(white)%d %n'"
 __git_complete grfda _git_reflog
 alias          grfga="git reflog --graph --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %>(14)%ar] %C(blue)%gs %C(cyan)%ae %C(reset)%s %C(white)%d %n'"
 __git_complete grfga _git_reflog
+alias          grfsa="git reflog --stat  --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %>(14)%ar] %C(blue)%gs %C(cyan)%ae %C(reset)%s %C(white)%d %n'"
+__git_complete grfsa _git_reflog
 alias            grs="git reset"
 __git_complete   grs _git_reset
 alias          grshd="git reset --hard 'HEAD^'"

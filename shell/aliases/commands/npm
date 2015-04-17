@@ -15,4 +15,8 @@ nv() {
     echo npm version $(npm --version)
 }
 
+if [ "$(is_cygwin)" == "yes" ]; then
+    alias npm="cmd /c npm"
+fi
+
 # vim: set tw=0:syn=sh :

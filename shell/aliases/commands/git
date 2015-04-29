@@ -71,6 +71,8 @@ alias            ghp="git stash pop"
 __git_complete   ghp _git_stash
 alias            ghs="git stash show"
 __git_complete   ghs _git_stash
+alias           ghsd="git stash show --patch"
+__git_complete  ghsd _git_stash
 alias            gin="git init"
 __git_complete   gin _git_init
 alias             gf="git fetch --progress --verbose"

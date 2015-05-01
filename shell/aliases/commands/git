@@ -81,6 +81,8 @@ alias            gla="git log --no-merges                        --date=iso --pr
 __git_complete   gla _git_log
 alias           glba="git log                                    --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %>(14)%ar] %C(cyan)%ae %C(reset)%s %C(white)%d'"
 __git_complete  glba _git_log
+alias           glca="git log --no-merges                        --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %ar] %C(cyan)%ae%C(white)%d %C(reset) %n%n%w(76,4,4)%B'"
+__git_complete  glca _git_log
 alias           glda="git log --no-merges                --patch --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %ar] %C(cyan)%ae %C(reset)%s %C(white)%d'"
 __git_complete  glda _git_log
 alias          glfda="git log --no-merges                        --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %>(14)%ar] %C(cyan)%ae %C(reset)%s %C(white)%d' develop.."
@@ -253,6 +255,8 @@ alias             gl="gla   -10"
 __git_complete    gl _git_log
 alias            glb="glba  -10"
 __git_complete   glb _git_log
+alias            glc="glca  -10"
+__git_complete   glc _git_log
 alias            gld="glda  -10"
 __git_complete   gld _git_log
 alias           glfd="glfda -10"

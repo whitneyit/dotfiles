@@ -178,3 +178,10 @@ Cleanup
 autoprefixer
 refactor
 refactored
+middleware
+middlewares
+truthy
+stylesheet
+toBe
+afterEach
+beforeEach

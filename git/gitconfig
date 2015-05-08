@@ -18,10 +18,12 @@
     insteadOf = git://
 
 [alias]
-    ctags = !.git/hooks/ctags
-    pr = "!f() { git fetch -fu ${2:-origin} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
-    pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
-    untracked = !git ls-files --others --exclude-standard
+    pr           = "!f() { git fetch -fu ${2:-origin} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
+    pr-clean     = "!f() { git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done; }; f"
+    start        = "!f() { git init; git commit --allow-empty --message='First commit!'; git branch develop; }; f"
+    start-create = "!f() { git init; git commit --allow-empty --message='First commit!'; git branch develop; hub create; }; f"
+    ctags        = !.git/hooks/ctags
+    untracked    = !git ls-files --others --exclude-standard
     unchangeable = !git ls-files -v | grep ^[a-z]
 
 [apply]

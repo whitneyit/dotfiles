@@ -185,3 +185,13 @@ stylesheet
 toBe
 afterEach
 beforeEach
+async
+proxyquire
+istanbul
+mapSeries
+gulp's
+dataObj
+vinylObj
+foo
+dir
+dataFn

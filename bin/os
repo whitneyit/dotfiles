@@ -3,7 +3,7 @@
 # Define a fallback `OS`
 LOCAL_OS="other"
 
-# Mac OS X
+# Mac
 if [ "$(uname -s | grep -c Darwin)" -gt 0 ]; then
     LOCAL_OS="darwin"
 

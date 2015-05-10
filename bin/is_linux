@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Determine if the OS is being run on Linux
+if [ "$(os)" == "linux" ]; then
+    echo "yes"
+else
+    echo "no"
+fi
+
+# vim: set syn=sh :

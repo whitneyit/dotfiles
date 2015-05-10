@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# If we have a release file. If we do not, then we can rule out this `os`.
+# Check if we have a release file, if we do not, then we can rule out this `os`.
 if [ ! -f /etc/os-release ]; then
     echo "no"
 
@@ -8,7 +8,7 @@ if [ ! -f /etc/os-release ]; then
 else
 
     # Here we see if the release file contains the string "Ubuntu", and if it
-    # does, hey prestO!
+    # does, hey presto!
     if [ "$(cat /etc/os-release | grep -c Ubuntu)" -gt 0 ]; then
         echo "yes"
     else

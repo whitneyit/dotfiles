@@ -1,8 +1,14 @@
 #!/usr/bin/env bash
 
 # This is not a bullet proof test but it's good enough
-if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
+if [ "$(uname -s | grep -c Cygwin)" -gt 0 ]; then
     echo "yes"
+
+# Here we check for Babun
+elif [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
+    echo "yes"
+
+# Anything else must be false
 else
     echo "no"
 fi

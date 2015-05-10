@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# Mac
+if [ "$(is_mac)" == "yes" ]; then
+    shutdown -r now
+
+# Linux
+elif [ "$(is_linux)" == "yes" ]; then
+    shutdown -r now
+
+# Cygwin
+elif [ "$(is_cygwin)" == "yes" ]; then
+    shutdown /r /t 0
+
+fi
+
+# vim: set syn=sh :

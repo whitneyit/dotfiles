@@ -26,8 +26,6 @@
     untracked    = !git ls-files --others --exclude-standard
     unchangeable = !git ls-files -v | grep ^[a-z]
 
-[apply]
-    whitespace = error
 [diff]
     tool = vimdiff
 [difftool]

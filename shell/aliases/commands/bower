@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+alias  bi="bower install"
+alias bis="bower install --save"
+alias bid="bower install --save-dev"
+alias  bp="bower prune"
+alias  bv="bower --version"
+
+
+if [ "$(is_cygwin)" == "yes" ]; then
+    alias bower="cmd /c bower"
+fi
+
+# vim: set tw=0:syn=sh :

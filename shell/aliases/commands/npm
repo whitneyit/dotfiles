@@ -8,6 +8,7 @@ alias  nl="npm list --depth=0"
 alias nlg="npm list --depth=0 --global"
 alias  np="npm prune"
 alias  ns="npm start"
+alias  nt="npm test"
 
 nv() {
     echo nvm version $(nvm --version)

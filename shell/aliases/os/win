@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 # Allow my windows muscle memmory to be a bit more forgiving
-alias cls="clear"
-alias dir="la"
+alias   cls="clear"
+alias   dir="la"
+alias where="type -a"
 
 # vim: set syn=sh :

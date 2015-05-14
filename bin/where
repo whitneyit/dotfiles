@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-# This simple command is used in competition to `which`. Using the -a flag
-# outputs all occurences of the location of the command in question as well as
-# showing all aliases for it. It is for that reason that `type -s` is more
-# preferable to `which`
-type -a
-
-# vim: set syn=sh :

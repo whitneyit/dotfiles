@@ -201,3 +201,4 @@ prepend
 nuget
 jshint
 dest
+livereload

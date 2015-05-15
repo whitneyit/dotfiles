@@ -8,6 +8,7 @@
 [core]
     editor = vim
     excludesfile = ~/.gitignore_global
+    filemode = false
     quotepath = false
     whitespace = space-before-tab,cr-at-eol
 

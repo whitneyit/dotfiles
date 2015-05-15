@@ -77,6 +77,18 @@ alias            gin="git init"
 __git_complete   gin _git_init
 alias             gf="git fetch --progress --verbose"
 __git_complete    gf _git_fetch
+alias            gfo="git fetch --progress --verbose origin"
+__git_complete   gfo _git_fetch
+alias           gfod="git fetch --progress --verbose origin develop"
+__git_complete  gfod _git_fetch
+alias           gfom="git fetch --progress --verbose origin master"
+__git_complete  gfom _git_fetch
+alias            gfu="git fetch --progress --verbose upstream"
+__git_complete   gfu _git_fetch
+alias           gfud="git fetch --progress --verbose upstream develop"
+__git_complete  gfud _git_fetch
+alias           gfum="git fetch --progress --verbose upstream master"
+__git_complete  gfum _git_fetch
 alias            gla="git log --no-merges                        --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %>(14)%ar] %C(cyan)%ae %C(reset)%s%C(white)%d'"
 __git_complete   gla _git_log
 alias           glba="git log                                    --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %>(14)%ar] %C(cyan)%ae %C(reset)%s%C(white)%d'"

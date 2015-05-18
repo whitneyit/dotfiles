@@ -3,18 +3,21 @@
 # Makes using `grep` all that much easier. Where;
 # i: case insensitive
 # n: line number
-# r: recursive
 # l: list of filenames instead of contexts
-alias   grp="grep   -in --exclude-dir .git --exclude-dir .sass-cache --exclude-dir bower_components --exclude-dir coverage --exclude-dir docs --exclude-dir node_modules --exclude-dir reports --exclude-dir typings --color"
-alias  grpr="grep  -inr --exclude-dir .git --exclude-dir .sass-cache --exclude-dir bower_components --exclude-dir coverage --exclude-dir docs --exclude-dir node_modules --exclude-dir reports --exclude-dir typings --color"
-alias  grpl="grep  -inl --exclude-dir .git --exclude-dir .sass-cache --exclude-dir bower_components --exclude-dir coverage --exclude-dir docs --exclude-dir node_modules --exclude-dir reports --exclude-dir typings --color"
-alias grprl="grep -inrl --exclude-dir .git --exclude-dir .sass-cache --exclude-dir bower_components --exclude-dir coverage --exclude-dir docs --exclude-dir node_modules --exclude-dir reports --exclude-dir typings --color"
-alias   grp="grep   -in --exclude-dir .git --exclude-dir .sass-cache --exclude-dir bower_components --exclude-dir coverage --exclude-dir docs --exclude-dir node_modules --exclude-dir reports --exclude-dir typings --color"
-alias  grpr="grep  -inr --exclude-dir .git --exclude-dir .sass-cache --exclude-dir bower_components --exclude-dir coverage --exclude-dir docs --exclude-dir node_modules --exclude-dir reports --exclude-dir typings --color"
-alias  grpl="grep  -inl --exclude-dir .git --exclude-dir .sass-cache --exclude-dir bower_components --exclude-dir coverage --exclude-dir docs --exclude-dir node_modules --exclude-dir reports --exclude-dir typings --color"
-alias grprl="grep -inrl --exclude-dir .git --exclude-dir .sass-cache --exclude-dir bower_components --exclude-dir coverage --exclude-dir docs --exclude-dir node_modules --exclude-dir reports --exclude-dir typings --color"
+# r: recursive
+alias    grp="grep -i -n -r --color --exclude *.map --exclude-dir .git --exclude-dir .sass-cache --exclude-dir bower_components --exclude-dir coverage --exclude-dir docs --exclude-dir node_modules --exclude-dir reports --exclude-dir typings"
+alias   grpr="grep -i -n -r --color --exclude *.map --exclude-dir .git --exclude-dir .sass-cache --exclude-dir bower_components --exclude-dir coverage --exclude-dir docs --exclude-dir node_modules --exclude-dir reports --exclude-dir typings"
+alias   grpl="grep -i -l -r --color --exclude *.map --exclude-dir .git --exclude-dir .sass-cache --exclude-dir bower_components --exclude-dir coverage --exclude-dir docs --exclude-dir node_modules --exclude-dir reports --exclude-dir typings"
+alias  grprl="grep -i -l -r --color --exclude *.map --exclude-dir .git --exclude-dir .sass-cache --exclude-dir bower_components --exclude-dir coverage --exclude-dir docs --exclude-dir node_modules --exclude-dir reports --exclude-dir typings"
+alias   grps="grep    -n -r --color --exclude *.map --exclude-dir .git --exclude-dir .sass-cache --exclude-dir bower_components --exclude-dir coverage --exclude-dir docs --exclude-dir node_modules --exclude-dir reports --exclude-dir typings"
+alias  grprs="grep    -n -r --color --exclude *.map --exclude-dir .git --exclude-dir .sass-cache --exclude-dir bower_components --exclude-dir coverage --exclude-dir docs --exclude-dir node_modules --exclude-dir reports --exclude-dir typings"
+alias  grpls="grep    -l -r --color --exclude *.map --exclude-dir .git --exclude-dir .sass-cache --exclude-dir bower_components --exclude-dir coverage --exclude-dir docs --exclude-dir node_modules --exclude-dir reports --exclude-dir typings"
+alias grprls="grep    -l -r --color --exclude *.map --exclude-dir .git --exclude-dir .sass-cache --exclude-dir bower_components --exclude-dir coverage --exclude-dir docs --exclude-dir node_modules --exclude-dir reports --exclude-dir typings"
 
 # Allow for typos
-alias grplr="greprl"
+alias   grrp="grpr"
+alias   gprr="grpr"
+alias  grplr="grprl"
+alias  grrpl="grprl"
 
 # vim: set syn=sh :

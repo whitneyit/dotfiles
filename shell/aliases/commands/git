@@ -59,7 +59,7 @@ alias          gcmac="git commit --verbose --amend --no-edit"
 __git_complete gcmac _git_commit
 alias             gd="git diff"
 __git_complete    gd _git_diff
-alias            gds="git diff --cached"
+alias            gds="git diff --staged"
 __git_complete   gds _git_diff
 alias            gdt="git difftool"
 __git_complete   gdt _git_difftool

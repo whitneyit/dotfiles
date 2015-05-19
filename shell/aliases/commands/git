@@ -196,14 +196,22 @@ alias          grfsa="git reflog --stat  --date=iso --pretty=format:'%C(yellow)%
 __git_complete grfsa _git_reflog
 alias            grs="git reset"
 __git_complete   grs _git_reset
-alias          grshd="git reset --hard 'HEAD^'"
-__git_complete grshd _git_reset
-alias           grsh="git reset HEAD --"
+alias           grsh="git reset --hard 'HEAD^'"
 __git_complete  grsh _git_reset
 alias           grss="git reset --soft 'HEAD^'"
 __git_complete  grss _git_reset
-alias           grsp="git reset --patch"
-__git_complete  grsp _git_reset
+alias           grso="git reset origin"
+__git_complete  grso _git_reset
+alias          grsod="git reset origin/develop"
+__git_complete grsod _git_reset
+alias          grsom="git reset origin/develop"
+__git_complete grsom _git_reset
+alias           grsu="git reset upstream"
+__git_complete  grsu _git_reset
+alias          grsud="git reset upstream/develop"
+__git_complete grsud _git_reset
+alias          grsum="git reset upstream/develop"
+__git_complete grsum _git_reset
 alias            grm="git rm"
 __git_complete   grm _git_rm
 alias           grmr="git rm -r" # There is no `--recursive`

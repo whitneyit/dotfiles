@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-# Set permissions of folders and files to 755 and 644 respectively.
-find -type d -not -path "./.git" -not -path "./node_modules/*" -not -path "./bower_components/*" -not -perm 0755 -exec chmod 755 {} \+
-find -type f -not -path "./.git" -not -path "./node_modules/*" -not -path "./bower_components/*" -not -perm 0644 -exec chmod 644 {} \+
-
-# vim: set syn=sh :

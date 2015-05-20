@@ -131,9 +131,6 @@ alias            gmd="git merge --no-ff --progress --verbose develop"
 __git_complete   gmd _git_merge
 alias            gmm="git merge --no-ff --progress --verbose master"
 __git_complete   gmm _git_merge
-alias            gpr="git pr"
-alias           gprc="git pr-clean"
-# No completion for `git pr`
 alias            gps="git push          --progress --verbose"
 __git_complete   gps _git_push
 alias           gpsa="git push          --progress --verbose --all"
@@ -243,6 +240,11 @@ __git_complete  gsti _git_status
 alias             gt="git tag"
 __git_complete    gt _git_tag
 alias             gv="git --version"
+
+# Aliases for custom aliases in $HOME/.gitconfig
+alias            gch="git chmod"
+alias            gpr="git pr"
+alias           gprc="git pr-clean"
 
 # Here we just define a few shortcuts to modify the author of a commit. This can
 # be used when you forget to setup the local author details

@@ -6,11 +6,12 @@
     templatedir = ~/.git_templates
 
 [core]
+    autocrlf = false
     editor = vim
+    eol = lf
     excludesfile = ~/.gitignore_global
     filemode = true
     quotepath = false
-    whitespace = space-before-tab,cr-at-eol
 
 [credential]
     helper = store

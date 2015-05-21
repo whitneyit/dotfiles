@@ -208,3 +208,10 @@ onError
 grep
 filenames
 toString
+wingbow
+orm
+moduleType
+es6
+phantomjsdriver
+gulpfile
+gruntfile

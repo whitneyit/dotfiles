@@ -199,17 +199,17 @@ alias           grsd="git reset --hard 'HEAD^'"
 __git_complete  grsd _git_reset
 alias           grss="git reset --soft 'HEAD^'"
 __git_complete  grss _git_reset
-alias           grso="git reset origin"
+alias           grso="git reset --hard origin"
 __git_complete  grso _git_reset
-alias          grsod="git reset origin/develop"
+alias          grsod="git reset --hard origin/develop"
 __git_complete grsod _git_reset
-alias          grsom="git reset origin/develop"
+alias          grsom="git reset --hard origin/master"
 __git_complete grsom _git_reset
-alias           grsu="git reset upstream"
+alias           grsu="git reset --hard upstream"
 __git_complete  grsu _git_reset
-alias          grsud="git reset upstream/develop"
+alias          grsud="git reset --hard upstream/develop"
 __git_complete grsud _git_reset
-alias          grsum="git reset upstream/develop"
+alias          grsum="git reset --hard upstream/master"
 __git_complete grsum _git_reset
 alias            grm="git rm"
 __git_complete   grm _git_rm

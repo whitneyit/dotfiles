@@ -207,3 +207,4 @@ subfolders
 onError
 grep
 filenames
+toString

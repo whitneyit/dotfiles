@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+alias  tr="tree -a    --dirsfirst -I '\.git|\.sass-cache|bower_components|coverage|docs|node_modules|reports|typings'"
+alias trd="tree -a -d --dirsfirst -I '\.git|\.sass-cache|bower_components|coverage|docs|node_modules|reports|typings'"
+
+# vim: set syn=sh :

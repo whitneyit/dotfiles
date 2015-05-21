@@ -245,6 +245,8 @@ alias             gv="git --version"
 alias            gch="git chmod"
 alias            gpr="git pr"
 alias           gprc="git pr-clean"
+alias             gs="git start"
+alias            gsc="git start-create"
 
 # Here we just define a few shortcuts to modify the author of a commit. This can
 # be used when you forget to setup the local author details
@@ -266,13 +268,6 @@ __git_complete   gmo _git_status
 # List ignored files
 alias            gig="git ls-files --ignored --exclude-standard"
 __git_complete   gig _git_ls_files
-
-# Updates the indexed `stat` of a file. It does not modify the file though
-# normally this means that you will have to check out the file after updating
-# the index. Git only respects files of `stat` 644 or 755. Yea it's weird...
-alias           g644="git update-index --chmod=-x"
-alias           g755="git update-index --chmod=+x"
-# No completion for `git update-index`
 
 # Logging shortcuts
 alias             gl="gla   -10"

@@ -325,6 +325,8 @@ alias           gacm="gcma"
 __git_complete  gacm _git_commit
 alias           gmca="gcma"
 __git_complete  gmca _git_commit
+alias           gcsm="gcms"
+__git_complete  gcsm _git_commit
 alias           gscm="gcms"
 __git_complete  gscm _git_commit
 alias           gmcs="gcms"
@@ -333,5 +335,7 @@ alias           glsg="glgs"
 __git_complete  glsg _git_log
 alias          glsga="glgsa"
 __git_complete glsga _git_log
+alias           grbl="gbrl"
+__git_complete  grbl _git_branch
 
 # vim: set tw=0:syn=sh :

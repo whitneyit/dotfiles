@@ -193,12 +193,14 @@ alias          grfsa="git reflog --stat  --date=iso --pretty=format:'%C(yellow)%
 __git_complete grfsa _git_reflog
 alias            grs="git reset"
 __git_complete   grs _git_reset
-alias           grsh="git reset HEAD --"
-__git_complete  grsh _git_reset
-alias           grsd="git reset --hard 'HEAD^'"
+alias           grsd="git reset --hard"
 __git_complete  grsd _git_reset
-alias           grss="git reset --soft 'HEAD^'"
+alias           grss="git reset --soft"
 __git_complete  grss _git_reset
+alias          grsdh="git reset --hard 'HEAD^'"
+__git_complete grsdh _git_reset
+alias          grssh="git reset --soft 'HEAD^'"
+__git_complete grssh _git_reset
 alias           grso="git reset --hard origin"
 __git_complete  grso _git_reset
 alias          grsod="git reset --hard origin/develop"

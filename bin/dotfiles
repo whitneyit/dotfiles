@@ -84,6 +84,16 @@ if [ ! -d .git ]; then
     # Info the user where the repo is located
     e_info "Repo located at: \"$DOTFILES_DIRECTORY\""
 
+    # If we are running inside a `cygwin` environment, we need to change the
+    # "group" on the files so that we can change the permissions of the files.
+    if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
+        chgrp -R Users "$PWD"
+
+    # And here we do the same for a `vagrant` environment.
+    elif [ -d /home/vagrant ]; then
+        chown -R vagrant:vagrant "$PWD"
+    fi
+
     # Do some fancy footwork to move the repo into this given directory. This
     # works even if the directory is not empty, so a point of caution there...
     mv temp/.git ./.git
@@ -142,16 +152,13 @@ if [ ! -d .git ]; then
     e_info "Updating origin url..."
     git remote set-url origin git@github.com:whitneyit/dotfiles.git
 
-    # If we are running inside a `cygwin` environment, we need to change the
-    # "group" on the files so that we can change the permissions of the files.
+    # Change the permissions again now that the we have just created some files.
     if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
         chgrp -R Users .
         chgrp Users "$DOTFILES_DIRECTORY"
         chgrp Users "$HOME/.bash_history"
         chgrp Users "$HOME/.prev_dir"
         chgrp Users "$HOME/.viminfo"
-
-    # And here we do the same for a `vagrant` environment.
     elif [ -d /home/vagrant ]; then
         chown -R vagrant:vagrant .
         chown --no-dereference vagrant:vagrant "$DOTFILES_DIRECTORY"

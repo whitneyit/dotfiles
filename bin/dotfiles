@@ -193,6 +193,9 @@ do
     esac
 done
 
+# Stash any changes
+git stash --quiet
+
 # If no flags were passed in, then it is assumed that we need to "sync" the
 # repo. This means that we abandon any local changes and do a `pull`.
 e_header "Updating repo..."
@@ -203,6 +206,9 @@ git pull origin master
 e_header "Updating submodules..."
 git submodule update --recursive --init
 git pull origin master --quiet
+
+# Restore any changes
+git stash pop --quiet
 
 # Relink the files
 e_header "Linking files..."

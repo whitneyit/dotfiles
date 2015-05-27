@@ -49,6 +49,7 @@ if has("autocmd")
     autocmd BufNewFile,BufRead .eslintrc    set filetype=json
     autocmd BufNewFile,BufRead .jscsrc      set filetype=json
     autocmd BufNewFile,BufRead .jshintrc    set filetype=json
+    autocmd BufNewFile,BufRead .tslintrc    set filetype=json
 
     " Also set "commented json" files to `json`
     autocmd BufNewFile,BufRead cjson        set filetype=json

@@ -219,3 +219,5 @@ conf
 browserify
 es5
 RegExp
+usr
+etc

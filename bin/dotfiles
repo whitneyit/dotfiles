@@ -223,6 +223,10 @@ if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
 elif [ -d /home/vagrant ]; then
     chown -R vagrant:vagrant "$DOTFILES_DIRECTORY"
 
+# And the same again for OSX.
+elif [ "$(uname -s | grep -c Darwin)" -gt 0 ]; then
+    chown -R "$(whoami)":staff "$DOTFILES_DIRECTORY"
+
 # Everything else
 else
     chown -R "$(whoami)":"$(whoami)" "$DOTFILES_DIRECTORY"

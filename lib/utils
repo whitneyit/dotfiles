@@ -40,22 +40,23 @@ function backup_prev() {
 
     # Define an array of items to backup
     declare -a items_to_backup=(
+        "$TARGET_LINK_DIR/.babunrc"
+        "$TARGET_LINK_DIR/.bash_logout"
+        "$TARGET_LINK_DIR/.bash_profile"
+        "$TARGET_LINK_DIR/.bash_proxy"
+        "$TARGET_LINK_DIR/.bashrc"
+        "$TARGET_LINK_DIR/.config/powerline"
+        "$TARGET_LINK_DIR/.curlrc"
+        "$TARGET_LINK_DIR/.fonts"
+        "$TARGET_LINK_DIR/.git_templates"
         "$TARGET_LINK_DIR/.gitattributes"
         "$TARGET_LINK_DIR/.gitconfig"
         "$TARGET_LINK_DIR/.gitignore_global"
-        "$TARGET_LINK_DIR/.git_templates"
-        "$TARGET_LINK_DIR/.fonts"
         "$TARGET_LINK_DIR/.hooks"
-        "$TARGET_LINK_DIR/.keys"
-        "$TARGET_LINK_DIR/.curlrc"
-        "$TARGET_LINK_DIR/.babunrc"
-        "$TARGET_LINK_DIR/.bash_profile"
-        "$TARGET_LINK_DIR/.bash_logout"
-        "$TARGET_LINK_DIR/.bash_proxy"
-        "$TARGET_LINK_DIR/.bashrc"
         "$TARGET_LINK_DIR/.inputrc"
-        "$TARGET_LINK_DIR/.profile"
+        "$TARGET_LINK_DIR/.keys"
         "$TARGET_LINK_DIR/.minttyrc"
+        "$TARGET_LINK_DIR/.profile"
         "$TARGET_LINK_DIR/.vim"
         "$TARGET_LINK_DIR/.vimrc"
         "$TARGET_LINK_DIR/.wgetrc"
@@ -137,12 +138,20 @@ function link_files() {
         rm $TARGET_LINK_DIR/.vim
     fi
 
+    # Check to see if we have a .config folder and create it if we do not
+    if [ ! -d "$TARGET_LINK_DIR/.config" ]; then
+        mkdir -p "$TARGET_LINK_DIR/.config"
+    fi
+
     # Now we can link up the folders without fear of recursion
     link "$1/git/templates/"        "$TARGET_LINK_DIR/.git_templates"
     link "$1/shell/fonts/"          "$TARGET_LINK_DIR/.fonts"
     link "$1/vim/"                  "$TARGET_LINK_DIR/.vim"
 
-    # This is where we link all the files
+    # And link up the appropriate folders.
+    link "$1/config/powerline"      "$TARGET_LINK_DIR/.config/powerline"
+
+    # And this is where we link all everything else
     link "$1/git/gitattributes"     "$TARGET_LINK_DIR/.gitattributes"
     link "$1/git/gitignore_global"  "$TARGET_LINK_DIR/.gitignore_global"
     link "$1/shell/curlrc"          "$TARGET_LINK_DIR/.curlrc"

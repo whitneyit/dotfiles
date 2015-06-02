@@ -25,6 +25,39 @@ function e_warning() {
     printf "$(tput setaf 136)! %s$(tput sgr0)\n" "$@"
 }
 
+# Check to see if we are running on a Mac
+if [ "$(uname -s | grep -c Darwin)" -gt 0 ]; then
+
+    # Check to see if we are missing Homebrew and install it is missing
+    # We can assume we have ruby and curl due to them being pre-installed
+    if [ ! "$(type -P brew)" ]; then
+        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    fi
+
+    # Make sure we have the most up to date version of homebrew
+    e_header "Updating Homebrew"
+    brew update
+
+    # Update any existing formulae
+    e_header "Updating Homebrew formulae"
+    brew upgrade
+
+    # Install required formulae
+    e_header "Checking status of desired Homebrew formulae..."
+    brew install \
+        coreutils \
+        git \
+        ack \
+        bash \
+        bash-completion \
+        tree \
+        wget
+
+    # Remove outdated versions from the Cellar
+    brew cleanup
+
+fi
+
 # Check for git
 if [ ! "$(type -P git)" ]; then
     e_error "Aborting. Git not installed"

@@ -16,15 +16,34 @@
 # Here we define the `list` command for Mac users.
 if [ "$(is_mac)" == "yes" ]; then
 
-    # Define a "mac" specific `ls` command.
-    function list () {
+    # If we have installed the `coreutils` from mac we use the `gls` command.
+    if [ "$(type -P gls)" ]; then
 
-        # Target the base OS `ls` command. This outputs filesize sizes in
-        # "human-readable" formats, eg Kb and Gb.
-        command ls\
-            -h \
-            "$@"
-    }
+        # Define a `gls` specific `ls` command.
+        function list () {
+
+            # Target the homebrew `ls` command. This outputs filesize sizes in
+            # "human-readable" formats, eg Kb and Gb.
+            command gls\
+                -h \
+                --color \
+                "$@"
+        }
+
+    # It looks like it hasn't been installed
+    else
+
+        # Here we just fallback to the standard `ls`.
+        function list () {
+
+            # Target the base OS `ls` command. This outputs filesize sizes in
+            # "human-readable" formats, eg Kb and Gb.
+            command ls\
+                -h \
+                "$@"
+        }
+
+    fi
 
 # `Cygwin` has a more enhanced version of `ls` we will target it directly. The
 # "--ignores" that you see below are just there to exclude some system files

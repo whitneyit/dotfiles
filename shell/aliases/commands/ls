@@ -89,17 +89,6 @@ function ls () {
     fi
 }
 
-# Here we a pseudo alias for `ls -l`.
-function ll () {
-    if [ $(command ls -lA | wc -l) == "0" ]; then
-        echo "no directories or files found"
-    else
-        list "$@" -l  | grep "^d" | awk "$OCTAL_PERMISSIONS" && \
-        list "$@" -l  | grep "^l" | awk "$OCTAL_PERMISSIONS" && \
-        list "$@" -l  | grep "^-" | awk "$OCTAL_PERMISSIONS"
-    fi
-}
-
 # Here we a pseudo alias for `ls -lA`. The difference here is that we list
 # directories first, then links, then everything else.
 function la () {
@@ -121,13 +110,21 @@ function ld () {
     fi
 }
 
-# Here we a pseudo alias for `ls -lA` whilst only outputting files and links.
+# Here we a pseudo alias for `ls -lA` whilst only outputting files.
 function lf () {
-    if [ $(command ls -lA | grep "^[l|-]" | wc -l) == "0" ]; then
+    if [ $(command ls -lA | grep "^-" | wc -l) == "0" ]; then
+        echo "no links found"
+    else
+        list "$@" -lA | grep "^-" | awk "$OCTAL_PERMISSIONS"
+    fi
+}
+
+# Here we a pseudo alias for `ls -lA` whilst only outputting links.
+function ll () {
+    if [ $(command ls -lA | grep "^l" | wc -l) == "0" ]; then
         echo "no files found"
     else
-        list "$@" -lA | grep "^l" | awk "$OCTAL_PERMISSIONS" && \
-        list "$@" -lA | grep "^-" | awk "$OCTAL_PERMISSIONS"
+        list "$@" -lA | grep "^l" | awk "$OCTAL_PERMISSIONS"
     fi
 }
 

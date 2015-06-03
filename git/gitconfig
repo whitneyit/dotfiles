@@ -29,6 +29,8 @@
     untracked    = !git ls-files --others --exclude-standard
     unchangeable = !git ls-files -v | grep ^[a-z]
 
+[branch]
+    autosetupmerge = true
 [diff]
     tool = vimdiff
 [difftool]
@@ -38,6 +40,8 @@
     conflictstyle = diff3
 [mergetool]
     prompt = false
+[pull]
+    default = current
 [push]
     default = current
 

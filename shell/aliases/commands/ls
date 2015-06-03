@@ -21,9 +21,6 @@ if [ "$(is_mac)" == "yes" ]; then
 
         # Define a `gls` specific `ls` command.
         function list () {
-
-            # Target the homebrew `ls` command. This outputs filesize sizes in
-            # "human-readable" formats, eg Kb and Gb.
             command gls\
                 -f \
                 -h \
@@ -36,9 +33,6 @@ if [ "$(is_mac)" == "yes" ]; then
 
         # Here we just fallback to the standard `ls`.
         function list () {
-
-            # Target the base OS `ls` command. This outputs filesize sizes in
-            # "human-readable" formats, eg Kb and Gb.
             command ls\
                 -f \
                 -h \
@@ -50,16 +44,14 @@ if [ "$(is_mac)" == "yes" ]; then
 # `Cygwin` has a more enhanced version of `ls` we will target it directly. The
 # "--ignores" that you see below are just there to exclude some system files
 # that shouldn't be showing up anyways.
-else
+elif [ "$(is_cygwin)" == "yes" ]; then
 
-    # Define a `ls` command for everywhere else
+    # Define a `ls` command for cygwin
     function list () {
 
-        # Target the base OS `ls` command. This outputs filesize sizes in
-        # "human-readable" formats, eg Kb and Gb. It also enables coloured
-        # output and hides certain files from being displayed. The files that
-        # are being hidden are all pretty much Windows OS files. This allows the
-        # `ls` command to be run in Cygwin without polluting the output.
+        # The files that are being hidden are all pretty much Windows OS files.
+        # This allows the `ls` command to be run in cygwin without polluting the
+        # output and creating a mess.
         command ls \
             -f \
             -h \
@@ -75,6 +67,19 @@ else
             --ignore="\$Recycle\.Bin" \
             --ignore="\$RECYCLE\.BIN" \
             --ignore="System\ Volume\ Information" \
+            "$@"
+    }
+
+# Everywhere else.
+else
+
+    # Define a `ls` command for everywhere else
+    function list () {
+
+        # Here we disable sorting by omitting the `-f` flag.
+        command ls\
+            -h \
+            --color \
             "$@"
     }
 

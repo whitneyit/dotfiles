@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Ensure that these aliases are only ever processed if we are in a cygwin box.
+# Ensure that these aliases are only ever processed if we are in an ubuntu box.
 if [ "$(is_ubuntu)" == "yes" ]; then
 
     # Replace the `open` command with `gnome-open`. This requires installing

@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# Ensure that these aliases are only ever processed if we are in an mac box.
+if [ "$(is_mac)" == "yes" ]; then
+
+    # If we have installed gnu grep via homebrew, alias that now.
+    if [ "$(type -P ggrep)" ]; then
+        alias grep="ggrep"
+    fi
+
+fi
+
+# vim: set syn=sh :

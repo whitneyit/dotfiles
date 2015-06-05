@@ -25,6 +25,8 @@ if [ "$(is_mac)" == "yes" ]; then
                 -f \
                 -h \
                 --color \
+                --ignore . \
+                --ignore .. \
                 "$@"
         }
 
@@ -56,6 +58,8 @@ elif [ "$(is_cygwin)" == "yes" ]; then
             -f \
             -h \
             --color \
+            --ignore="." \
+            --ignore=".." \
             --ignore="bootmgr" \
             --ignore="BOOTNXT" \
             --ignore="desktop.ini" \
@@ -81,6 +85,8 @@ else
             command ls\
                 -h \
                 --color \
+                --ignore . \
+                --ignore .. \
                 "$@"
 
         # We can now sort the `-l` data via the 9th column.
@@ -91,6 +97,8 @@ else
             command ls\
                 -h \
                 --color \
+                --ignore . \
+                --ignore .. \
                 "$@" | sort -f -V -k 9
         fi
 

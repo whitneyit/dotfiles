@@ -25,7 +25,7 @@ if [ "$(is_mac)" == "yes" ]; then
                 -f \
                 -h \
                 --color \
-                "$@" | grep -v '^total'
+                "$@"
         }
 
     # It looks like it hasn't been installed
@@ -36,7 +36,7 @@ if [ "$(is_mac)" == "yes" ]; then
             command ls\
                 -f \
                 -h \
-                "$@" | grep -v '^total'
+                "$@"
         }
 
     fi
@@ -67,7 +67,7 @@ elif [ "$(is_cygwin)" == "yes" ]; then
             --ignore="\$Recycle\.Bin" \
             --ignore="\$RECYCLE\.BIN" \
             --ignore="System\ Volume\ Information" \
-            "$@" | grep -v '^total'
+            "$@"
     }
 
 # Everywhere else.
@@ -81,7 +81,7 @@ else
             command ls\
                 -h \
                 --color \
-                "$@" | grep -v '^total'
+                "$@"
 
         # We can now sort the `-l` data via the 9th column.
         # `-f` ignore case
@@ -91,7 +91,7 @@ else
             command ls\
                 -h \
                 --color \
-                "$@" | grep -v '^total' | sort -f -V -k 9
+                "$@" | sort -f -V -k 9
         fi
 
     }

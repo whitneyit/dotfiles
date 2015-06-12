@@ -20,7 +20,7 @@
     insteadOf = git://
 
 [alias]
-    chmod        = "!f() { find . -type $1 -not -path \"./.git\" -not -path \"./node_modules/*\" -not -path \"./bower_components/*\" -not -perm 0$2 -exec chmod $2 {} \\+; }; f \"d\" 755; f \"f\" 644;"
+    chmod        = "!f() { find . -type $1 -not -path \"./.git\" -not -path \"./node_modules/*\" -not -path \"./bower_components/*\" -not -path \"./jspm_packages/*\" -not -perm 0$2 -exec chmod $2 {} \\+; }; f \"d\" 755; f \"f\" 644;"
     pr           = "!f() { git fetch -fu ${2:-origin} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
     pr-clean     = "!f() { git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done; }; f"
     start        = "!f() { git init; git commit --allow-empty --message='First commit!'; git branch develop; }; f"

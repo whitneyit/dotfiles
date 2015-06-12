@@ -3,6 +3,7 @@ set wildignore+=*/.git/**
 set wildignore+=*/.sass-cache/**
 set wildignore+=*/.vagrant/**
 set wildignore+=*/bower_components/**
+set wildignore+=*/jspm_packages/**
 set wildignore+=*/node_modules/**
 
 " Nor these files
@@ -25,4 +26,4 @@ set wildignore+=*.woff
 " In `.vimrc` we have the ability to load a `.vimrc.local` per project, using
 " that technique we should hide and show folders on a case by case basis. This
 " just works similar to a `.global_gitignore` file expect with RegEx instea
-let g:NERDTreeIgnore = ['\.git$', '\.sass-cache$', '\.vagrant$', 'bower_components', 'node_modules', '\.DS_Store', '\.Thumbs.db', 'npm-debug.log', '\.gif$', '\.jpg$', '\.png$', '\.svg$', '\.eot$', '\.otf$', '\.ttf$', '\.woff$']
+let g:NERDTreeIgnore = ['\.git$', '\.sass-cache$', '\.vagrant$', 'bower_components', 'jspm_packages', 'node_modules', '\.DS_Store', '\.Thumbs.db', 'npm-debug.log', '\.gif$', '\.jpg$', '\.png$', '\.svg$', '\.eot$', '\.otf$', '\.ttf$', '\.woff$']

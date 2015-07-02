@@ -93,7 +93,7 @@ function backup_prev() {
             chown -R vagrant:vagrant "$BACKUP_DIRECTORY"
         fi
 
-        # Finally infrom the user where the backup is located.
+        # Finally inform the user where the backup is located.
         e_header "Backup located at: \"$BACKUP_DIRECTORY\""
 
     fi
@@ -119,7 +119,7 @@ function link() {
 
 }
 
-# Link the files from within the repo to a given "target". We usd a variable
+# Link the files from within the repo to a given "target". We use a variable
 # here because we don't always want to link to the `$HOME` directory.
 function link_files() {
 

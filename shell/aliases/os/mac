@@ -8,6 +8,11 @@ if [ "$(is_mac)" == "yes" ]; then
         alias grep="ggrep"
     fi
 
+    # If we have installed gnu sed via homebrew, alias that now.
+    if [ "$(type -P gsed)" ]; then
+        alias sed="gsed"
+    fi
+
     # If we have installed gnu sort via homebrew, alias that now.
     if [ "$(type -P gsort)" ]; then
         alias sort="gsort"

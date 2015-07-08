@@ -6,3 +6,5 @@ for old in ./**; do
     new=$(echo "$old" | sed -e "s/$1/$2/g")
     mv -v "$old" "$new"
 done
+
+# vim: set syn=sh :

@@ -238,3 +238,5 @@ prerender
 hashbang
 prerender's
 pushState
+rootScope
+stateProvider

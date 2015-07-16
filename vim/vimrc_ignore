@@ -1,29 +1,20 @@
-" Make sure these directories are not included in the results panel
+" Directories
 set wildignore+=*/.git/**
 set wildignore+=*/.sass-cache/**
+set wildignore+=*/.tsc/**
 set wildignore+=*/.vagrant/**
 set wildignore+=*/bower_components/**
 set wildignore+=*/jspm_packages/**
 set wildignore+=*/node_modules/**
 
-" Nor these files
-set wildignore+=*.DS_Store
-set wildignore+=*.Thumbs.db
-set wildignore+=*.npm-debug.log
+" Files
 set wildignore+=*.sublime-workspace
+set wildignore+=*npm-debug.log
+set wildignore+=*phantomjsdriver.log
 
-" Nor these filetypes
-set wildignore+=*.gif
-set wildignore+=*.jpg
-set wildignore+=*.png
-set wildignore+=*.svg
-set wildignore+=*.eot
-set wildignore+=*.otf
-set wildignore+=*.ttf
-set wildignore+=*.woff
+" Crap
+set wildignore+=*.DS_Store
+set wildignore+=*Thumbs.db
 
-" Hide certain files/folders from NERDTree.
-" In `.vimrc` we have the ability to load a `.vimrc.local` per project, using
-" that technique we should hide and show folders on a case by case basis. This
-" just works similar to a `.global_gitignore` file expect with RegEx instea
-let g:NERDTreeIgnore = ['\.git$', '\.sass-cache$', '\.vagrant$', 'bower_components', 'jspm_packages', 'node_modules', '\.DS_Store', '\.Thumbs.db', 'npm-debug.log', '\.gif$', '\.jpg$', '\.png$', '\.svg$', '\.eot$', '\.otf$', '\.ttf$', '\.woff$']
+" Nerdtree specific ignore
+let NERDTreeIgnore = ['^.git$', '^.sass-cache$', '^.tsc$', '^.vagrant$', '^bower_components$', '^jspm_packages$', '^node_modules$', '.sublime-workspace$', '^npm-debug.log$', '^phantomjsdriver.log$', '^.DS_Store$', '^Thumbs.db$']

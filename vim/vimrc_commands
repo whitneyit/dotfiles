@@ -13,12 +13,18 @@ if has("user_commands")
 
     " Ensure that I can always save
     command! W w
+    command! Wa wa
+    command! WA wa
     command! Wq wq
+    command! WQ wq
     command! Wqa wqa
     command! WQa wqa
     command! WQA wqa
     command! -bang W w<bang>
+    command! -bang Wa wa<bang>
+    command! -bang WA wa<bang>
     command! -bang Wq wq<bang>
+    command! -bang WQ wq<bang>
     command! -bang Wqa wqa<bang>
     command! -bang WQa wqa<bang>
     command! -bang WQA wqa<bang>

@@ -20,11 +20,11 @@
     insteadOf = git://
 
 [alias]
-    chmod        = "!f() { find . -type $1 -not -path \"./.git\" -not -path \"./node_modules/*\" -not -path \"./bower_components/*\" -not -path \"./jspm_packages/*\" -not -perm 0$2 -exec chmod $2 {} \\+; }; f \"d\" 755; f \"f\" 644;"
-    pr           = "!f() { git fetch -fu ${2:-origin} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
-    pr-clean     = "!f() { git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done; }; f"
-    start        = "!f() { git init; git commit --allow-empty --message='First commit!'; git branch develop; }; f"
-    start-create = "!f() { git init; git commit --allow-empty --message='First commit!'; git branch develop; hub create; }; f"
+    chmod        = "!fn() { find ${1:-\"$PWD\"} -type $2 -not -path \"`realpath .git`*\" -not -path \"`realpath node_modules`*\" -not -path \"`realpath bower_components`*\" -not -perm 0$3 -exec chmod $3 {} \\+; }; fn $1 \"f\" \"644\"; fn $1 \"d\" \"755\""
+    pr           = "!fn() { git fetch -fu ${2:-origin} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; fn"
+    pr-clean     = "!fn() { git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done; }; fn"
+    start        = "!fn() { git init; git commit --allow-empty --message='First commit!'; git branch develop; }; fn"
+    start-create = "!fn() { git init; git commit --allow-empty --message='First commit!'; git branch develop; hub create; }; fn"
     ctags        = !.git/hooks/ctags
     untracked    = !git ls-files --others --exclude-standard
     unchangeable = !git ls-files -v | grep ^[a-z]

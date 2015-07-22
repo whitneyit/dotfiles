@@ -250,7 +250,7 @@ __git_complete    gt _git_tag
 alias             gv="git --version"
 
 # Aliases for custom aliases in $HOME/.gitconfig
-alias            gch="git chmod"
+alias            gch='git chmod $PWD'
 alias            gpr="git pr"
 alias           gprc="git pr-clean"
 alias             gs="git start"

@@ -31,7 +31,6 @@ if has("autocmd")
     " Ensure the correct filetypes are used
     autocmd BufNewFile,BufRead *.aj         set filetype=java
     autocmd BufNewFile,BufRead *.cshtml     set filetype=html
-    autocmd BufNewFile,BufRead *.ejs        set filetype=javascript
     autocmd BufNewFile,BufRead *.es6        set filetype=javascript
     autocmd BufNewFile,BufRead *.es7        set filetype=javascript
     autocmd BufNewFile,BufRead *.gitignore  set filetype=sh

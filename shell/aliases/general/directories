@@ -17,5 +17,6 @@ alias     sites="cd ~/Sites/"
 alias   archive="cd ~/Archive/"
 alias      code="cd ~/Code/"
 alias       dev="cd ~/Dev/"
+alias      work="cd ~/Work/"
 
 # vim: set syn=sh :

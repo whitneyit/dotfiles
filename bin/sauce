@@ -2,6 +2,8 @@
 
 # This is the list of files that need to be `sourced` when the terminal boots
 declare -a files=(
+
+    # Base scripts
     $DOTFILES_DIRECTORY/shell/bash_paths
     $DOTFILES_DIRECTORY/shell/bash_options
     $DOTFILES_DIRECTORY/shell/bash_exports
@@ -12,11 +14,19 @@ declare -a files=(
     $DOTFILES_DIRECTORY/shell/bash_ssh
     $DOTFILES_DIRECTORY/shell/bash_prompt
     $DOTFILES_DIRECTORY/shell/bash_shell
+
+    # Third party overrides
     $HOME/.rvm/scripts/rvm
     $HOME/.nvm/nvm.sh
+    $HOME/.travis/travis.sh
+
+    # Locally copied files
+    $HOME/.bash_proxy
+
+    # Final overrides
     $HOME/.bashrc.local
     $HOME/.bash_profile.local
-    $HOME/.bash_proxy
+
 )
 
 # Here we define a list of bash completetion files that we will execute

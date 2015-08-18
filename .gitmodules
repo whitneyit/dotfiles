@@ -79,3 +79,6 @@
 [submodule "vim/bundle/vim-jst"]
     path = vim/bundle/vim-jst
     url = https://github.com/briancollins/vim-jst
+[submodule "vim/bundle/vim-javascript"]
+    path = vim/bundle/vim-javascript
+    url = https://github.com/pangloss/vim-javascript

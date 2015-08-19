@@ -9,6 +9,8 @@ alias nlg="npm list --depth=0 --global"
 alias  np="npm prune"
 alias  ns="npm start"
 alias  nt="npm test"
+alias  nu="npm uninstall"
+alias nug="npm uninstall --global"
 
 nv() {
     echo nvm version $(nvm --version)

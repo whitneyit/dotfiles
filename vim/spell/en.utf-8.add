@@ -243,3 +243,9 @@ stateProvider
 recurses
 sed
 systemjs
+e2e
+configFile
+singleRun
+webdriver
+webdriver
+html2js

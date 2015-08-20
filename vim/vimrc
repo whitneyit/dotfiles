@@ -69,6 +69,10 @@ if has("autocmd")
     autocmd QuickFixCmdPost [^l]* nested cwindow
     autocmd QuickFixCmdPost    l* nested lwindow
 
+    " Enable hyphens in keywords on these filetypes
+    autocmd FileType css setlocal iskeyword+=-
+    autocmd FileType html setlocal iskeyword+=-
+
 endif
 
 if has("syntax")

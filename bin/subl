@@ -1,5 +1,55 @@
 #!/usr/bin/env bash
 
-/cygdrive/c/Program\ Files/Sublime\ Text\ 3/sublime_text.exe `cygpath -w $@` &
+# Info logging
+function e_info() {
+    printf "$(tput setaf 6)%s$(tput sgr0)\n" "$@"
+}
+
+# Cygwin
+if [ "$(is_cygwin)" == "yes" ]; then
+
+    # Version 3
+    if [ -n "/cygdrive/c/Program\ Files/Sublime\ Text\ 3/sublime_text.exe" ]; then
+        /cygdrive/c/Program\ Files/Sublime\ Text\ 3/sublime_text.exe `cygpath -w $@` &
+
+    # Version 2
+    elif [ -n "/cygdrive/c/Program\ Files/Sublime\ Text\ 2/sublime_text.exe" ]; then
+        /cygdrive/c/Program\ Files/Sublime\ Text\ 2/sublime_text.exe `cygpath -w $@` &
+
+    # Other
+    elif [ -n "/cygdrive/c/Program\ Files/Sublime\ Text/sublime_text.exe" ]; then
+        /cygdrive/c/Program\ Files/Sublime\ Text/sublime_text.exe `cygpath -w $@` &
+
+    # Not installed
+    else
+        e_info "Could not find Sublime Text. Have you installed it?"
+    fi
+
+# Mac
+elif [ "$(is_mac)" == "yes" ]; then
+
+    # Version 3
+    if [ -n "/Applications/Sublime\ Text\ 3.app/Contents/SharedSupport/bin/subl" ]; then
+        /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl "$@"
+
+    # Version 2
+    elif [ -n "/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl" ]; then
+        /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl "$@"
+
+    # Other
+    elif [ -n "/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl" ]; then
+        /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl "$@"
+
+    # Not installed
+    else
+        e_info "Could not find Sublime Text. Have you installed it?"
+    fi
+
+# Everything else
+else
+
+    e_info "Add support for linux you noob"
+
+fi
 
 # vim: set syn=sh :

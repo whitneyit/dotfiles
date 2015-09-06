@@ -45,4 +45,9 @@ if [ "$(is_mac)" == "yes" ]; then
     export JDK_HOME="$(/usr/libexec/java_home)"
 fi
 
+# Define wherethe android platform tools live
+if [ "$(is_mac)" == "yes" ]; then
+    export ANDROID_TOOLS="$HOME/Library/Android/sdk"
+fi
+
 # vim: set syn=sh :

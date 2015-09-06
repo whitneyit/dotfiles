@@ -31,14 +31,11 @@ if [ -z "$DOTFILES_DIRECTORY" ]; then
 
     fi
 
+    # Add the `$DOTFILES_DIRECTORY` directory to the `$PATH`
+    export PATH="$DOTFILES_DIRECTORY/bin:$PATH"
+
     # And here we boot of the scripts
     source "$DOTFILES_DIRECTORY/bin/sauce"
-
-    # This converts the input type of bash over to vim style
-    set -o vi
-
-    # Ensure that <C-l> Will clear the screen in insert mode
-    bind -m vi-insert 'Control-l: clear-screen'
 
 fi
 

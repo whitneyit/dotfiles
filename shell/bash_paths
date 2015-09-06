@@ -2,16 +2,15 @@
 
 # Directories to be prepended to PATH
 # Ensure that this bin always takes precedence over `/usr/bin`
-declare -a dirs_to_prepend=(
+declare -a DIRS_TO_PREPEND=(
     "$JAVA_HOME/bin"
     "/usr/local/bin"
 )
 
 # Directories to be appended to PATH
-declare -a dirs_to_append=(
+declare -a DIRS_TO_APPEND=(
     "/usr/bin"
     "/usr/local"
-    "$DOTFILES_DIRECTORY/bin"
     "$HOME/bin"
     "$HOME/.composer/vendor/bin"
     "$HOME/.rvm/bin"
@@ -21,20 +20,20 @@ declare -a dirs_to_append=(
 )
 
 # Prepend directories to PATH
-for index in "${dirs_to_prepend[@]}"
+for index in "${DIRS_TO_PREPEND[@]}"
 do
     PATH="${index}:$PATH"
 done
 
 # Append directories to PATH
-for index in "${dirs_to_append[@]}"
+for index in "${DIRS_TO_APPEND[@]}"
 do
     PATH="$PATH:${index}"
 done
 
 # Unset the Array variables
-unset dirs_to_prepend
-unset dirs_to_append
+unset DIRS_TO_PREPEND
+unset DIRS_TO_APPEND
 
 # Export the `$PATH` variable
 export PATH

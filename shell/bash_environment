@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# Ensure that we have a default environment set for node
+export NODE_ENV="development"
+
+# Configure the Java environment
+if [ "$(is_mac)" == "yes" ]; then
+    export JAVA_HOME="$(/usr/libexec/java_home)"
+    export JDK_HOME="$(/usr/libexec/java_home)"
+fi
+
+# Define where the android platform tools live
+if [ "$(is_mac)" == "yes" ]; then
+    export ANDROID_TOOLS="$HOME/Library/Android/sdk"
+fi
+
+# vim: set syn=sh :

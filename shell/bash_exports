@@ -19,9 +19,6 @@ export HISTSIZE=10000
 # This gives history entries a matching timestamp
 export HISTTIMEFORMAT="%Y-%m-%d %T  "
 
-# Ensure that we have a default environment set for node
-export NODE_ENV="development"
-
 # Make new shells get the history lines from all previous
 # shells instead of the default "last window closed" history
 export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
@@ -32,5 +29,20 @@ export LANG=en_AU.UTF-8
 
 # Here we change the way files are sorted
 export LC_ALL="C"
+
+########################################
+#                                      #
+#             Development              #
+#                                      #
+########################################
+
+# Ensure that we have a default environment set for node
+export NODE_ENV="development"
+
+# Configure the Java environment
+if [ "$(is_mac)" == "yes" ]; then
+    export JAVA_HOME="$(/usr/libexec/java_home)"
+    export JDK_HOME="$(/usr/libexec/java_home)"
+fi
 
 # vim: set syn=sh :

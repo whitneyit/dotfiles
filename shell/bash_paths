@@ -3,6 +3,7 @@
 # Directories to be prepended to PATH
 # Ensure that this bin always takes precedence over `/usr/bin`
 declare -a dirs_to_prepend=(
+    "$JAVA_HOME/bin"
     "/usr/local/bin"
 )
 

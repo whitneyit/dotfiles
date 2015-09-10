@@ -6,14 +6,27 @@ set -o vi
 # Ensure that <C-l> Will clear the screen in insert mode
 bind -m vi-insert 'Control-l: clear-screen'
 
+# Emulate ZSH style tab completetion
+bind 'set show-all-if-ambiguous on'
+bind 'TAB:menu-complete'
+
+# Determine if the git repo we are in has any changes in the working directory
 function parse_git_dirty() {
     [[ $(git status 2> /dev/null | tail -n1) != *"working directory clean"* ]] && echo "*"
 }
 
+# If the current directory belongs is a descendant of a git repo, determine the
+# name of branch that is checked out
 function parse_git_branch() {
     git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
 }
 
+# Determine the look of our prompt. Eg
+#
+# whitneyit at MacBook in ~/Code/dotfiles on master
+# $ echo "Hello world" > hi.txt
+# whitneyit at MacBook in ~/Code/dotfiles on master*
+# $
 export PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]at \[$ORANGE\]\h \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n\$ \[$RESET\]"
 export PS2="\[$ORANGE\]→ \[$RESET\]"
 

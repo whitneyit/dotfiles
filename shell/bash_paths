@@ -14,6 +14,8 @@ declare -a DIRS_TO_APPEND=(
     "$HOME/bin"
     "$HOME/.composer/vendor/bin"
     "$HOME/.rvm/bin"
+    "$GOHOME/bin"
+    "$GOPATH/bin"
     "$ANDROID_TOOLS/tools"
     "$ANDROID_TOOLS/platform-tools"
     "./vendor/bin"

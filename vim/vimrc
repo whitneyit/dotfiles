@@ -45,6 +45,7 @@ if has("autocmd")
     " Here we alias files like `.bashrc`, then we fallback for anything else
     autocmd BufNewFile,BufRead .*rc         set filetype=sh
     autocmd BufNewFile,BufRead .bowerrc     set filetype=json
+    autocmd BufNewFile,BufRead .csslintrc   set filetype=json
     autocmd BufNewFile,BufRead .eslintrc    set filetype=json
     autocmd BufNewFile,BufRead .jscsrc      set filetype=json
     autocmd BufNewFile,BufRead .jshintrc    set filetype=json

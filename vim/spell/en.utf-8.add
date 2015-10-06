@@ -278,3 +278,6 @@ ProductRepositoryProvider
 wildcard
 wildcards
 ViewModel
+sha
+commitObjs
+nodegit

@@ -179,10 +179,12 @@ alias            grb="git rebase"
 __git_complete   grb _git_rebase
 alias           grba="git rebase --abort"
 __git_complete  grba _git_rebase
-alias           grbi="git rebase --interactive"
-__git_complete  grbi _git_rebase
 alias           grbc="git rebase --continue"
 __git_complete  grbc _git_rebase
+alias           grbi="git rebase --interactive"
+__git_complete  grbi _git_rebase
+alias           grbs="git rebase --skip"
+__git_complete  grbs _git_rebase
 alias           grbd="git rebase develop"
 __git_complete  grbd _git_rebase
 alias           grbm="git rebase master"

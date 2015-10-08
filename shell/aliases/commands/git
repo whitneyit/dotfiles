@@ -237,10 +237,8 @@ alias           gsmc="git submodule foreach --recursive git checkout ."
 __git_complete  gsmc _git_submodule
 alias           gsmu="git submodule update --recursive --init"
 __git_complete  gsmu _git_submodule
-alias            gsh="git show --no-merges        --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %ar] %C(cyan)%ae %C(reset)%s%C(white)%d'"
-__git_complete   gsh _git_show
-alias           gshs="git show --no-merges --stat --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %ar] %C(cyan)%ae %C(reset)%s%C(white)%d'"
-__git_complete  gshs _git_show
+alias           gsha="git log --no-merges        --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %ar] %C(cyan)%ae %C(reset)%n%s%n%n%b'"
+__git_complete  gsha _git_log
 alias            gst="git status --untracked-files=all"
 __git_complete   gst _git_status
 alias           gstc="git status"
@@ -297,6 +295,8 @@ __git_complete   glg _git_log
 alias            glm="glma  -10"
 __git_complete   glm _git_log
 alias            gls="glsa  -10"
+alias            gsh="gsha  -1"
+__git_complete   gsh _git_log
 
 # Incoming commits
 alias            gli="glia  -10"

@@ -8,6 +8,11 @@ if [ "$(is_mac)" == "yes" ]; then
         alias grep="ggrep"
     fi
 
+    # If we have installed gnu readlink via homebrew, alias that now.
+    if [ "$(type -P greadlink)" ]; then
+        alias readlink="greadlink"
+    fi
+
     # If we have installed gnu sed via homebrew, alias that now.
     if [ "$(type -P gsed)" ]; then
         alias sed="gsed"

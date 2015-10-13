@@ -18,6 +18,10 @@ nv() {
     echo npm version $(npm --version)
 }
 
+ngp() {
+    readlink -f "$(which $1)"
+}
+
 if [ "$(is_cygwin)" == "yes" ]; then
     alias npm="cmd /c npm"
 fi

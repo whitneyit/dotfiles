@@ -189,6 +189,14 @@ alias           grbd="git rebase develop"
 __git_complete  grbd _git_rebase
 alias           grbm="git rebase master"
 __git_complete  grbm _git_rebase
+alias          grbod="git rebase origin/develop"
+__git_complete grbod _git_rebase
+alias          grbom="git rebase origin/master"
+__git_complete grbom _git_rebase
+alias          grbud="git rebase upstream/develop"
+__git_complete grbud _git_rebase
+alias          grbum="git rebase upstream/master"
+__git_complete grbum _git_rebase
 alias           grfa="git reflog         --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %>(14)%ar] %C(blue)%gs %C(cyan)%ae %C(reset)%s%C(white)%d'"
 __git_complete  grfa _git_reflog
 alias          grfda="git reflog --patch --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %>(14)%ar] %C(blue)%gs %C(cyan)%ae %C(reset)%s%C(white)%d'"

@@ -3,31 +3,75 @@ if has("user_commands")
     " Clear search results
     command! H let @/=""
 
-    " Make sure that I can actually quit
-    command! Q q
-    command! Qa qa
-    command! QA qa
-    command! -bang Q q<bang>
-    command! -bang Qa qa<bang>
-    command! -bang QA qa<bang>
-
-    " Ensure that I can always save
+    " Make sure that I can actually quit and save
     command! W w
-    command! Wa wa
-    command! WA wa
-    command! Wq wq
-    command! WQ wq
-    command! Wqa wqa
-    command! WQa wqa
-    command! WQA wqa
     command! -bang W w<bang>
+    command! Q q
+    command! -bang Q q<bang>
+    command! Wq wa
+    command! -bang Wq wa<bang>
+    command! WQ wa
+    command! -bang WQ wa<bang>
+    command! Qw wa
+    command! -bang Qw wa<bang>
+    command! QW wa
+    command! -bang QW wa<bang>
+    command! Wa wa
     command! -bang Wa wa<bang>
+    command! WA wa
     command! -bang WA wa<bang>
-    command! -bang Wq wq<bang>
-    command! -bang WQ wq<bang>
+    command! Aw wa
+    command! -bang Aw wa<bang>
+    command! AW wa
+    command! -bang AW wa<bang>
+    command! Wqa wqa
     command! -bang Wqa wqa<bang>
+    command! WQa wqa
     command! -bang WQa wqa<bang>
+    command! WqA wqa
+    command! -bang WqA wqa<bang>
+    command! WQA wqa
     command! -bang WQA wqa<bang>
+    command! Waq wqa
+    command! -bang Waq wqa<bang>
+    command! WaQ wqa
+    command! -bang WaQ wqa<bang>
+    command! WAq wqa
+    command! -bang WAq wqa<bang>
+    command! WAQ wqa
+    command! -bang WAQ wqa<bang>
+    command! Qwa wqa
+    command! -bang Qwa wqa<bang>
+    command! QWa wqa
+    command! -bang QWa wqa<bang>
+    command! QwA wqa
+    command! -bang QwA wqa<bang>
+    command! QWA wqa
+    command! -bang QWA wqa<bang>
+    command! Qaw wqa
+    command! -bang Qaw wqa<bang>
+    command! QaW wqa
+    command! -bang QaW wqa<bang>
+    command! QAw wqa
+    command! -bang QAw wqa<bang>
+    command! QAW wqa
+    command! -bang QAW wqa<bang>
+    command! Awq wqa
+    command! -bang Awq wqa<bang>
+    command! AWq wqa
+    command! -bang AWq wqa<bang>
+    command! AwQ wqa
+    command! -bang AwQ wqa<bang>
+    command! AWQ wqa
+    command! -bang AWQ wqa<bang>
+    command! Aqw wqa
+    command! -bang Aqw wqa<bang>
+    command! AqW wqa
+    command! -bang AqW wqa<bang>
+    command! AQw wqa
+    command! -bang AQw wqa<bang>
+    command! AQW wqa
+    command! -bang AQW wqa<bang>
 
     " Allow saving of files as sudo when I forgot to start vim using sudo.
     command! S !sudo tee > /dev/null %

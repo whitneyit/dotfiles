@@ -233,6 +233,8 @@ alias            grm="git rm"
 __git_complete   grm _git_rm
 alias           grmr="git rm -r" # There is no `--recursive`
 __git_complete  grmr _git_rm
+alias          grmrf="git rm -rf"
+__git_complete grmrf _git_rm
 alias           grmc="git rm --cached"
 __git_complete  grmc _git_rm
 alias          grmca="git rm --cached -r ."

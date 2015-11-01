@@ -14,6 +14,7 @@ silent! call pathogen#helptags()
 let base16colorspace=256
 
 " Set the background colour for our theme
+set background=light
 set background=dark
 
 " Set the colorscheme

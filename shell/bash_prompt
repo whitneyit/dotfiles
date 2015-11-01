@@ -23,6 +23,7 @@ function parse_git_branch() {
 # $ echo "Hello world" > hi.txt
 # whitneyit at MacBook in ~/Code/dotfiles on master*
 # $
+export PS1="\[${BOLD}${MAGENTA}\]\u \[$BLACK\]at \[$ORANGE\]\h \[$BLACK\]in \[$GREEN\]\w\[$BLACK\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$BLACK\]\n\$ \[$RESET\]"
 export PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]at \[$ORANGE\]\h \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n\$ \[$RESET\]"
 export PS2="\[$ORANGE\]→ \[$RESET\]"
 

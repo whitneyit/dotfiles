@@ -145,6 +145,18 @@ alias           gpsd="git push          --progress --verbose --delete"
 __git_complete  gpsd _git_push
 alias           gpst="git push          --progress --verbose --tags"
 __git_complete  gpst _git_push
+alias           gpsb="git push          --progress --verbose bitbucket"
+__git_complete  gpsb _git_push
+alias          gpsbd="git push          --progress --verbose bitbucket develop"
+__git_complete gpsbd _git_push
+alias          gpsbm="git push          --progress --verbose bitbucket master"
+__git_complete gpsbm _git_push
+alias           gpsg="git push          --progress --verbose github"
+__git_complete  gpsg _git_push
+alias          gpsgd="git push          --progress --verbose github develop"
+__git_complete gpsgd _git_push
+alias          gpsgm="git push          --progress --verbose github master"
+__git_complete gpsgm _git_push
 alias           gpso="git push          --progress --verbose origin"
 __git_complete  gpso _git_push
 alias          gpsod="git push          --progress --verbose origin develop"

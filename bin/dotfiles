@@ -40,6 +40,7 @@ if [ "$(uname -s | grep -c Darwin)" -gt 0 ]; then
     # We can assume we have ruby and curl due to them being pre-installed
     if [ ! "$(type -P brew)" ]; then
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        brew tap homebrew/dupes
     fi
 
     # Make sure we have the most up to date version of homebrew

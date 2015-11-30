@@ -11,8 +11,8 @@ fi
 
 # Configure the Java environment
 if [ "$(is_mac)" == "yes" ]; then
-    export JAVA_HOME="$(/usr/libexec/java_home)"
-    export JDK_HOME="$(/usr/libexec/java_home)"
+    export JAVA_HOME="$(/usr/libexec/java_home 2>/dev/null)"
+    export JDK_HOME="$(/usr/libexec/java_home 2>/dev/null)"
 fi
 
 # Define where the android platform tools live

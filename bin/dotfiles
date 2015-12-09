@@ -90,6 +90,32 @@ if [ "$(uname -s | grep -c Darwin)" -gt 0 ]; then
     # Remove outdated versions from the Cellar
     brew cleanup
 
+    # If the shells file does not exist, create it now
+    if [ ! -f /etc/shells ]; then
+        touch /etc/shells
+    fi
+
+    # Now we test to see if we already have the new bash shell installed
+    if grep -q "/usr/local/bin/bash" /etc/shells; then
+        e_info "Brew bash already installed"
+
+    # In this case, we need to install the shell ourselves
+    else
+
+        # Ask the user for their password
+        e_header "Please enter your password to swap shells..."
+        sudo -v
+
+        # Change the permission of the `shells` file and add the newly installed
+        # `bash` shell.
+        sudo chown `whoami` /etc/shells
+        sudo echo "/usr/local/bin/bash" >> /etc/shells
+
+        # Change the shell for the current user
+        chsh -s /usr/local/bin/bash
+
+    fi
+
 fi
 
 # Check for git

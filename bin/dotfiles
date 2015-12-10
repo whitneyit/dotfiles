@@ -67,6 +67,7 @@ if [ "$(uname -s | grep -c Darwin)" -gt 0 ]; then
         'grep'
         'hub'
         'tree'
+        'vim'
         'wget'
     )
 

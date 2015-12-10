@@ -3,6 +3,11 @@
 # Ensure that these aliases are only ever processed if we are in an mac box.
 if [ "$(is_mac)" == "yes" ]; then
 
+    # If we have installed gnu dircolors via homebrew, alias that now.
+    if [ "$(type -P gdircolors)" ]; then
+        alias dircolors="gdircolors"
+    fi
+
     # If we have installed gnu grep via homebrew, alias that now.
     if [ "$(type -P ggrep)" ]; then
         alias grep="ggrep"

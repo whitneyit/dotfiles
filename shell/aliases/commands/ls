@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
 
+# Source our `LS_COLORS`
+if [ "$(type -P gdircolors)" ]; then
+    eval `gdircolors "$HOME/.dir_colors"`
+elif [ "$(type -P dircolors)" ]; then
+    eval `dircolors "$HOME/.dir_colors"`
+else
+    e_error 'Could not source "$HOME/.dir_colors"'
+fi
+
 # Because this file is in `$DOTFILES_DIRECTORY` and the directory is added
 # to the `$PATH` variable, and this file is named `ls`, any references to `ls`
 # will trigger this command instead of the OS `ls` command.

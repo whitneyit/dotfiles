@@ -1,11 +1,3 @@
-" Change mapleader
-let mapleader=","
-let g:mapleader=","
-
-" Because we just killed the ',' functionality we need to restore it. Vim's
-" default leader key is `\` so we will just use that
-nnoremap \ ,
-
 " Here we make a mapping so that I can paste an `ezh` character
 inoremap <C-t> Ƹ
 
@@ -47,89 +39,10 @@ vnoremap <Down>  <C-e>
 vnoremap <Up>    <C-y>
 vnoremap <Right> zL
 
-" Navigate through tags
-nnoremap <leader>m :tn<CR>
-nnoremap <leader>n :tp<CR>
-
-" Here we create tab indentation
+" Here we create faux tab indentation
 nnoremap <Tab>   >>llll
 nnoremap <S-Tab> <<hhhh
 vnoremap >       >gv
 vnoremap <       <gv
 vnoremap <Tab>   >gv
 vnoremap <S-Tab> <gv
-
-" Easy v-splitting
-nnoremap <leader>v :vsplit<CR>
-nnoremap <leader>V <C-w>q<CR>
-nnoremap <leader>1 :vertical resize +20<CR>
-nnoremap <leader>2 :vertical resize +5<CR>
-nnoremap <leader>3 <C-w>=<CR>
-nnoremap <leader>4 :vertical resize -5<CR>
-nnoremap <leader>5 :vertical resize -20<CR>
-
-" Basic tab operation
-" nnoremap <leader>t :tabnew<CR>
-nnoremap <leader>x :tabclose<CR>
-nnoremap <leader>X :tabclose!<CR>
-nnoremap <leader>z :tabonly<CR>
-nnoremap <leader>Z :tabonly!<CR>
-
-" Fast saves and quits
-nnoremap <leader>w :w<CR>
-nnoremap <leader>W :wq!<CR>
-nnoremap <leader>q :q<CR>
-nnoremap <leader>Q :q!<CR>
-nnoremap <leader>e :qa<CR>
-nnoremap <leader>E :qa!<CR>
-
-" Select all text on the page
-nnoremap <leader>a gg0vG$
-
-" Insert a line above or below the current line
-nnoremap <leader>o o<Esc>k
-nnoremap <leader>O O<Esc>j
-
-" Quickly show the diff in the current file
-nnoremap <leader>d :w !diff % -<CR>
-
-" Strip trailing whitespace
-nnoremap <leader>$ :call StripTrailingWhitespace()<CR>
-
-" Auto change directory to match current file ,cd
-nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
-
-" Custom keybind to enter paste mode, paste, then exit out
-nnoremap <leader>p :set paste<CR>"+p:set nopaste<CR>
-
-" And here a keybind to yank to clipboard. As you can see above `"+` is the
-" system clipboard. `y` yanks from it, and `p` puts to it.
-nnoremap <leader>y "+y<CR>
-
-" Define a quick way to toggle hiding/showing special characters
-nnoremap <leader>s :set list!<CR>
-
-" Bind a key to hide and show the nerdtree page
-nnoremap <leader>b :NERDTreeTabsToggle<CR>
-
-" Run our gulp tasks
-nnoremap <leader>l :w<cr>:!clear && gulp lint<CR>
-nnoremap <leader>t :w<cr>:!clear && gulp test<CR>
-
-" Open the tags in CtrlP
-nnoremap <leader>r :CtrlPTag<CR>
-
-" Quickly open the `TODO.md` file
-nnoremap <leader>T :edit TODO.md<CR>
-
-" Configure easymotion
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
-" map  <Leader>h <Plug>(easymotion-linebackward)
-" map  <Leader>j <Plug>(easymotion-j)
-" map  <Leader>k <Plug>(easymotion-k)
-" map  <Leader>l <Plug>(easymotion-lineforward)
-
-map <Leader>g <Plug>IndentGuidesToggle

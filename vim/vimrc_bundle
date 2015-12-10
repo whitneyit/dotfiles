@@ -64,6 +64,12 @@ let g:EasyMotion_use_upper = 1
 " keep cursor colum when JK motion
 let g:EasyMotion_startofline = 0
 
+" Configure mappings
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+
 " Ctrl P                            "
 " https://github.com/kien/ctrlp.vim "
 """""""""""""""""""""""""""""""""""""

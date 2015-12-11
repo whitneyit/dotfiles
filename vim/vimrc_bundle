@@ -141,6 +141,10 @@ let g:vim_json_syntax_conceal = 0
 " https://github.com/editorconfig/editorconfig "
 """"""""""""""""""""""""""""""""""""""""""""""""
 
+" 7. JSX                         "
+" https://github.com/mxw/vim-jsx "
+""""""""""""""""""""""""""""""""""
+
 " Enable verbose mode
 let g:EditorConfig_verbose = 1
 

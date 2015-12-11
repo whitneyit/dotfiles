@@ -1,55 +1,65 @@
-" Here we define all of our pluging specific keybinds
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Here we define all of our plugin specific keybinds       "
+"                                                          "
+" Table of Contents:                                       "
+"                                                          "
+"  1. Better JSON                                          "
+"  2. Ctrl P                                               "
+"  3. Easy Motion                                          "
+"  4. Editor Config                                        "
+"  5. Emmet                                                "
+"  6. Indent Guides                                        "
+"  7. JSX                                                  "
+"  8. Multiple cursors                                     "
+"  9. NERDTree                                             "
+" 10. NERDTreeTabs                                         "
+" 11. Powerline                                            "
+" 12. Syntastic                                            "
+" 13. Typescript                                           "
+"                                                          "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Emmet                              "
-" https://github.com/mattn/emmet-vim "
-""""""""""""""""""""""""""""""""""""""
 
-" Here we define the leader key for all Emmet commands. You can easily see all
-" the registered commands by typing `:map <C-e>`
-let g:user_emmet_leader_key = '<C-e>'
 
-" Here we define our custom snippets file
-let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('$HOME/.vim/bundle/snippets/snippets_custom.json')), "\n"))
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 1. Better JSON                                           "
+" https://github.com/elzr/vim-                             "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" vim powerline                             "
-" https://github.com/Lokaltog/vim-powerline "
-"""""""""""""""""""""""""""""""""""""""""""""
+" Disable conceal
+let g:vim_json_syntax_conceal = 0
 
-" Make the powerline use the enhanced font icons
-let g:Powerline_symbols = 'fancy'
 
-" Make powerline support pathogen
-set rtp+=$HOME/.vim/bundle/powerline/powerline/bindings/vim
 
-" NERDTree                               "
-" https://github.com/scrooloose/nerdtree "
-""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 2. Ctrl P                                                "
+" https://github.com/kien/ctrlp.vim                        "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Make sure we see bookmarks and help at the top
-let g:NERDTreeMinimalUI = 0
+" Search by fullpath instead of just filename
+let g:ctrlp_by_filename = 0
 
-" Enable fancy arrows
-let g:NERDTreeDirArrows = 1
+" Define the location of the cache dir
+let g:ctrlp_cache_dir = '~/.vim/plugins/ctrlp'
 
-" Set default width for NERDTree panel
-let g:NERDTreeWinSize = 40
+" The max amount of files to display
+let g:ctrlp_max_files = 0
 
-" Make NERDTree show hidden files
-let g:NERDTreeShowHidden = 1
+" Show hidden files when using CtrlP
+let g:ctrlp_regexp = 0
 
-" NERDTreeTabs                               "
-" https://github.com/jistr/vim-nerdtree-tabs "
-""""""""""""""""""""""""""""""""""""""""""""""
+" Show hidden files when using CtrlP
+let g:ctrlp_show_hidden = 1
 
-" When switching into a tab, make sure that focus is on the file window
-let g:nerdtree_tabs_focus_on_files = 1
+" From where do we want CtrlP to search
+let g:ctrlp_working_path_mode = 'ra'
 
-" Exit vim if the only window open is NERDTree
-let g:nerdtree_tabs_autoclose = 0
 
-" Easy motion                                "
-" https://github.com/Lokaltog/vim-easymotion "
-""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 3. Easy Motion                                           "
+" https://github.com/Lokaltog/vim-easymotion               "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Set the default `<leader>` key
 let g:EasyMotion_leader_key = '<Leader><leader>'
@@ -70,46 +80,42 @@ omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 
-" Ctrl P                            "
-" https://github.com/kien/ctrlp.vim "
-"""""""""""""""""""""""""""""""""""""
 
-" Search by fullpath instead of just filename
-let g:ctrlp_by_filename = 0
 
-" Define the location of the cache dir
-let g:ctrlp_cache_dir = '~/.vim/plugins/ctrlp'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 4. Editor Config                                         "
+" https://github.com/editorconfig/editorconfig             "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" The max amount of files to display
-let g:ctrlp_max_files = 0
+" Enable verbose mode
+let g:EditorConfig_verbose = 1
 
-" Show hidden files when using CtrlP
-let g:ctrlp_regexp = 0
+" Specify the files to exclude
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
-" Show hidden files when using CtrlP
-let g:ctrlp_show_hidden = 1
+" Specify our custom handler
+let g:EditorConfig_exec_path = 'editorconfig_pre'
 
-" From where do we want CtrlP to search
-let g:ctrlp_working_path_mode = 'ra'
 
-" Multiple cursors                                "
-" https://github.com/terryma/vim-multiple-cursors "
-"""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Let me define my own mappings
-let g:multi_cursor_use_default_mapping = 0
-let g:multi_cursor_next_key = '<C-f>'
-let g:multi_cursor_prev_key = '<C-k>'
-let g:multi_cursor_skip_key = '<C-j>'
-let g:multi_cursor_quit_key = '<Esc>'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 5. Emmet                                                 "
+" https://github.com/mattn/emmet-vim                       "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Don't exit out of multi mode in vims normal mode, enter into multi instead
-let g:multi_cursor_exit_from_visual_mode = 0
-let g:multi_cursor_exit_from_inset_mode = 0
+" Here we define the leader key for all Emmet commands. You can easily see all
+" the registered commands by typing `:map <C-e>`
+let g:user_emmet_leader_key = '<C-e>'
 
-" Indent Guides                                      "
-" https://github.com/nathanaelkane/vim-indent-guides "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Here we define our custom snippets file
+let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('$HOME/.vim/bundle/snippets/snippets_custom.json')), "\n"))
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 6. Indent Guides                                         "
+" https://github.com/nathanaelkane/vim-indent-guides       "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " This controls whether or not we want the guides to be displayed at startup
 let g:indent_guides_enable_on_vim_startup = 0
@@ -130,33 +136,85 @@ if has("autocmd")
     autocmd VimEnter,Colorscheme * :highlight IndentGuidesEven ctermbg=238
 endif
 
-" Better JSON                      "
-" https://github.com/elzr/vim-json "
-""""""""""""""""""""""""""""""""""""
 
-" Disable conceal
-let g:vim_json_syntax_conceal = 0
 
-" Editor Config                                "
-" https://github.com/editorconfig/editorconfig "
-""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 7. JSX                                                   "
+" https://github.com/mxw/vim-jsx                           "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" 7. JSX                         "
-" https://github.com/mxw/vim-jsx "
-""""""""""""""""""""""""""""""""""
+" Highlight *.js files as well
+let g:jsx_ext_required = 0
 
-" Enable verbose mode
-let g:EditorConfig_verbose = 1
 
-" Specify the files to exclude
-let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
-" Specify our custom handler
-let g:EditorConfig_exec_path = 'editorconfig_pre'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 8. Multiple cursors                                      "
+" https://github.com/terryma/vim-multiple-cursors          "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" syntastic                               "
-" https://github.com/scrooloose/syntastic "
-"""""""""""""""""""""""""""""""""""""""""""
+" Let me define my own mappings
+let g:multi_cursor_use_default_mapping = 0
+let g:multi_cursor_next_key = '<C-f>'
+let g:multi_cursor_prev_key = '<C-k>'
+let g:multi_cursor_skip_key = '<C-j>'
+let g:multi_cursor_quit_key = '<Esc>'
+
+" Don't exit out of multi mode in vims normal mode, enter into multi instead
+let g:multi_cursor_exit_from_visual_mode = 0
+let g:multi_cursor_exit_from_inset_mode = 0
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 9. NERDTree                                              "
+" https://github.com/scrooloose/nerdtree                   "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Make sure we see bookmarks and help at the top
+let g:NERDTreeMinimalUI = 0
+
+" Enable fancy arrows
+let g:NERDTreeDirArrows = 1
+
+" Set default width for NERDTree panel
+let g:NERDTreeWinSize = 40
+
+" Make NERDTree show hidden files
+let g:NERDTreeShowHidden = 1
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 10. NERDTreeTabs                                         "
+" https://github.com/jistr/vim-nerdtree-tabs               "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" When switching into a tab, make sure that focus is on the file window
+let g:nerdtree_tabs_focus_on_files = 1
+
+" Exit vim if the only window open is NERDTree
+let g:nerdtree_tabs_autoclose = 0
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 11. Powerline                                            "
+" https://github.com/Lokaltog/vim-powerline                "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Make the powerline use the enhanced font icons
+let g:Powerline_symbols = 'fancy'
+
+" Make powerline support pathogen
+set rtp+=$HOME/.vim/bundle/powerline/powerline/bindings/vim
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 12. Syntastic                                            "
+" https://github.com/scrooloose/syntastic                  "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Enable `eslint` and `jscs` for JavaScript files
 let g:syntastic_javascript_checkers = ['eslint', 'jscs']
@@ -176,9 +234,11 @@ let g:syntastic_aggregate_errors = 1
 " Don't perform checks when trying to quit a file
 let g:syntastic_check_on_wq = 0
 
-" typescript                                    "
-" https://github.com/leafgarland/typescript-vim "
-"""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Configure which flags we want to pass to `tsc`
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 13. Typescript                                           "
+" https://github.com/leafgarland/typescript-vim            "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 let g:typescript_compiler_options = ' --outDir ./.tsc --module amd'

@@ -54,7 +54,7 @@
     url = https://github.com/nathanaelkane/vim-indent-guides.git
 [submodule "vim/bundle/vim-javascript"]
     path = vim/bundle/vim-javascript
-    url = git@github.com:whitneyit/vim-javascript.git
+    url = https://github.com/whitneyit/vim-javascript.git
 [submodule "vim/bundle/vim-json"]
     path = vim/bundle/vim-json
     url = https://github.com/elzr/vim-json
@@ -86,5 +86,5 @@
     path = vim/bundle/webapi-vim
     url = https://github.com/mattn/webapi-vim
 [submodule "vim/bundle/vim-jsx"]
-	path = vim/bundle/vim-jsx
-	url = https://github.com/mxw/vim-jsx
+    path = vim/bundle/vim-jsx
+    url = https://github.com/mxw/vim-jsx

@@ -24,7 +24,7 @@ elif [ "$(is_ubuntu)" == "yes" ]; then
 # Mac
 elif [ "$(is_mac)" == "yes" ]; then
 
-    # Use the built in `pbcopy`.
+    # Use the built in `pbpaste`.
     pbpaste "$@"
 
 # Everything else

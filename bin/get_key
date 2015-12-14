@@ -24,13 +24,8 @@ if [ ! -f "$key" ]; then
 fi
 
 # Because `cygwin` does not have `pbcopy`, we can't simply just use that. Lucky
-# for us, it does come with a similar way of accessing the clipboard with
-# the `/dev/clipboard` file.
-if [ "$(is_cygwin)" == "yes" ]; then
-    cat "$key" > /dev/clipboard
-else
-    pbcopy < "$key"
-fi
+# we have our own `copy` command
+copy < "$key"
 
 # Once we have copied the file, we inform the user of which key has been copied
 echo "Key: \"$key\" copied to clipboard"

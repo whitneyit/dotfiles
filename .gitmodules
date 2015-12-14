@@ -9,7 +9,7 @@
     url = https://github.com/chriskempson/base16-vim.git
 [submodule "vim/bundle/editorconfig-vim"]
     path = vim/bundle/editorconfig-vim
-    url = https://github.com/editorconfig/editorconfig-vim
+    url = https://github.com/editorconfig/editorconfig-vim.git
 [submodule "vim/bundle/emmet-vim"]
     path = vim/bundle/emmet-vim
     url = https://github.com/mattn/emmet-vim.git
@@ -30,10 +30,10 @@
     url = https://github.com/whitneyit/snippets.git
 [submodule "vim/bundle/typescript-vim"]
     path = vim/bundle/typescript-vim
-    url = https://github.com/leafgarland/typescript-vim
+    url = https://github.com/leafgarland/typescript-vim.git
 [submodule "vim/bundle/vim-blade"]
     path = vim/bundle/vim-blade
-    url = https://github.com/xsbeats/vim-blade
+    url = https://github.com/xsbeats/vim-blade.git
 [submodule "vim/bundle/vim-commentary"]
     path = vim/bundle/vim-commentary
     url = https://github.com/tpope/vim-commentary.git
@@ -42,13 +42,13 @@
     url = https://github.com/hail2u/vim-css3-syntax.git
 [submodule "vim/bundle/vim-ctrlp"]
     path = vim/bundle/vim-ctrlp
-    url = https://github.com/kien/ctrlp.vim
+    url = https://github.com/kien/ctrlp.vim.git
 [submodule "vim/bundle/vim-cucumber"]
     path = vim/bundle/vim-cucumber
     url = https://github.com/tpope/vim-cucumber.git
 [submodule "vim/bundle/vim-easymotion"]
     path = vim/bundle/vim-easymotion
-    url = https://github.com/Lokaltog/vim-easymotion
+    url = https://github.com/Lokaltog/vim-easymotion.git
 [submodule "vim/bundle/vim-fugitive"]
     path = vim/bundle/vim-fugitive
     url = https://github.com/tpope/vim-fugitive.git
@@ -60,10 +60,10 @@
     url = https://github.com/whitneyit/vim-javascript.git
 [submodule "vim/bundle/vim-json"]
     path = vim/bundle/vim-json
-    url = https://github.com/elzr/vim-json
+    url = https://github.com/elzr/vim-json.git
 [submodule "vim/bundle/vim-multiple-cursors"]
     path = vim/bundle/vim-multiple-cursors
-    url = https://github.com/terryma/vim-multiple-cursors
+    url = https://github.com/terryma/vim-multiple-cursors.git
 [submodule "vim/bundle/vim-mustache-handlebars"]
     path = vim/bundle/vim-mustache-handlebars
     url = https://github.com/mustache/vim-mustache-handlebars.git
@@ -75,7 +75,7 @@
     url = https://github.com/tpope/vim-pathogen.git
 [submodule "vim/bundle/vim-rename"]
     path = vim/bundle/vim-rename
-    url = https://github.com/danro/rename.vim
+    url = https://github.com/danro/rename.vim.git
 [submodule "vim/bundle/vim-repeat"]
     path = vim/bundle/vim-repeat
     url = https://github.com/tpope/vim-repeat.git
@@ -87,7 +87,7 @@
     url = https://github.com/tpope/vim-surround.git
 [submodule "vim/bundle/webapi-vim"]
     path = vim/bundle/webapi-vim
-    url = https://github.com/mattn/webapi-vim
+    url = https://github.com/mattn/webapi-vim.git
 [submodule "vim/bundle/vim-jsx"]
     path = vim/bundle/vim-jsx
-    url = https://github.com/mxw/vim-jsx
+    url = https://github.com/mxw/vim-jsx.git

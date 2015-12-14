@@ -3,10 +3,12 @@
 # Ensure that we have a default environment set for node
 export NODE_ENV="development"
 
-# Define where we will be doing our `go` development
+# Define were the go apps will be built
+export GOPATH="$HOME/Code/go"
+
+# If we are running `go` in Cygwin, convert the path to a Windows one
 if [ "$(is_cygwin)" == "yes" ]; then
-    export GOPATH="$(cygpath -wa $HOME/Code/go)"
-    export GOHOME="/cygdrive/C/Go"
+    export GOPATH="`cygpath -aw $GOPATH`"
 fi
 
 # Configure the Java environment

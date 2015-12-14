@@ -228,10 +228,10 @@ if [ ! -d .git ]; then
         touch "$HOME/.prev_dir"
     fi
 
-    # Next we update the permissions of the two files.
-    chmod 755 "$HOME/.bash_history"
-    chmod 755 "$HOME/.prev_dir"
-    chmod 755 "$HOME/.viminfo"
+    # Next we update the permissions of the three files.
+    chmod 644 "$HOME/.bash_history"
+    chmod 644 "$HOME/.prev_dir"
+    chmod 644 "$HOME/.viminfo"
 
     # Now we can update the submodules.
     e_header "Fetching submodules..."

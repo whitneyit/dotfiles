@@ -190,8 +190,8 @@ function link_files() {
     fi
 
     # Now lets change the file permissions
-    chmod 755 "$TARGET_LINK_DIR/.gitconfig"
-    chmod 755 "$TARGET_LINK_DIR/.bash_proxy"
+    chmod 644 "$TARGET_LINK_DIR/.gitconfig"
+    chmod 644 "$TARGET_LINK_DIR/.bash_proxy"
 
 }
 

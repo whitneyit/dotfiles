@@ -28,15 +28,6 @@ if [ "$(is_cygwin)" == "yes" ]; then
         alias d="cd /cygdrive/d"
     fi
 
-    # Here we fake `pbcopy` and `pbpaste`
-    if [ -e /dev/clipboard ]; then
-        alias pbcopy="cat >/dev/clipboard"
-        alias pbpaste="cat /dev/clipboard"
-    fi
-
-    # And we fake open
-    alias open="cygstart"
-
     # Here we create an alias to convert files with Dos line Endings to Unix
     alias d2u="find . -type f -exec dos2unix {} \;"
 

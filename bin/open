@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# Cygwin
+if [ "$(is_cygwin)" == "yes" ]; then
+
+    # Cygstart is pretty much idential to open anyway.
+    cygstart "$@"
+
+# Ubuntu
+elif [ "$(is_ubuntu)" == "yes"]; then
+
+    # Replace the `open` command with `gnome-open`. This requires installing
+    # the `libgnome2-bin` binary.
+    if [ ! "$(type -P hub)" ]; then
+        sudo apt-get install -y libgnome2-bin
+    fi
+
+    # Now use gnome
+    gnome-open "$@"
+
+# Everything else
+else
+    command open "$@"
+fi
+
+# vim: set syn=sh :

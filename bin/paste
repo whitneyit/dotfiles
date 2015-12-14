@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+# Cygwin
+if [ "$(is_cygwin)" == "yes" ]; then
+
+    # Check if we can use the clipboard.
+    if [ -e /dev/clipboard ]; then
+        cat /dev/clipboard
+    else
+        e_error "Could not paste"
+    fi
+
+# Ubuntu
+elif [ "$(is_ubuntu)" == "yes" ]; then
+
+    # To emulate `pbpaste` we need `xclip`.
+    if [ ! "$(type -P xclip)" ]; then
+        sudo apt-get install -y xclip
+    fi
+
+    # Now use xclip.
+    xclip -selection clipboard -o "$@"
+
+# Mac
+elif [ "$(is_mac)" == "yes" ]; then
+
+    # Use the built in `pbcopy`.
+    pbpaste "$@"
+
+# Everything else
+else
+
+    # If we are somewhere else
+    e_error "Don't know how to paste :("
+
+fi
+
+# vim: set syn=sh :

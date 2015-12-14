@@ -1,11 +1,5 @@
 #!/usr/bin/env bash
 
-# This converts the input type of bash over to vim style
-set -o vi
-
-# Ensure that <C-l> Will clear the screen in insert mode
-bind -m vi-insert 'Control-l: clear-screen'
-
 # Determine if the git repo we are in has any changes in the working directory
 function parse_git_dirty() {
     [[ $(git status 2> /dev/null | tail -n1) != *"working directory clean"* ]] && echo "*"

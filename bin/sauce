@@ -15,6 +15,7 @@ declare -a files=(
     $DOTFILES_DIRECTORY/shell/bash_ssh
     $DOTFILES_DIRECTORY/shell/bash_colours
     $DOTFILES_DIRECTORY/shell/bash_prompt
+    $DOTFILES_DIRECTORY/shell/bash_shell
 
     # Third party overrides
     $HOME/.rvm/scripts/rvm

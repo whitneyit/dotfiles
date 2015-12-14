@@ -6,11 +6,6 @@ set completion-ignore-case on
 # Auto list tab completions (use instead of TAB-cycling)
 set show-all-if-ambiguous on
 
-# Because we have set bash to work in vim mode, we make
-# this bind so that Ctrl+l will clear the screen.
-# This translate to <Esc><C-l>a
-"\C-l":'\e\C-la'
-
 # Make TAB cycle through possible completions
 # "\t": menu-complete
 # Make SHIFT-TAB reverse cycle through possible completions

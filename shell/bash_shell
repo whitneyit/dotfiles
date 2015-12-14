@@ -6,4 +6,7 @@ set -o vi
 # Ensure that <C-l> Will clear the screen in insert mode
 bind -m vi-insert 'Control-l: clear-screen'
 
+# And also in command mode
+bind -m vi-command 'Control-l: clear-screen'
+
 # vim: set syn=sh :

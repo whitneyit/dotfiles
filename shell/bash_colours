@@ -17,16 +17,22 @@ if tput setaf 1 &> /dev/null; then
         BLACK=$(tput setaf 0)
         MAGENTA=$(tput setaf 9)
         ORANGE=$(tput setaf 172)
-        GREEN=$(tput setaf 190)
+        YELLOW=$(tput setaf 190)
         PURPLE=$(tput setaf 141)
         WHITE=$(tput setaf 255)
     else
         BLACK=$(tput setaf 0)
-        MAGENTA=$(tput setaf 5)
-        ORANGE=$(tput setaf 4)
+        RED=$(tput setaf 1)
         GREEN=$(tput setaf 2)
-        PURPLE=$(tput setaf 1)
+        YELLOW=$(tput setaf 3)
+        BLUE=$(tput setaf 4)
+        PURPLE=$(tput setaf 5)
+        CYAN=$(tput setaf 6)
         WHITE=$(tput setaf 7)
+
+        MAGENTA=$RED
+        ORANGE=$GREEN
+
     fi
     BOLD=$(tput bold)
     RESET=$(tput sgr0)

@@ -7,7 +7,7 @@ if [ "$(is_cygwin)" == "yes" ]; then
     cygstart "$@"
 
 # Ubuntu
-elif [ "$(is_ubuntu)" == "yes"]; then
+elif [ "$(is_ubuntu)" == "yes" ]; then
 
     # Replace the `open` command with `gnome-open`. This requires installing
     # the `libgnome2-bin` binary.
@@ -20,7 +20,7 @@ elif [ "$(is_ubuntu)" == "yes"]; then
 
 # Everything else
 else
-    command open "$@"
+    /usr/bin/open "$@"
 fi
 
 # vim: set syn=sh :

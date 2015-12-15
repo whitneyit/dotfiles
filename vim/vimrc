@@ -10,6 +10,9 @@ silent! call pathogen#infect()
 " This generates all the "pathogen" plugin helptags
 silent! call pathogen#helptags()
 
+" Set 256 color terminal support
+set t_Co=256
+
 " Access colors present in 256 colorspace
 let base16colorspace=256
 
@@ -82,9 +85,6 @@ if has("syntax")
 
     " Enable syntax highlighting
     syntax on
-
-    " Set 256 color terminal support
-    set t_Co=256
 
 endif
 

@@ -10,6 +10,14 @@ if [ "$(is_win)" == "yes" ]; then
 elif [ "$(is_mac)" == "yes" ]; then
     open -a Google\ Chrome "$1"
 
+# If we are running on ChromeOS
+elif [ "$(is_chromeos)" == "yes" ]; then
+    /opt/google/chrome/chrome "$1"
+
+# Everything else
+else
+    e_error "Could not find chrome :( Is it installed?"
+
 fi
 
 # vim: set syn=sh :

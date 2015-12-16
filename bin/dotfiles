@@ -124,6 +124,9 @@ if [ "$(uname -s | grep -c Darwin)" -gt 0 ]; then
 
     fi
 
+    # Let the user know that we have finished with the homebrew stuff
+    e_success "Successfully brewed..."
+
 # Check to see if we are running on a Ubuntu box
 elif [ -f /etc/os-release ] 2> /dev/null &&  [ "$(cat /etc/os-release | grep -c Ubuntu)" -gt 0 ]; then
 
@@ -148,6 +151,9 @@ elif [ -f /etc/os-release ] 2> /dev/null &&  [ "$(cat /etc/os-release | grep -c 
     # Upgrade any existing packages
     e_info "Upgrading packages..."
     sudo apt-get upgrade -y
+
+    # Let the user know that we have finished with the packages
+    e_success "Successfully installed packages..."
 
 fi
 
@@ -183,9 +189,6 @@ if [ ! -d "$HOME/.dotfiles" ]; then
 
 fi
 
-# Navigate into the repo
-cd "$HOME/.dotfiles"
-
 # Check to see if we already know where to find our dotfiles
 if [ -z "$DOTFILES_DIRECTORY" ]; then
 
@@ -196,14 +199,24 @@ if [ -z "$DOTFILES_DIRECTORY" ]; then
     # location of `$HOME/.dotfiles`
     if [ -L "$HOME/.dotfiles" ]; then
         DOTFILES_DIRECTORY=$(readlink "$HOME/.dotfiles")
-    else
+
+    # Check if the dotfiles repo is a folder
+    elif [ -d "$HOME/.dotfiles" ]; then
         DOTFILES_DIRECTORY="$HOME/.dotfiles"
+
+    # We would end up here if we can't find the dotfiles repo
+    else
+        e_error "Could not locate dotfiles folder"
+        exit 1
     fi
 
     # With the "pointer" now defined, we can `export` it.
     export DOTFILES_DIRECTORY
 
 fi
+
+# Navigate into the repo
+cd "$DOTFILES_DIRECTORY"
 
 # Initialize the git repository if it's missing
 if [ ! -d .git ]; then

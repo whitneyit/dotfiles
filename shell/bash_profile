@@ -7,8 +7,15 @@ if [ -z "$DOTFILES_DIRECTORY" ]; then
     # Here we determine the location of the `.dotfiles` repo
     if [ -L "$HOME/.dotfiles" ]; then
         DOTFILES_DIRECTORY=$(readlink "$HOME/.dotfiles")
-    else
+
+    # Check if the dotfiles repo is a folder
+    elif [ -d "$HOME/.dotfiles" ]; then
         DOTFILES_DIRECTORY="$HOME/.dotfiles"
+
+    # We would end up here if we can't find the dotfiles repo
+    else
+        e_error "Could not locate dotfiles folder"
+        exit 1
     fi
 
     # Now we make the variable globally accesible

@@ -3,8 +3,11 @@
 # Ensure that we have a default environment set for node
 export NODE_ENV="development"
 
+# Define were the go bin lives
+export GOROOT="/usr/local/go"
+
 # Define were the go apps will be built
-export GOPATH="$HOME/Code/go"
+export GOPATH="$HOME/go"
 
 # If we are running `go` in Cygwin, convert the path to a Windows one
 if [ "$(is_cygwin)" == "yes" ]; then

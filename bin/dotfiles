@@ -158,8 +158,8 @@ fi
 # Navigate into the repo
 cd "$HOME/.dotfiles"
 
-# Initialize the git repository if it's missing
-if [ ! -d .git ]; then
+# Check to see if we already know where to find our dotfiles
+if [ -z "$DOTFILES_DIRECTORY" ]; then
 
     # Here we define a global variable that will act as the "pointer" for where
     # our repo is located. The first line is testing to see if the repo is
@@ -174,6 +174,11 @@ if [ ! -d .git ]; then
 
     # With the "pointer" now defined, we can `export` it.
     export DOTFILES_DIRECTORY
+
+fi
+
+# Initialize the git repository if it's missing
+if [ ! -d .git ]; then
 
     # Fetch the repo
     e_header "Fetching repo..."

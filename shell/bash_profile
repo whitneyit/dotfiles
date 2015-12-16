@@ -4,21 +4,15 @@
 # proceed otherwise nothing will happen
 if [ -z "$DOTFILES_DIRECTORY" ]; then
 
-    # Here we only set the `$DOTFILES_DIRECTORY` if it is undefined. This allows us
-    # to define the location in a "unlinked" `.bash_profile` file.
-    if [ -z "$DOTFILES_DIRECTORY" ]; then
-
-        # Here we determine the location of the `.dotfiles` repo
-        if [ -L "$HOME/.dotfiles" ]; then
-            DOTFILES_DIRECTORY=$(readlink "$HOME/.dotfiles")
-        else
-            DOTFILES_DIRECTORY=$HOME/.dotfiles
-        fi
-
-        # Now we make the variable globally accesible
-        export DOTFILES_DIRECTORY
-
+    # Here we determine the location of the `.dotfiles` repo
+    if [ -L "$HOME/.dotfiles" ]; then
+        DOTFILES_DIRECTORY=$(readlink "$HOME/.dotfiles")
+    else
+        DOTFILES_DIRECTORY="$HOME/.dotfiles"
     fi
+
+    # Now we make the variable globally accesible
+    export DOTFILES_DIRECTORY
 
     # We do the same thing for our `$VIM_DIRECTORY`
     if [ -z "$VIM_DIRECTORY" ]; then

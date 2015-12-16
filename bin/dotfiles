@@ -135,10 +135,13 @@ elif [ -f /etc/os-release ] 2> /dev/null &&  [ "$(cat /etc/os-release | grep -c 
     sudo -v
 
     # Make sure that we have the latest version of git
-    sudo add-apt-repository ppa:git-core/ppa -y
+    sudo add-apt-repository -y ppa:git-core/ppa
 
     # Same goes for vim
-    sudo add-apt-repository ppa:fcwu-tw/ppa -y
+    sudo add-apt-repository -y ppa:fcwu-tw/ppa
+
+    # And VLC
+    sudo add-apt-repository -y ppa:videolan/stable-daily
 
     # Update the list of available packages
     e_info "Updating package list..."
@@ -146,7 +149,16 @@ elif [ -f /etc/os-release ] 2> /dev/null &&  [ "$(cat /etc/os-release | grep -c 
 
     # Install the required packages
     e_info "Installing packages..."
-    sudo apt-get install curl git vim wget -y
+    sudo apt-get install -y \
+        build-essential \
+        curl \
+        git \
+        libssl-dev \
+        unrar rar \
+        unzip zip \
+        vim \
+        vlc \
+        wget
 
     # Upgrade any existing packages
     e_info "Upgrading packages..."

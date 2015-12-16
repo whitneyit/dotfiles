@@ -124,6 +124,31 @@ if [ "$(uname -s | grep -c Darwin)" -gt 0 ]; then
 
     fi
 
+# Check to see if we are running on a Ubuntu box
+elif [ -f /etc/os-release ] 2> /dev/null &&  [ "$(cat /etc/os-release | grep -c Ubuntu)" -gt 0 ]; then
+
+    # Ask the user for their password
+    e_header "Please enter your password to update and install apt packages"
+    sudo -v
+
+    # Make sure that we have the latest version of git
+    sudo add-apt-repository ppa:git-core/ppa -y
+
+    # Same goes for vim
+    sudo add-apt-repository ppa:fcwu-tw/ppa -y
+
+    # Update the list of available packages
+    e_info "Updating package list..."
+    sudo apt-get update -y
+
+    # Install the required packages
+    e_info "Installing packages..."
+    sudo apt-get install curl git vim wget -y
+
+    # Upgrade any existing packages
+    e_info "Upgrading packages..."
+    sudo apt-get upgrade -y
+
 fi
 
 # Check for git

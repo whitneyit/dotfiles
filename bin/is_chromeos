@@ -2,7 +2,11 @@
 
 # This is not a bullet proof test but it's good enough
 if [ -d /home/chronos/user ]; then
-    echo "yes"
+    if [ -f /home/chronos/user/fake ]; then
+        echo "no"
+    else
+        echo "yes"
+    fi
 else
     echo "no"
 fi

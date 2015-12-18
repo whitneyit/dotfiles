@@ -135,6 +135,8 @@ alias            gmd="git merge --no-ff --progress --verbose develop"
 __git_complete   gmd _git_merge
 alias            gmm="git merge --no-ff --progress --verbose master"
 __git_complete   gmm _git_merge
+alias            gmv="git mv"
+__git_complete   gmv _git_mv
 alias            gps="git push          --progress --verbose"
 __git_complete   gps _git_push
 alias           gpsa="git push          --progress --verbose --all"

@@ -36,6 +36,14 @@ function formula_exists() {
 # Create our required folders
 mkdir -p ~/Archive ~/Code ~/Dev ~/go ~/OSS ~/Work
 
+# Inform the user that we need the password
+e_info "Please enter your password to update..."
+sudo -v
+
+# Ensure that we own the local bin directory
+sudo mkdir -p /usr/local/bin
+sudo chown -R `whoami` /usr/local
+
 # Check to see if we are running on a Mac
 if [ "$(uname -s | grep -c Darwin)" -gt 0 ]; then
 
@@ -110,10 +118,6 @@ if [ "$(uname -s | grep -c Darwin)" -gt 0 ]; then
     # In this case, we need to install the shell ourselves
     else
 
-        # Ask the user for their password
-        e_header "Please enter your password to swap shells..."
-        sudo -v
-
         # Change the permission of the `shells` file and add the newly installed
         # `bash` shell.
         sudo chown `whoami` /etc/shells
@@ -129,10 +133,6 @@ if [ "$(uname -s | grep -c Darwin)" -gt 0 ]; then
 
 # Check to see if we are running on a Ubuntu box
 elif [ -f /etc/os-release ] 2> /dev/null &&  [ "$(cat /etc/os-release | grep -c Ubuntu)" -gt 0 ]; then
-
-    # Ask the user for their password
-    e_header "Please enter your password to update and install apt packages"
-    sudo -v
 
     # Install the `add-apt-repository` command as well as other commands
     sudo apt-get install -y --force-yes software-properties-common python-software-properties

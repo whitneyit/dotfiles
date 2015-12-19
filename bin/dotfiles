@@ -76,7 +76,6 @@ if [ "$(uname -s | grep -c Darwin)" -gt 0 ]; then
         'bash-completion'
         'gnu-sed'
         'grep'
-        'hub'
         'tree'
         'vim'
         'wget'
@@ -135,7 +134,9 @@ if [ "$(uname -s | grep -c Darwin)" -gt 0 ]; then
 elif [ -f /etc/os-release ] 2> /dev/null &&  [ "$(cat /etc/os-release | grep -c Ubuntu)" -gt 0 ]; then
 
     # Install the `add-apt-repository` command as well as other commands
-    sudo apt-get install -y --force-yes software-properties-common python-software-properties
+    sudo apt-get install -y --force-yes \
+        python-software-properties \
+        software-properties-common
 
     # Make sure that we have the latest version of git
     sudo add-apt-repository -y ppa:git-core/ppa
@@ -157,6 +158,9 @@ elif [ -f /etc/os-release ] 2> /dev/null &&  [ "$(cat /etc/os-release | grep -c 
         curl \
         git \
         libssl-dev \
+        playonlinux \
+        software-center \
+        tree \
         unrar rar \
         unzip zip \
         vim \

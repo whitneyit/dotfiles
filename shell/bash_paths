@@ -9,6 +9,7 @@ declare -a DIRS_TO_PREPEND=(
 
 # Directories to be appended to PATH
 declare -a DIRS_TO_APPEND=(
+    "/sbin"
     "/usr/bin"
     "/usr/local"
     "$HOME/bin"

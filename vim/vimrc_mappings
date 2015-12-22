@@ -8,6 +8,10 @@ nnoremap $ <End>
 nnoremap 0 <Home>
 nnoremap ^ <Home>^
 
+" Safely unmap the F1 key
+nmap <F1> g<C-g>
+imap <F1> <Esc>g<C-g>
+
 " Here me way `Y` behave to the end of the line similar to `A`, `S`, `C` etc
 nnoremap Y y$
 

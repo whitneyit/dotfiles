@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Ensure that these aliases are only ever processed if we are in a ChromeOS box.
+if [ "$(is_ubuntu)" == "yes" ]; then
+
+    # Check to make sure the lightbar exists
+    if [ -f "/sys/devices/platform/cros_ec_lpc.0/cros-ec-dev.0/chromeos/cros_ec/lightbar/sequence" ]; then
+
+        # Now lets make the lightbar flask the konami code
+        alias konami="echo 'konami' > /sys/devices/platform/cros_ec_lpc.0/cros-ec-dev.0/chromeos/cros_ec/lightbar/sequence"
+
+    fi
+
+fi
+
+# vim: set syn=sh :

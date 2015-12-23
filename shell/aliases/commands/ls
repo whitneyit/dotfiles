@@ -88,29 +88,12 @@ else
 
     # Define a `ls` command for everywhere else
     function list () {
-
-        # If we are called via `ls` don't sort the output.
-        if [ "${FUNCNAME[1]}" == "ls" ]; then
-            command ls\
-                -h \
-                --color \
-                --ignore . \
-                --ignore .. \
-                "$@"
-
-        # We can now sort the `-l` data via the 9th column.
-        # `-f` ignore case
-        # `-V` alphanumeric sorting
-        # `-k` column`
-        else
-            command ls\
-                -h \
-                --color \
-                --ignore . \
-                --ignore .. \
-                "$@" | sort -f -V -k 9
-        fi
-
+        command ls\
+            -h \
+            --color \
+            --ignore . \
+            --ignore .. \
+            "$@"
     }
 
 fi

@@ -31,6 +31,9 @@ if [ "$(is_cygwin)" == "yes" ]; then
     # Here we create an alias to convert files with Dos line Endings to Unix
     alias d2u="find . -type f -exec dos2unix {} \;"
 
+    # Cygstart is pretty much idential to open anyway.
+    alias open="cygstart"
+
 fi
 
 # vim: set syn=sh :

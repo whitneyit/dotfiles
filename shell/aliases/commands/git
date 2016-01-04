@@ -245,6 +245,8 @@ alias          grsum="git reset --hard upstream/master"
 __git_complete grsum _git_reset
 alias            grm="git rm"
 __git_complete   grm _git_rm
+alias           grmf="git rm -f"
+__git_complete  grmf _git_rm
 alias           grmr="git rm -r" # There is no `--recursive`
 __git_complete  grmr _git_rm
 alias          grmrf="git rm -rf"

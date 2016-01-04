@@ -160,14 +160,17 @@ elif [ -f /etc/os-release ] 2> /dev/null &&  [ "$(cat /etc/os-release | grep -c 
         curl \
         git \
         libssl-dev \
+        lib32nss-mdns \
         realpath \
         software-center \
+        terminator \
         tree \
         unrar rar \
         unzip zip \
         vim \
         vlc \
-        wget
+        wget \
+        xclip
 
     # Upgrade any existing packages
     e_info "Upgrading packages..."

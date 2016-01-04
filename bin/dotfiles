@@ -44,6 +44,7 @@ sudo -v
 sudo mkdir -p /usr/local/bin
 sudo chown -R `whoami` /usr/local
 
+# `is_mac`
 # Check to see if we are running on a Mac
 if [ "$(uname -s | grep -c Darwin)" -gt 0 ]; then
 
@@ -130,6 +131,7 @@ if [ "$(uname -s | grep -c Darwin)" -gt 0 ]; then
     # Let the user know that we have finished with the homebrew stuff
     e_success "Successfully brewed..."
 
+# `is_ubuntu`
 # Check to see if we are running on a Ubuntu box
 elif [ -f /etc/os-release ] 2> /dev/null &&  [ "$(cat /etc/os-release | grep -c Ubuntu)" -gt 0 ]; then
 
@@ -173,6 +175,21 @@ elif [ -f /etc/os-release ] 2> /dev/null &&  [ "$(cat /etc/os-release | grep -c 
 
     # Let the user know that we have finished with the packages
     e_success "Successfully installed packages..."
+
+    # Set the new value for ulimit
+    if [ -f /etc/security/limits.conf ]; then
+        sudo chown `whoami` /etc/security/limits.conf
+        echo "* hard nofile 65536" >> /etc/security/limits.conf
+        echo "* soft nofile 65536" >> /etc/security/limits.conf
+        echo "root hard nofile 65536" >> /etc/security/limits.conf
+        echo "root soft nofile 65536" >> /etc/security/limits.conf
+    fi
+
+    # Now allow the ulimit to be increased
+    if [ -f /etc/pam.d/common-session ]; then
+        sudo chown `whoami` /etc/pam.d/common-session
+        echo "session required pam_limits.so" >> /etc/pam.d/common-session
+    fi
 
 fi
 

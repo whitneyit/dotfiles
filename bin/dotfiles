@@ -140,6 +140,10 @@ elif [ -f /etc/os-release ] 2> /dev/null &&  [ "$(cat /etc/os-release | grep -c 
         python-software-properties \
         software-properties-common
 
+    # Fixes battle.net black screen bug
+    # http://jeffhoogland.blogspot.com.au/2015/01/howto-fix-battlenet-client-distortion.html
+    sudo add-apt-repository -y ppa:xorg-edgers/ppa
+
     # Make sure that we have the latest version of git
     sudo add-apt-repository -y ppa:git-core/ppa
 
@@ -175,6 +179,7 @@ elif [ -f /etc/os-release ] 2> /dev/null &&  [ "$(cat /etc/os-release | grep -c 
     # Upgrade any existing packages
     e_info "Upgrading packages..."
     sudo apt-get upgrade -y
+    sudo apt-get dist-upgrade -y
 
     # Let the user know that we have finished with the packages
     e_success "Successfully installed packages..."

@@ -20,11 +20,6 @@ if [ "$(is_ubuntu)" == "yes" ]; then
     # Now use gnome
     alias open="gnome-open"
 
-    # If we have wine installed creat some aliases to games
-    if [ "$(type -P wine)" ]; then
-        alias battle="LIBGL_ALWAYS_SOFTWARE=1 wine '$HOME/.PlayOnLinux/wineprefix/Battle.net/drive_c/Program Files (x86)/Battle.net/Battle.net Launcher.exe'"
-    fi
-
 fi
 
 # vim: set syn=sh :

@@ -7,19 +7,6 @@
 # Shamelessly copied from https://github.com/gf3/dotfiles
 # Screenshot: http://i.imgur.com/s0Blh.png
 
-# It seems that ChromeOS does not play nice with 256 colors. Until that is
-# resolved, it looks like we can't use 256 color mode there.
-if [ "$(is_chromeos)" == "no" ]; then
-
-    # Set 256 color profile where possible
-    if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
-        export TERM=gnome-256color
-    elif infocmp xterm-256color >/dev/null 2>&1; then
-        export TERM=xterm-256color
-    fi
-
-fi
-
 if tput setaf 1 &> /dev/null; then
     tput sgr0
     if [[ $(tput colors) -ge 256 ]] 2>/dev/null; then

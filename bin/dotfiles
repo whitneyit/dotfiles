@@ -71,6 +71,7 @@ if [ "$(uname -s | grep -c Darwin)" -gt 0 ]; then
     declare -a MISSING_FORMULAE
     declare -a DESIRED_FORMULAE=(
         'coreutils'
+        'dos2unix'
         'git'
         'ack'
         'bash'
@@ -162,6 +163,7 @@ elif [ -f /etc/os-release ] 2> /dev/null &&  [ "$(cat /etc/os-release | grep -c 
     sudo apt-get install -y \
         build-essential \
         curl \
+        dos2unix \
         git \
         libssl-dev \
         lib32nss-mdns \

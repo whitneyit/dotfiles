@@ -33,176 +33,6 @@ function formula_exists() {
     return 1
 }
 
-# Create our required folders
-mkdir -p ~/Archive ~/Code ~/Dev ~/go ~/OSS ~/Work
-
-# Inform the user that we need the password
-e_info "Please enter your password to update..."
-sudo -v
-
-# Ensure that we own the local bin directory
-sudo mkdir -p /usr/local/bin
-sudo chown -R `whoami` /usr/local
-
-# `is_mac`
-# Check to see if we are running on a Mac
-if [ "$(uname -s | grep -c Darwin)" -gt 0 ]; then
-
-    # Check to see if we are missing Homebrew and install it if it is missing.
-    # We can assume we have ruby and curl due to them being pre-installed
-    if [ ! "$(type -P brew)" ]; then
-        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    fi
-
-    # Next we "tap" the brew versions of the standard OSX commands
-    if [ ! -d "/usr/local/Library/Taps/homebrew/homebrew-dupes" ]; then
-        brew tap homebrew/dupes
-    fi
-
-    # Make sure we have the most up to date version of homebrew
-    e_header "Updating Homebrew..."
-    brew update
-
-    # Update any existing formulae
-    brew upgrade --all
-
-    # Determine a list of formulae to install
-    declare LIST_FORMULAE
-    declare -a MISSING_FORMULAE
-    declare -a DESIRED_FORMULAE=(
-        'coreutils'
-        'dos2unix'
-        'git'
-        'ack'
-        'bash'
-        'bash-completion'
-        'gnu-sed'
-        'grep'
-        'tree'
-        'vim'
-        'wget'
-    )
-
-    # Create the `MISSING_FORMULAE` list
-    for index in ${!DESIRED_FORMULAE[*]}
-    do
-        if ! formula_exists ${DESIRED_FORMULAE[$index]}; then
-            # Store the name (and options) of every missing formula
-            MISSING_FORMULAE=("${MISSING_FORMULAE[@]}" "${DESIRED_FORMULAE[$index]}")
-        fi
-    done
-
-    # Install `MISSING_FORMULAE`
-    if [[ "$MISSING_FORMULAE" ]]; then
-
-        # Convert the array of missing formula into a list of space-separate strings
-        LIST_FORMULAE=$( printf "%s " "${MISSING_FORMULAE[@]}" )
-
-        # Install all missing formulae
-        e_header "Installing missing Homebrew formulae..."
-        brew install $LIST_FORMULAE
-
-    fi
-
-    # Remove outdated versions from the Cellar
-    brew cleanup
-
-    # If the shells file does not exist, create it now
-    if [ ! -f /etc/shells ]; then
-        touch /etc/shells
-    fi
-
-    # Now we test to see if we already have the new bash shell installed
-    if grep -q "/usr/local/bin/bash" /etc/shells; then
-        e_info "Brew bash already installed"
-
-    # In this case, we need to install the shell ourselves
-    else
-
-        # Change the permission of the `shells` file and add the newly installed
-        # `bash` shell.
-        sudo chown `whoami` /etc/shells
-        sudo echo "/usr/local/bin/bash" >> /etc/shells
-
-        # Change the shell for the current user
-        chsh -s /usr/local/bin/bash
-
-    fi
-
-    # Let the user know that we have finished with the homebrew stuff
-    e_success "Successfully brewed..."
-
-# `is_ubuntu`
-# Check to see if we are running on a Ubuntu box
-elif [ -f /etc/os-release ] 2> /dev/null &&  [ "$(cat /etc/os-release | grep -c Ubuntu)" -gt 0 ]; then
-
-    # Install the `add-apt-repository` command as well as other commands
-    sudo apt-get install -y --force-yes \
-        python-software-properties \
-        software-properties-common
-
-    # Fixes battle.net black screen bug
-    # http://jeffhoogland.blogspot.com.au/2015/01/howto-fix-battlenet-client-distortion.html
-    sudo add-apt-repository -y ppa:xorg-edgers/ppa
-
-    # Make sure that we have the latest version of git
-    sudo add-apt-repository -y ppa:git-core/ppa
-
-    # Same goes for vim
-    sudo add-apt-repository -y ppa:fcwu-tw/ppa
-
-    # And VLC
-    sudo add-apt-repository -y ppa:videolan/stable-daily
-
-    # Update the list of available packages
-    e_info "Updating package list..."
-    sudo apt-get update -y
-
-    # Install the required packages
-    e_info "Installing packages..."
-    sudo apt-get install -y \
-        build-essential \
-        curl \
-        dos2unix \
-        git \
-        libssl-dev \
-        lib32nss-mdns \
-        realpath \
-        software-center \
-        terminator \
-        tree \
-        unrar rar \
-        unzip zip \
-        vim \
-        vlc \
-        wget \
-        xclip
-
-    # Upgrade any existing packages
-    e_info "Upgrading packages..."
-    sudo apt-get upgrade -y
-    sudo apt-get dist-upgrade -y
-
-    # Let the user know that we have finished with the packages
-    e_success "Successfully installed packages..."
-
-    # Set the new value for ulimit
-    if [ -f /etc/security/limits.conf ]; then
-        sudo chown `whoami` /etc/security/limits.conf
-        echo "* hard nofile 65536" >> /etc/security/limits.conf
-        echo "* soft nofile 65536" >> /etc/security/limits.conf
-        echo "root hard nofile 65536" >> /etc/security/limits.conf
-        echo "root soft nofile 65536" >> /etc/security/limits.conf
-    fi
-
-    # Now allow the ulimit to be increased
-    if [ -f /etc/pam.d/common-session ]; then
-        sudo chown `whoami` /etc/pam.d/common-session
-        echo "session required pam_limits.so" >> /etc/pam.d/common-session
-    fi
-
-fi
-
 # Check for git
 if [ ! "$(type -P git)" ]; then
     e_error "Aborting. Git not installed"
@@ -357,10 +187,181 @@ if [ ! -d .git ]; then
         chown vagrant:vagrant "$HOME/.viminfo"
     fi
 
+    # Create our required folders
+    mkdir -p ~/Archive ~/Code ~/Dev ~/go ~/OSS ~/Work
+
+    # Inform the user that we need the password
+    e_info "Please enter your password to change ownership of /usr/local..."
+    sudo -v
+
+    # Ensure that we own the local bin directory
+    sudo mkdir -p /usr/local/bin
+    sudo chown -R `whoami` /usr/local
+
+    # `is_mac`
+    # Check to see if we are running on a Mac
+    if [ "$(uname -s | grep -c Darwin)" -gt 0 ]; then
+
+        # Check to see if we are missing Homebrew and install it if it is missing.
+        # We can assume we have ruby and curl due to them being pre-installed
+        if [ ! "$(type -P brew)" ]; then
+            ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        fi
+
+        # Next we "tap" the brew versions of the standard OSX commands
+        if [ ! -d "/usr/local/Library/Taps/homebrew/homebrew-dupes" ]; then
+            brew tap homebrew/dupes
+        fi
+
+        # Make sure we have the most up to date version of homebrew
+        e_header "Updating Homebrew..."
+        brew update
+
+        # Update any existing formulae
+        brew upgrade --all
+
+        # Determine a list of formulae to install
+        declare LIST_FORMULAE
+        declare -a MISSING_FORMULAE
+        declare -a DESIRED_FORMULAE=(
+            'coreutils'
+            'dos2unix'
+            'git'
+            'ack'
+            'bash'
+            'bash-completion'
+            'gnu-sed'
+            'grep'
+            'tree'
+            'vim'
+            'wget'
+        )
+
+        # Create the `MISSING_FORMULAE` list
+        for index in ${!DESIRED_FORMULAE[*]}
+        do
+            if ! formula_exists ${DESIRED_FORMULAE[$index]}; then
+                # Store the name (and options) of every missing formula
+                MISSING_FORMULAE=("${MISSING_FORMULAE[@]}" "${DESIRED_FORMULAE[$index]}")
+            fi
+        done
+
+        # Install `MISSING_FORMULAE`
+        if [[ "$MISSING_FORMULAE" ]]; then
+
+            # Convert the array of missing formula into a list of space-separate strings
+            LIST_FORMULAE=$( printf "%s " "${MISSING_FORMULAE[@]}" )
+
+            # Install all missing formulae
+            e_header "Installing missing Homebrew formulae..."
+            brew install $LIST_FORMULAE
+
+        fi
+
+        # Remove outdated versions from the Cellar
+        brew cleanup
+
+        # If the shells file does not exist, create it now
+        if [ ! -f /etc/shells ]; then
+            touch /etc/shells
+        fi
+
+        # Now we test to see if we already have the new bash shell installed
+        if grep -q "/usr/local/bin/bash" /etc/shells; then
+            e_info "Brew bash already installed"
+
+        # In this case, we need to install the shell ourselves
+        else
+
+            # Change the permission of the `shells` file and add the newly installed
+            # `bash` shell.
+            sudo chown `whoami` /etc/shells
+            sudo echo "/usr/local/bin/bash" >> /etc/shells
+
+            # Change the shell for the current user
+            chsh -s /usr/local/bin/bash
+
+        fi
+
+        # Let the user know that we have finished with the homebrew stuff
+        e_success "Successfully brewed..."
+
+    # `is_ubuntu`
+    # Check to see if we are running on a Ubuntu box
+    elif [ -f /etc/os-release ] 2> /dev/null &&  [ "$(cat /etc/os-release | grep -c Ubuntu)" -gt 0 ]; then
+
+        # Install the `add-apt-repository` command as well as other commands
+        sudo apt-get install -y --force-yes \
+            python-software-properties \
+            software-properties-common
+
+        # Fixes battle.net black screen bug
+        # http://jeffhoogland.blogspot.com.au/2015/01/howto-fix-battlenet-client-distortion.html
+        sudo add-apt-repository -y ppa:xorg-edgers/ppa
+
+        # Make sure that we have the latest version of git
+        sudo add-apt-repository -y ppa:git-core/ppa
+
+        # Same goes for vim
+        sudo add-apt-repository -y ppa:fcwu-tw/ppa
+
+        # And VLC
+        sudo add-apt-repository -y ppa:videolan/stable-daily
+
+        # Update the list of available packages
+        e_info "Updating package list..."
+        sudo apt-get update -y
+
+        # Install the required packages
+        e_info "Installing packages..."
+        sudo apt-get install -y \
+            build-essential \
+            curl \
+            dos2unix \
+            git \
+            libssl-dev \
+            lib32nss-mdns \
+            realpath \
+            software-center \
+            terminator \
+            tree \
+            unrar rar \
+            unzip zip \
+            vim \
+            vlc \
+            wget \
+            xclip
+
+        # Upgrade any existing packages
+        e_info "Upgrading packages..."
+        sudo apt-get upgrade -y
+        sudo apt-get dist-upgrade -y
+
+        # Let the user know that we have finished with the packages
+        e_success "Successfully installed packages..."
+
+        # Set the new value for ulimit
+        if [ -f /etc/security/limits.conf ]; then
+            sudo chown `whoami` /etc/security/limits.conf
+            echo "* hard nofile 65536" >> /etc/security/limits.conf
+            echo "* soft nofile 65536" >> /etc/security/limits.conf
+            echo "root hard nofile 65536" >> /etc/security/limits.conf
+            echo "root soft nofile 65536" >> /etc/security/limits.conf
+        fi
+
+        # Now allow the ulimit to be increased
+        if [ -f /etc/pam.d/common-session ]; then
+            sudo chown `whoami` /etc/pam.d/common-session
+            echo "session required pam_limits.so" >> /etc/pam.d/common-session
+        fi
+
+    fi
+
     # And here we confirm to the User that we have completed Installing the
     # `dotfiles` repo.
     e_success "Dotfiles install complete"
     exit 0
+
 fi
 
 # We reach this point if this is not our first time running the `dotfiles`
@@ -403,6 +404,12 @@ git stash pop --quiet
 # Relink the files
 e_header "Linking files..."
 link_files "$PWD"
+
+# Update home brew if it exists
+if [ ! "$(type -P brew)" ]; then
+    e_header "Updating Homebrew..."
+    brew update
+fi
 
 # If we are running inside a `cygwin` environment, we need to change the
 # "group" on the files so that we can change the permissions of the files.

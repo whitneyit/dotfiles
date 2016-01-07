@@ -1,13 +1,16 @@
 #!/usr/bin/env bash
 
-# Ensure that we have a default environment set for node
-export NODE_ENV="development"
+# Define were the go apps will be built
+export GOPATH="$HOME/go"
 
 # Define were the go bin lives
 export GOROOT="/usr/local/go"
 
-# Define were the go apps will be built
-export GOPATH="$HOME/go"
+# Ensure that we have a default environment set for node
+export NODE_ENV="development"
+
+# Where nvm should be install to
+export NVM_DIR="$HOME/.nvm"
 
 # If we are running `go` in Cygwin, convert the path to a Windows one
 if [ "$(is_cygwin)" == "yes" ]; then
@@ -16,13 +19,9 @@ fi
 
 # Configure the Java environment
 if [ "$(is_mac)" == "yes" ]; then
+    export ANDROID_TOOLS="$HOME/Library/Android/sdk"
     export JAVA_HOME="$(/usr/libexec/java_home 2>/dev/null)"
     export JDK_HOME="$(/usr/libexec/java_home 2>/dev/null)"
-fi
-
-# Define where the android platform tools live
-if [ "$(is_mac)" == "yes" ]; then
-    export ANDROID_TOOLS="$HOME/Library/Android/sdk"
 fi
 
 # vim: set syn=sh :

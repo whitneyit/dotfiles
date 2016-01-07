@@ -357,6 +357,58 @@ if [ ! -d .git ]; then
 
     fi
 
+    # Check to see if nvm is installed
+    if [ ! -d "$HOME/.nvm" ]; then
+
+        # If we are running in cygwin, we can't install nvm, it has to be done
+        # via a different repo
+        if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
+            e_warning "Could not install nvm. Use `https://github.com/coreybutler/nvm-windows` instead"
+
+        # If we can install nvm we do it here
+        else
+
+            # Let the user know what is happening
+            e_info "Installing nvm..."
+
+            # First get the latest installer from master
+            curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+
+            # Clean the auto aliases that nvm adds
+            git checkout .
+
+            # Load nvm
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+            # Install node
+            nvm install stable
+            nvm alias default stable
+
+            # Let the user know what version we are using
+            echo nvm version $(nvm --version)
+            echo node version $(node --version)
+            echo npm version $(npm --version)
+
+            # Update npm
+            npm install --global npm
+
+            # Install our most used packages
+            npm install --global \
+                bower \
+                firebase-tools \
+                grunt-cli \
+                gulp-cli \
+                httpster \
+                jspm \
+                karma-cli
+
+            e_success "Successfully installed nvm..."
+
+        fi
+
+    fi
+
     # And here we confirm to the User that we have completed Installing the
     # `dotfiles` repo.
     e_success "Dotfiles install complete"
@@ -411,6 +463,7 @@ if [ ! "$(type -P brew)" ]; then
     brew update
 fi
 
+# `is_cygwin`
 # If we are running inside a `cygwin` environment, we need to change the
 # "group" on the files so that we can change the permissions of the files.
 if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then

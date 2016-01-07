@@ -224,14 +224,15 @@ if [ ! -d .git ]; then
         declare LIST_FORMULAE
         declare -a MISSING_FORMULAE
         declare -a DESIRED_FORMULAE=(
-            'coreutils'
-            'dos2unix'
-            'git'
             'ack'
             'bash'
             'bash-completion'
+            'coreutils'
+            'dos2unix'
+            'git'
             'gnu-sed'
             'grep'
+            'hub'
             'tree'
             'vim'
             'wget'

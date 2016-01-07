@@ -4,6 +4,9 @@
 [submodule "shell/completions/git"]
     path = shell/completions/git
     url = https://github.com/git/git.git
+[submodule "shell/completions/npm"]
+    path = shell/completions/npm
+    url = https://github.com/npm/npm
 [submodule "shell/fonts/powerline-fonts"]
     path = shell/fonts/powerline-fonts
     url = https://github.com/Lokaltog/powerline-fonts.git

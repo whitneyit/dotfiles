@@ -3,10 +3,11 @@
 # Here we define a list of bash completion files that we will execute
 declare -a comps=(
     $DOTFILES_DIRECTORY/shell/completions/git/contrib/completion/git-completion.bash
+    $DOTFILES_DIRECTORY/shell/completions/npm/lib/utils/completion.sh
 )
 
 # This is the list of files that need to be `sourced` when the terminal boots
-declare -a files=(
+declare -a mandatories=(
 
     # Base scripts
     $DOTFILES_DIRECTORY/shell/bash_environment
@@ -20,6 +21,11 @@ declare -a files=(
     $DOTFILES_DIRECTORY/shell/bash_ssh
     $DOTFILES_DIRECTORY/shell/bash_prompt
     $DOTFILES_DIRECTORY/shell/bash_shell
+
+)
+
+# Here we look for other scripts that may be installed
+declare -a others=(
 
     # Third party overrides
     $HOME/.rvm/scripts/rvm
@@ -40,14 +46,26 @@ for comp in "${comps[@]}"
 do
     if [ -f $comp ]; then
         . $comp
+    else
+        e_warning "Could not find completion: $comp"
     fi
 done
 
-# Next we loop over the files
-for file in "${files[@]}"
+# Next we loop over the mandatory files
+for mandatory in "${mandatories[@]}"
 do
-    if [ -f $file ]; then
-        source $file
+    if [ -f $mandatory ]; then
+        source $mandatory
+    else
+        e_warning "Could not find mandatory to sauce: $mandatory"
+    fi
+done
+
+# Then the other files. Don't produce a warning for these
+for other in "${others[@]}"
+do
+    if [ -f $other ]; then
+        . $other
     fi
 done
 

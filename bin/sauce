@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# Here we define a list of bash completion files that we will execute
+declare -a comps=(
+    $DOTFILES_DIRECTORY/shell/completions/git/contrib/completion/git-completion.bash
+)
+
 # This is the list of files that need to be `sourced` when the terminal boots
 declare -a files=(
 
@@ -30,24 +35,19 @@ declare -a files=(
 
 )
 
-# Here we define a list of bash completetion files that we will execute
-declare -a comps=(
-    $DOTFILES_DIRECTORY/shell/completions/*
-)
-
-# First we loop over the files
-for file in "${files[@]}"
-do
-    if [ -f $file ]; then
-        source $file
-    fi
-done
-
-# Next we loop over the completitions
+# First we loop over the completions
 for comp in "${comps[@]}"
 do
     if [ -f $comp ]; then
         . $comp
+    fi
+done
+
+# Next we loop over the files
+for file in "${files[@]}"
+do
+    if [ -f $file ]; then
+        source $file
     fi
 done
 

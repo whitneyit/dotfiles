@@ -5,8 +5,6 @@ if [ "$(type -P hub)" ]; then
     alias git="hub"
 fi
 
-source $DOTFILES_DIRECTORY/shell/completions/git-completion.bash
-
 alias             ga="git add --ignore-removal"
 __git_complete    ga _git_add
 alias            gaa="git add --all"

@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-# Here we define a list of bash completion files that we will execute
-declare -a comps=(
+# Here we define a list of bash completion files that we will execute prior to
+# sourcing our setting anything up
+declare -a precomps=(
     $DOTFILES_DIRECTORY/shell/completions/git/contrib/completion/git-completion.bash
-    $DOTFILES_DIRECTORY/shell/completions/npm/lib/utils/completion.sh
 )
 
 # This is the list of files that need to be `sourced` when the terminal boots
@@ -41,13 +41,18 @@ declare -a others=(
 
 )
 
-# First we loop over the completions
-for comp in "${comps[@]}"
+# And these get sourced after the environment is setup
+declare -a postcomps=(
+    $DOTFILES_DIRECTORY/shell/completions/npm/lib/utils/completion.sh
+)
+
+# First we loop over the pre completions
+for precomp in "${precomps[@]}"
 do
-    if [ -f $comp ]; then
-        . $comp
+    if [ -f $precomp ]; then
+        . $precomp
     else
-        e_warning "Could not find completion: $comp"
+        e_warning "Could not find completion: $precomp"
     fi
 done
 
@@ -66,6 +71,16 @@ for other in "${others[@]}"
 do
     if [ -f $other ]; then
         . $other
+    fi
+done
+
+# Now we loop over the post completions
+for postcomp in "${postcomps[@]}"
+do
+    if [ -f $postcomp ]; then
+        . $postcomp
+    else
+        e_warning "Could not find completion: $postcomp"
     fi
 done
 

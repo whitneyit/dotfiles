@@ -194,8 +194,8 @@ if [ ! -d .git ]; then
     e_info "Please enter your password to change ownership of /usr/local..."
     sudo -v
 
-    # Ensure that we own the local bin directory
-    sudo mkdir -p /usr/local/bin
+    # Ensure that we have and own the bin and go folders
+    sudo mkdir -p /usr/local/{bin,go}
     sudo chown -R `whoami` /usr/local
 
     # `is_mac`
@@ -356,6 +356,13 @@ if [ ! -d .git ]; then
             echo "session required pam_limits.so" >> /etc/pam.d/common-session
         fi
 
+        # Download go and move it to /usr/local
+        curl https://storage.googleapis.com/golang/go1.5.2.linux-amd64.tar.gz | tar -xz -C /usr/local
+
+        # Configure the go environment
+        export GOPATH="$HOME/go"
+        export GOROOT="/usr/local/go"
+
     fi
 
     # Check to see if nvm is installed
@@ -459,7 +466,7 @@ e_header "Linking files..."
 link_files "$PWD"
 
 # Update home brew if it exists
-if [ ! "$(type -P brew)" ]; then
+if [ "$(type -P brew)" ]; then
     e_header "Updating Homebrew..."
     brew update
 fi

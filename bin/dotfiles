@@ -363,6 +363,9 @@ if [ ! -d .git ]; then
         export GOPATH="$HOME/go"
         export GOROOT="/usr/local/go"
 
+        # Install hub
+        go get github.com/github/hub
+
     fi
 
     # Check to see if nvm is installed

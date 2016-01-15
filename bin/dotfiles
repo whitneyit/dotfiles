@@ -229,6 +229,7 @@ if [ ! -d .git ]; then
             'bash-completion'
             'coreutils'
             'dos2unix'
+            'findutils'
             'git'
             'gnu-sed'
             'grep'

@@ -8,6 +8,11 @@ if [ "$(is_mac)" == "yes" ]; then
         alias dircolors="gdircolors"
     fi
 
+    # If we have installed gnu find via homebrew, alias that now.
+    if [ "$(type -P gfind)" ]; then
+        alias find="gfind"
+    fi
+
     # If we have installed gnu grep via homebrew, alias that now.
     if [ "$(type -P ggrep)" ]; then
         alias grep="ggrep"

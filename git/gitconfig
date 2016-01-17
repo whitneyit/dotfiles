@@ -49,14 +49,14 @@
     ui = true
 [color "branch"]
     current = green
-    remote = cyan
+    remote = blue
     plain = normal
     local = yellow
     upstream = white
 [color "diff"]
     commit = normal
-    frag = normal reverse
-    meta = normal
+    frag = blue reverse
+    meta = yellow dim
     new = green
     old = red
     plain = normal

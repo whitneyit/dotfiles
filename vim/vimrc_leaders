@@ -67,6 +67,11 @@ nnoremap <leader>b :NERDTreeTabsToggle<CR>
 nnoremap <leader>l :w<cr>:!clear && gulp lint<CR>
 nnoremap <leader>t :w<cr>:!clear && gulp test<CR>
 
+nnoremap <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+
 " Open the tags in CtrlP
 nnoremap <leader>r :CtrlPTag<CR>
 

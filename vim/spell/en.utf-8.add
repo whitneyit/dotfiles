@@ -311,3 +311,6 @@ submodule
 changelog
 online
 LinkedIn
+accessor
+autocmd
+filetypes

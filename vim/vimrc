@@ -241,6 +241,10 @@ set list
 set spell
 set spelllang=en_gb
 
+" Ensure that themes don't use obnoxious highlights for typos
+highlight clear SpellBad
+highlight SpellBad cterm=underline
+
 " Causes the split windows to be focuses upon open
 set splitbelow
 set splitright

@@ -16,21 +16,8 @@ set t_Co=256
 " Set the background colour for our theme
 set background=dark
 
-" Determine if we are in ChromeOS. This is a copy of `is_chromeos` except that
-" we don't check for the `fake` file that has been put there ;)
-if isdirectory("/home/chronos/user")
-
-    " For some reason this is crosh friendly :(
-    colorscheme xoria256
-
-" Everywhere else
-else
-
-    " Access colors present in 256 colorspace
-    let base16colorspace=256
-    colorscheme base16-default
-
-endif
+" set the theme to be consistent across the board
+colorscheme xoria256
 
 if has("autocmd")
 

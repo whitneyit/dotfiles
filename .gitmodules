@@ -61,9 +61,6 @@
 [submodule "vim/bundle/vim-indent-guides"]
     path = vim/bundle/vim-indent-guides
     url = https://github.com/nathanaelkane/vim-indent-guides.git
-[submodule "vim/bundle/vim-indexed-search"]
-    path = vim/bundle/vim-indexed-search
-    url = https://github.com/henrik/vim-indexed-search
 [submodule "vim/bundle/vim-javascript"]
     path = vim/bundle/vim-javascript
     url = https://github.com/whitneyit/vim-javascript.git

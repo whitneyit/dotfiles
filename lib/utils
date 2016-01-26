@@ -58,6 +58,7 @@ function backup_prev() {
         "$TARGET_LINK_DIR/.inputrc"
         "$TARGET_LINK_DIR/.keys"
         "$TARGET_LINK_DIR/.minttyrc"
+        "$TARGET_LINK_DIR/.npmrc"
         "$TARGET_LINK_DIR/.profile"
         "$TARGET_LINK_DIR/.vim"
         "$TARGET_LINK_DIR/.vimrc"
@@ -176,26 +177,30 @@ function link_files() {
     # Here we specify the files that will be copied and not linked. We do this
     # so that the user is free to modify these files and cause no disturbance to
     # the repo.
-    cp   "$1/git/gitconfig"         "$TARGET_LINK_DIR/.gitconfig"
     cp   "$1/shell/bash_proxy"      "$TARGET_LINK_DIR/.bash_proxy"
+    cp   "$1/git/gitconfig"         "$TARGET_LINK_DIR/.gitconfig"
+    cp   "$1/npm/npmrc"             "$TARGET_LINK_DIR/.npmrc"
 
     # Here we do any `cygwin` specific links
     if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
 
-        chgrp Users "$TARGET_LINK_DIR/.gitconfig"
         chgrp Users "$TARGET_LINK_DIR/.bash_proxy"
+        chgrp Users "$TARGET_LINK_DIR/.gitconfig"
+        chgrp Users "$TARGET_LINK_DIR/.npmrc"
 
     # And now `vagrant` specific links
     elif [ -d /home/vagrant ]; then
 
-        chown vagrant:vagrant "$TARGET_LINK_DIR/.gitconfig"
         chown vagrant:vagrant "$TARGET_LINK_DIR/.bash_proxy"
+        chown vagrant:vagrant "$TARGET_LINK_DIR/.gitconfig"
+        chown vagrant:vagrant "$TARGET_LINK_DIR/.npmrc"
 
     fi
 
     # Now lets change the file permissions
-    chmod 644 "$TARGET_LINK_DIR/.gitconfig"
     chmod 644 "$TARGET_LINK_DIR/.bash_proxy"
+    chmod 644 "$TARGET_LINK_DIR/.gitconfig"
+    chmod 644 "$TARGET_LINK_DIR/.npmrc"
 
 }
 

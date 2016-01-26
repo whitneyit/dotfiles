@@ -8,14 +8,14 @@ if has("user_commands")
     command! -bang W w<bang>
     command! Q q
     command! -bang Q q<bang>
-    command! Wq wa
-    command! -bang Wq wa<bang>
-    command! WQ wa
-    command! -bang WQ wa<bang>
-    command! Qw wa
-    command! -bang Qw wa<bang>
-    command! QW wa
-    command! -bang QW wa<bang>
+    command! Wq wq
+    command! -bang Wq wq<bang>
+    command! WQ wq
+    command! -bang WQ wq<bang>
+    command! Qw wq
+    command! -bang Qw wq<bang>
+    command! QW wq
+    command! -bang QW wq<bang>
     command! Wa wa
     command! -bang Wa wa<bang>
     command! WA wa

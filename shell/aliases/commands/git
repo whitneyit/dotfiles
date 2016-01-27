@@ -59,10 +59,10 @@ alias             gd="git diff"
 __git_complete    gd _git_diff
 alias            gdl="git diff --name-only"
 __git_complete   gdl _git_diff
-alias           gdls="git diff --name-only --staged"
-__git_complete  gdls _git_diff
 alias            gds="git diff --staged"
 __git_complete   gds _git_diff
+alias           gdsl="git diff --name-only --staged"
+__git_complete  gdsl _git_diff
 alias            gdt="git difftool"
 __git_complete   gdt _git_difftool
 alias             gh="git stash"

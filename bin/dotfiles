@@ -307,6 +307,9 @@ if [ ! -d .git ]; then
         # Same goes for vim
         sudo add-apt-repository -y ppa:fcwu-tw/ppa
 
+        # Add wine
+        sudo add-apt-repository -y ppa:ubuntu-wine/ppa
+
         # And VLC
         sudo add-apt-repository -y ppa:videolan/stable-daily
 
@@ -332,6 +335,7 @@ if [ ! -d .git ]; then
             vim \
             vlc \
             wget \
+            wine \
             xclip
 
         # Upgrade any existing packages

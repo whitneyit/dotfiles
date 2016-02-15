@@ -97,6 +97,77 @@ cd "$DOTFILES_DIRECTORY"
 # Initialize the git repository if it's missing
 if [ ! -d .git ]; then
 
+    # Create our required folders
+    mkdir -p "$HOME/.config" "$HOME/Archive" "$HOME/Code" "$HOME/Dev" "$HOME/go" "$HOME/OSS" "$HOME/Work"
+
+    # Here we make sure that we have a `~/.bash_history` file.
+    if [ ! -f "$HOME/.bash_history" ]; then
+        touch "$HOME/.bash_history"
+    fi
+
+    # And same goes for a `~/.viminfo` file.
+    if [ ! -f "$HOME/.viminfo" ]; then
+        touch "$HOME/.viminfo"
+    fi
+
+    # As well as `~/.prev_dir
+    if [ ! -f "$HOME/.prev_dir" ]; then
+        touch "$HOME/.prev_dir"
+    fi
+
+    # Next we update the permissions of the three files.
+    chmod 644 "$HOME/.bash_history"
+    chmod 644 "$HOME/.prev_dir"
+    chmod 644 "$HOME/.viminfo"
+
+    # Change the permissions again now that the we have just created some files.
+
+    # `is_cygwin`
+    if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
+        chgrp -R Users .
+        chgrp Users "$DOTFILES_DIRECTORY"
+        chgrp Users "$HOME/.bash_history"
+        chgrp Users "$HOME/.config"
+        chgrp Users "$HOME/.prev_dir"
+        chgrp Users "$HOME/.viminfo"
+        chgrp Users "$HOME/Archive"
+        chgrp Users "$HOME/Code"
+        chgrp Users "$HOME/Dev"
+        chgrp Users "$HOME/go"
+        chgrp Users "$HOME/OSS"
+        chgrp Users "$HOME/Work"
+
+    # `is_vagrant`
+    elif [ -d /home/vagrant ]; then
+        chown -R vagrant:vagrant .
+        chown --no-dereference vagrant:vagrant "$DOTFILES_DIRECTORY"
+        chown vagrant:vagrant "$HOME/.bash_history"
+        chown vagrant:vagrant "$HOME/.config"
+        chown vagrant:vagrant "$HOME/.prev_dir"
+        chown vagrant:vagrant "$HOME/.viminfo"
+        chown vagrant:vagrant "$HOME/Archive"
+        chown vagrant:vagrant "$HOME/Code"
+        chown vagrant:vagrant "$HOME/Dev"
+        chown vagrant:vagrant "$HOME/go"
+        chown vagrant:vagrant "$HOME/OSS"
+        chown vagrant:vagrant "$HOME/Work"
+
+    # Everyone else
+    else
+        chown -R `whoami` .
+        chown --no-dereference `whoami` "$DOTFILES_DIRECTORY"
+        chown `whoami` "$HOME/.bash_history"
+        chown `whoami` "$HOME/.config"
+        chown `whoami` "$HOME/.prev_dir"
+        chown `whoami` "$HOME/.viminfo"
+        chown `whoami` "$HOME/Archive"
+        chown `whoami` "$HOME/Code"
+        chown `whoami` "$HOME/Dev"
+        chown `whoami` "$HOME/go"
+        chown `whoami` "$HOME/OSS"
+        chown `whoami` "$HOME/Work"
+    fi
+
     # Fetch the repo
     e_header "Fetching repo..."
     git clone https://github.com/whitneyit/dotfiles.git temp
@@ -135,28 +206,8 @@ if [ ! -d .git ]; then
     # `utils` library.
     source ./lib/utils
 
-    # Here we make sure that we have a `~/.bash_history` file.
-    if [ ! -f "$HOME/.bash_history" ]; then
-        touch "$HOME/.bash_history"
-    fi
-
-    # And same goes for a `~/.viminfo` file.
-    if [ ! -f "$HOME/.viminfo" ]; then
-        touch "$HOME/.viminfo"
-    fi
-
-    # As well as `~/.prev_dir
-    if [ ! -f "$HOME/.prev_dir" ]; then
-        touch "$HOME/.prev_dir"
-    fi
-
-    # Next we update the permissions of the three files.
-    chmod 644 "$HOME/.bash_history"
-    chmod 644 "$HOME/.prev_dir"
-    chmod 644 "$HOME/.viminfo"
-
     # Now we can update the submodules.
-    e_header "Fetching submodules..."
+        e_header "Fetching submodules..."
     git submodule update --recursive --init
 
     # This will set the appropriate tracking refs.
@@ -172,31 +223,28 @@ if [ ! -d .git ]; then
     e_info "Updating origin url..."
     git remote set-url origin git@github.com:whitneyit/dotfiles.git
 
-    # Change the permissions again now that the we have just created some files.
-    if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
-        chgrp -R Users .
-        chgrp Users "$DOTFILES_DIRECTORY"
-        chgrp Users "$HOME/.bash_history"
-        chgrp Users "$HOME/.prev_dir"
-        chgrp Users "$HOME/.viminfo"
-    elif [ -d /home/vagrant ]; then
-        chown -R vagrant:vagrant .
-        chown --no-dereference vagrant:vagrant "$DOTFILES_DIRECTORY"
-        chown vagrant:vagrant "$HOME/.bash_history"
-        chown vagrant:vagrant "$HOME/.prev_dir"
-        chown vagrant:vagrant "$HOME/.viminfo"
-    fi
-
-    # Create our required folders
-    mkdir -p ~/Archive ~/Code ~/Dev ~/go ~/OSS ~/Work
-
-    # Inform the user that we need the password
-    e_info "Please enter your password to change ownership of /usr/local..."
-    sudo -v
-
     # Ensure that we have and own the bin and go folders
-    sudo mkdir -p /usr/local/{bin,go}
-    sudo chown -R `whoami` /usr/local
+
+    # `is_cygwin`
+    if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
+        mkdir -p /usr/local/{bin,go}
+        chgrp Users "/usr/local/bin"
+        chgrp Users "/usr/local/go"
+
+    # `is_vagrant`
+    elif [ -d /home/vagrant ]; then
+        mkdir -p /usr/local/{bin,go}
+        chown -R vagrant:vagrant "/usr/local/bin"
+        chown -R vagrant:vagrant "/usr/local/go"
+
+    # Everyone else
+    else
+        e_info "Please enter your password to change ownership of /usr/local..."
+        sudo -v
+        sudo mkdir -p /usr/local/{bin,go}
+        sudo chown -R `whoami` "/usr/local/bin"
+        sudo chown -R `whoami` "/usr/local/go"
+    fi
 
     # `is_mac`
     # Check to see if we are running on a Mac
@@ -292,14 +340,16 @@ if [ ! -d .git ]; then
     # Check to see if we are running on a Ubuntu box
     elif [ -f /etc/os-release ] 2> /dev/null &&  [ "$(cat /etc/os-release | grep -c Ubuntu)" -gt 0 ]; then
 
+        # Ask for their password if it's not a vagrant install.
+        if [ ! -d /home/vagrant ]; then
+            e_info "Please enter your password to install and upgrade packages..."
+            sudo -v
+        fi
+
         # Install the `add-apt-repository` command as well as other commands
         sudo apt-get install -y --force-yes \
             python-software-properties \
             software-properties-common
-
-        # Fixes battle.net black screen bug
-        # http://jeffhoogland.blogspot.com.au/2015/01/howto-fix-battlenet-client-distortion.html
-        # sudo add-apt-repository -y ppa:xorg-edgers/ppa
 
         # Make sure that we have the latest version of git
         sudo add-apt-repository -y ppa:git-core/ppa
@@ -307,11 +357,21 @@ if [ ! -d .git ]; then
         # Same goes for vim
         sudo add-apt-repository -y ppa:fcwu-tw/ppa
 
-        # Add wine
-        sudo add-apt-repository -y ppa:ubuntu-wine/ppa
+        # Because vagrant boxes also pass `is_ubuntu`, we conditionally install
+        # these packages because we won't be using them on a vagrant box.
+        if [ ! -d /home/vagrant ]; then
 
-        # And VLC
-        sudo add-apt-repository -y ppa:videolan/stable-daily
+            # Fixes battle.net black screen bug
+            # http://jeffhoogland.blogspot.com.au/2015/01/howto-fix-battlenet-client-distortion.html
+            # sudo add-apt-repository -y ppa:xorg-edgers/ppa
+
+            # Add wine
+            sudo add-apt-repository -y ppa:ubuntu-wine/ppa
+
+            # And VLC
+            sudo add-apt-repository -y ppa:videolan/stable-daily
+
+        fi
 
         # Update the list of available packages
         e_info "Updating package list..."
@@ -328,16 +388,21 @@ if [ ! -d .git ]; then
             libssl-dev \
             ppa-purge \
             realpath \
-            software-center \
-            terminator \
             tree \
             unrar rar \
             unzip zip \
             vim \
-            vlc \
             wget \
-            wine \
             xclip
+
+        # Install our ubuntu only packages
+        if [ ! -d /home/vagrant ]; then
+            sudo apt-get install -y \
+                terminator \
+                software-center \
+                vlc \
+                wine
+        fi
 
         # Upgrade any existing packages
         e_info "Upgrading packages..."
@@ -347,19 +412,24 @@ if [ ! -d .git ]; then
         # Let the user know that we have finished with the packages
         e_success "Successfully installed packages..."
 
-        # Set the new value for ulimit
-        if [ -f /etc/security/limits.conf ]; then
-            sudo chown `whoami` /etc/security/limits.conf
-            echo "* hard nofile 65536" >> /etc/security/limits.conf
-            echo "* soft nofile 65536" >> /etc/security/limits.conf
-            echo "root hard nofile 65536" >> /etc/security/limits.conf
-            echo "root soft nofile 65536" >> /etc/security/limits.conf
-        fi
+        # Only change the limits for non vagrant boxes.
+        if [ ! -d /home/vagrant ]; then
 
-        # Now allow the ulimit to be increased
-        if [ -f /etc/pam.d/common-session ]; then
-            sudo chown `whoami` /etc/pam.d/common-session
-            echo "session required pam_limits.so" >> /etc/pam.d/common-session
+            # Set the new value for ulimit
+            if [ -f /etc/security/limits.conf ]; then
+                sudo chown `whoami` /etc/security/limits.conf
+                echo "* hard nofile 65536" >> /etc/security/limits.conf
+                echo "* soft nofile 65536" >> /etc/security/limits.conf
+                echo "root hard nofile 65536" >> /etc/security/limits.conf
+                echo "root soft nofile 65536" >> /etc/security/limits.conf
+            fi
+
+            # Now allow the ulimit to be increased
+            if [ -f /etc/pam.d/common-session ]; then
+                sudo chown `whoami` /etc/pam.d/common-session
+                echo "session required pam_limits.so" >> /etc/pam.d/common-session
+            fi
+
         fi
 
         # Download go and move it to /usr/local

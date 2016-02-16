@@ -1,5 +1,27 @@
 #!/usr/bin/env bash
 
+# Define some variables for our base16 theme
+export BASE16_THEME="default"
+export BASE16_VARIANT="dark"
+export BASE16_FILE="base16-$BASE16_THEME.$BASE16_VARIANT.sh"
+export BASE16_DIRECTORY="$DOTFILES_DIRECTORY/shell/base16-shell"
+
+# When the active base16 theme is located
+export BASE16_ACTIVE_THEME_PATH="$BASE16_DIRECTORY/$BASE16_FILE"
+
+# It seems that ChromeOS does not play nice with 256 colors. Until that is
+# resolved, it looks like we can't use 256 color mode there.
+if [ "$(is_chromeos)" == "no" ]; then
+
+    # Set 256 color profile where possible
+    if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
+        export TERM=gnome-256color
+    elif infocmp xterm-256color >/dev/null 2>&1; then
+        export TERM=xterm-256color
+    fi
+
+fi
+
 # Use the base16 colour scheme
 [[ -s $BASE16_ACTIVE_THEME_PATH ]] && source $BASE16_ACTIVE_THEME_PATH
 

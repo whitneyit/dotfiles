@@ -125,47 +125,44 @@ if [ ! -d .git ]; then
     # `is_cygwin`
     if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
         chgrp -R Users .
-        chgrp Users "$DOTFILES_DIRECTORY"
+        chgrp -R Users "$HOME/Archive"
+        chgrp -R Users "$HOME/Code"
+        chgrp -R Users "$HOME/Dev"
+        chgrp -R Users "$HOME/go"
+        chgrp -R Users "$HOME/OSS"
+        chgrp -R Users "$HOME/Work"
         chgrp Users "$HOME/.bash_history"
         chgrp Users "$HOME/.config"
         chgrp Users "$HOME/.prev_dir"
         chgrp Users "$HOME/.viminfo"
-        chgrp Users "$HOME/Archive"
-        chgrp Users "$HOME/Code"
-        chgrp Users "$HOME/Dev"
-        chgrp Users "$HOME/go"
-        chgrp Users "$HOME/OSS"
-        chgrp Users "$HOME/Work"
 
     # `is_vagrant`
     elif [ -d /home/vagrant ]; then
         chown -R vagrant:vagrant .
-        chown --no-dereference vagrant:vagrant "$DOTFILES_DIRECTORY"
+        chown -R vagrant:vagrant "$HOME/Archive"
+        chown -R vagrant:vagrant "$HOME/Code"
+        chown -R vagrant:vagrant "$HOME/Dev"
+        chown -R vagrant:vagrant "$HOME/go"
+        chown -R vagrant:vagrant "$HOME/OSS"
+        chown -R vagrant:vagrant "$HOME/Work"
         chown vagrant:vagrant "$HOME/.bash_history"
         chown vagrant:vagrant "$HOME/.config"
         chown vagrant:vagrant "$HOME/.prev_dir"
         chown vagrant:vagrant "$HOME/.viminfo"
-        chown vagrant:vagrant "$HOME/Archive"
-        chown vagrant:vagrant "$HOME/Code"
-        chown vagrant:vagrant "$HOME/Dev"
-        chown vagrant:vagrant "$HOME/go"
-        chown vagrant:vagrant "$HOME/OSS"
-        chown vagrant:vagrant "$HOME/Work"
 
     # Everyone else
     else
         chown -R `whoami` .
-        chown --no-dereference `whoami` "$DOTFILES_DIRECTORY"
+        chown -R `whoami` "$HOME/Archive"
+        chown -R `whoami` "$HOME/Code"
+        chown -R `whoami` "$HOME/Dev"
+        chown -R `whoami` "$HOME/go"
+        chown -R `whoami` "$HOME/OSS"
+        chown -R `whoami` "$HOME/Work"
         chown `whoami` "$HOME/.bash_history"
         chown `whoami` "$HOME/.config"
         chown `whoami` "$HOME/.prev_dir"
         chown `whoami` "$HOME/.viminfo"
-        chown `whoami` "$HOME/Archive"
-        chown `whoami` "$HOME/Code"
-        chown `whoami` "$HOME/Dev"
-        chown `whoami` "$HOME/go"
-        chown `whoami` "$HOME/OSS"
-        chown `whoami` "$HOME/Work"
     fi
 
     # Fetch the repo
@@ -174,16 +171,6 @@ if [ ! -d .git ]; then
 
     # Info the user where the repo is located
     e_info "Repo located at: \"$DOTFILES_DIRECTORY\""
-
-    # If we are running inside a `cygwin` environment, we need to change the
-    # "group" on the files so that we can change the permissions of the files.
-    if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
-        chgrp -R Users "$PWD"
-
-    # And here we do the same for a `vagrant` environment.
-    elif [ -d /home/vagrant ]; then
-        chown -R vagrant:vagrant "$PWD"
-    fi
 
     # Do some fancy footwork to move the repo into this given directory. This
     # works even if the directory is not empty, so a point of caution there...
@@ -195,6 +182,21 @@ if [ ! -d .git ]; then
 
     # And remove old files
     git clean -dfx
+
+    # We now need to change the permissions of the files.
+
+    # `is_cygwin`
+    if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
+        chgrp -R Users "$DOTFILES_DIRECTORY"
+
+    # `is_vagrant`
+    elif [ -d /home/vagrant ]; then
+        chown -R --no-dereference vagrant:vagrant "$DOTFILES_DIRECTORY"
+
+    # Everyone else
+    else
+        chown -R `whoami` "$DOTFILES_DIRECTORY"
+    fi
 
     # Since this is the first time working with the repo, we need to set some
     # things up. It is for this reason, that we add our "local bin" directory to
@@ -222,29 +224,6 @@ if [ ! -d .git ]; then
     # when we modify the repo we don't have to worry about passwords
     e_info "Updating origin url..."
     git remote set-url origin git@github.com:whitneyit/dotfiles.git
-
-    # Ensure that we have and own the bin and go folders
-
-    # `is_cygwin`
-    if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
-        mkdir -p /usr/local/{bin,go}
-        chgrp Users "/usr/local/bin"
-        chgrp Users "/usr/local/go"
-
-    # `is_vagrant`
-    elif [ -d /home/vagrant ]; then
-        mkdir -p /usr/local/{bin,go}
-        chown -R vagrant:vagrant "/usr/local/bin"
-        chown -R vagrant:vagrant "/usr/local/go"
-
-    # Everyone else
-    else
-        e_info "Please enter your password to change ownership of /usr/local..."
-        sudo -v
-        sudo mkdir -p /usr/local/{bin,go}
-        sudo chown -R `whoami` "/usr/local/bin"
-        sudo chown -R `whoami` "/usr/local/go"
-    fi
 
     # `is_mac`
     # Check to see if we are running on a Mac
@@ -440,7 +419,7 @@ if [ ! -d .git ]; then
         export GOROOT="/usr/local/go"
 
         # Install hub
-        go get github.com/github/hub
+        /usr/local/go/bin/go get github.com/github/hub
 
     fi
 
@@ -494,6 +473,29 @@ if [ ! -d .git ]; then
 
         fi
 
+    fi
+
+    # Ensure that we have and own the bin and go folders
+
+    # `is_cygwin`
+    if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
+        mkdir -p /usr/local/{bin,go}
+        chgrp Users "/usr/local/bin"
+        chgrp Users "/usr/local/go"
+
+    # `is_vagrant`
+    elif [ -d /home/vagrant ]; then
+        mkdir -p /usr/local/{bin,go}
+        chown -R vagrant:vagrant "/usr/local/bin"
+        chown -R vagrant:vagrant "/usr/local/go"
+
+    # Everyone else
+    else
+        e_info "Please enter your password to change ownership of /usr/local..."
+        sudo -v
+        sudo mkdir -p /usr/local/{bin,go}
+        sudo chown -R `whoami` "/usr/local/bin"
+        sudo chown -R `whoami` "/usr/local/go"
     fi
 
     # And here we confirm to the User that we have completed Installing the
@@ -550,23 +552,19 @@ if [ "$(type -P brew)" ]; then
     brew update
 fi
 
+# Change the permissions of the dotfiles.
+
 # `is_cygwin`
-# If we are running inside a `cygwin` environment, we need to change the
-# "group" on the files so that we can change the permissions of the files.
 if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
     chgrp -R Users "$DOTFILES_DIRECTORY"
 
-# And here we do the same for a `vagrant` environment.
+# `is_vagrant`
 elif [ -d /home/vagrant ]; then
-    chown -R vagrant:vagrant "$DOTFILES_DIRECTORY"
+    chown -R --no-dereference vagrant:vagrant "$DOTFILES_DIRECTORY"
 
-# And the same again for OSX.
-elif [ "$(uname -s | grep -c Darwin)" -gt 0 ]; then
-    chown -R "$(whoami)":staff "$DOTFILES_DIRECTORY"
-
-# Everything else
+# Everyone else
 else
-    chown -R "$(whoami)":"$(whoami)" "$DOTFILES_DIRECTORY"
+    chown -R `whoami` "$DOTFILES_DIRECTORY"
 fi
 
 # And finally that's it. Repo updated!

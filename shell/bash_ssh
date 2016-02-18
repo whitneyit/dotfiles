@@ -1,22 +1,33 @@
 #!/usr/bin/env bash
 
-# Define this flag to determine whether or not we have already booted SSH
-SSH_BOOTED="no"
+# Where we want to sto
+SSH_AGENT_DUMP_FILE="$HOME/.ssh/dump"
 
-# Here we define a wrapper around `ssh-agent`'
-function ssh_agent_wrapper() {
+# Defines a wrapper to be placed around `ssh-agent`
+function start_or_resume_agent() {
 
-    # Only execute this code if we have not already booted SSH.
-    if [ $SSH_BOOTED == "no" ]; then
+    # If we have a dump of our previous SSH config, let's try and resume
+    if [ -f "${SSH_AGENT_DUMP_FILE}" ]; then
 
-        # Boot SSH
-        eval "$(ssh-agent -s)"
+        # Load up the previous SSH settings
+        . "${SSH_AGENT_DUMP_FILE}" > /dev/null
 
-        # And update the flag.
-        SSH_BOOTED="yes"
+        # Look for the Process ID of the `ssh-agent` else just start another
+        ps -ef | command grep "${SSH_AGENT_PID}" | command grep ssh-agent$ > /dev/null || {
+            start_agent;
+        }
 
+    # We have no previous dump, so lets start a new instance
+    else
+        start_agent
     fi
 
+}
+
+# Start an instance of `ssh-agent` and save the result to SSH_AGENT_DUMP_FILE
+function start_agent() {
+    (umask 066; ssh-agent > "${SSH_AGENT_DUMP_FILE}")
+    . "${SSH_AGENT_DUMP_FILE}" > /dev/null
 }
 
 # Here we read the contents of a file and load up its keys.
@@ -49,7 +60,11 @@ function read_keys() {
             # file actually points to a file. If it does we will add it to the
             # `ssh-agent`
             if [ -f "$key" ]; then
-                eval ssh-add "$key"
+
+                # Only add new keys
+                if ! ssh-add -l | grep -q "$(ssh-keygen -lf $key | awk '{print $2}')"; then
+                    eval ssh-add "$key"
+                fi
 
             # Log a warning that we could not find the key
             else
@@ -69,7 +84,7 @@ function read_keys() {
 if [ "$(is_vagrant)" == "no" ]; then
 
     # Here we fire up `ssh` for every shell
-    ssh_agent_wrapper
+    start_or_resume_agent
 
     # Read our .keys files.
     read_keys "$HOME/.keys"

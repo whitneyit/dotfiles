@@ -27,6 +27,8 @@ alias            gcf="git config"
 __git_complete   gcf _git_config
 alias           gcfl="git config --list"
 __git_complete  gcfl _git_config
+alias          gcffm="git config core.fileMode false"
+__git_complete gcffm _git_config
 alias            gco="git checkout"
 __git_complete   gco _git_checkout
 alias           gcom="git checkout master"
@@ -261,6 +263,8 @@ alias           gsmc="git submodule foreach --recursive git checkout ."
 __git_complete  gsmc _git_submodule
 alias           gsmu="git submodule update --recursive --init"
 __git_complete  gsmu _git_submodule
+alias          gsmfm="git submodule foreach git config core.fileMode false"
+__git_complete gsmfm _git_submodule
 alias           gsha="git log --no-merges        --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %ar] %C(cyan)%ae %C(reset)%n%s%n%n%b'"
 __git_complete  gsha _git_log
 alias            gst="git status --untracked-files=all"

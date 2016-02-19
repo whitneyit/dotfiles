@@ -1,0 +1,34 @@
+" Set 256 color terminal support
+set t_Co=256
+
+" Set the background colour for our theme
+set background=dark
+
+" set the theme to be consistent across the board
+colorscheme xoria256
+
+" Ensure that themes don't use obnoxious highlights for typos
+highlight clear SpellBad
+highlight SpellBad cterm=underline
+
+" Here we set the color of the divider to a light grey
+if v:version > 702
+    highlight ColorColumn ctermbg=235 guibg=#2c2d27
+endif
+
+if has("autocmd")
+
+    " Adjust the colorscheme
+    autocmd BufNewFile,BufRead * highlight clear NonText
+    autocmd BufNewFile,BufRead * highlight NonText ctermfg=NONE
+
+endif
+
+if has("syntax")
+
+    " Enable syntax highlighting
+    syntax on
+
+endif
+
+" vim: set syn=vim :

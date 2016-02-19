@@ -10,15 +10,6 @@ silent! call pathogen#infect()
 " This generates all the "pathogen" plugin helptags
 silent! call pathogen#helptags()
 
-" Set 256 color terminal support
-set t_Co=256
-
-" Set the background colour for our theme
-set background=dark
-
-" set the theme to be consistent across the board
-colorscheme xoria256
-
 if has("autocmd")
 
     " Load files for specific filetypes
@@ -57,10 +48,6 @@ if has("autocmd")
     " `.npmignore` files
     autocmd BufNewFile,BufRead .*ignore set filetype=conf
 
-    " Adjust the colorscheme
-    autocmd BufNewFile,BufRead * highlight clear NonText
-    autocmd BufNewFile,BufRead * highlight NonText ctermfg=NONE
-
     " Open all folds when we load a file
     autocmd VimEnter    * exe "normal zR"
     autocmd BufReadPost * exe "normal zR"
@@ -72,13 +59,6 @@ if has("autocmd")
     " Enable hyphens in keywords on these filetypes
     autocmd FileType css setlocal iskeyword+=-
     autocmd FileType html setlocal iskeyword+=-
-
-endif
-
-if has("syntax")
-
-    " Enable syntax highlighting
-    syntax on
 
 endif
 
@@ -128,11 +108,6 @@ if has("extra_search")
     " ...unless has mixed case
     set smartcase
 
-endif
-
-" Here we set the color of the divider to a light grey
-if v:version > 702
-    highlight ColorColumn ctermbg=235 guibg=#2c2d27
 endif
 
 " Set some default tab settings
@@ -241,10 +216,6 @@ set list
 set spell
 set spelllang=en_gb
 
-" Ensure that themes don't use obnoxious highlights for typos
-highlight clear SpellBad
-highlight SpellBad cterm=underline
-
 " Causes the split windows to be focuses upon open
 set splitbelow
 set splitright
@@ -296,6 +267,7 @@ source $HOME/.vim/vimrc_functions
 source $HOME/.vim/vimrc_ignore
 source $HOME/.vim/vimrc_mappings
 source $HOME/.vim/vimrc_leaders
+source $HOME/.vim/vimrc_theme
 
 " Load local machine settings if they exist
 if filereadable(glob("$HOME/.vimrc.local"))

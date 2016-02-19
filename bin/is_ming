@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# This is not a bullet proof test but it's good enough
+if [ "$(uname -s | grep -c MING)" -gt 0 ]; then
+    echo "yes"
+
+# Anything else must be false
+else
+    echo "no"
+fi
+
+# vim: set syn=sh :

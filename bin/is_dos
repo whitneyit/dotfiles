@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Determine if the OS is being run on Windows
+if [ "$(os)" == "win" ]; then
+
+    if [ "$TERM" == "xterm" ]; then
+        echo "no"
+    else
+        echo "yes"
+    fi
+
+else
+    echo "no"
+fi
+
+# vim: set syn=sh :

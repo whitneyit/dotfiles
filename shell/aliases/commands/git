@@ -325,8 +325,6 @@ __git_complete   glg _git_log
 alias            glm="glma  -10"
 __git_complete   glm _git_log
 alias            gls="glsa  -10"
-alias            gsh="gsha  -10"
-__git_complete   gsh _git_log
 
 # Incoming commits
 alias            gli="glia  -10"
@@ -357,6 +355,10 @@ alias           grfd="grfda -10"
 __git_complete  grfd _git_log
 alias           grfg="grfga -10"
 __git_complete  grfg _git_log
+
+# Show
+alias            gsh="gsha  -10"
+__git_complete   gsh _git_log
 
 # Here we protect against typos
 alias           gacm="gcma"

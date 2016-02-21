@@ -327,6 +327,7 @@ __git_complete   glg _git_log
 alias            glm="glma  -10"
 __git_complete   glm _git_log
 alias            gls="glsa  -10"
+__git_complete   gls _git_log
 alias            glu="glua  -10"
 __git_complete   glu _git_log
 

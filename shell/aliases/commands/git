@@ -127,6 +127,8 @@ alias          gloga="git log                            --graph --date=iso --pr
 __git_complete gloga _git_log
 alias          glosa="git log                            --stat  --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %>(14)%ar] %C(cyan)%ae %C(reset)%s%C(white)%d'   @{upstream}.."
 __git_complete glosa _git_log
+alias           glua="git log --no-merges                        --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %>(14)%ar] %C(cyan)%ae %C(reset)%s%C(white)%d' --author='`git config --get user.name`'"
+__git_complete  glua _git_log
 alias             gm="git merge --no-ff --progress --verbose"
 __git_complete    gm _git_merge
 alias            gma="git merge --abort"
@@ -325,6 +327,8 @@ __git_complete   glg _git_log
 alias            glm="glma  -10"
 __git_complete   glm _git_log
 alias            gls="glsa  -10"
+alias            glu="glua  -10"
+__git_complete   glu _git_log
 
 # Incoming commits
 alias            gli="glia  -10"

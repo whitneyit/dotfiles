@@ -122,10 +122,6 @@
     ignore = dirty
     path = vim/bundle/vim-surround
     url = https://github.com/tpope/vim-surround.git
-[submodule "vim/bundle/webapi-vim"]
-    ignore = dirty
-    path = vim/bundle/webapi-vim
-    url = https://github.com/mattn/webapi-vim.git
 [submodule "vim/bundle/vim-jsx"]
     ignore = dirty
     path = vim/bundle/vim-jsx

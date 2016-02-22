@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Here we create an alias to convert files between dos and unix formats
+alias d2u="find . -type f -exec dos2unix {} \;"
+alias u2d="find . -type f -exec unix2dos {} \;"
+
+# vim: set syn=sh :

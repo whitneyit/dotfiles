@@ -97,7 +97,7 @@ alias            gla="git log --no-merges                        --date=iso --pr
 __git_complete   gla _git_log
 alias           glba="git log                                    --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %>(14)%ar] %C(cyan)%ae %C(reset)%s%C(white)%d'"
 __git_complete  glba _git_log
-alias           glca="git log --no-merges                        --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %ar] %C(cyan)%ae%C(white)%d %C(reset) %n%n%w(76,4,4)%B'"
+alias           glca="git log --no-merges                        --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %ar] %C(cyan)%ae%C(white)%d %C(reset) %n%s%n%n%b'"
 __git_complete  glca _git_log
 alias           glda="git log --no-merges                --patch --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %ar] %C(cyan)%ae %C(reset)%s%C(white)%d'"
 __git_complete  glda _git_log
@@ -267,8 +267,6 @@ alias           gsmu="git submodule update --recursive --init"
 __git_complete  gsmu _git_submodule
 alias          gsmfm="git submodule foreach git config core.fileMode false"
 __git_complete gsmfm _git_submodule
-alias           gsha="git log --no-merges        --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %ar] %C(cyan)%ae %C(reset)%n%s%n%n%b'"
-__git_complete  gsha _git_log
 alias            gst="git status --untracked-files=all"
 __git_complete   gst _git_status
 alias           gstc="git status"
@@ -360,10 +358,6 @@ alias           grfd="grfda -10"
 __git_complete  grfd _git_log
 alias           grfg="grfga -10"
 __git_complete  grfg _git_log
-
-# Show
-alias            gsh="gsha  -10"
-__git_complete   gsh _git_log
 
 # Here we protect against typos
 alias           gacm="gcma"

@@ -531,13 +531,12 @@ git stash --quiet
 # If no flags were passed in, then it is assumed that we need to "sync" the
 # repo. This means that we abandon any local changes and do a `pull`.
 e_header "Updating repo..."
-git reset --hard --quiet
-git pull origin master
+git fetch origin master --quiet
+git reset --hard --quiet origin/master
 
 # Look for any updates to the submodules.
 e_header "Updating submodules..."
 git submodule update --recursive --init
-git pull origin master --quiet
 
 # Restore any changes
 git stash pop --quiet

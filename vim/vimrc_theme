@@ -7,10 +7,6 @@ set background=dark
 " set the theme to be consistent across the board
 colorscheme xoria256
 
-" Ensure that themes don't use obnoxious highlights for typos
-highlight clear SpellBad
-highlight SpellBad cterm=underline
-
 " Here we set the color of the divider to a light grey
 if v:version > 702
     highlight ColorColumn ctermbg=235 guibg=#2c2d27
@@ -30,5 +26,9 @@ if has("syntax")
     syntax on
 
 endif
+
+" Ensure that themes don't use obnoxious highlights for typos
+highlight clear SpellBad
+highlight SpellBad cterm=underline
 
 " vim: set syn=vim :

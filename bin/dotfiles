@@ -138,17 +138,17 @@ if [ ! -d .git ]; then
 
     # `is_vagrant`
     elif [ -d /home/vagrant ]; then
-        chown -R vagrant:vagrant .
-        chown -R vagrant:vagrant "$HOME/Archive"
-        chown -R vagrant:vagrant "$HOME/Code"
-        chown -R vagrant:vagrant "$HOME/Dev"
-        chown -R vagrant:vagrant "$HOME/go"
-        chown -R vagrant:vagrant "$HOME/OSS"
-        chown -R vagrant:vagrant "$HOME/Work"
-        chown vagrant:vagrant "$HOME/.bash_history"
-        chown vagrant:vagrant "$HOME/.config"
-        chown vagrant:vagrant "$HOME/.prev_dir"
-        chown vagrant:vagrant "$HOME/.viminfo"
+        sudo chown -R vagrant:vagrant .
+        sudo chown -R vagrant:vagrant "$HOME/Archive"
+        sudo chown -R vagrant:vagrant "$HOME/Code"
+        sudo chown -R vagrant:vagrant "$HOME/Dev"
+        sudo chown -R vagrant:vagrant "$HOME/go"
+        sudo chown -R vagrant:vagrant "$HOME/OSS"
+        sudo chown -R vagrant:vagrant "$HOME/Work"
+        sudo chown vagrant:vagrant "$HOME/.bash_history"
+        sudo chown vagrant:vagrant "$HOME/.config"
+        sudo chown vagrant:vagrant "$HOME/.prev_dir"
+        sudo chown vagrant:vagrant "$HOME/.viminfo"
 
     # Everyone else
     else
@@ -191,7 +191,7 @@ if [ ! -d .git ]; then
 
     # `is_vagrant`
     elif [ -d /home/vagrant ]; then
-        chown -R --no-dereference vagrant:vagrant "$DOTFILES_DIRECTORY"
+        sudo chown -R --no-dereference vagrant:vagrant "$DOTFILES_DIRECTORY"
 
     # Everyone else
     else
@@ -301,6 +301,10 @@ if [ ! -d .git ]; then
 
         # In this case, we need to install the shell ourselves
         else
+
+            # Ask for the users password to change the shell
+            e_info "Please enter your password to switch to new bash shell..."
+            sudo -v
 
             # Change the permission of the `shells` file and add the newly installed
             # `bash` shell.
@@ -485,9 +489,9 @@ if [ ! -d .git ]; then
 
     # `is_vagrant`
     elif [ -d /home/vagrant ]; then
-        mkdir -p /usr/local/{bin,go}
-        chown -R vagrant:vagrant "/usr/local/bin"
-        chown -R vagrant:vagrant "/usr/local/go"
+        sudo mkdir -p /usr/local/{bin,go}
+        sudo chown -R vagrant:vagrant "/usr/local/bin"
+        sudo chown -R vagrant:vagrant "/usr/local/go"
 
     # Everyone else
     else
@@ -559,7 +563,7 @@ if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
 
 # `is_vagrant`
 elif [ -d /home/vagrant ]; then
-    chown -R --no-dereference vagrant:vagrant "$DOTFILES_DIRECTORY"
+    sudo chown -R --no-dereference vagrant:vagrant "$DOTFILES_DIRECTORY"
 
 # Everyone else
 else

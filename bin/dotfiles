@@ -453,6 +453,7 @@ if [ ! -d .git ]; then
 
             # Install node
             nvm install stable
+            nvm use stable
             nvm alias default stable
 
             # Let the user know what version we are using
@@ -467,11 +468,13 @@ if [ ! -d .git ]; then
             npm install --global \
                 bower \
                 firebase-tools \
+                gulpjs/gulp-cli#4.0 \
                 grunt-cli \
-                gulp-cli \
                 httpster \
                 jspm \
-                karma-cli
+                karma-cli \
+                typescript \
+                typings
 
             e_success "Successfully installed nvm..."
 

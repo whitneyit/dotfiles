@@ -366,6 +366,7 @@ if [ ! -d .git ]; then
             build-essential \
             curl \
             dos2unix \
+            gettext \
             git \
             lib32nss-mdns \
             libssl-dev \

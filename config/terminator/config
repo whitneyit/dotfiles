@@ -9,18 +9,18 @@
 [profiles]
   [[default]]
     scrollbar_position = hidden
-    palette = "#2d2d2d:#f2777a:#99cc99:#ffcc66:#6699cc:#cc99cc:#66cccc:#d3d0c8:#747369:#f2777a:#99cc99:#ffcc66:#6699cc:#cc99cc:#66cccc:#f2f0ec"
+    palette = "#2b303b:#bf616a:#a3be8c:#ebc88b:#8fa1b3:#b48ead:#96b5b4:#dfe1e8:#4f5b66:#bf616a:#a3be8c:#ebc88b:#8fa1b3:#b48ead:#96b5b4:#eff1f5"
     font = Source Code Pro for Powerline Semi-Bold 14
     background_image = None
     background_darkness = 0.9
     scrollback_lines = 1000
     use_system_font = False
     cursor_color = "#f8f8f8"
-    foreground_color = "#d8d8d8"
+    foreground_color = "#dfe1e8"
     icon_bell = False
     show_titlebar = False
     copy_on_selection = True
-    background_color = "#181818"
+    background_color = "#2b303b"
     cursor_blink = False
     scrollback_infinite = True
     audible_bell = True

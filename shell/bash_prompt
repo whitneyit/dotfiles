@@ -31,7 +31,8 @@ if [ $(is_cygwin) == "no" ] && [ $(is_ming) == "no" ]; then
     fi
 
     # Define some variables for our base16 theme
-    export BASE16_THEME="default"
+    export BASE16_THEME="ocean"
+    export BASE16_VIM="base16-$BASE16_THEME"
     export BASE16_VARIANT="dark"
     export BASE16_FILE="base16-$BASE16_THEME.$BASE16_VARIANT.sh"
     export BASE16_DIRECTORY="$DOTFILES_DIRECTORY/shell/base16-shell"

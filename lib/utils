@@ -184,6 +184,11 @@ function link_files() {
     # Here we do any `cygwin` specific links
     if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
 
+        # Copy in our ConEmu settings
+        cp "$1/shell/conemu.xml" "$APPDATA/ConEmu.xml"
+
+        # Now change the group of the files
+        chgrp Users "$APPDATA/ConEmu.xml"
         chgrp Users "$TARGET_LINK_DIR/.bash_proxy"
         chgrp Users "$TARGET_LINK_DIR/.gitconfig"
         chgrp Users "$TARGET_LINK_DIR/.npmrc"

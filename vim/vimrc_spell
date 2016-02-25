@@ -1,0 +1,9 @@
+" Enable spell check
+set spell
+set spelllang=en_gb
+
+" Ensure that themes don't use obnoxious highlights for typos
+highlight clear SpellBad
+highlight SpellBad cterm=underline
+
+" vim: set syn=vim :

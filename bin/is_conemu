@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Test for the appearance of a ConEmu specific global
+if [ -z "$ConEmuPID" ]; then
+    echo "no"
+else
+    echo "yes"
+fi
+
+# vim: set syn=sh :

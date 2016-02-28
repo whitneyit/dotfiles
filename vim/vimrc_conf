@@ -122,13 +122,6 @@ if exists("&undodir")
 
 endif
 
-" Set some default tab settings
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab
-set textwidth=0
-
 " Allows scrolling and a few other things to work. Though I don't condone
 " using a mouse, it helps with the *ACCIDENTAL* mouse usage. I had to turn if
 " off though. I kept hitting the trackpad on my Surface and it just started to

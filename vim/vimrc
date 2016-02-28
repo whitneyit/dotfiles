@@ -1,14 +1,17 @@
-" Load up our other vim files
+" Load up our base vim files
 source $HOME/.vim/vimrc_conf
 source $HOME/.vim/vimrc_bundle
+
+" Now load up our other vim files
 source $HOME/.vim/vimrc_abbr
 source $HOME/.vim/vimrc_commands
 source $HOME/.vim/vimrc_functions
 source $HOME/.vim/vimrc_ignore
-source $HOME/.vim/vimrc_mappings
 source $HOME/.vim/vimrc_leaders
-source $HOME/.vim/vimrc_theme
+source $HOME/.vim/vimrc_mappings
 source $HOME/.vim/vimrc_spell
+source $HOME/.vim/vimrc_theme
+source $HOME/.vim/vimrc_whitespace
 
 " Load local machine settings if they exist
 if filereadable(glob("$HOME/.vimrc.local"))

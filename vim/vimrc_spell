@@ -3,7 +3,11 @@ set spell
 set spelllang=en_gb
 
 " Ensure that themes don't use obnoxious highlights for typos
+highlight clear Spell
 highlight clear SpellBad
+highlight clear SpellCap
+highlight clear SpellLocal
+highlight clear SpellRare
 highlight SpellBad cterm=underline
 
 " vim: set syn=vim :

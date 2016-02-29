@@ -30,4 +30,9 @@ export LC_ALL="C"
 # shells instead of the default "last window closed" history
 export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
+# Fix git dates issues when using MySysGit from Cygwin.bat
+if [ $($DOTFILES_DIRECTORY/bin/is_dos) == "yes" ]; then
+    unset TZ;
+fi
+
 # vim: set syn=sh :

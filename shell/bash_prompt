@@ -15,11 +15,11 @@ function parse_git_branch() {
 }
 
 # If we are in Cygwin or MING, we don't do any fancy color schemes.
-if [ $(is_cygwin) == "no" ] && [ $(is_ming) == "no" ]; then
+if [ $($DOTFILES_DIRECTORY/bin/is_cygwin) == "no" ] && [ $($DOTFILES_DIRECTORY/bin/is_ming) == "no" ]; then
 
     # It seems that ChromeOS does not play nice with 256 colours. Until that is
     # resolved, it looks like we can't use 256 color mode there.
-    if [ "$(is_chromeos)" == "no" ]; then
+    if [ "$($DOTFILES_DIRECTORY/bin/is_chromeos)" == "no" ]; then
 
         # Set 256 color profile where possible
         if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
@@ -110,7 +110,7 @@ export RESET
 # $
 #
 # If we are using MING, then we do nothing otherwise we set the $PS1
-if [ $(is_ming) == "no" ]; then
+if [ $($DOTFILES_DIRECTORY/bin/is_ming) == "no" ]; then
     export PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]at \[$ORANGE\]\h \[$WHITE\]in \[$YELLOW\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n\$ \[$RESET\]"
 fi
 

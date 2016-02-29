@@ -13,12 +13,12 @@ export NODE_ENV="development"
 export NVM_DIR="$HOME/.nvm"
 
 # If we are running `go` in Cygwin, convert the path to a Windows one
-if [ "$(is_cygwin)" == "yes" ]; then
+if [ "$($DOTFILES_DIRECTORY/bin/is_cygwin)" == "yes" ]; then
     export GOPATH="`cygpath -aw $GOPATH`"
 fi
 
 # Configure the Java environment
-if [ "$(is_mac)" == "yes" ]; then
+if [ "$($DOTFILES_DIRECTORY/bin/is_mac)" == "yes" ]; then
     export ANDROID_TOOLS="$HOME/Library/Android/sdk"
     export JAVA_HOME="$(/usr/libexec/java_home 2>/dev/null)"
     export JDK_HOME="$(/usr/libexec/java_home 2>/dev/null)"

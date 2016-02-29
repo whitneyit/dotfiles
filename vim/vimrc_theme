@@ -33,8 +33,4 @@ if has("syntax")
 
 endif
 
-" Ensure that themes don't use obnoxious highlights for typos
-highlight clear SpellBad
-highlight SpellBad cterm=underline
-
 " vim: set syn=vim :

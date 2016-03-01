@@ -7,7 +7,7 @@ alias  bp="bower prune"
 alias  bv="bower --version"
 
 
-if [ "$(is_cygwin)" == "yes" ]; then
+if [ "$(is_win)" == "yes" ]; then
     alias bower="cmd /c bower"
 fi
 

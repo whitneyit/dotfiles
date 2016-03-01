@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Ensure that these aliases are only ever processed if we are in a cygwin box.
-if [ "$(is_cygwin)" == "yes" ]; then
+if [ "$(is_win)" == "yes" ]; then
 
     # Detect if the C:\ is installed. This should pass almost 100% of the time.
     # The only time this will fail is if the SYSAdmin has installed windows to

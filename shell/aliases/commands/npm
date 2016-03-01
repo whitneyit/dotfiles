@@ -24,7 +24,7 @@ ngp() {
     readlink -f "$(which ${1:-npm})"
 }
 
-if [ "$(is_cygwin)" == "yes" ]; then
+if [ "$(is_win)" == "yes" ]; then
     alias npm="cmd /c npm"
 fi
 

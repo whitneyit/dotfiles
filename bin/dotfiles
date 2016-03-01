@@ -123,7 +123,7 @@ if [ ! -d .git ]; then
     # Change the permissions again now that the we have just created some files.
 
     # `is_cygwin`
-    if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
+    if [ "$(uname -s | grep -c Cygwin)" -gt 0 ]; then
         chgrp -R Users .
         chgrp -R Users "$HOME/Archive"
         chgrp -R Users "$HOME/Code"
@@ -186,7 +186,7 @@ if [ ! -d .git ]; then
     # We now need to change the permissions of the files.
 
     # `is_cygwin`
-    if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
+    if [ "$(uname -s | grep -c Cygwin)" -gt 0 ]; then
         chgrp -R Users "$DOTFILES_DIRECTORY"
 
     # `is_vagrant`
@@ -433,7 +433,7 @@ if [ ! -d .git ]; then
 
         # If we are running in cygwin, we can't install nvm, it has to be done
         # via a different repo
-        if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
+        if [ "$(uname -s | grep -c Cygwin)" -gt 0 ]; then
             e_warning "Could not install nvm. Use `https://github.com/coreybutler/nvm-windows` instead"
 
         # If we can install nvm we do it here
@@ -486,7 +486,7 @@ if [ ! -d .git ]; then
     # Ensure that we have and own the bin and go folders
 
     # `is_cygwin`
-    if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
+    if [ "$(uname -s | grep -c Cygwin)" -gt 0 ]; then
         mkdir -p /usr/local/{bin,go}
         chgrp Users "/usr/local/bin"
         chgrp Users "/usr/local/go"
@@ -562,7 +562,7 @@ fi
 # Change the permissions of the dotfiles.
 
 # `is_cygwin`
-if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
+if [ "$(uname -s | grep -c Cygwin)" -gt 0 ]; then
     chgrp -R Users "$DOTFILES_DIRECTORY"
 
 # `is_vagrant`

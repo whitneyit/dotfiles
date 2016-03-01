@@ -8,8 +8,8 @@ if [ "$(is_mac)" == "yes" ]; then
 elif [ "$(is_linux)" == "yes" ]; then
     shutdown -r now
 
-# Cygwin
-elif [ "$(is_cygwin)" == "yes" ]; then
+# Windows
+elif [ "$(is_win)" == "yes" ]; then
     shutdown /r /t 0
 
 fi

@@ -55,7 +55,7 @@ if [ "$(is_mac)" == "yes" ]; then
 # `Cygwin` has a more enhanced version of `ls` we will target it directly. The
 # "--ignores" that you see below are just there to exclude some system files
 # that shouldn't be showing up anyways.
-elif [ "$(is_cygwin)" == "yes" ]; then
+elif [ "$(is_win)" == "yes" ]; then
 
     # Define a `ls` command for cygwin
     function list () {

@@ -5,8 +5,8 @@ function e_info() {
     printf "$(tput setaf 6)%s$(tput sgr0)\n" "$@"
 }
 
-# Cygwin
-if [ "$(is_cygwin)" == "yes" ]; then
+# Windows
+if [ "$(is_win)" == "yes" ]; then
 
     # Version 3
     if [ -n "/cygdrive/c/Program\ Files/Sublime\ Text\ 3/sublime_text.exe" ]; then

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# Cygwin
-if [ "$(is_cygwin)" == "yes" ]; then
+# Windows
+if [ "$(is_win)" == "yes" ]; then
 
     # Check if we can use the clipboard.
     if [ -e /dev/clipboard ]; then

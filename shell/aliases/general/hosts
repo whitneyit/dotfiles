@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# Cygwin
-if [ "$(is_cygwin)" == "yes" ]; then
+# Windows
+if [ "$(is_win)" == "yes" ]; then
     alias hosts="vim /cygdrive/c/Windows/System32/drivers/etc/hosts"
 
 # Mac

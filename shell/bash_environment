@@ -13,7 +13,7 @@ export NODE_ENV="development"
 export NVM_DIR="$HOME/.nvm"
 
 # If we are running `go` in Cygwin, convert the path to a Windows one
-if [ "$($DOTFILES_DIRECTORY/bin/is_cygwin)" == "yes" ]; then
+if [ "$($DOTFILES_DIRECTORY/bin/is_win)" == "yes" ]; then
     export GOPATH="`cygpath -aw $GOPATH`"
 fi
 

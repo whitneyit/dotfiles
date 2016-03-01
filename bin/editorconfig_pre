@@ -7,7 +7,7 @@
 # cygwin, and convert the path if we are.
 
 # Here we test to see if we are using cygwin.
-if [ "$(is_cygwin)" == "yes" ]; then
+if [ "$(is_win)" == "yes" ]; then
 
     # Since we are, we convert the arguments to an -a Absolute -w Windows path.
     FILENAME="$(cygpath -aw "$@")"

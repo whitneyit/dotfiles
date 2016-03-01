@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Here we define some custom settings for Cygwin
-if [ "$($DOTFILES_DIRECTORY/bin/is_cygwin)" == "yes" ]; then
+if [ "$($DOTFILES_DIRECTORY/bin/is_win)" == "yes" ]; then
 
     # This enables shell options for cygwin
     export SHELLOPTS

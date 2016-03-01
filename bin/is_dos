@@ -1,14 +1,27 @@
 #!/usr/bin/env bash
 
-# Determine if the OS is being run on Windows
+# Check what OS we are on
 if [ "$(os)" == "win" ]; then
 
-    if [ "$TERM" == "xterm" ]; then
+    # Now we rule out ConEmu
+    if [ "$(is_conemu)" == "yes" ]; then
         echo "no"
+
+    # Now we can look for dos
     else
-        echo "yes"
+
+        # The Cygwin.bat file sets $TERM to cygwin
+        if [ "$TERM" == "cygwin" ]; then
+            echo "yes"
+
+        # Anything else must be false
+        else
+            echo "no"
+        fi
+
     fi
 
+# Clearly not windows
 else
     echo "no"
 fi

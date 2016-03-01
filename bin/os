@@ -11,8 +11,8 @@ if [ "$(uname -s | grep -c Darwin)" -gt 0 ]; then
 elif [ "$(uname -s | grep -c Linux)" -gt 0 ]; then
     LOCAL_OS="linux"
 
-# Windows
-elif [ "$(uname -s | grep -c MINGW32_NT)" -gt 0 ]; then
+# Windows via MING
+elif [ "$(uname -s | grep -c MING)" -gt 0 ]; then
     LOCAL_OS="win"
 
 # Cygwin

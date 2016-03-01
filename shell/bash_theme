@@ -14,7 +14,7 @@ function parse_git_branch() {
     # echo "$(git rev-parse --abbrev-ref HEAD 2> /dev/null)""$(parse_git_dirty)"
 }
 
-# If we are in Cygwin or MING, we don't do any fancy color schemes.
+# If we are in Windows, we don't do any fancy color schemes.
 if [ $($DOTFILES_DIRECTORY/bin/is_win) == "no" ]; then
 
     # It seems that ChromeOS does not play nice with 256 colours. Until that is

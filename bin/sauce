@@ -21,6 +21,7 @@ declare -a mandatories=(
     $DOTFILES_DIRECTORY/shell/bash_ssh
     $DOTFILES_DIRECTORY/shell/bash_shell
     $DOTFILES_DIRECTORY/shell/bash_theme
+    $DOTFILES_DIRECTORY/shell/bash_vim
 
 )
 

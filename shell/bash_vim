@@ -5,11 +5,6 @@ if [ $($DOTFILES_DIRECTORY/bin/is_win) == "yes" ]; then
     export VIM_BACKGROUND="dark"
     export VIM_THEME="NONE"
 
-# If we are on chrome os we use a custom theme
-elif [ "$($DOTFILES_DIRECTORY/bin/is_chromeos)" == "yes" ]; then
-    export VIM_BACKGROUND="dark"
-    export VIM_THEME="xoria"
-
 # Everyone else gets the default theme
 else
     export VIM_BACKGROUND="dark"

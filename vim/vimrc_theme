@@ -10,8 +10,6 @@ if env_theme == "xoria"
 
 " Set the theme to base16
 elseif env_theme =~ "base16"
-    set t_Co=256
-    let base16colorspace=256
     let &background = env_background
     colorscheme $VIM_THEME
 

@@ -8,6 +8,10 @@ highlight clear SpellBad
 highlight clear SpellCap
 highlight clear SpellLocal
 highlight clear SpellRare
+highlight Spell cterm=underline
 highlight SpellBad cterm=underline
+highlight SpellCap cterm=underline
+highlight SpellLocal cterm=underline
+highlight SpellRare cterm=underline
 
 " vim: set syn=vim :

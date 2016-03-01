@@ -9,9 +9,11 @@ source $HOME/.vim/vimrc_functions
 source $HOME/.vim/vimrc_ignore
 source $HOME/.vim/vimrc_leaders
 source $HOME/.vim/vimrc_mappings
-source $HOME/.vim/vimrc_spell
 source $HOME/.vim/vimrc_theme
 source $HOME/.vim/vimrc_whitespace
+
+" Fix up any spell styling
+source $HOME/.vim/vimrc_spell
 
 " Load local machine settings if they exist
 if filereadable(glob("$HOME/.vimrc.local"))

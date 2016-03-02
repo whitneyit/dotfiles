@@ -11,12 +11,21 @@ if [ "$($DOTFILES_DIRECTORY/bin/is_win)" == "yes" ]; then
 
 fi
 
+# Prepend cd to directory names automatically
+shopt -s autocd
+
 # Autocorrect typos in path names when using `cd`
 shopt -s cdspell
+
+# Save multi-line commands as one command
+shopt -s cmdhist
 
 # Check the window size after each command and, if necessary, update the values
 # of LINES and COLUMNS.
 shopt -s checkwinsize
+
+# Correct spelling errors during tab-completion
+shopt -s dirspell
 
 # Append to the Bash history file, rather than overwriting it
 shopt -s histappend

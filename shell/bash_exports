@@ -10,11 +10,14 @@ export HISTCONTROL=ignoreboth
 
 # Increase the maximum number of lines contained in the history file
 # (default is 500)
-export HISTFILESIZE=10000
+export HISTFILESIZE=500000
+
+# Don't record some commands
+export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history"
 
 # Increase the maximum number of commands to remember
 # (default is 500)
-export HISTSIZE=10000
+export HISTSIZE=100000
 
 # This gives history entries a matching timestamp
 export HISTTIMEFORMAT="%Y-%m-%d %T  "
@@ -29,6 +32,9 @@ export LC_ALL="C"
 # Make new shells get the history lines from all previous
 # shells instead of the default "last window closed" history
 export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+
+# Automatically trim long paths in the prompt (requires Bash 4.x)
+export PROMPT_DIRTRIM=5
 
 # Fix git dates issues with windows
 if [ $($DOTFILES_DIRECTORY/bin/is_win) == "yes" ]; then

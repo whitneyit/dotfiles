@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+function reset_chmod() {
+    find $(realpath $1) -type $2 \
+        -not -path "$(realpath .git)/*" \
+        -not -path "$(realpath .sass-cache)/*" \
+        -not -path "$(realpath bower_components)/*" \
+        -not -path "$(realpath coverage)/*" \
+        -not -path "$(realpath dist)/*" \
+        -not -path "$(realpath docs)/*" \
+        -not -path "$(realpath jspm_packages)/*" \
+        -not -path "$(realpath node_modules)/*" \
+        -not -path "$(realpath reports)/*" \
+        -not -path "$(realpath typings)/*" \
+        -not -perm $3 \
+        -exec chmod $3 {} \+;
+}
+
+reset_chmod ${1:-"$PWD"} "d" 755;
+reset_chmod ${1:-"$PWD"} "f" 644;
+
+# vim: set syn=sh :

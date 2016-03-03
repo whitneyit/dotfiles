@@ -141,14 +141,14 @@
 			<value name="UserScreenTransparent" type="hex" data="00"/>
 			<value name="ColorKeyTransparent" type="hex" data="00"/>
 			<value name="ColorKeyValue" type="dword" data="00010101"/>
-			<value name="UseCurrentSizePos" type="hex" data="00"/>
-			<value name="AutoSaveSizePos" type="hex" data="00"/>
+			<value name="UseCurrentSizePos" type="hex" data="01"/>
+			<value name="AutoSaveSizePos" type="hex" data="01"/>
 			<value name="Cascaded" type="hex" data="01"/>
 			<value name="IntegralSize" type="hex" data="00"/>
-			<value name="WindowMode" type="dword" data="00000520"/>
+			<value name="WindowMode" type="dword" data="0000051f"/>
 			<value name="ConWnd X" type="long" data="0"/>
 			<value name="ConWnd Y" type="long" data="0"/>
-			<value name="LastMonitor" type="string" data="-1280,0,0,1024"/>
+			<value name="LastMonitor" type="string" data="0,0,1280,984"/>
 			<value name="ConWnd Width" type="dword" data="00000050"/>
 			<value name="ConWnd Height" type="dword" data="00000017"/>
 			<value name="16bit Height" type="ulong" data="0"/>
@@ -476,7 +476,7 @@
 				<value name="Key.TileToRight" type="dword" data="00005b27"/>
 				<value name="Key.JumpPrevMonitor" type="dword" data="00105b25"/>
 				<value name="Key.JumpNextMonitor" type="dword" data="00105b27"/>
-				<value name="Key.FullScreen" type="dword" data="00000000"/>
+				<value name="Key.FullScreen" type="dword" data="8080807a"/>
 				<value name="Key.SysMenu" type="dword" data="00001220"/>
 				<value name="Key.SysMenu2" type="dword" data="00001102"/>
 				<value name="Key.DebugProcess" type="dword" data="00105b44"/>

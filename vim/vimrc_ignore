@@ -6,6 +6,7 @@ set wildignore+=*/.vagrant/**
 set wildignore+=*/bower_components/**
 set wildignore+=*/jspm_packages/**
 set wildignore+=*/node_modules/**
+set wildignore+=*/typings/**
 
 " Files
 set wildignore+=*.sublime-workspace
@@ -18,4 +19,4 @@ set wildignore+=*.DS_Store
 set wildignore+=*Thumbs.db
 
 " Nerdtree specific ignore
-let NERDTreeIgnore = ['^.git$', '^.sass-cache$', '^.tsc$', '^.vagrant$', '^bower_components$', '^jspm_packages$', '^node_modules$', '.sublime-workspace$', '^firebase-debug.log$', '^npm-debug.log$', '^phantomjsdriver.log$', '^.DS_Store$', '^Thumbs.db$']
+let NERDTreeIgnore = ['^.git$', '^.sass-cache$', '^.tsc$', '^.vagrant$', '^bower_components$', '^jspm_packages$', '^node_modules$', '^typings$', '.sublime-workspace$', '^firebase-debug.log$', '^npm-debug.log$', '^phantomjsdriver.log$', '^.DS_Store$', '^Thumbs.db$']

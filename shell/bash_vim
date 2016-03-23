@@ -5,6 +5,11 @@ if [ $($DOTFILES_DIRECTORY/bin/is_win) == "yes" ]; then
     export VIM_BACKGROUND="dark"
     export VIM_THEME="NONE"
 
+# If no base16 theme has been set, don't set a theme for vim
+elif [ -z "$BASE16_THEME" ]; then
+    export VIM_BACKGROUND="dark"
+    export VIM_THEME="NONE"
+
 # Everyone else gets the default theme
 else
     export VIM_BACKGROUND="dark"

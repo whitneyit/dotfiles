@@ -31,8 +31,10 @@ nnoremap <leader>w :w<CR>
 nnoremap <leader>W :wq!<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>Q :q!<CR>
-nnoremap <leader>e :qa<CR>
-nnoremap <leader>E :qa!<CR>
+
+" Reload the file quickly
+nnoremap <leader>e :e<CR>
+nnoremap <leader>E :e!<CR>
 
 " Select all text on the page
 nnoremap <leader>a gg0vG$

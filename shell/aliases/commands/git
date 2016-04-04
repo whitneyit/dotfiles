@@ -73,10 +73,10 @@ alias            ghd="git stash drop"
 __git_complete   ghd _git_stash
 alias            ghp="git stash pop"
 __git_complete   ghp _git_stash
-alias            ghs="git stash show"
-__git_complete   ghs _git_stash
-alias           ghsd="git stash show --patch"
-__git_complete  ghsd _git_stash
+alias           ghsa="git stash list --stat                      --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %>(14)%ar] %C(cyan)%ae %C(reset)%s%C(white)%d'"
+__git_complete  ghsa _git_stash
+alias          ghsda="git stash list --patch                     --date=iso --pretty=format:'%C(yellow)%h %C(green)[%ad | %>(14)%ar] %C(cyan)%ae %C(reset)%s%C(white)%d'"
+__git_complete ghsda _git_stash
 alias            gin="git init"
 __git_complete   gin _git_init
 alias             gf="git fetch --progress --verbose"
@@ -401,6 +401,16 @@ alias           grfg="grfga -10"
 __git_complete  grfg _git_log
 alias          grfg1="grfga -1"
 __git_complete grfg1 _git_log
+
+# Stash shortcuts
+alias            ghs="ghsa -10"
+__git_complete   ghs _git_stash
+alias           ghs1="ghsa -1"
+__git_complete  ghs1 _git_stash
+alias           ghsd="ghsda -10"
+__git_complete  ghsd _git_stash
+alias          ghsd1="ghsda -1"
+__git_complete ghsd1 _git_stash
 
 # Here we protect against typos
 alias           gacm="gcma"

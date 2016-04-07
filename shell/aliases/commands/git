@@ -67,7 +67,7 @@ alias           gdsl="git diff --name-only --staged"
 __git_complete  gdsl _git_diff
 alias            gdt="git difftool"
 __git_complete   gdt _git_difftool
-alias             gh="git stash"
+alias             gh="git stash save"
 __git_complete    gh _git_stash
 alias            ghd="git stash drop"
 __git_complete   ghd _git_stash

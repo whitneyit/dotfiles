@@ -73,10 +73,12 @@ alias            ghd="git stash drop"
 __git_complete   ghd _git_stash
 alias            ghp="git stash pop"
 __git_complete   ghp _git_stash
-alias           ghsa="git stash list --stat                      --pretty=format:'%C(yellow)%h %C(green)[%ad | %>(14)%ar] %C(cyan)%ae %C(reset)%s%C(white)%d'"
-__git_complete  ghsa _git_stash
-alias          ghsda="git stash list --patch                     --pretty=format:'%C(yellow)%h %C(green)[%ad | %>(14)%ar] %C(cyan)%ae %C(reset)%s%C(white)%d'"
-__git_complete ghsda _git_stash
+alias           ghla="git stash list                             --pretty=format:'%C(yellow)%h %C(green)[%ai | %>(14)%ar] %C(blue)%gd %C(cyan)%ae %C(reset)%s%C(white)%d'"
+__git_complete  ghla _git_stash
+alias          ghlda="git stash list                     --patch --pretty=format:'%C(yellow)%h %C(green)[%ai | %>(14)%ar] %C(blue)%gd %C(cyan)%ae %C(reset)%s%C(white)%d'"
+__git_complete ghlda _git_stash
+alias          ghlsa="git stash list                     --stat  --pretty=format:'%C(yellow)%h %C(green)[%ai | %>(14)%ar] %C(blue)%gd %C(cyan)%ae %C(reset)%s%C(white)%d'"
+__git_complete ghlsa _git_stash
 alias            gin="git init"
 __git_complete   gin _git_init
 alias             gf="git fetch --progress --verbose"
@@ -403,14 +405,18 @@ alias          grfg1="grfga -1"
 __git_complete grfg1 _git_log
 
 # Stash shortcuts
-alias            ghs="ghsa -10"
-__git_complete   ghs _git_stash
-alias           ghs1="ghsa -1"
-__git_complete  ghs1 _git_stash
-alias           ghsd="ghsda -10"
-__git_complete  ghsd _git_stash
-alias          ghsd1="ghsda -1"
-__git_complete ghsd1 _git_stash
+alias            ghl="ghla -10"
+__git_complete   ghl _git_stash
+alias           ghl1="ghla -1"
+__git_complete  ghl1 _git_stash
+alias           ghld="ghlda -10"
+__git_complete  ghld _git_stash
+alias          ghld1="ghlda -1"
+__git_complete ghld1 _git_stash
+alias           ghls="ghlsa -10"
+__git_complete  ghls _git_stash
+alias          ghls1="ghlsa -1"
+__git_complete ghls1 _git_stash
 
 # Here we protect against typos
 alias           gacm="gcma"

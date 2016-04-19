@@ -15,9 +15,13 @@ alias nud="npm uninstall --save-dev"
 alias nug="npm uninstall --global"
 
 nv() {
-    echo nvm version $(nvm --version)
-    echo node version $(node --version)
-    echo npm version $(npm --version)
+    if [ "$(type -P nvm)" ]; then
+        echo "nvm (windows) version $(nvm version)"
+    else
+        echo "nvm version $(nvm --version)"
+    fi
+    echo "node version $(node --version)"
+    echo "npm version $(npm --version)"
 }
 
 ngp() {

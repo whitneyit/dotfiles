@@ -1,0 +1,154 @@
+#!/usr/bin/env bash
+
+# /etc/init.d/xvfb_daemon
+# Xvfb startup script.
+# Tom Meier <tom@venombytes.com>
+#
+### BEGIN INIT INFO
+# Provides:          xvfb
+# Short-Description: Start/stop/restart daemon
+# Description:       Controls the Xvfb daemon which starts/stops the X Virtual Framebuffer server
+### END INIT INFO
+
+DESC="Xvfb Virtual Framebuffer Server"
+NAME=xvfb_daemon
+SCRIPTNAME=/etc/init.d/$NAME
+CURRENT_USER=`whoami`
+
+PROG="Xvfb"
+PROG_PATH=/usr/bin/$PROG
+DISPLAY_NUMBER=99
+SCREEN_NUMBER=0
+
+PROG_OPTIONS=":$DISPLAY_NUMBER -screen $SCREEN_NUMBER 1024x768x24 -ac -pn +extension RANDR +render -noreset"
+PROG_OUTPUT="/tmp/Xvfb.out"
+PIDFILE=/tmp/xvfb.pid
+
+DAEMON=/usr/bin/daemon
+DAEMON_ARGS="--name=$NAME --inherit --env=RAILS_ENV=$RAILS_ENV --output=$PROG_OUTPUT --pidfile=$PIDFILE"
+
+[ "${NETWORKING}" = "no" ] && exit 0
+
+# Verify that all xvfb processes have been shutdown
+# and if not, then do killall for them
+get_running()
+{
+    return `ps --no-headers -f | egrep -e $1 | grep -c . `
+}
+
+force_stop()
+{
+    stop_program=$1
+    if [ -x /usr/bin/killall ]; then
+        get_running $1
+        if [ $? -ne 0 ]; then
+            echo "Stopping $stop_program"
+            killall -u $CURRENT_USER $stop_program || return 3
+        fi
+    else
+        echo "Error: Could not find /bin/killall. Cannot stop $stop_program."
+    fi
+}
+
+# Get the status of the daemon process
+get_daemon_status()
+{
+    $DAEMON $DAEMON_ARGS --running || return 1
+}
+
+
+#
+# Function that starts the daemon/service
+#
+do_start()
+{
+  # Return
+  #   0 if daemon has been started
+  #   1 if daemon was already running
+  #   2 if daemon could not be started
+  $DAEMON $DAEMON_ARGS --running && return 1
+
+  # --user in daemon doesn't prepare environment variables like HOME, USER, LOGNAME or USERNAME,
+  # so we let su do so for us now
+  $DAEMON $DAEMON_ARGS -- $PROG_PATH $PROG_OPTIONS || return 2
+}
+
+
+#
+# Function that stops the daemon/service
+#
+do_stop()
+{
+  # Return
+  #   0 if daemon has been stopped
+  #   1 if daemon was already stopped
+  #   2 if daemon could not be stopped
+  #   other if a failure occurred
+  get_daemon_status
+  case "$?" in
+      0)
+        $DAEMON $DAEMON_ARGS --stop || return 2
+        # wait for the process to really terminate
+        for n in 1 2 3 4 5; do
+            sleep 1
+            $DAEMON $DAEMON_ARGS --running || break
+        done
+        if get_daemon_status; then
+            force_stop $PROG || return 3
+        fi
+        ;;
+      *)
+        force_stop $PROG || return 3
+        ;;
+  esac
+
+  # Many daemons don't delete their pidfiles when they exit.
+  rm -f $PIDFILE
+  return 0
+}
+
+
+
+
+case "$1" in
+    start)
+      echo -n "Starting : X Virtual Frame Buffer on display $DISPLAY_NUMBER"
+      do_start
+      ;;
+    stop)
+      echo -n "Shutting down : X Virtual Frame Buffer"
+      do_stop
+      ;;
+    restart|reload)
+      $0 stop
+      $0 start
+      ;;
+    status)
+      get_daemon_status
+      case "$?" in
+         0) echo "$PROG is running with the pid `cat $PIDFILE`";;
+         *)
+              get_running $PROG
+              procs=$?
+              if [ $procs -eq 0 ]; then
+                  echo -n "$PROG is not running"
+                  if [ -f $PIDFILE ]; then
+                      echo ", but the pidfile ($PIDFILE) still exists"
+                  else
+                      echo
+                  fi
+
+              else
+                  echo "$procs instances of $PROG are running at the moment"
+                  echo "but the pidfile $PIDFILE is missing"
+              fi
+              ;;
+      esac
+      ;;
+    *)
+     echo $"Usage: $0 (start|stop|restart|reload|status)"
+     exit 1
+     ;;
+esac
+echo
+exit $RETVAL

@@ -364,8 +364,10 @@ if [ ! -d .git ]; then
         e_info "Installing packages..."
         sudo apt-get install -y \
             build-essential \
+            chromium-browser \
             curl \
             dos2unix \
+            daemon \
             gettext \
             git \
             lib32nss-mdns \
@@ -377,7 +379,8 @@ if [ ! -d .git ]; then
             unzip zip \
             vim \
             wget \
-            xclip
+            xclip \
+            xvfb
 
         # Install our ubuntu only packages
         if [ ! -d /home/vagrant ]; then

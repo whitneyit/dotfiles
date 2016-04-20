@@ -4,15 +4,23 @@
 if [ "$(is_win)" == "yes" ]; then
 
     # This needs to be updated to get the absolute windows style path
-    cygstart /cygdrive/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe "$1"
+    cygstart /cygdrive/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe "$@"
 
 # If we are running on Mac
 elif [ "$(is_mac)" == "yes" ]; then
-    open -a Google\ Chrome "$1"
+    open -a Google\ Chrome "$@"
+
+# Linux with Chrome installed
+elif [ -f /usr/bin/google-chrome ]; then
+    /usr/bin/google-chrome "$@"
+
+# Linux with Chromium installed
+elif [ -f /usr/bin/chromium-browser ]; then
+    /usr/bin/chromium-browser "$@"
 
 # If we are running on ChromeOS
-elif [ "$(is_chromeos)" == "yes" ]; then
-    /opt/google/chrome/chrome "$1"
+elif [ -f /opt/google/chrome/chrome ]; then
+    /opt/google/chrome/chrome "$@"
 
 # Everything else
 else

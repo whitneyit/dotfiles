@@ -255,6 +255,7 @@ if [ ! -d .git ]; then
             'bash'
             'bash-completion'
             'coreutils'
+            'ctags'
             'dos2unix'
             'findutils'
             'git'
@@ -366,6 +367,7 @@ if [ ! -d .git ]; then
             build-essential \
             chromium-browser \
             curl \
+            ctags \
             dos2unix \
             daemon \
             gettext \

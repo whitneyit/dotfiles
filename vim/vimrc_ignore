@@ -1,5 +1,4 @@
 " Directories
-set wildignore+=*/.git/**
 set wildignore+=*/.sass-cache/**
 set wildignore+=*/.tsc/**
 set wildignore+=*/.vagrant/**

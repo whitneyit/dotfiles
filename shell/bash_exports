@@ -4,6 +4,13 @@
 export EDITOR='vim'
 export VISUAL='vim'
 
+# Set the chrome bin
+if [ "$(type -P google-chrome)" ]; then
+    CHROME_BIN=google-chrome
+elif [ "$(type -P chromium-browser)" ]; then
+    CHROME_BIN=chromium-browser
+fi
+
 # Set the display
 export DISPLAY=:99
 

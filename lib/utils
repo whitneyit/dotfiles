@@ -168,7 +168,6 @@ function link_files() {
     link "$1/shell/dir_colors"      "$TARGET_LINK_DIR/.dir_colors"
     link "$1/shell/fonts_conf"      "$TARGET_LINK_DIR/.fonts.conf"
     link "$1/shell/inputrc"         "$TARGET_LINK_DIR/.inputrc"
-    link "$1/shell/keys"            "$TARGET_LINK_DIR/.keys"
     link "$1/shell/minttyrc"        "$TARGET_LINK_DIR/.minttyrc"
     link "$1/shell/profile"         "$TARGET_LINK_DIR/.profile"
     link "$1/shell/wgetrc"          "$TARGET_LINK_DIR/.wgetrc"
@@ -180,6 +179,7 @@ function link_files() {
     # the repo.
     cp   "$1/shell/bash_proxy"      "$TARGET_LINK_DIR/.bash_proxy"
     cp   "$1/shell/editorconfig"    "$TARGET_LINK_DIR/.editorconfig"
+    cp   "$1/shell/keys"            "$TARGET_LINK_DIR/.keys"
     cp   "$1/git/gitconfig"         "$TARGET_LINK_DIR/.gitconfig"
     cp   "$1/npm/npmrc"             "$TARGET_LINK_DIR/.npmrc"
 
@@ -194,6 +194,7 @@ function link_files() {
         chgrp Users "$TARGET_LINK_DIR/.bash_proxy"
         chgrp Users "$TARGET_LINK_DIR/.editorconfig"
         chgrp Users "$TARGET_LINK_DIR/.gitconfig"
+        chgrp Users "$TARGET_LINK_DIR/.keys"
         chgrp Users "$TARGET_LINK_DIR/.npmrc"
 
     # And now `vagrant` specific links
@@ -202,6 +203,7 @@ function link_files() {
         chown vagrant:vagrant "$TARGET_LINK_DIR/.bash_proxy"
         chown vagrant:vagrant "$TARGET_LINK_DIR/.editorconfig"
         chown vagrant:vagrant "$TARGET_LINK_DIR/.gitconfig"
+        chown vagrant:vagrant "$TARGET_LINK_DIR/.keys"
         chown vagrant:vagrant "$TARGET_LINK_DIR/.npmrc"
 
     fi
@@ -210,6 +212,7 @@ function link_files() {
     chmod 644 "$TARGET_LINK_DIR/.bash_proxy"
     chmod 644 "$TARGET_LINK_DIR/.editorconfig"
     chmod 644 "$TARGET_LINK_DIR/.gitconfig"
+    chmod 644 "$TARGET_LINK_DIR/.keys"
     chmod 644 "$TARGET_LINK_DIR/.npmrc"
 
 }

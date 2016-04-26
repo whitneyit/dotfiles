@@ -82,6 +82,9 @@
     ignore = dirty
     path = vim/bundle/vim-indent-guides
     url = https://github.com/nathanaelkane/vim-indent-guides.git
+[submodule "vim/bundle/vim-javascript"]
+    path = vim/bundle/vim-javascript
+    url = https://github.com/pangloss/vim-javascript
 [submodule "vim/bundle/vim-json"]
     ignore = dirty
     path = vim/bundle/vim-json

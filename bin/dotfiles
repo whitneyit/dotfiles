@@ -225,6 +225,29 @@ if [ ! -d .git ]; then
     e_info "Updating origin url..."
     git remote set-url origin git@github.com:whitneyit/dotfiles.git
 
+    # Ensure that we have and own the bin and go folders
+
+    # `is_cygwin`
+    if [ "$(uname -s | grep -c Cygwin)" -gt 0 ]; then
+        mkdir -p /usr/local/{bin,go}
+        chgrp Users "/usr/local/bin"
+        chgrp Users "/usr/local/go"
+
+    # `is_vagrant`
+    elif [ -d /home/vagrant ]; then
+        sudo mkdir -p /usr/local/{bin,go}
+        sudo chown -R vagrant:vagrant "/usr/local/bin"
+        sudo chown -R vagrant:vagrant "/usr/local/go"
+
+    # Everyone else
+    else
+        e_info "Please enter your password to change ownership of /usr/local..."
+        sudo -v
+        sudo mkdir -p /usr/local/{bin,go}
+        sudo chown -R `whoami` "/usr/local/bin"
+        sudo chown -R `whoami` "/usr/local/go"
+    fi
+
     # `is_mac`
     # Check to see if we are running on a Mac
     if [ "$(uname -s | grep -c Darwin)" -gt 0 ]; then
@@ -486,29 +509,6 @@ if [ ! -d .git ]; then
 
         fi
 
-    fi
-
-    # Ensure that we have and own the bin and go folders
-
-    # `is_cygwin`
-    if [ "$(uname -s | grep -c Cygwin)" -gt 0 ]; then
-        mkdir -p /usr/local/{bin,go}
-        chgrp Users "/usr/local/bin"
-        chgrp Users "/usr/local/go"
-
-    # `is_vagrant`
-    elif [ -d /home/vagrant ]; then
-        sudo mkdir -p /usr/local/{bin,go}
-        sudo chown -R vagrant:vagrant "/usr/local/bin"
-        sudo chown -R vagrant:vagrant "/usr/local/go"
-
-    # Everyone else
-    else
-        e_info "Please enter your password to change ownership of /usr/local..."
-        sudo -v
-        sudo mkdir -p /usr/local/{bin,go}
-        sudo chown -R `whoami` "/usr/local/bin"
-        sudo chown -R `whoami` "/usr/local/go"
     fi
 
     # And here we confirm to the User that we have completed Installing the

@@ -202,6 +202,9 @@ set copyindent
 " just add to it. Eg an indent of 10 spaces will become 12
 set shiftround
 
+" Enable folding
+set foldmethod=syntax
+
 " Timeout stuff
 set timeout
 set timeoutlen=300

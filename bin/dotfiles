@@ -98,7 +98,7 @@ cd "$DOTFILES_DIRECTORY"
 if [ ! -d .git ]; then
 
     # Create our required folders
-    mkdir -p "$HOME/.config" "$HOME/.ssh" "$HOME/Archive" "$HOME/Code" "$HOME/Dev" "$HOME/go" "$HOME/OSS" "$HOME/Work"
+    mkdir -p "$HOME/.config" "$HOME/.ssh" "$HOME/Archive" "$HOME/Code" "$HOME/Dev" "$HOME/go" "$HOME/OSS" /tmp "$HOME/Work"
 
     # Here we make sure that we have a `~/.bash_history` file.
     if [ ! -f "$HOME/.bash_history" ]; then
@@ -138,6 +138,7 @@ if [ ! -d .git ]; then
         chgrp -R Users "$HOME/go"
         chgrp -R Users "$HOME/OSS"
         chgrp -R Users "$HOME/Work"
+        chgrp -R Users "/tmp"
         chgrp Users "$HOME/.bash_history"
         chgrp Users "$HOME/.config"
         chgrp Users "$HOME/.prev_dir"
@@ -153,6 +154,7 @@ if [ ! -d .git ]; then
         sudo chown -R vagrant:vagrant "$HOME/go"
         sudo chown -R vagrant:vagrant "$HOME/OSS"
         sudo chown -R vagrant:vagrant "$HOME/Work"
+        sudo chown -R vagrant:vagrant "/tmp"
         sudo chown vagrant:vagrant "$HOME/.bash_history"
         sudo chown vagrant:vagrant "$HOME/.config"
         sudo chown vagrant:vagrant "$HOME/.prev_dir"
@@ -168,6 +170,7 @@ if [ ! -d .git ]; then
         chown -R `whoami` "$HOME/go"
         chown -R `whoami` "$HOME/OSS"
         chown -R `whoami` "$HOME/Work"
+        chown -R `whoami` "/tmp"
         chown `whoami` "$HOME/.bash_history"
         chown `whoami` "$HOME/.config"
         chown `whoami` "$HOME/.prev_dir"

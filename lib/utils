@@ -6,6 +6,11 @@ DOTFILES_BACKUP_DIRECTORY="backups"
 # This is the location in which we will be linking our files
 TARGET_LINK_DIR=$HOME
 
+# The location of our daemon files
+declare -a my_daemon_paths=(
+    $DOTFILES_DIRECTORY/init.d/*
+)
+
 # If we are in a vagrant instance, we will manually override that link here
 if [ -d /home/vagrant ]; then
     TARGET_LINK_DIR="/home/vagrant"
@@ -28,9 +33,10 @@ function backup_prev() {
     fi
 
     # Create the timestamped backup directory. We use `-p` to ensure that all
-    # the directories leading up to this one is made correctly.
-    mkdir -p "$BACKUP_DIRECTORY"
-    chmod 755 "$BACKUP_DIRECTORY"
+    # the directories leading up to this one is made correctly. At the same time
+    # we also create any other directories that we may need.
+    mkdir -p "$BACKUP_DIRECTORY/init.d"
+    chmod -R 755 "$BACKUP_DIRECTORY"
 
     # Test to make sure that our directory was created
     if [ ! -d "$BACKUP_DIRECTORY" ]; then
@@ -68,7 +74,7 @@ function backup_prev() {
         "$TARGET_LINK_DIR/.Xresources"
     )
 
-    # Move all the matching items
+    # Backup the items that we are going to link
     for item in "${items_to_backup[@]}"
     do
 
@@ -76,6 +82,21 @@ function backup_prev() {
         if [ -f $item ] || [ -d $item ]; then
             e_info "Backing up item \"${item}\""
             mv $item "$BACKUP_DIRECTORY"
+        fi
+
+    done;
+
+    # Backup the existing daemons
+    for my_daemon_path in "${my_daemon_paths[@]}"
+    do
+
+        # Extract the daemon name
+        my_daemon="$(basename "$my_daemon_path")"
+
+        # Backup the daemons if they exist
+        if [ -f "/etc/init.d/$my_daemon" ]; then
+            e_info "Backing up daemon \"/etc/init.d/${my_daemon}\""
+            mv "/etc/init.d/$my_daemon" "$BACKUP_DIRECTORY/init.d/$my_daemon"
         fi
 
     done;
@@ -97,6 +118,10 @@ function backup_prev() {
         # And for `vagrant`.
         elif [ -d /home/vagrant ]; then
             chown -R vagrant:vagrant "$BACKUP_DIRECTORY"
+
+        # Everyone else
+        else
+            chown -R `whoami` "$BACKUP_DIRECTORY"
         fi
 
         # Finally inform the user where the backup is located.
@@ -190,9 +215,8 @@ function link_files() {
 
         # Copy in our ConEmu settings
         cp "$1/shell/conemu.xml" "$APPDATA/ConEmu.xml"
-
-        # Now change the group of the files
         chgrp Users "$APPDATA/ConEmu.xml"
+
         chgrp Users "$TARGET_LINK_DIR/.bash_proxy"
         chgrp Users "$TARGET_LINK_DIR/.editorconfig"
         chgrp Users "$TARGET_LINK_DIR/.gitconfig"
@@ -208,6 +232,15 @@ function link_files() {
         chown vagrant:vagrant "$TARGET_LINK_DIR/.keys"
         chown vagrant:vagrant "$TARGET_LINK_DIR/.npmrc"
 
+    # Everyone else
+    else
+
+        chown `whoami` "$TARGET_LINK_DIR/.bash_proxy"
+        chown `whoami` "$TARGET_LINK_DIR/.editorconfig"
+        chown `whoami` "$TARGET_LINK_DIR/.gitconfig"
+        chown `whoami` "$TARGET_LINK_DIR/.keys"
+        chown `whoami` "$TARGET_LINK_DIR/.npmrc"
+
     fi
 
     # Now lets change the file permissions
@@ -216,6 +249,30 @@ function link_files() {
     chmod 644 "$TARGET_LINK_DIR/.gitconfig"
     chmod 644 "$TARGET_LINK_DIR/.keys"
     chmod 644 "$TARGET_LINK_DIR/.npmrc"
+
+    # Copy in our daemon files
+    for my_daemon_path in "${my_daemon_paths[@]}"
+    do
+
+        # Extract the daemon name
+        my_daemon="$(basename "$my_daemon_path")"
+
+        # Copy in our new daemons
+        cp "$DOTFILES_DIRECTORY/init.d/$my_daemon" "/etc/init.d/$my_daemon"
+
+        # Set the ownership
+        if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
+            chgrp Users "/etc/init.d/$my_daemon"
+        elif [ -d /home/vagrant ]; then
+            chown vagrant:vagrant "/etc/init.d/$my_daemon"
+        else
+            chown `whoami` "/etc/init.d/$my_daemon"
+        fi
+
+        # And the file permissions
+        chmod 755 "/etc/init.d/$my_daemon"
+
+    done
 
 }
 

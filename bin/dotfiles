@@ -98,7 +98,7 @@ cd "$DOTFILES_DIRECTORY"
 if [ ! -d .git ]; then
 
     # Create our required folders
-    mkdir -p "$HOME/.config" "$HOME/.ssh" "$HOME/Archive" "$HOME/Code" "$HOME/Dev" "$HOME/go" "$HOME/OSS" /tmp "$HOME/Work"
+    mkdir -p /etc/init.d /tmp "$HOME/.config" "$HOME/.ssh" "$HOME/Archive" "$HOME/Code" "$HOME/Dev" "$HOME/go" "$HOME/OSS" "$HOME/Work"
 
     # Here we make sure that we have a `~/.bash_history` file.
     if [ ! -f "$HOME/.bash_history" ]; then
@@ -131,6 +131,8 @@ if [ ! -d .git ]; then
     # `is_cygwin`
     if [ "$(uname -s | grep -c Cygwin)" -gt 0 ]; then
         chgrp -R Users .
+        chgrp -R Users "/etc/init.d"
+        chgrp -R Users "/tmp"
         chgrp -R Users "$HOME/.ssh"
         chgrp -R Users "$HOME/Archive"
         chgrp -R Users "$HOME/Code"
@@ -138,7 +140,6 @@ if [ ! -d .git ]; then
         chgrp -R Users "$HOME/go"
         chgrp -R Users "$HOME/OSS"
         chgrp -R Users "$HOME/Work"
-        chgrp -R Users "/tmp"
         chgrp Users "$HOME/.bash_history"
         chgrp Users "$HOME/.config"
         chgrp Users "$HOME/.prev_dir"
@@ -147,6 +148,8 @@ if [ ! -d .git ]; then
     # `is_vagrant`
     elif [ -d /home/vagrant ]; then
         sudo chown -R vagrant:vagrant .
+        sudo chown -R vagrant:vagrant "/etc/init.d"
+        sudo chown -R vagrant:vagrant "/tmp"
         sudo chown -R vagrant:vagrant "$HOME/.ssh"
         sudo chown -R vagrant:vagrant "$HOME/Archive"
         sudo chown -R vagrant:vagrant "$HOME/Code"
@@ -154,7 +157,6 @@ if [ ! -d .git ]; then
         sudo chown -R vagrant:vagrant "$HOME/go"
         sudo chown -R vagrant:vagrant "$HOME/OSS"
         sudo chown -R vagrant:vagrant "$HOME/Work"
-        sudo chown -R vagrant:vagrant "/tmp"
         sudo chown vagrant:vagrant "$HOME/.bash_history"
         sudo chown vagrant:vagrant "$HOME/.config"
         sudo chown vagrant:vagrant "$HOME/.prev_dir"
@@ -163,6 +165,8 @@ if [ ! -d .git ]; then
     # Everyone else
     else
         chown -R `whoami` .
+        chown -R `whoami` "/etc/init.d"
+        chown -R `whoami` "/tmp"
         chown -R `whoami` "$HOME/.ssh"
         chown -R `whoami` "$HOME/Archive"
         chown -R `whoami` "$HOME/Code"
@@ -170,7 +174,6 @@ if [ ! -d .git ]; then
         chown -R `whoami` "$HOME/go"
         chown -R `whoami` "$HOME/OSS"
         chown -R `whoami` "$HOME/Work"
-        chown -R `whoami` "/tmp"
         chown `whoami` "$HOME/.bash_history"
         chown `whoami` "$HOME/.config"
         chown `whoami` "$HOME/.prev_dir"

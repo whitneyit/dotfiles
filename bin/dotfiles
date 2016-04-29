@@ -464,7 +464,11 @@ if [ ! -d .git ]; then
         export GOROOT="/usr/local/go"
 
         # Install hub
-        /usr/local/go/bin/go get github.com/github/hub
+        git clone https://github.com/github/hub.git /tmp/hub
+        cd /tmp/hub
+        ./script/build
+        cp bin/hub /usr/local/bin/hub
+        cd "$DOTFILES_DIRECTORY"
 
     fi
 

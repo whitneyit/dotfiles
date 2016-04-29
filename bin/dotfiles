@@ -513,7 +513,7 @@ if [ ! -d .git ]; then
             npm install --global \
                 bower \
                 firebase-tools \
-                gulpjs/gulp-cli#4.0 \
+                gulp-cli \
                 grunt-cli \
                 httpster \
                 jspm \

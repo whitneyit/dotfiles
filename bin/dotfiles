@@ -521,6 +521,7 @@ if [ ! -d .git ]; then
                 httpster \
                 jspm \
                 karma-cli \
+                phantomjs-prebuilt \
                 typescript \
                 typings
 

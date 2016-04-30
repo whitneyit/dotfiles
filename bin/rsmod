@@ -2,16 +2,16 @@
 
 function reset_chmod() {
     find $(realpath $1) -type $2 \
-        -not -path "$(realpath .git)/*" \
-        -not -path "$(realpath .sass-cache)/*" \
-        -not -path "$(realpath bower_components)/*" \
-        -not -path "$(realpath coverage)/*" \
-        -not -path "$(realpath dist)/*" \
-        -not -path "$(realpath docs)/*" \
-        -not -path "$(realpath jspm_packages)/*" \
-        -not -path "$(realpath node_modules)/*" \
-        -not -path "$(realpath reports)/*" \
-        -not -path "$(realpath typings)/*" \
+        -not -path "$(realpath -s .git)/*" \
+        -not -path "$(realpath -s .sass-cache)/*" \
+        -not -path "$(realpath -s bower_components)/*" \
+        -not -path "$(realpath -s coverage)/*" \
+        -not -path "$(realpath -s dist)/*" \
+        -not -path "$(realpath -s docs)/*" \
+        -not -path "$(realpath -s jspm_packages)/*" \
+        -not -path "$(realpath -s node_modules)/*" \
+        -not -path "$(realpath -s reports)/*" \
+        -not -path "$(realpath -s typings)/*" \
         -not -perm $3 \
         -exec chmod $3 {} \+;
 }

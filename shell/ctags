@@ -1,5 +1,25 @@
+--recurse=yes
+--tag-relative=yes
+
+--exclude=*.map
+--exclude=npm-debug.log
+--exclude=.git
+--exclude=.karma
+--exclude=.protractor
+--exclude=.sass-cache
+--exclude=bower_components
+--exclude=bundle
+--exclude=coverage
+--exclude=dist
+--exclude=docs
+--exclude=jspm_packages
+--exclude=node_modules
+--exclude=reports
+--exclude=typings
+--exclude=vendor"
+
 --langdef=TypeScript
---langmap=typescript:.ts
+--langmap=TypeScript:.ts
 --regex-typescript=/^[ \t]*(export)?[ \t]*class[ \t]+([a-zA-Z0-9_]+)/\2/c,classes/
 --regex-typescript=/^[ \t]*(export)?[ \t]*abstract class[ \t]+([a-zA-Z0-9_]+)/\2/a,abstract classes/
 --regex-typescript=/^[ \t]*(export)?[ \t]*module[ \t]+([a-zA-Z0-9_]+)/\2/n,modules/

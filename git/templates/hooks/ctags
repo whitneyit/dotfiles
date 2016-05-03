@@ -4,7 +4,7 @@
 set -e
 DIR="`git rev-parse --git-dir`"
 trap 'rm -f "$DIR/$$.tags"' EXIT
-git ls-files | ctags --tag-relative -L - -f"$DIR/$$.tags" --languages=-JavaScript,TypeScript
+git ls-files | ctags -L - -f "$DIR/$$.tags"
 mv "$DIR/$$.tags" "$DIR/tags"
 
 # vim: set syn=sh :

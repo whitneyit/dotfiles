@@ -405,9 +405,9 @@ if [ ! -d .git ]; then
             build-essential \
             chromium-browser \
             curl \
-            ctags \
             dos2unix \
             daemon \
+            exuberant-ctags \
             gettext \
             git \
             lib32nss-mdns \

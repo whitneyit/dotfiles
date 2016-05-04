@@ -1,6 +1,7 @@
 [user]
     name = James Whitney
     email = james@whitney.io
+    signingkey = CHANGE_ME # git config --global user.signingkey 1234ABCD
 
 [init]
     templatedir = ~/.git_templates
@@ -12,6 +13,9 @@
     excludesfile = ~/.gitignore_global
     filemode = true
     quotepath = false
+
+[commit]
+    gpgsign = true
 
 [credential]
     helper = store

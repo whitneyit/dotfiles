@@ -281,12 +281,6 @@ alias            gtl="git tag --list"
 __git_complete   gtl _git_tag
 alias             gv="git --version"
 
-# Aliases for custom aliases in $HOME/.gitconfig
-alias            gpr="git pr"
-alias           gprc="git pr-clean"
-alias             gs="git start"
-alias            gsc="git start-create"
-
 # Here we just define a few shortcuts to modify the author of a commit. This can
 # be used when you forget to setup the local author details
 alias           gcfa="git commit --amend --reset-author"

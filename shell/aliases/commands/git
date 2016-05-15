@@ -131,6 +131,14 @@ alias          glosa="git log                            --stat  --pretty=format
 __git_complete glosa _git_log
 alias           glua="git log --no-merges                        --pretty=format:'%C(yellow)%h %C(green)[%ai | %>(14)%ar] %C(cyan)%ae %C(reset)%s%C(white)%d' --author='`git config --get user.name`'"
 __git_complete  glua _git_log
+alias          gluca="git log --no-merges                        --pretty=format:'%C(yellow)%h %C(green)[%ai | %ar] %C(cyan)%ae %C(reset) %n%B' --author='`git config --get user.name`'"
+__git_complete gluca _git_log
+alias          gluda="git log --no-merges                --patch --pretty=format:'%C(yellow)%h %C(green)[%ai | %ar] %C(cyan)%ae %C(reset)%s%C(white)%d' --author='`git config --get user.name`'"
+__git_complete gluda _git_log
+alias          gluga="git log                            --graph --pretty=format:'%C(yellow)%h %C(green)[%ai | %ar] %C(cyan)%ae %C(reset)%s%C(white)%d' --author='`git config --get user.name`'"
+__git_complete gluga _git_log
+alias          gluda="git log --no-merges                --stat  --pretty=format:'%C(yellow)%h %C(green)[%ai | %ar] %C(cyan)%ae %C(reset)%s%C(white)%d' --author='`git config --get user.name`'"
+__git_complete glusa _git_log
 alias             gm="git merge --no-ff --progress --verbose"
 __git_complete    gm _git_merge
 alias            gma="git merge --abort"
@@ -339,10 +347,6 @@ alias            gls="glsa  -10"
 __git_complete   gls _git_log
 alias           gls1="glsa  -1"
 __git_complete  gls1 _git_log
-alias            glu="glua  -10"
-__git_complete   glu _git_log
-alias           glu1="glua  -1"
-__git_complete  glu1 _git_log
 
 # Incoming commits
 alias            gli="glia  -10"
@@ -379,6 +383,28 @@ alias           glog="gloga -10"
 __git_complete  glog _git_log
 alias          glog1="gloga -1"
 __git_complete glog1 _git_log
+
+# User commits
+alias            glu="glua  -10"
+__git_complete   glu _git_log
+alias           glu1="glua  -1"
+__git_complete  glu1 _git_log
+alias           gluc="gluca -10"
+__git_complete  gluc _git_log
+alias          gluc1="gluca -1"
+__git_complete gluc1 _git_log
+alias           glud="gluda -10"
+__git_complete  glud _git_log
+alias          glud1="gluda -1"
+__git_complete glud1 _git_log
+alias           glug="gluga -10"
+__git_complete  glug _git_log
+alias          glug1="gluga -1"
+__git_complete glug1 _git_log
+alias           glud="gluda -10"
+__git_complete  glus _git_log
+alias          glud1="gluda -1"
+__git_complete glus1 _git_log
 
 # Reflogs
 alias            grf="grfa  -10"
@@ -430,4 +456,4 @@ __git_complete glsga _git_log
 alias           grbl="gbrl"
 __git_complete  grbl _git_branch
 
-# vim: set tw=0:syn=sh :
+# vim: set cc=0:syn=sh :

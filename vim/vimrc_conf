@@ -228,8 +228,8 @@ set splitright
 " The comment below is required so that er can set the `End Of Line` character
 " to a `space`. If we didn't have the comment, the `editorconfig` plugin would
 " of stripped the trailing whitespace
-set listchars+=tab:▸~
-set listchars+=trail:·
+set listchars+=tab:>~
+set listchars+=trail:~
 set listchars+=nbsp:_
 set listchars+=eol:\  " DO NOT DELETE THIS COMMENT
 

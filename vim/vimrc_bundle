@@ -173,6 +173,8 @@ let g:NERDTreeMinimalUI = 0
 
 " Enable fancy arrows
 let g:NERDTreeDirArrows = 1
+let g:NERDTreeDirArrowExpandable = '+'
+let g:NERDTreeDirArrowCollapsible = '~'
 
 " Set default width for NERDTree panel
 let g:NERDTreeWinSize = 40

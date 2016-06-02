@@ -516,11 +516,12 @@ if [ ! -d .git ]; then
             npm install --global \
                 bower \
                 firebase-tools \
-                gulp-cli \
                 grunt-cli \
+                gulp-cli \
                 httpster \
                 jspm \
                 karma-cli \
+                npm-check \
                 phantomjs-prebuilt \
                 typescript \
                 typings

@@ -137,7 +137,7 @@ alias          gluda="git log --no-merges                --patch --pretty=format
 __git_complete gluda _git_log
 alias          gluga="git log                            --graph --pretty=format:'%C(yellow)%h %C(green)[%ai | %ar] %C(cyan)%ae %C(reset)%s%C(white)%d' --author='`git config --get user.name`'"
 __git_complete gluga _git_log
-alias          gluda="git log --no-merges                --stat  --pretty=format:'%C(yellow)%h %C(green)[%ai | %ar] %C(cyan)%ae %C(reset)%s%C(white)%d' --author='`git config --get user.name`'"
+alias          glusa="git log --no-merges                --stat  --pretty=format:'%C(yellow)%h %C(green)[%ai | %ar] %C(cyan)%ae %C(reset)%s%C(white)%d' --author='`git config --get user.name`'"
 __git_complete glusa _git_log
 alias             gm="git merge --no-ff --progress --verbose"
 __git_complete    gm _git_merge

@@ -11,6 +11,9 @@ elif [ "$(type -P chromium-browser)" ]; then
     CHROME_BIN=chromium-browser
 fi
 
+# http://bluebirdjs.com/docs/api/environment-variables.html
+export BLUEBIRD_DEBUG=0
+
 # Set the display
 export DISPLAY=:99
 

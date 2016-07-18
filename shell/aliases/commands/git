@@ -401,9 +401,9 @@ alias           glug="gluga -10"
 __git_complete  glug _git_log
 alias          glug1="gluga -1"
 __git_complete glug1 _git_log
-alias           glud="gluda -10"
+alias           glus="glusa -10"
 __git_complete  glus _git_log
-alias          glud1="gluda -1"
+alias          glus1="glusa -1"
 __git_complete glus1 _git_log
 
 # Reflogs

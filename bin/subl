@@ -10,15 +10,15 @@ if [ "$(is_win)" == "yes" ]; then
 
     # Version 3
     if [ -n "/cygdrive/c/Program\ Files/Sublime\ Text\ 3/sublime_text.exe" ]; then
-        /cygdrive/c/Program\ Files/Sublime\ Text\ 3/sublime_text.exe `cygpath -w $@` &
+        /cygdrive/c/Program\ Files/Sublime\ Text\ 3/sublime_text.exe `cygpath -w ${@-"$PWD"}` &
 
     # Version 2
     elif [ -n "/cygdrive/c/Program\ Files/Sublime\ Text\ 2/sublime_text.exe" ]; then
-        /cygdrive/c/Program\ Files/Sublime\ Text\ 2/sublime_text.exe `cygpath -w $@` &
+        /cygdrive/c/Program\ Files/Sublime\ Text\ 2/sublime_text.exe `cygpath -w ${@-"$PWD"}` &
 
     # Other
     elif [ -n "/cygdrive/c/Program\ Files/Sublime\ Text/sublime_text.exe" ]; then
-        /cygdrive/c/Program\ Files/Sublime\ Text/sublime_text.exe `cygpath -w $@` &
+        /cygdrive/c/Program\ Files/Sublime\ Text/sublime_text.exe `cygpath -w ${@-"$PWD"}` &
 
     # Not installed
     else
@@ -30,15 +30,15 @@ elif [ "$(is_mac)" == "yes" ]; then
 
     # Version 3
     if [ -n "/Applications/Sublime\ Text\ 3.app/Contents/SharedSupport/bin/subl" ]; then
-        /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl "$@"
+        /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl "${@-"$PWD"}"
 
     # Version 2
     elif [ -n "/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl" ]; then
-        /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl "$@"
+        /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl "${@-"$PWD"}"
 
     # Other
     elif [ -n "/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl" ]; then
-        /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl "$@"
+        /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl "${@-"$PWD"}"
 
     # Not installed
     else

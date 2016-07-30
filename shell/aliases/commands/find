@@ -1,9 +1,15 @@
 #!/usr/bin/env bash
 
-
-# Makes using `find` all that much easier.
 fnd() {
-    find * -not -path ".git/**" -not -path ".sass-cache/**" -not -path "bower_components/**" -not -path "coverage/**" -not -path "dist/**" -not -path "docs/**" -not -path "jspm_packages/**" -not -path "node_modules/**" -not -path "reports/**" -not -path "typings/**" "$@"
+    find *         -not -path ".git/**" -not -path ".sass-cache/**" -not -path "bower_components/**" -not -path "coverage/**" -not -path "dist/**" -not -path "docs/**" -not -path "jspm_packages/**" -not -path "node_modules/**" -not -path "reports/**" -not -path "typings/**" "$@"
+}
+
+fndd() {
+    find * -type d -not -path ".git/**" -not -path ".sass-cache/**" -not -path "bower_components/**" -not -path "coverage/**" -not -path "dist/**" -not -path "docs/**" -not -path "jspm_packages/**" -not -path "node_modules/**" -not -path "reports/**" -not -path "typings/**" "$@"
+}
+
+fndf() {
+    find * -type f -not -path ".git/**" -not -path ".sass-cache/**" -not -path "bower_components/**" -not -path "coverage/**" -not -path "dist/**" -not -path "docs/**" -not -path "jspm_packages/**" -not -path "node_modules/**" -not -path "reports/**" -not -path "typings/**" "$@"
 }
 
 # vim: set syn=sh :

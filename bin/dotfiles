@@ -514,13 +514,11 @@ if [ ! -d .git ]; then
 
             # Install our most used packages
             npm install --global \
-                bower \
                 firebase-tools \
-                grunt-cli \
                 gulp-cli \
                 httpster \
-                jspm \
                 karma-cli \
+                node-inspector \
                 np \
                 npm-check \
                 phantomjs-prebuilt \

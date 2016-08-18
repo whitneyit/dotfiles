@@ -19,10 +19,14 @@ alias           gbrl="git branch --all --verbose" # -a -v, -av
 __git_complete  gbrl _git_branch
 alias           gbrd="git branch --delete" # -d, or -D to ignore merge status
 __git_complete  gbrd _git_branch
+alias           gbrm="git branch -m" # no such thing as --move / --rename
+__git_complete  gbrm _git_branch
 alias          gbrdf="git branch -D" # Force delete
 __git_complete gbrdf _git_branch
 alias          gbrdr="git branch --delete --remote"
 __git_complete gbrdr _git_branch
+alias          gbrmf="git branch -M" # force move
+__git_complete gbrmf _git_branch
 alias            gcf="git config"
 __git_complete   gcf _git_config
 alias           gcfl="git config --list"

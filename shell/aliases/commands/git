@@ -33,8 +33,6 @@ alias            gcf="git config"
 __git_complete   gcf _git_config
 alias           gcfl="git config --list"
 __git_complete  gcfl _git_config
-alias          gcffm="git config core.fileMode false"
-__git_complete gcffm _git_config
 alias            gco="git checkout"
 __git_complete   gco _git_checkout
 alias           gcom="git checkout master"
@@ -49,9 +47,9 @@ alias           gcoa="git checkout ." # This is a fake alias to git checkout --a
 __git_complete  gcoa _git_checkout
 alias            gcl="git clone"
 __git_complete   gcl _git_clone
-alias            gcn="git clean -dfxn"
+alias            gcn="git clean -d -x --force --dry-run" # no such thing as --directories, -x ignores .gitignore
 __git_complete   gcn _git_clean
-alias           gcnf="git clean -dfx"
+alias           gcnf="git clean -d -x --force"
 __git_complete  gcnf _git_clean
 alias            gcm="git commit --verbose" # -v
 __git_complete   gcm _git_commit
@@ -295,19 +293,6 @@ alias            gtl="git tag --list"
 __git_complete   gtl _git_tag
 alias             gv="git --version"
 
-# Here we just define a few shortcuts to modify the author of a commit. This can
-# be used when you forget to setup the local author details
-alias           gcfa="git commit --amend --reset-author"
-__git_complete  gcfa _git_commit
-alias           gcfe="git config user.email "
-__git_complete  gcfe _git_config
-alias           gcfn="git config user.name "
-__git_complete  gcfn _git_config
-
-# A quick way to update the url of a repo
-alias           gcfo="git remote set-url origin "
-__git_complete  gcfo _git_remote
-
 # A way to see modified files
 alias            gmo="git status --porcelain | cut -c 4-"
 __git_complete   gmo _git_status
@@ -443,23 +428,5 @@ alias           ghls="ghlsa -10"
 __git_complete  ghls _git_stash
 alias          ghls1="ghlsa -1"
 __git_complete ghls1 _git_stash
-
-# Here we protect against typos
-alias           gacm="gcma"
-__git_complete  gacm _git_commit
-alias           gmca="gcma"
-__git_complete  gmca _git_commit
-alias           gcsm="gcms"
-__git_complete  gcsm _git_commit
-alias           gscm="gcms"
-__git_complete  gscm _git_commit
-alias           gmcs="gcms"
-__git_complete  gmcs _git_commit
-alias           glsg="glgs"
-__git_complete  glsg _git_log
-alias          glsga="glgsa"
-__git_complete glsga _git_log
-alias           grbl="gbrl"
-__git_complete  grbl _git_branch
 
 # vim: set cc=0:syn=sh :

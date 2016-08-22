@@ -13,10 +13,12 @@ alias            gap="git add --patch"
 __git_complete   gap _git_add
 alias            gbl="git blame --show-number --show-email"
 # No completion for `git blame`
-alias            gbr="git branch"
+alias            gbr="git branch --verbose" # -v
 __git_complete   gbr _git_branch
-alias           gbrl="git branch --all --verbose" # -a -v, -av
-__git_complete  gbrl _git_branch
+alias           gbra="git branch --verbose --all" # -v -a
+__git_complete  gbra _git_branch
+alias           gbrr="git branch --verbose --remote" # -v -r
+__git_complete  gbrr _git_branch
 alias           gbrd="git branch --delete" # -d, or -D to ignore merge status
 __git_complete  gbrd _git_branch
 alias           gbrm="git branch -m" # no such thing as --move / --rename

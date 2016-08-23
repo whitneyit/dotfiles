@@ -73,6 +73,8 @@ alias            gdt="git difftool"
 __git_complete   gdt _git_difftool
 alias             gh="git stash save"
 __git_complete    gh _git_stash
+alias            ghc="git stash clear"
+__git_complete   ghc _git_stash
 alias            ghd="git stash drop"
 __git_complete   ghd _git_stash
 alias            ghp="git stash pop"

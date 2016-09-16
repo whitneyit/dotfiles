@@ -113,6 +113,10 @@ alias               glfda="git log --no-merges                        --pretty=f
 __git_complete      glfda _git_log
 alias               glfma="git log --no-merges                        --pretty=format:'%C(yellow)%h %C(green)[%ai | %>(14)%ar] %C(cyan)%ae %C(reset)%s%C(white)%d' master.."
 __git_complete      glfma _git_log
+alias              glfoda="git log --no-merges                        --pretty=format:'%C(yellow)%h %C(green)[%ai | %>(14)%ar] %C(cyan)%ae %C(reset)%s%C(white)%d' origin/develop.."
+__git_complete     glfoda _git_log
+alias              glfoma="git log --no-merges                        --pretty=format:'%C(yellow)%h %C(green)[%ai | %>(14)%ar] %C(cyan)%ae %C(reset)%s%C(white)%d' origin/master.."
+__git_complete     glfoma _git_log
 alias                glga="git log                            --graph --pretty=format:'%C(yellow)%h %C(green)[%ai | %ar] %C(cyan)%ae %C(reset)%s%C(white)%d'"
 __git_complete       glga _git_log
 alias                glma="git log --merges                           --pretty=format:'%C(yellow)%h %C(green)[%ai | %>(14)%ar] %C(cyan)%ae %C(reset)%s%C(white)%d'"
@@ -328,6 +332,14 @@ alias                glfm="glfma -10"
 __git_complete       glfm _git_log
 alias               glfm1="glfma -1"
 __git_complete      glfm1 _git_log
+alias              glfod="glfoda -10"
+__git_complete     glfod _git_log
+alias             glfod1="glfoda -1"
+__git_complete    glfod1 _git_log
+alias              glfom="glfoma -10"
+__git_complete     glfom _git_log
+alias             glfom1="glfoma -1"
+__git_complete    glfom1 _git_log
 alias                 glg="glga  -10"
 __git_complete        glg _git_log
 alias                glg1="glga  -1"

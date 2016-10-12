@@ -5,430 +5,442 @@ if [ "$(type -P hub)" ]; then
     alias git="hub"
 fi
 
-alias             ga="git add --ignore-removal"
-__git_complete    ga _git_add
-alias            gaa="git add --all"
-__git_complete   gaa _git_add
-alias            gap="git add --patch"
-__git_complete   gap _git_add
-alias            gbl="git blame --show-number --show-email"
+alias                  ga="git add --ignore-removal"
+__git_complete         ga _git_add
+alias                 gaa="git add --all"
+__git_complete        gaa _git_add
+alias                 gap="git add --patch"
+__git_complete        gap _git_add
+alias                 gbl="git blame --show-number --show-email"
 # No completion for `git blame`
-alias            gbr="git branch --verbose" # -v
-__git_complete   gbr _git_branch
-alias           gbra="git branch --verbose --all" # -v -a
-__git_complete  gbra _git_branch
-alias           gbrr="git branch --verbose --remote" # -v -r
-__git_complete  gbrr _git_branch
-alias           gbrd="git branch --delete" # -d, or -D to ignore merge status
-__git_complete  gbrd _git_branch
-alias           gbrm="git branch -m" # no such thing as --move / --rename
-__git_complete  gbrm _git_branch
-alias          gbrdf="git branch -D" # Force delete
-__git_complete gbrdf _git_branch
-alias          gbrdr="git branch --delete --remote"
-__git_complete gbrdr _git_branch
-alias          gbrmf="git branch -M" # force move
-__git_complete gbrmf _git_branch
-alias            gcf="git config"
-__git_complete   gcf _git_config
-alias           gcfl="git config --list"
-__git_complete  gcfl _git_config
-alias            gco="git checkout"
-__git_complete   gco _git_checkout
-alias           gcom="git checkout master"
-__git_complete  gcom _git_checkout
-alias           gcod="git checkout develop"
-__git_complete  gcod _git_checkout
-alias           gcob="git checkout -b" # no such thing as --branch
-__git_complete  gcob _git_checkout
-alias           gcop="git checkout --patch" # -p
-__git_complete  gcop _git_checkout
-alias           gcoa="git checkout ." # This is a fake alias to git checkout --all which does not exist
-__git_complete  gcoa _git_checkout
-alias            gcl="git clone"
-__git_complete   gcl _git_clone
-alias            gcn="git clean -d -x --force --dry-run" # no such thing as --directories, -x ignores .gitignore
-__git_complete   gcn _git_clean
-alias           gcnf="git clean -d -x --force"
-__git_complete  gcnf _git_clean
-alias            gcm="git commit --verbose" # -v
-__git_complete   gcm _git_commit
-alias           gcms="git commit --verbose --message" # -v -m, -vm
-__git_complete  gcms _git_commit
-alias           gcma="git commit --verbose --amend"
-__git_complete  gcma _git_commit
-alias          gcmas="git commit --verbose --amend --message"
-__git_complete gcmas _git_commit
-alias          gcmac="git commit --verbose --amend --no-edit"
-__git_complete gcmac _git_commit
-alias             gd="git diff"
-__git_complete    gd _git_diff
-alias            gdl="git diff --name-only"
-__git_complete   gdl _git_diff
-alias            gds="git diff --staged"
-__git_complete   gds _git_diff
-alias           gdsl="git diff --name-only --staged"
-__git_complete  gdsl _git_diff
-alias            gdt="git difftool"
-__git_complete   gdt _git_difftool
-alias             gh="git stash save"
-__git_complete    gh _git_stash
-alias            ghc="git stash clear"
-__git_complete   ghc _git_stash
-alias            ghd="git stash drop"
-__git_complete   ghd _git_stash
-alias            ghp="git stash pop"
-__git_complete   ghp _git_stash
-alias           ghla="git stash list                             --pretty=format:'%C(yellow)%h %C(green)[%ai | %>(14)%ar] %C(blue)%gd %C(cyan)%ae %C(reset)%s%C(white)%d'"
-__git_complete  ghla _git_stash
-alias          ghlda="git stash list                     --patch --pretty=format:'%C(yellow)%h %C(green)[%ai | %>(14)%ar] %C(blue)%gd %C(cyan)%ae %C(reset)%s%C(white)%d'"
-__git_complete ghlda _git_stash
-alias          ghlsa="git stash list                     --stat  --pretty=format:'%C(yellow)%h %C(green)[%ai | %>(14)%ar] %C(blue)%gd %C(cyan)%ae %C(reset)%s%C(white)%d'"
-__git_complete ghlsa _git_stash
-alias            gin="git init"
-__git_complete   gin _git_init
-alias             gf="git fetch --progress --verbose"
-__git_complete    gf _git_fetch
-alias            gfo="git fetch --progress --verbose origin"
-__git_complete   gfo _git_fetch
-alias           gfod="git fetch --progress --verbose origin develop"
-__git_complete  gfod _git_fetch
-alias           gfom="git fetch --progress --verbose origin master"
-__git_complete  gfom _git_fetch
-alias            gfu="git fetch --progress --verbose upstream"
-__git_complete   gfu _git_fetch
-alias           gfud="git fetch --progress --verbose upstream develop"
-__git_complete  gfud _git_fetch
-alias           gfum="git fetch --progress --verbose upstream master"
-__git_complete  gfum _git_fetch
-alias            gla="git log --no-merges                        --pretty=format:'%C(yellow)%h %C(green)[%ai | %>(14)%ar] %C(cyan)%ae %C(reset)%s%C(white)%d'"
-__git_complete   gla _git_log
-alias           glba="git log                                    --pretty=format:'%C(yellow)%h %C(green)[%ai | %>(14)%ar] %C(cyan)%ae %C(reset)%s%C(white)%d'"
-__git_complete  glba _git_log
-alias           glca="git log --no-merges                        --pretty=format:'%C(yellow)%h %C(green)[%ai | %ar] %C(cyan)%ae %C(reset) %n%B'"
-__git_complete  glca _git_log
-alias           glda="git log --no-merges                --patch --pretty=format:'%C(yellow)%h %C(green)[%ai | %ar] %C(cyan)%ae %C(reset)%s%C(white)%d'"
-__git_complete  glda _git_log
-alias          glfda="git log --no-merges                        --pretty=format:'%C(yellow)%h %C(green)[%ai | %>(14)%ar] %C(cyan)%ae %C(reset)%s%C(white)%d' develop.."
-__git_complete glfda _git_log
-alias          glfma="git log --no-merges                        --pretty=format:'%C(yellow)%h %C(green)[%ai | %>(14)%ar] %C(cyan)%ae %C(reset)%s%C(white)%d' master.."
-__git_complete glfma _git_log
-alias           glga="git log                            --graph --pretty=format:'%C(yellow)%h %C(green)[%ai | %ar] %C(cyan)%ae %C(reset)%s%C(white)%d'"
-__git_complete  glga _git_log
-alias           glma="git log --merges                           --pretty=format:'%C(yellow)%h %C(green)[%ai | %>(14)%ar] %C(cyan)%ae %C(reset)%s%C(white)%d'"
-__git_complete  glma _git_log
-alias           glsa="git log --no-merges                --stat  --pretty=format:'%C(yellow)%h %C(green)[%ai | %ar] %C(cyan)%ae %C(reset)%s%C(white)%d'"
-__git_complete  glsa _git_log
-alias           glia="git log                                    --pretty=format:'%C(yellow)%h %C(green)[%ai | %>(14)%ar] %C(cyan)%ae %C(reset)%s%C(white)%d' ..@{upstream}"
-__git_complete  glia _git_log
-alias          glida="git log                            --patch --pretty=format:'%C(yellow)%h %C(green)[%ai | %>(14)%ar] %C(cyan)%ae %C(reset)%s%C(white)%d' ..@{upstream}"
-__git_complete glida _git_log
-alias          gliga="git log                            --graph --pretty=format:'%C(yellow)%h %C(green)[%ai | %>(14)%ar] %C(cyan)%ae %C(reset)%s%C(white)%d' ..@{upstream}"
-__git_complete gliga _git_log
-alias          glisa="git log                            --stat  --pretty=format:'%C(yellow)%h %C(green)[%ai | %>(14)%ar] %C(cyan)%ae %C(reset)%s%C(white)%d' ..@{upstream}"
-__git_complete glisa _git_log
-alias           gloa="git log                                    --pretty=format:'%C(yellow)%h %C(green)[%ai | %>(14)%ar] %C(cyan)%ae %C(reset)%s%C(white)%d'   @{upstream}.."
-__git_complete  gloa _git_log
-alias          gloda="git log                            --patch --pretty=format:'%C(yellow)%h %C(green)[%ai | %>(14)%ar] %C(cyan)%ae %C(reset)%s%C(white)%d'   @{upstream}.."
-__git_complete gloda _git_log
-alias          gloga="git log                            --graph --pretty=format:'%C(yellow)%h %C(green)[%ai | %>(14)%ar] %C(cyan)%ae %C(reset)%s%C(white)%d'   @{upstream}.."
-__git_complete gloga _git_log
-alias          glosa="git log                            --stat  --pretty=format:'%C(yellow)%h %C(green)[%ai | %>(14)%ar] %C(cyan)%ae %C(reset)%s%C(white)%d'   @{upstream}.."
-__git_complete glosa _git_log
-alias           glua="git log --no-merges                        --pretty=format:'%C(yellow)%h %C(green)[%ai | %>(14)%ar] %C(cyan)%ae %C(reset)%s%C(white)%d' --author='`git config --get user.name`'"
-__git_complete  glua _git_log
-alias          gluca="git log --no-merges                        --pretty=format:'%C(yellow)%h %C(green)[%ai | %ar] %C(cyan)%ae %C(reset) %n%B' --author='`git config --get user.name`'"
-__git_complete gluca _git_log
-alias          gluda="git log --no-merges                --patch --pretty=format:'%C(yellow)%h %C(green)[%ai | %ar] %C(cyan)%ae %C(reset)%s%C(white)%d' --author='`git config --get user.name`'"
-__git_complete gluda _git_log
-alias          gluga="git log                            --graph --pretty=format:'%C(yellow)%h %C(green)[%ai | %ar] %C(cyan)%ae %C(reset)%s%C(white)%d' --author='`git config --get user.name`'"
-__git_complete gluga _git_log
-alias          glusa="git log --no-merges                --stat  --pretty=format:'%C(yellow)%h %C(green)[%ai | %ar] %C(cyan)%ae %C(reset)%s%C(white)%d' --author='`git config --get user.name`'"
-__git_complete glusa _git_log
-alias             gm="git merge --no-ff --progress --verbose"
-__git_complete    gm _git_merge
-alias            gma="git merge --abort"
-__git_complete   gma _git_merge
-alias            gmd="git merge --no-ff --progress --verbose develop"
-__git_complete   gmd _git_merge
-alias            gmm="git merge --no-ff --progress --verbose master"
-__git_complete   gmm _git_merge
-alias            gmv="git mv"
-__git_complete   gmv _git_mv
-alias            gps="git push          --progress --verbose"
-__git_complete   gps _git_push
-alias           gpsa="git push          --progress --verbose --all"
-__git_complete  gpsa _git_push
-alias           gpsf="git push          --progress --verbose --force"
-__git_complete  gpsf _git_push
-alias           gpsd="git push          --progress --verbose --delete"
-__git_complete  gpsd _git_push
-alias           gpst="git push          --progress --verbose --tags"
-__git_complete  gpst _git_push
-alias           gpsb="git push          --progress --verbose bitbucket"
-__git_complete  gpsb _git_push
-alias          gpsbd="git push          --progress --verbose bitbucket develop"
-__git_complete gpsbd _git_push
-alias          gpsbm="git push          --progress --verbose bitbucket master"
-__git_complete gpsbm _git_push
-alias           gpsg="git push          --progress --verbose github"
-__git_complete  gpsg _git_push
-alias          gpsgd="git push          --progress --verbose github develop"
-__git_complete gpsgd _git_push
-alias          gpsgm="git push          --progress --verbose github master"
-__git_complete gpsgm _git_push
-alias           gpso="git push          --progress --verbose origin"
-__git_complete  gpso _git_push
-alias          gpsod="git push          --progress --verbose origin develop"
-__git_complete gpsod _git_push
-alias          gpsom="git push          --progress --verbose origin master"
-__git_complete gpsom _git_push
-alias           gpsu="git push          --progress --verbose upstream"
-__git_complete  gpsu _git_push
-alias          gpsud="git push          --progress --verbose upstream develop"
-__git_complete gpsud _git_push
-alias          gpsum="git push          --progress --verbose upstream master"
-__git_complete gpsum _git_push
-alias            gpl="git pull          --progress --verbose"
-__git_complete   gpl _git_pull
-alias           gpla="git pull          --progress --verbose --all"
-__git_complete  gpla _git_pull
-alias           gplf="git pull          --progress --verbose --force"
-__git_complete  gplf _git_pull
-alias           gplo="git pull          --progress --verbose origin"
-__git_complete  gplo _git_pull
-alias          gplod="git pull          --progress --verbose origin develop"
-__git_complete gplod _git_pull
-alias          gplom="git pull          --progress --verbose origin master"
-__git_complete gplom _git_pull
-alias           gplu="git pull          --progress --verbose upstream"
-__git_complete  gplu _git_pull
-alias          gplud="git pull          --progress --verbose upstream develop"
-__git_complete gplud _git_pull
-alias          gplum="git pull          --progress --verbose upstream master"
-__git_complete gplum _git_pull
-alias            grb="git rebase"
-__git_complete   grb _git_rebase
-alias           grba="git rebase --abort"
-__git_complete  grba _git_rebase
-alias           grbc="git rebase --continue"
-__git_complete  grbc _git_rebase
-alias           grbi="git rebase --interactive"
-__git_complete  grbi _git_rebase
-alias           grbs="git rebase --skip"
-__git_complete  grbs _git_rebase
-alias           grbd="git rebase develop"
-__git_complete  grbd _git_rebase
-alias           grbm="git rebase master"
-__git_complete  grbm _git_rebase
-alias          grbod="git rebase origin/develop"
-__git_complete grbod _git_rebase
-alias          grbom="git rebase origin/master"
-__git_complete grbom _git_rebase
-alias          grbud="git rebase upstream/develop"
-__git_complete grbud _git_rebase
-alias          grbum="git rebase upstream/master"
-__git_complete grbum _git_rebase
-alias           grfa="git reflog         --pretty=format:'%C(yellow)%h %C(green)[%ai | %>(14)%ar] %C(blue)%gs %C(cyan)%ae %C(reset)%s%C(white)%d'"
-__git_complete  grfa _git_reflog
-alias          grfda="git reflog --patch --pretty=format:'%C(yellow)%h %C(green)[%ai | %>(14)%ar] %C(blue)%gs %C(cyan)%ae %C(reset)%s%C(white)%d'"
-__git_complete grfda _git_reflog
-alias          grfga="git reflog --graph --pretty=format:'%C(yellow)%h %C(green)[%ai | %>(14)%ar] %C(blue)%gs %C(cyan)%ae %C(reset)%s%C(white)%d'"
-__git_complete grfga _git_reflog
-alias          grfsa="git reflog --stat  --pretty=format:'%C(yellow)%h %C(green)[%ai | %>(14)%ar] %C(blue)%gs %C(cyan)%ae %C(reset)%s%C(white)%d'"
-__git_complete grfsa _git_reflog
-alias            grs="git reset"
-__git_complete   grs _git_reset
-alias           grsh="git reset 'HEAD^'"
-__git_complete  grsh _git_reset
-alias           grsd="git reset --hard"
-__git_complete  grsd _git_reset
-alias           grss="git reset --soft"
-__git_complete  grss _git_reset
-alias          grsdh="git reset --hard 'HEAD^'"
-__git_complete grsdh _git_reset
-alias          grssh="git reset --soft 'HEAD^'"
-__git_complete grssh _git_reset
-alias           grso="git reset --hard origin"
-__git_complete  grso _git_reset
-alias          grsod="git reset --hard origin/develop"
-__git_complete grsod _git_reset
-alias          grsom="git reset --hard origin/master"
-__git_complete grsom _git_reset
-alias           grsu="git reset --hard upstream"
-__git_complete  grsu _git_reset
-alias          grsud="git reset --hard upstream/develop"
-__git_complete grsud _git_reset
-alias          grsum="git reset --hard upstream/master"
-__git_complete grsum _git_reset
-alias            grm="git rm"
-__git_complete   grm _git_rm
-alias           grmf="git rm -f"
-__git_complete  grmf _git_rm
-alias           grmr="git rm -r" # There is no `--recursive`
-__git_complete  grmr _git_rm
-alias          grmrf="git rm -rf"
-__git_complete grmrf _git_rm
-alias           grmc="git rm --cached"
-__git_complete  grmc _git_rm
-alias          grmca="git rm --cached -r ."
-__git_complete grmca _git_rm
-alias            gsm="git submodule"
-__git_complete   gsm _git_submodule
-alias           gsma="git submodule add"
-__git_complete  gsma _git_submodule
-alias           gsmc="git submodule foreach --recursive git checkout ."
-__git_complete  gsmc _git_submodule
-alias           gsmu="git submodule update --recursive --init"
-__git_complete  gsmu _git_submodule
-alias          gsmfm="git submodule foreach git config core.fileMode false"
-__git_complete gsmfm _git_submodule
-alias            gst="git status --untracked-files=all"
-__git_complete   gst _git_status
-alias           gstc="git status"
-__git_complete  gstc _git_status
-alias           gsti="git status --untracked-files=all --ignored"
-__git_complete  gsti _git_status
-alias             gt="git tag"
-__git_complete    gt _git_tag
-alias            gtl="git tag --list"
-__git_complete   gtl _git_tag
-alias             gv="git --version"
+alias                 gbr="git branch --verbose" # -v
+__git_complete        gbr _git_branch
+alias                gbra="git branch --verbose --all" # -v -a
+__git_complete       gbra _git_branch
+alias                gbrr="git branch --verbose --remote" # -v -r
+__git_complete       gbrr _git_branch
+alias                gbrd="git branch --delete" # -d, or -D to ignore merge status
+__git_complete       gbrd _git_branch
+alias                gbrm="git branch -m" # no such thing as --move / --rename
+__git_complete       gbrm _git_branch
+alias               gbrdf="git branch -D" # Force delete
+__git_complete      gbrdf _git_branch
+alias               gbrdr="git branch --delete --remote"
+__git_complete      gbrdr _git_branch
+alias               gbrmf="git branch -M" # force move
+__git_complete      gbrmf _git_branch
+alias                 gcf="git config"
+__git_complete        gcf _git_config
+alias                gcfl="git config --list"
+__git_complete       gcfl _git_config
+alias                 gco="git checkout"
+__git_complete        gco _git_checkout
+alias                gcom="git checkout master"
+__git_complete       gcom _git_checkout
+alias                gcod="git checkout develop"
+__git_complete       gcod _git_checkout
+alias                gcob="git checkout -b" # no such thing as --branch
+__git_complete       gcob _git_checkout
+alias                gcop="git checkout --patch" # -p
+__git_complete       gcop _git_checkout
+alias                gcoa="git checkout ." # This is a fake alias to git checkout --all which does not exist
+__git_complete       gcoa _git_checkout
+alias                 gcl="git clone"
+__git_complete        gcl _git_clone
+alias                 gcn="git clean -d -x --force --dry-run" # no such thing as --directories, -x ignores .gitignore
+__git_complete        gcn _git_clean
+alias                gcnf="git clean -d -x --force"
+__git_complete       gcnf _git_clean
+alias                 gcm="git commit --verbose" # -v
+__git_complete        gcm _git_commit
+alias                gcms="git commit --verbose --message" # -v -m, -vm
+__git_complete       gcms _git_commit
+alias                gcma="git commit --verbose --amend"
+__git_complete       gcma _git_commit
+alias               gcmas="git commit --verbose --amend --message"
+__git_complete      gcmas _git_commit
+alias               gcmac="git commit --verbose --amend --no-edit"
+__git_complete      gcmac _git_commit
+alias                  gd="git diff"
+__git_complete         gd _git_diff
+alias                 gdl="git diff --name-only"
+__git_complete        gdl _git_diff
+alias                 gds="git diff --staged"
+__git_complete        gds _git_diff
+alias                gdsl="git diff --name-only --staged"
+__git_complete       gdsl _git_diff
+alias                 gdt="git difftool"
+__git_complete        gdt _git_difftool
+alias                  gh="git stash save"
+__git_complete         gh _git_stash
+alias                 ghc="git stash clear"
+__git_complete        ghc _git_stash
+alias                 ghd="git stash drop"
+__git_complete        ghd _git_stash
+alias                 ghp="git stash pop"
+__git_complete        ghp _git_stash
+alias                ghla="git stash list                             --pretty=format:'%C(yellow)%h %C(green)[%ci | %>(14)%cr] %C(blue)%gd %C(cyan)%ae %C(reset)%s%C(white)%d'"
+__git_complete       ghla _git_stash
+alias               ghlda="git stash list                     --patch --pretty=format:'%C(yellow)%h %C(green)[%ci | %>(14)%cr] %C(blue)%gd %C(cyan)%ae %C(reset)%s%C(white)%d'"
+__git_complete      ghlda _git_stash
+alias               ghlsa="git stash list                     --stat  --pretty=format:'%C(yellow)%h %C(green)[%ci | %>(14)%cr] %C(blue)%gd %C(cyan)%ae %C(reset)%s%C(white)%d'"
+__git_complete      ghlsa _git_stash
+alias                 gin="git init"
+__git_complete        gin _git_init
+alias                  gf="git fetch --progress --verbose"
+__git_complete         gf _git_fetch
+alias                 gfo="git fetch --progress --verbose origin"
+__git_complete        gfo _git_fetch
+alias                gfod="git fetch --progress --verbose origin develop"
+__git_complete       gfod _git_fetch
+alias                gfom="git fetch --progress --verbose origin master"
+__git_complete       gfom _git_fetch
+alias                 gfu="git fetch --progress --verbose upstream"
+__git_complete        gfu _git_fetch
+alias                gfud="git fetch --progress --verbose upstream develop"
+__git_complete       gfud _git_fetch
+alias                gfum="git fetch --progress --verbose upstream master"
+__git_complete       gfum _git_fetch
+alias                 gla="git log --no-merges                        --pretty=format:'%C(yellow)%h %C(green)[%ci | %>(14)%cr] %C(cyan)%ae %C(reset)%s%C(white)%d'"
+__git_complete        gla _git_log
+alias                glba="git log                                    --pretty=format:'%C(yellow)%h %C(green)[%ci | %>(14)%cr] %C(cyan)%ae %C(reset)%s%C(white)%d'"
+__git_complete       glba _git_log
+alias                glca="git log --no-merges                        --pretty=format:'%C(yellow)%h %C(green)[%ci | %cr] %C(cyan)%ae %C(reset) %n%B'"
+__git_complete       glca _git_log
+alias                glda="git log --no-merges                --patch --pretty=format:'%C(yellow)%h %C(green)[%ci | %cr] %C(cyan)%ae %C(reset)%s%C(white)%d'"
+__git_complete       glda _git_log
+alias               glfda="git log --no-merges                        --pretty=format:'%C(yellow)%h %C(green)[%ci | %>(14)%cr] %C(cyan)%ae %C(reset)%s%C(white)%d' develop.."
+__git_complete      glfda _git_log
+alias               glfma="git log --no-merges                        --pretty=format:'%C(yellow)%h %C(green)[%ci | %>(14)%cr] %C(cyan)%ae %C(reset)%s%C(white)%d' master.."
+__git_complete      glfma _git_log
+alias              glfoda="git log --no-merges                        --pretty=format:'%C(yellow)%h %C(green)[%ci | %>(14)%cr] %C(cyan)%ae %C(reset)%s%C(white)%d' origin/develop.."
+__git_complete     glfoda _git_log
+alias              glfoma="git log --no-merges                        --pretty=format:'%C(yellow)%h %C(green)[%ci | %>(14)%cr] %C(cyan)%ae %C(reset)%s%C(white)%d' origin/master.."
+__git_complete     glfoma _git_log
+alias                glga="git log                            --graph --pretty=format:'%C(yellow)%h %C(green)[%ci | %cr] %C(cyan)%ae %C(reset)%s%C(white)%d'"
+__git_complete       glga _git_log
+alias                glma="git log --merges                           --pretty=format:'%C(yellow)%h %C(green)[%ci | %>(14)%cr] %C(cyan)%ae %C(reset)%s%C(white)%d'"
+__git_complete       glma _git_log
+alias                glsa="git log --no-merges                --stat  --pretty=format:'%C(yellow)%h %C(green)[%ci | %cr] %C(cyan)%ae %C(reset)%s%C(white)%d'"
+__git_complete       glsa _git_log
+alias                glia="git log                                    --pretty=format:'%C(yellow)%h %C(green)[%ci | %>(14)%cr] %C(cyan)%ae %C(reset)%s%C(white)%d' ..@{upstream}"
+__git_complete       glia _git_log
+alias               glida="git log                            --patch --pretty=format:'%C(yellow)%h %C(green)[%ci | %>(14)%cr] %C(cyan)%ae %C(reset)%s%C(white)%d' ..@{upstream}"
+__git_complete      glida _git_log
+alias               gliga="git log                            --graph --pretty=format:'%C(yellow)%h %C(green)[%ci | %>(14)%cr] %C(cyan)%ae %C(reset)%s%C(white)%d' ..@{upstream}"
+__git_complete      gliga _git_log
+alias               glisa="git log                            --stat  --pretty=format:'%C(yellow)%h %C(green)[%ci | %>(14)%cr] %C(cyan)%ae %C(reset)%s%C(white)%d' ..@{upstream}"
+__git_complete      glisa _git_log
+alias                gloa="git log                                    --pretty=format:'%C(yellow)%h %C(green)[%ci | %>(14)%cr] %C(cyan)%ae %C(reset)%s%C(white)%d'   @{upstream}.."
+__git_complete       gloa _git_log
+alias               gloda="git log                            --patch --pretty=format:'%C(yellow)%h %C(green)[%ci | %>(14)%cr] %C(cyan)%ae %C(reset)%s%C(white)%d'   @{upstream}.."
+__git_complete      gloda _git_log
+alias               gloga="git log                            --graph --pretty=format:'%C(yellow)%h %C(green)[%ci | %>(14)%cr] %C(cyan)%ae %C(reset)%s%C(white)%d'   @{upstream}.."
+__git_complete      gloga _git_log
+alias               glosa="git log                            --stat  --pretty=format:'%C(yellow)%h %C(green)[%ci | %>(14)%cr] %C(cyan)%ae %C(reset)%s%C(white)%d'   @{upstream}.."
+__git_complete      glosa _git_log
+alias                glua="git log --no-merges                        --pretty=format:'%C(yellow)%h %C(green)[%ci | %>(14)%cr] %C(cyan)%ae %C(reset)%s%C(white)%d' --author='`git config --get user.name`'"
+__git_complete       glua _git_log
+alias               gluca="git log --no-merges                        --pretty=format:'%C(yellow)%h %C(green)[%ci | %cr] %C(cyan)%ae %C(reset) %n%B' --author='`git config --get user.name`'"
+__git_complete      gluca _git_log
+alias               gluda="git log --no-merges                --patch --pretty=format:'%C(yellow)%h %C(green)[%ci | %cr] %C(cyan)%ae %C(reset)%s%C(white)%d' --author='`git config --get user.name`'"
+__git_complete      gluda _git_log
+alias               gluga="git log                            --graph --pretty=format:'%C(yellow)%h %C(green)[%ci | %cr] %C(cyan)%ae %C(reset)%s%C(white)%d' --author='`git config --get user.name`'"
+__git_complete      gluga _git_log
+alias               glusa="git log --no-merges                --stat  --pretty=format:'%C(yellow)%h %C(green)[%ci | %cr] %C(cyan)%ae %C(reset)%s%C(white)%d' --author='`git config --get user.name`'"
+__git_complete      glusa _git_log
+alias                  gm="git merge --no-ff --progress --verbose"
+__git_complete         gm _git_merge
+alias                 gma="git merge --abort"
+__git_complete        gma _git_merge
+alias                 gmd="git merge --no-ff --progress --verbose develop"
+__git_complete        gmd _git_merge
+alias                 gmm="git merge --no-ff --progress --verbose master"
+__git_complete        gmm _git_merge
+alias                 gmv="git mv"
+__git_complete        gmv _git_mv
+alias                 gps="git push          --progress --verbose"
+__git_complete        gps _git_push
+alias                gpsa="git push          --progress --verbose --all"
+__git_complete       gpsa _git_push
+alias                gpsf="git push          --progress --verbose --force"
+__git_complete       gpsf _git_push
+alias                gpsd="git push          --progress --verbose --delete"
+__git_complete       gpsd _git_push
+alias                gpst="git push          --progress --verbose --tags"
+__git_complete       gpst _git_push
+alias                gpsb="git push          --progress --verbose bitbucket"
+__git_complete       gpsb _git_push
+alias               gpsbd="git push          --progress --verbose bitbucket develop"
+__git_complete      gpsbd _git_push
+alias               gpsbm="git push          --progress --verbose bitbucket master"
+__git_complete      gpsbm _git_push
+alias                gpsg="git push          --progress --verbose github"
+__git_complete       gpsg _git_push
+alias               gpsgd="git push          --progress --verbose github develop"
+__git_complete      gpsgd _git_push
+alias               gpsgm="git push          --progress --verbose github master"
+__git_complete      gpsgm _git_push
+alias                gpso="git push          --progress --verbose origin"
+__git_complete       gpso _git_push
+alias               gpsod="git push          --progress --verbose origin develop"
+__git_complete      gpsod _git_push
+alias               gpsom="git push          --progress --verbose origin master"
+__git_complete      gpsom _git_push
+alias                gpsu="git push          --progress --verbose upstream"
+__git_complete       gpsu _git_push
+alias               gpsud="git push          --progress --verbose upstream develop"
+__git_complete      gpsud _git_push
+alias               gpsum="git push          --progress --verbose upstream master"
+__git_complete      gpsum _git_push
+alias                 gpl="git pull          --progress --verbose"
+__git_complete        gpl _git_pull
+alias                gpla="git pull          --progress --verbose --all"
+__git_complete       gpla _git_pull
+alias                gplf="git pull          --progress --verbose --force"
+__git_complete       gplf _git_pull
+alias                gplo="git pull          --progress --verbose origin"
+__git_complete       gplo _git_pull
+alias               gplod="git pull          --progress --verbose origin develop"
+__git_complete      gplod _git_pull
+alias               gplom="git pull          --progress --verbose origin master"
+__git_complete      gplom _git_pull
+alias                gplu="git pull          --progress --verbose upstream"
+__git_complete       gplu _git_pull
+alias               gplud="git pull          --progress --verbose upstream develop"
+__git_complete      gplud _git_pull
+alias               gplum="git pull          --progress --verbose upstream master"
+__git_complete      gplum _git_pull
+alias                 grb="git rebase"
+__git_complete        grb _git_rebase
+alias                grba="git rebase --abort"
+__git_complete       grba _git_rebase
+alias                grbc="git rebase --continue"
+__git_complete       grbc _git_rebase
+alias                grbi="git rebase --interactive"
+__git_complete       grbi _git_rebase
+alias                grbs="git rebase --skip"
+__git_complete       grbs _git_rebase
+alias                grbd="git rebase develop"
+__git_complete       grbd _git_rebase
+alias                grbm="git rebase master"
+__git_complete       grbm _git_rebase
+alias               grbod="git rebase origin/develop"
+__git_complete      grbod _git_rebase
+alias               grbom="git rebase origin/master"
+__git_complete      grbom _git_rebase
+alias               grbud="git rebase upstream/develop"
+__git_complete      grbud _git_rebase
+alias               grbum="git rebase upstream/master"
+__git_complete      grbum _git_rebase
+alias                grfa="git reflog         --pretty=format:'%C(yellow)%h %C(green)[%ci | %>(14)%cr] %C(blue)%gs %C(cyan)%ae %C(reset)%s%C(white)%d'"
+__git_complete       grfa _git_reflog
+alias               grfda="git reflog --patch --pretty=format:'%C(yellow)%h %C(green)[%ci | %>(14)%cr] %C(blue)%gs %C(cyan)%ae %C(reset)%s%C(white)%d'"
+__git_complete      grfda _git_reflog
+alias               grfga="git reflog --graph --pretty=format:'%C(yellow)%h %C(green)[%ci | %>(14)%cr] %C(blue)%gs %C(cyan)%ae %C(reset)%s%C(white)%d'"
+__git_complete      grfga _git_reflog
+alias               grfsa="git reflog --stat  --pretty=format:'%C(yellow)%h %C(green)[%ci | %>(14)%cr] %C(blue)%gs %C(cyan)%ae %C(reset)%s%C(white)%d'"
+__git_complete      grfsa _git_reflog
+alias                 grs="git reset"
+__git_complete        grs _git_reset
+alias                grsh="git reset 'HEAD^'"
+__git_complete       grsh _git_reset
+alias                grsd="git reset --hard"
+__git_complete       grsd _git_reset
+alias                grss="git reset --soft"
+__git_complete       grss _git_reset
+alias               grsdh="git reset --hard 'HEAD^'"
+__git_complete      grsdh _git_reset
+alias               grssh="git reset --soft 'HEAD^'"
+__git_complete      grssh _git_reset
+alias                grso="git reset --hard origin"
+__git_complete       grso _git_reset
+alias               grsod="git reset --hard origin/develop"
+__git_complete      grsod _git_reset
+alias               grsom="git reset --hard origin/master"
+__git_complete      grsom _git_reset
+alias                grsu="git reset --hard upstream"
+__git_complete       grsu _git_reset
+alias               grsud="git reset --hard upstream/develop"
+__git_complete      grsud _git_reset
+alias               grsum="git reset --hard upstream/master"
+__git_complete      grsum _git_reset
+alias                 grm="git rm"
+__git_complete        grm _git_rm
+alias                grmf="git rm -f"
+__git_complete       grmf _git_rm
+alias                grmr="git rm -r" # There is no `--recursive`
+__git_complete       grmr _git_rm
+alias               grmrf="git rm -rf"
+__git_complete      grmrf _git_rm
+alias                grmc="git rm --cached"
+__git_complete       grmc _git_rm
+alias               grmca="git rm --cached -r ."
+__git_complete      grmca _git_rm
+alias                 gsm="git submodule"
+__git_complete        gsm _git_submodule
+alias                gsma="git submodule add"
+__git_complete       gsma _git_submodule
+alias                gsmc="git submodule foreach --recursive git checkout ."
+__git_complete       gsmc _git_submodule
+alias                gsmu="git submodule update --recursive --init"
+__git_complete       gsmu _git_submodule
+alias               gsmfm="git submodule foreach git config core.fileMode false"
+__git_complete      gsmfm _git_submodule
+alias                 gst="git status --untracked-files=all"
+__git_complete        gst _git_status
+alias                gstc="git status"
+__git_complete       gstc _git_status
+alias                gsti="git status --untracked-files=all --ignored"
+__git_complete       gsti _git_status
+alias                  gt="git tag"
+__git_complete         gt _git_tag
+alias                 gtl="git tag --list"
+__git_complete        gtl _git_tag
+alias                  gv="git --version"
 
 # A way to see modified files
-alias            gmo="git status --porcelain | cut -c 4-"
-__git_complete   gmo _git_status
+alias                 gmo="git status --porcelain | cut -c 4-"
+__git_complete        gmo _git_status
 
 # List ignored files
-alias            gig="git ls-files --ignored --exclude-standard"
-__git_complete   gig _git_ls_files
+alias                 gig="git ls-files --ignored --exclude-standard"
+__git_complete        gig _git_ls_files
 
 # Logging shortcuts
-alias             gl="gla   -10"
-__git_complete    gl _git_log
-alias            gl1="gla   -1"
-__git_complete   gl1 _git_log
-alias            glb="glba  -10"
-__git_complete   glb _git_log
-alias           glb1="glba  -1"
-__git_complete  glb1 _git_log
-alias            glc="glca  -10"
-__git_complete   glc _git_log
-alias           glc1="glca  -1"
-__git_complete  glc1 _git_log
-alias            gld="glda  -10"
-__git_complete   gld _git_log
-alias           gld1="glda  -1"
-__git_complete  gld1 _git_log
-alias           glfd="glfda -10"
-__git_complete  glfd _git_log
-alias          glfd1="glfda -1"
-__git_complete glfd1 _git_log
-alias           glfm="glfma -10"
-__git_complete  glfm _git_log
-alias          glfm1="glfma -1"
-__git_complete glfm1 _git_log
-alias            glg="glga  -10"
-__git_complete   glg _git_log
-alias           glg1="glga  -1"
-__git_complete  glg1 _git_log
-alias            glm="glma  -10"
-__git_complete   glm _git_log
-alias           glm1="glma  -1"
-__git_complete  glm1 _git_log
-alias            gls="glsa  -10"
-__git_complete   gls _git_log
-alias           gls1="glsa  -1"
-__git_complete  gls1 _git_log
+alias                  gl="gla   -10"
+__git_complete         gl _git_log
+alias                 gl1="gla   -1"
+__git_complete        gl1 _git_log
+alias                 glb="glba  -10"
+__git_complete        glb _git_log
+alias                glb1="glba  -1"
+__git_complete       glb1 _git_log
+alias                 glc="glca  -10"
+__git_complete        glc _git_log
+alias                glc1="glca  -1"
+__git_complete       glc1 _git_log
+alias                 gld="glda  -10"
+__git_complete        gld _git_log
+alias                gld1="glda  -1"
+__git_complete       gld1 _git_log
+alias                glfd="glfda -10"
+__git_complete       glfd _git_log
+alias               glfd1="glfda -1"
+__git_complete      glfd1 _git_log
+alias                glfm="glfma -10"
+__git_complete       glfm _git_log
+alias               glfm1="glfma -1"
+__git_complete      glfm1 _git_log
+alias              glfod="glfoda -10"
+__git_complete     glfod _git_log
+alias             glfod1="glfoda -1"
+__git_complete    glfod1 _git_log
+alias              glfom="glfoma -10"
+__git_complete     glfom _git_log
+alias             glfom1="glfoma -1"
+__git_complete    glfom1 _git_log
+alias                 glg="glga  -10"
+__git_complete        glg _git_log
+alias                glg1="glga  -1"
+__git_complete       glg1 _git_log
+alias                 glm="glma  -10"
+__git_complete        glm _git_log
+alias                glm1="glma  -1"
+__git_complete       glm1 _git_log
+alias                 gls="glsa  -10"
+__git_complete        gls _git_log
+alias                gls1="glsa  -1"
+__git_complete       gls1 _git_log
 
 # Incoming commits
-alias            gli="glia  -10"
-__git_complete   gli _git_log
-alias           gli1="glia  -1"
-__git_complete  gli1 _git_log
-alias           glis="glisa -10"
-__git_complete  glis _git_log
-alias          glis1="glisa -1"
-__git_complete glis1 _git_log
-alias           glid="glida -10"
-__git_complete  glid _git_log
-alias          glid1="glida -1"
-__git_complete glid1 _git_log
-alias           glig="gliga -10"
-__git_complete  glig _git_log
-alias          glig1="gliga -1"
-__git_complete glig1 _git_log
+alias                 gli="glia  -10"
+__git_complete        gli _git_log
+alias                gli1="glia  -1"
+__git_complete       gli1 _git_log
+alias                glis="glisa -10"
+__git_complete       glis _git_log
+alias               glis1="glisa -1"
+__git_complete      glis1 _git_log
+alias                glid="glida -10"
+__git_complete       glid _git_log
+alias               glid1="glida -1"
+__git_complete      glid1 _git_log
+alias                glig="gliga -10"
+__git_complete       glig _git_log
+alias               glig1="gliga -1"
+__git_complete      glig1 _git_log
 
 # Outgoing commits
-alias            glo="gloa  -10"
-__git_complete   glo _git_log
-alias           glo1="gloa  -1"
-__git_complete  glo1 _git_log
-alias           glos="glosa -10"
-__git_complete  glos _git_log
-alias          glos1="glosa -1"
-__git_complete glos1 _git_log
-alias           glod="gloda -10"
-__git_complete  glod _git_log
-alias          glod1="gloda -1"
-__git_complete glod1 _git_log
-alias           glog="gloga -10"
-__git_complete  glog _git_log
-alias          glog1="gloga -1"
-__git_complete glog1 _git_log
+alias                 glo="gloa  -10"
+__git_complete        glo _git_log
+alias                glo1="gloa  -1"
+__git_complete       glo1 _git_log
+alias                glos="glosa -10"
+__git_complete       glos _git_log
+alias               glos1="glosa -1"
+__git_complete      glos1 _git_log
+alias                glod="gloda -10"
+__git_complete       glod _git_log
+alias               glod1="gloda -1"
+__git_complete      glod1 _git_log
+alias                glog="gloga -10"
+__git_complete       glog _git_log
+alias               glog1="gloga -1"
+__git_complete      glog1 _git_log
 
 # User commits
-alias            glu="glua  -10"
-__git_complete   glu _git_log
-alias           glu1="glua  -1"
-__git_complete  glu1 _git_log
-alias           gluc="gluca -10"
-__git_complete  gluc _git_log
-alias          gluc1="gluca -1"
-__git_complete gluc1 _git_log
-alias           glud="gluda -10"
-__git_complete  glud _git_log
-alias          glud1="gluda -1"
-__git_complete glud1 _git_log
-alias           glug="gluga -10"
-__git_complete  glug _git_log
-alias          glug1="gluga -1"
-__git_complete glug1 _git_log
-alias           glus="glusa -10"
-__git_complete  glus _git_log
-alias          glus1="glusa -1"
-__git_complete glus1 _git_log
+alias                 glu="glua  -10"
+__git_complete        glu _git_log
+alias                glu1="glua  -1"
+__git_complete       glu1 _git_log
+alias                gluc="gluca -10"
+__git_complete       gluc _git_log
+alias               gluc1="gluca -1"
+__git_complete      gluc1 _git_log
+alias                glud="gluda -10"
+__git_complete       glud _git_log
+alias               glud1="gluda -1"
+__git_complete      glud1 _git_log
+alias                glug="gluga -10"
+__git_complete       glug _git_log
+alias               glug1="gluga -1"
+__git_complete      glug1 _git_log
+alias                glus="glusa -10"
+__git_complete       glus _git_log
+alias               glus1="glusa -1"
+__git_complete      glus1 _git_log
 
 # Reflogs
-alias            grf="grfa  -10"
-__git_complete   grf _git_log
-alias           grf1="grfa  -1"
-__git_complete  grf1 _git_log
-alias           grfs="grfsa -10"
-__git_complete  grfs _git_log
-alias          grfs1="grfsa -1"
-__git_complete grfs1 _git_log
-alias           grfd="grfda -10"
-__git_complete  grfd _git_log
-alias          grfd1="grfda -1"
-__git_complete grfd1 _git_log
-alias           grfg="grfga -10"
-__git_complete  grfg _git_log
-alias          grfg1="grfga -1"
-__git_complete grfg1 _git_log
+alias                 grf="grfa  -10"
+__git_complete        grf _git_log
+alias                grf1="grfa  -1"
+__git_complete       grf1 _git_log
+alias                grfs="grfsa -10"
+__git_complete       grfs _git_log
+alias               grfs1="grfsa -1"
+__git_complete      grfs1 _git_log
+alias                grfd="grfda -10"
+__git_complete       grfd _git_log
+alias               grfd1="grfda -1"
+__git_complete      grfd1 _git_log
+alias                grfg="grfga -10"
+__git_complete       grfg _git_log
+alias               grfg1="grfga -1"
+__git_complete      grfg1 _git_log
 
 # Stash shortcuts
-alias            ghl="ghla -10"
-__git_complete   ghl _git_stash
-alias           ghl1="ghla -1"
-__git_complete  ghl1 _git_stash
-alias           ghld="ghlda -10"
-__git_complete  ghld _git_stash
-alias          ghld1="ghlda -1"
-__git_complete ghld1 _git_stash
-alias           ghls="ghlsa -10"
-__git_complete  ghls _git_stash
-alias          ghls1="ghlsa -1"
-__git_complete ghls1 _git_stash
+alias                 ghl="ghla -10"
+__git_complete        ghl _git_stash
+alias                ghl1="ghla -1"
+__git_complete       ghl1 _git_stash
+alias                ghld="ghlda -10"
+__git_complete       ghld _git_stash
+alias               ghld1="ghlda -1"
+__git_complete      ghld1 _git_stash
+alias                ghls="ghlsa -10"
+__git_complete       ghls _git_stash
+alias               ghls1="ghlsa -1"
+__git_complete      ghls1 _git_stash
 
 # vim: set cc=0:syn=sh :

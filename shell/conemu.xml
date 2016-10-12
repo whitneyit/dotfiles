@@ -408,8 +408,8 @@
 				<value name="Multi.NewConsolePopup" type="dword" data="00005b4e"/>
 				<value name="Multi.NewConsolePopup2" type="dword" data="00000000"/>
 				<value name="Multi.NewAttach" type="dword" data="00005b47"/>
-				<value name="Multi.NewSplitV" type="dword" data="0010114f"/>
-				<value name="Multi.NewSplitH" type="dword" data="00101145"/>
+				<value name="Multi.NewSplitV" type="dword" data="00000000"/>
+				<value name="Multi.NewSplitH" type="dword" data="00000000"/>
 				<value name="Multi.SplitMaximize" type="dword" data="00000000"/>
 				<value name="Multi.SplitSizeVU" type="dword" data="00105d26"/>
 				<value name="Multi.SplitSizeVD" type="dword" data="00105d28"/>
@@ -447,8 +447,8 @@
 				<value name="Multi.MoveRight" type="dword" data="00125b27"/>
 				<value name="CTS.VkBlockStart" type="dword" data="00000000"/>
 				<value name="CTS.VkTextStart" type="dword" data="00000000"/>
-				<value name="CTS.VkCopyFmt0" type="dword" data="00001143"/>
-				<value name="CTS.VkCopyFmt1" type="dword" data="00101143"/>
+				<value name="CTS.VkCopyFmt0" type="dword" data="00000000"/>
+				<value name="CTS.VkCopyFmt1" type="dword" data="00000000"/>
 				<value name="CTS.VkCopyFmt2" type="dword" data="00000000"/>
 				<value name="CTS.VkCopyAll" type="dword" data="00000000"/>
 				<value name="HighlightMouseSwitch" type="dword" data="00005d4c"/>
@@ -456,8 +456,8 @@
 				<value name="Multi.ShowTabsList" type="dword" data="00000000"/>
 				<value name="Multi.ShowTabsList2" type="dword" data="00005d7b"/>
 				<value name="ClipboardVkAllLines" type="dword" data="0000102d"/>
-				<value name="ClipboardVkFirstLine" type="dword" data="00001156"/>
-				<value name="DeleteWordToLeft" type="dword" data="00001108"/>
+				<value name="ClipboardVkFirstLine" type="dword" data="00000000"/>
+				<value name="DeleteWordToLeft" type="dword" data="00001208"/>
 				<value name="FindTextKey" type="dword" data="00005d46"/>
 				<value name="ScreenshotKey" type="dword" data="00005b48"/>
 				<value name="ScreenshotFullKey" type="dword" data="00105b48"/>
@@ -482,10 +482,10 @@
 				<value name="Key.DebugProcess" type="dword" data="00105b44"/>
 				<value name="Key.DumpProcess" type="dword" data="00000000"/>
 				<value name="Key.DumpTree" type="dword" data="00000000"/>
-				<value name="Key.BufUp" type="dword" data="00001126"/>
-				<value name="Key.BufDn" type="dword" data="00001128"/>
-				<value name="Key.BufPgUp" type="dword" data="00001121"/>
-				<value name="Key.BufPgDn" type="dword" data="00001122"/>
+				<value name="Key.BufUp" type="dword" data="00000000"/>
+				<value name="Key.BufDn" type="dword" data="00000000"/>
+				<value name="Key.BufPgUp" type="dword" data="80808021"/>
+				<value name="Key.BufPgDn" type="dword" data="80808022"/>
 				<value name="Key.BufHfPgUp" type="dword" data="00005d21"/>
 				<value name="Key.BufHfPgDn" type="dword" data="00005d22"/>
 				<value name="Key.BufTop" type="dword" data="00005d24"/>
@@ -493,9 +493,9 @@
 				<value name="Key.BufCursor" type="dword" data="00005d08"/>
 				<value name="FontLargerKey" type="dword" data="000011d0"/>
 				<value name="FontSmallerKey" type="dword" data="000011d1"/>
-				<value name="FontOriginalKey" type="dword" data="00001104"/>
-				<value name="PasteFileKey" type="dword" data="00101146"/>
-				<value name="PastePathKey" type="dword" data="00101144"/>
+				<value name="FontOriginalKey" type="dword" data="00001160"/>
+				<value name="PasteFileKey" type="dword" data="00000000"/>
+				<value name="PastePathKey" type="dword" data="00000000"/>
 				<value name="PasteCygwinKey" type="dword" data="00005d2d"/>
 				<value name="KeyMacro01" type="dword" data="00000000"/>
 				<value name="KeyMacro01.Text" type="string" data=""/>

@@ -1,15 +1,72 @@
 #!/usr/bin/env bash
 
 fnd() {
-    find *         -not -path ".git/**" -not -path ".sass-cache/**" -not -path "bower_components/**" -not -path "coverage/**" -not -path "dist/**" -not -path "docs/**" -not -path "jspm_packages/**" -not -path "node_modules/**" -not -path "reports/**" -not -path "typings/**" "$@"
+    find * \
+        -not -path ".git/**" \
+        -not -path ".karma/**" \
+        -not -path ".protractor/**" \
+        -not -path ".sass-cache/**" \
+        -not -path "backups/**" \
+        -not -path "bower_components/**" \
+        -not -path "bundle/**" \
+        -not -path "completions/**" \
+        -not -path "coverage/**" \
+        -not -path "dist/**" \
+        -not -path "docs/**" \
+        -not -path "jspm_packages/**" \
+        -not -path "node_modules/**" \
+        -not -path "plugins/**" \
+        -not -path "reports/**" \
+        -not -path "typings/**" \
+        -not -path "undo/**" \
+        -not -path "vendor/**" \
+        "$@"
 }
 
 fndd() {
-    find * -type d -not -path ".git/**" -not -path ".sass-cache/**" -not -path "bower_components/**" -not -path "coverage/**" -not -path "dist/**" -not -path "docs/**" -not -path "jspm_packages/**" -not -path "node_modules/**" -not -path "reports/**" -not -path "typings/**" "$@"
+    find * \
+        -not -path ".git/**" \
+        -not -path ".karma/**" \
+        -not -path ".protractor/**" \
+        -not -path ".sass-cache/**" \
+        -not -path "backups/**" \
+        -not -path "bower_components/**" \
+        -not -path "bundle/**" \
+        -not -path "completions/**" \
+        -not -path "coverage/**" \
+        -not -path "dist/**" \
+        -not -path "docs/**" \
+        -not -path "jspm_packages/**" \
+        -not -path "node_modules/**" \
+        -not -path "plugins/**" \
+        -not -path "reports/**" \
+        -not -path "typings/**" \
+        -not -path "undo/**" \
+        -not -path "vendor/**" \
+        -type d -name "$1"
 }
 
 fndf() {
-    find * -type f -not -path ".git/**" -not -path ".sass-cache/**" -not -path "bower_components/**" -not -path "coverage/**" -not -path "dist/**" -not -path "docs/**" -not -path "jspm_packages/**" -not -path "node_modules/**" -not -path "reports/**" -not -path "typings/**" "$@"
+    find * \
+        -not -path ".git/**" \
+        -not -path ".karma/**" \
+        -not -path ".protractor/**" \
+        -not -path ".sass-cache/**" \
+        -not -path "backups/**" \
+        -not -path "bower_components/**" \
+        -not -path "bundle/**" \
+        -not -path "completions/**" \
+        -not -path "coverage/**" \
+        -not -path "dist/**" \
+        -not -path "docs/**" \
+        -not -path "jspm_packages/**" \
+        -not -path "node_modules/**" \
+        -not -path "plugins/**" \
+        -not -path "reports/**" \
+        -not -path "typings/**" \
+        -not -path "undo/**" \
+        -not -path "vendor/**" \
+        -type f -name "$1"
 }
 
 # vim: set syn=sh :

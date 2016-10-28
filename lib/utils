@@ -175,7 +175,6 @@ function link_files() {
     fi
 
     # Now we can link up the folders without fear of recursion
-    link "$1/git/templates/"        "$TARGET_LINK_DIR/.git_templates"
     link "$1/shell/fonts/"          "$TARGET_LINK_DIR/.fonts"
     link "$1/vim/"                  "$TARGET_LINK_DIR/.vim"
 
@@ -204,11 +203,14 @@ function link_files() {
     # Here we specify the files that will be copied and not linked. We do this
     # so that the user is free to modify these files and cause no disturbance to
     # the repo.
-    cp   "$1/shell/bash_proxy"      "$TARGET_LINK_DIR/.bash_proxy"
-    cp   "$1/shell/editorconfig"    "$TARGET_LINK_DIR/.editorconfig"
-    cp   "$1/shell/keys"            "$TARGET_LINK_DIR/.keys"
-    cp   "$1/git/gitconfig"         "$TARGET_LINK_DIR/.gitconfig"
-    cp   "$1/npm/npmrc"             "$TARGET_LINK_DIR/.npmrc"
+    cp "$1/shell/bash_proxy"        "$TARGET_LINK_DIR/.bash_proxy"
+    cp "$1/shell/editorconfig"      "$TARGET_LINK_DIR/.editorconfig"
+    cp "$1/shell/keys"              "$TARGET_LINK_DIR/.keys"
+    cp "$1/git/gitconfig"           "$TARGET_LINK_DIR/.gitconfig"
+    cp "$1/npm/npmrc"               "$TARGET_LINK_DIR/.npmrc"
+
+    # Here we specify the folders that will be copied.
+    cp -R "$1/git/templates"        "$TARGET_LINK_DIR/.gittemplates"
 
     # Here we do any `cygwin` specific links
     if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then
@@ -220,6 +222,7 @@ function link_files() {
         chgrp Users "$TARGET_LINK_DIR/.bash_proxy"
         chgrp Users "$TARGET_LINK_DIR/.editorconfig"
         chgrp Users "$TARGET_LINK_DIR/.gitconfig"
+        chgrp Users "$TARGET_LINK_DIR/.git_templates"
         chgrp Users "$TARGET_LINK_DIR/.keys"
         chgrp Users "$TARGET_LINK_DIR/.npmrc"
 
@@ -229,6 +232,7 @@ function link_files() {
         chown vagrant:vagrant "$TARGET_LINK_DIR/.bash_proxy"
         chown vagrant:vagrant "$TARGET_LINK_DIR/.editorconfig"
         chown vagrant:vagrant "$TARGET_LINK_DIR/.gitconfig"
+        chown vagrant:vagrant "$TARGET_LINK_DIR/.git_templates"
         chown vagrant:vagrant "$TARGET_LINK_DIR/.keys"
         chown vagrant:vagrant "$TARGET_LINK_DIR/.npmrc"
 
@@ -238,6 +242,7 @@ function link_files() {
         chown `whoami` "$TARGET_LINK_DIR/.bash_proxy"
         chown `whoami` "$TARGET_LINK_DIR/.editorconfig"
         chown `whoami` "$TARGET_LINK_DIR/.gitconfig"
+        chown `whoami` "$TARGET_LINK_DIR/.git_templates"
         chown `whoami` "$TARGET_LINK_DIR/.keys"
         chown `whoami` "$TARGET_LINK_DIR/.npmrc"
 
@@ -247,6 +252,7 @@ function link_files() {
     chmod 644 "$TARGET_LINK_DIR/.bash_proxy"
     chmod 644 "$TARGET_LINK_DIR/.editorconfig"
     chmod 644 "$TARGET_LINK_DIR/.gitconfig"
+    chmod -R 755 "$TARGET_LINK_DIR/.git_templates"
     chmod 644 "$TARGET_LINK_DIR/.keys"
     chmod 644 "$TARGET_LINK_DIR/.npmrc"
 

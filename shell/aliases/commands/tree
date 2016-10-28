@@ -1,9 +1,36 @@
 #!/usr/bin/env bash
 
-alias   tr="tree -a         --dirsfirst -I '\.git|\.sass-cache|bower_components|jspm_packages|coverage|docs|node_modules|reports|typings'"
-alias  trd="tree -a -d      --dirsfirst -I '\.git|\.sass-cache|bower_components|jspm_packages|coverage|docs|node_modules|reports|typings'"
+ARGS="\
+    --dirsfirst \
+    -I ' \
+    |.git| \
+    |.karma| \
+    |.protractor| \
+    |.sass-cache| \
+    |backups| \
+    |bower_components| \
+    |bundle| \
+    |completions| \
+    |coverage| \
+    |dist| \
+    |docs| \
+    |jspm_packages| \
+    |node_modules| \
+    |plugins| \
+    |reports| \
+    |typings| \
+    |undo| \
+    |vendor| \
+    '"
 
-alias  tr1="tree -a    -L 1 --dirsfirst -I '\.git|\.sass-cache|bower_components|jspm_packages|coverage|docs|node_modules|reports|typings'"
-alias trd1="tree -a -d -L 1 --dirsfirst -I '\.git|\.sass-cache|bower_components|jspm_packages|coverage|docs|node_modules|reports|typings'"
+# a: all files
+# d: directories only
+# L: depth
+
+alias   tr="tree -a         $ARGS"
+alias  trd="tree -a -d      $ARGS"
+
+alias  tr1="tree -a    -L 1 $ARGS"
+alias trd1="tree -a -d -L 1 $ARGS"
 
 # vim: set syn=sh :

@@ -10,6 +10,7 @@ source $HOME/.vim/vimrc_ignore
 source $HOME/.vim/vimrc_leaders
 source $HOME/.vim/vimrc_mappings
 source $HOME/.vim/vimrc_theme
+source $HOME/.vim/vimrc_highlight
 source $HOME/.vim/vimrc_whitespace
 
 " Fix up any spell styling

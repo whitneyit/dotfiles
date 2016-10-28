@@ -1,0 +1,2 @@
+" Improve the colour of "@recording"
+highlight clear ModeMsg

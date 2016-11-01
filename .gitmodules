@@ -14,6 +14,10 @@
     ignore = dirty
     path = shell/fonts/powerline-fonts
     url = https://github.com/Lokaltog/powerline-fonts.git
+[submodule "shell/showlinenum"]
+    ignore = dirty
+    path = shell/showlinenum
+    url = https://github.com/jay/showlinenum
 [submodule "vim/bundle/base16-vim"]
     ignore = dirty
     path = vim/bundle/base16-vim

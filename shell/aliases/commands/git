@@ -61,14 +61,18 @@ alias               gcmas="git commit --verbose --amend --message"
 __git_complete      gcmas _git_commit
 alias               gcmac="git commit --verbose --amend --no-edit"
 __git_complete      gcmac _git_commit
-alias                  gd="git diff"
+alias                  gd="git diff --color=always"
 __git_complete         gd _git_diff
-alias                 gdl="git diff --name-only"
+alias                 gdl="git diff --color=always                      | $DOTFILES_DIRECTORY/shell/showlinenum/showlinenum.awk"
 __git_complete        gdl _git_diff
-alias                 gds="git diff --staged"
+alias                 gdn="git diff --color=always --name-only"
+__git_complete        gdn _git_diff
+alias                 gds="git diff --color=always --staged"
 __git_complete        gds _git_diff
-alias                gdsl="git diff --name-only --staged"
+alias                gdsl="git diff --color=always --staged             | $DOTFILES_DIRECTORY/shell/showlinenum/showlinenum.awk"
 __git_complete       gdsl _git_diff
+alias                gdsn="git diff --color=always --name-only --staged"
+__git_complete       gdsn _git_diff
 alias                 gdt="git difftool"
 __git_complete        gdt _git_difftool
 alias                  gh="git stash save"

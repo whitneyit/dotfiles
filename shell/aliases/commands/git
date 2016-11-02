@@ -33,6 +33,22 @@ alias                 gcf="git config"
 __git_complete        gcf _git_config
 alias                gcfl="git config --list"
 __git_complete       gcfl _git_config
+alias                 gcl="git clone"
+__git_complete        gcl _git_clone
+alias                 gcm="git commit --verbose" # -v
+__git_complete        gcm _git_commit
+alias                gcms="git commit --verbose --message" # -v -m, -vm
+__git_complete       gcms _git_commit
+alias                gcma="git commit --verbose --amend"
+__git_complete       gcma _git_commit
+alias               gcmas="git commit --verbose --amend --message"
+__git_complete      gcmas _git_commit
+alias               gcmac="git commit --verbose --amend --no-edit"
+__git_complete      gcmac _git_commit
+alias                 gcn="git clean -d -x --force --dry-run" # no such thing as --directories, -x ignores .gitignore
+__git_complete        gcn _git_clean
+alias                gcnf="git clean -d -x --force"
+__git_complete       gcnf _git_clean
 alias                 gco="git checkout"
 __git_complete        gco _git_checkout
 alias                gcom="git checkout master"
@@ -45,22 +61,12 @@ alias                gcop="git checkout --patch" # -p
 __git_complete       gcop _git_checkout
 alias                gcoa="git checkout ." # This is a fake alias to git checkout --all which does not exist
 __git_complete       gcoa _git_checkout
-alias                 gcl="git clone"
-__git_complete        gcl _git_clone
-alias                 gcn="git clean -d -x --force --dry-run" # no such thing as --directories, -x ignores .gitignore
-__git_complete        gcn _git_clean
-alias                gcnf="git clean -d -x --force"
-__git_complete       gcnf _git_clean
-alias                 gcm="git commit --verbose" # -v
-__git_complete        gcm _git_commit
-alias                gcms="git commit --verbose --message" # -v -m, -vm
-__git_complete       gcms _git_commit
-alias                gcma="git commit --verbose --amend"
-__git_complete       gcma _git_commit
-alias               gcmas="git commit --verbose --amend --message"
-__git_complete      gcmas _git_commit
-alias               gcmac="git commit --verbose --amend --no-edit"
-__git_complete      gcmac _git_commit
+alias                 gcp="git cherry-pick"
+__git_complete        gcp _git_cherry-pick
+alias                gcpa="git cherry-pick --abort"
+__git_complete       gcpa _git_cherry-pick
+alias                gccc="git cherry-pick --continue"
+__git_complete       gcpc _git_cherry-pick
 alias                  gd="git diff --color=always"
 __git_complete         gd _git_diff
 alias                 gdl="git diff --color=always                      | $DOTFILES_DIRECTORY/shell/showlinenum/showlinenum.awk"
@@ -157,6 +163,8 @@ alias                  gm="git merge --no-ff --progress --verbose"
 __git_complete         gm _git_merge
 alias                 gma="git merge --abort"
 __git_complete        gma _git_merge
+alias                 gmc="git commit" # no git merge --continue
+__git_complete        gmc _git_commit
 alias                 gmd="git merge --no-ff --progress --verbose develop"
 __git_complete        gmd _git_merge
 alias                 gmm="git merge --no-ff --progress --verbose master"

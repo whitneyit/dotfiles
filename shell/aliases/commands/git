@@ -75,6 +75,8 @@ alias                 gdn="git diff --color=always --name-only"
 __git_complete        gdn _git_diff
 alias                 gds="git diff --color=always --staged"
 __git_complete        gds _git_diff
+alias                gdbn="git status --porcelain | cut -c 4-" # git diff _both_ --name-only
+__git_complete       gdbn _git_status
 alias                gdsl="git diff --color=always --staged             | $DOTFILES_DIRECTORY/shell/showlinenum/showlinenum.awk"
 __git_complete       gdsl _git_diff
 alias                gdsn="git diff --color=always --name-only --staged"
@@ -310,10 +312,6 @@ __git_complete         gt _git_tag
 alias                 gtl="git tag --list"
 __git_complete        gtl _git_tag
 alias                  gv="git --version"
-
-# A way to see modified files
-alias                 gmo="git status --porcelain | cut -c 4-"
-__git_complete        gmo _git_status
 
 # List ignored files
 alias                 gig="git ls-files --ignored --exclude-standard"

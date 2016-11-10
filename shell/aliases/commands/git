@@ -133,6 +133,8 @@ alias                glga="git log                            --graph --pretty=f
 __git_complete       glga _git_log
 alias                glma="git log --merges                           --pretty=format:'%C(yellow)%<(8)%h%C(green)[%ci | %>(14)%cr] %C(cyan)%ae %C(reset)%s%C(white)%d'"
 __git_complete       glma _git_log
+alias                glna="git log --no-merges --name-only    --stat  --pretty=format:''"
+__git_complete       glna _git_log
 alias                glsa="git log --no-merges                --stat  --pretty=format:'%C(yellow)%<(8)%h%C(green)[%ci | %cr] %C(cyan)%ae %C(reset)%s%C(white)%d'"
 __git_complete       glsa _git_log
 alias                glia="git log                                    --pretty=format:'%C(yellow)%<(8)%h%C(green)[%ci | %>(14)%cr] %C(cyan)%ae %C(reset)%s%C(white)%d' ..@{upstream}"
@@ -358,6 +360,10 @@ alias                 glm="glma  -10"
 __git_complete        glm _git_log
 alias                glm1="glma  -1"
 __git_complete       glm1 _git_log
+alias                 gln="glna  -10"
+__git_complete        gln _git_log
+alias                gln1="glna  -1"
+__git_complete       gln1 _git_log
 alias                 gls="glsa  -10"
 __git_complete        gls _git_log
 alias                gls1="glsa  -1"

@@ -210,7 +210,7 @@ function link_files() {
     cp "$1/npm/npmrc"               "$TARGET_LINK_DIR/.npmrc"
 
     # Here we specify the folders that will be copied.
-    cp -R "$1/git/templates"        "$TARGET_LINK_DIR/.gittemplates"
+    cp -R "$1/git/templates"        "$TARGET_LINK_DIR/.git_templates"
 
     # Here we do any `cygwin` specific links
     if [ "$(uname -s | grep -c CYGWIN)" -gt 0 ]; then

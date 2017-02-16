@@ -313,7 +313,12 @@ alias                  gt="git tag"
 __git_complete         gt _git_tag
 alias                 gtl="git tag --list"
 __git_complete        gtl _git_tag
-alias                  gv="git --version"
+alias                  gv="git --version" # No git complete for _git_version
+
+# Assume unchanged
+alias                 gau="git update-index --assume-unchanged"
+alias                gnau="git update-index --no-assume-unchanged"
+alias                gaul="git ls-files -v | grep '^h' | cut -c 3-"
 
 # List ignored files
 alias                 gig="git ls-files --ignored --exclude-standard"

@@ -132,8 +132,8 @@ endif
 " back to buffers
 set tabpagemax=1000
 
-" Add a vertical ruler at the 81st column
-set colorcolumn=81
+" Add a vertical ruler at the 121st column
+set colorcolumn=121
 
 " Make substitution global inside a line
 set gdefault

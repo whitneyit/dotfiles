@@ -1,5 +1,5 @@
 " Set the width of the document
-setlocal textwidth=80
+setlocal textwidth=120
 
 " Ensure words break correctly
 setlocal nolist

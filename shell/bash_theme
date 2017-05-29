@@ -2,16 +2,16 @@
 
 # Determine if the git repo we are in has any changes in the working directory
 function parse_git_dirty() {
-    [[ $(git status 2> /dev/null | tail -n1) != *"working directory clean"* ]] && echo "*"
-    # local git_status=$(git status 2> /dev/null | tail -n1)
-    # [[ $git_status && $git_status != *"working directory clean"* ]] && echo "*"
+    STATUS="$(git status 2> /dev/null | tail -n1)"
+    if [[ $STATUS != *"working directory clean"* && $STATUS != *"working tree clean"* ]]; then
+        echo "*"
+    fi
 }
 
 # If the current directory belongs is a descendant of a git repo, determine the
 # name of branch that is checked out
 function parse_git_branch() {
     git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
-    # echo "$(git rev-parse --abbrev-ref HEAD 2> /dev/null)""$(parse_git_dirty)"
 }
 
 # If we are in Windows, we don't do any fancy color schemes.

@@ -541,7 +541,8 @@ if [ ! -d .git ]; then
                 npm-check \
                 phantomjs-prebuilt \
                 typescript \
-                typings
+                typings \
+                yarn
 
             e_success "Successfully installed nvm..."
 

@@ -2,6 +2,10 @@
 let env_background = $VIM_BACKGROUND
 let env_theme = $VIM_THEME
 
+if has("termguicolors")
+    set termguicolors
+endif
+
 " Set the theme to xoria
 if env_theme == "xoria"
     set t_Co=256
@@ -10,6 +14,7 @@ if env_theme == "xoria"
 
 " Set the theme to base16
 elseif env_theme =~ "base16"
+    set t_Co=256
     let &background = env_background
     colorscheme $VIM_THEME
 

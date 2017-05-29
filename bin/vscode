@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Mac
+if [ "$(is_mac)" == "yes" ]; then
+    /Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron "${@-"$PWD"}" &
+
+# Everywhere else
+else
+    command code "$@"
+
+fi
+
+
+# vim: set syn=sh :

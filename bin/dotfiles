@@ -298,6 +298,7 @@ if [ ! -d .git ]; then
             'findutils'
             'git'
             'gnu-sed'
+            'gpg'
             'grep'
             'hub'
             'tree'

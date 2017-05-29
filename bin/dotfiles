@@ -97,8 +97,30 @@ cd "$DOTFILES_DIRECTORY"
 # Initialize the git repository if it's missing
 if [ ! -d .git ]; then
 
+    # `is_cygwin`
+    if [ "$(uname -s | grep -c Cygwin)" -gt 0 ]; then
+        mkdir -p /etc/init.d /tmp
+        chgrp -R Users "/etc/init.d"
+        chgrp -R Users "/tmp"
+
+    # `is_vagrant`
+    elif [ -d /home/vagrant ]; then
+        mkdir -p /etc/init.d /tmp
+        sudo chown -R vagrant:vagrant "/etc/init.d"
+        sudo chown -R vagrant:vagrant "/tmp"
+
+    # Everyone else
+    else
+        e_info "Please enter your password to change ownership of /etc/init.d and /tmp..."
+        sudo -v
+        sudo mkdir -p /etc/init.d /tmp
+        chown -R `whoami` "/etc/init.d"
+        chown -R `whoami` "/tmp"
+
+    fi
+
     # Create our required folders
-    mkdir -p /etc/init.d /tmp "$HOME/.config" "$HOME/.ssh" "$HOME/Archive" "$HOME/Code" "$HOME/Dev" "$HOME/go" "$HOME/OSS" "$HOME/Work"
+    mkdir -p "$HOME/.config" "$HOME/.ssh" "$HOME/Archive" "$HOME/Code" "$HOME/Dev" "$HOME/go" "$HOME/OSS" "$HOME/Work"
 
     # Here we make sure that we have a `~/.bash_history` file.
     if [ ! -f "$HOME/.bash_history" ]; then
@@ -131,8 +153,6 @@ if [ ! -d .git ]; then
     # `is_cygwin`
     if [ "$(uname -s | grep -c Cygwin)" -gt 0 ]; then
         chgrp -R Users .
-        chgrp -R Users "/etc/init.d"
-        chgrp -R Users "/tmp"
         chgrp -R Users "$HOME/.ssh"
         chgrp -R Users "$HOME/Archive"
         chgrp -R Users "$HOME/Code"
@@ -148,8 +168,6 @@ if [ ! -d .git ]; then
     # `is_vagrant`
     elif [ -d /home/vagrant ]; then
         sudo chown -R vagrant:vagrant .
-        sudo chown -R vagrant:vagrant "/etc/init.d"
-        sudo chown -R vagrant:vagrant "/tmp"
         sudo chown -R vagrant:vagrant "$HOME/.ssh"
         sudo chown -R vagrant:vagrant "$HOME/Archive"
         sudo chown -R vagrant:vagrant "$HOME/Code"
@@ -165,8 +183,6 @@ if [ ! -d .git ]; then
     # Everyone else
     else
         chown -R `whoami` .
-        chown -R `whoami` "/etc/init.d"
-        chown -R `whoami` "/tmp"
         chown -R `whoami` "$HOME/.ssh"
         chown -R `whoami` "$HOME/Archive"
         chown -R `whoami` "$HOME/Code"

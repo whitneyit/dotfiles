@@ -8,6 +8,8 @@ alias     .....="cd ../../../../"
 
 # Quickly jump to some system folders
 alias   desktop="cd ~/Desktop/"
+alias  pictures="cd ~/Pictures/"
+alias documents="cd ~/Documents/"
 alias downloads="cd ~/Downloads/"
 
 # Dev folders

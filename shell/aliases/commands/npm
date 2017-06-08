@@ -1,17 +1,114 @@
 #!/usr/bin/env bash
 
-alias  ni="npm install"
-alias nig="npm install --global"
-alias nis="npm install --save"
-alias nid="npm install --save-dev"
-alias  nl="npm list --depth=0"
-alias nlg="npm list --depth=0 --global"
-alias  ns="npm start"
-alias  nt="npm test"
-alias  nu="npm uninstall"
-alias nus="npm uninstall --save"
-alias nud="npm uninstall --save-dev"
-alias nug="npm uninstall --global"
+ni() {
+    if [ "$(type -P yarn)" ]; then
+        if [ "$#" == "0" ]; then
+            echo "$ yarn install"
+            yarn install
+        else
+            echo "$ yarn add "$@""
+            yarn add "$@"
+        fi
+    else
+        if [ "$#" == "0" ]; then
+            echo "$ npm install"
+            npm install
+        else
+            echo "$ npm install --save "$@""
+            npm install --save "$@"
+        fi
+    fi
+}
+
+nid() {
+    if [ "$(type -P yarn)" ]; then
+        echo "$ yarn add --dev "$@""
+        yarn add --dev "$@"
+    else
+        echo "$ npm install --save-dev "$@""
+        npm install --save-dev "$@"
+    fi
+}
+
+nig() {
+    if [ "$(type -P yarn)" ]; then
+        echo "$ yarn global add "$@""
+        yarn global add "$@"
+    else
+        echo "$ npm install --global "$@""
+        npm install --global "$@"
+    fi
+}
+
+nu() {
+    if [ "$(type -P yarn)" ]; then
+        echo "$ yarn remove "$@""
+        yarn remove "$@"
+    else
+        echo "$ npm uninstall --save "$@""
+        npm uninstall --save "$@"
+    fi
+}
+
+nud() {
+    if [ "$(type -P yarn)" ]; then
+        echo "$ yarn remove "$@""
+        yarn remove "$@"
+    else
+        echo "$ npm uninstall --save-dev "$@""
+        npm uninstall --save-dev "$@"
+    fi
+}
+
+nug() {
+    if [ "$(type -P yarn)" ]; then
+        echo "$ yarn global remove "$@""
+        yarn global remove "$@"
+    else
+        echo "$ npm uninstall --global "$@""
+        npm uninstall --global "$@"
+    fi
+}
+
+ns() {
+    if [ "$(type -P yarn)" ]; then
+        echo "$ yarn start "$@""
+        yarn start "$@"
+    else
+        echo "$ npm start "$@""
+        npm start "$@"
+    fi
+}
+
+nt() {
+    if [ "$(type -P yarn)" ]; then
+        echo "$ yarn test "$@""
+        yarn test "$@"
+    else
+        echo "$ npm test "$@""
+        npm test "$@"
+    fi
+}
+
+nl() {
+    if [ "$(type -P yarn)" ]; then
+        echo "$ yarn list --depth=0 "$@""
+        yarn list --depth=0 "$@"
+    else
+        echo "$ npm list --depth=0 "$@""
+        npm list --depth=0 "$@"
+    fi
+}
+
+nlg() {
+    if [ "$(type -P yarn)" ]; then
+        echo "$ yarn global ls --depth=0 "$@""
+        yarn global ls --depth=0 "$@"
+    else
+        echo "$ npm list --global --depth=0 "$@""
+        npm list --global --depth=0 "$@"
+    fi
+}
 
 nupgrade() {
     echo "upgrading npm..."
@@ -26,6 +123,9 @@ nv() {
     fi
     echo "node version $(node --version)"
     echo "npm version $(npm --version)"
+    if [ "$(type -P yarn)" ]; then
+        echo "yarn version $(yarn --version)"
+    fi
 }
 
 ngp() {

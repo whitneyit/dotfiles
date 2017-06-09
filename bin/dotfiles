@@ -522,16 +522,17 @@ if [ ! -d .git ]; then
             nvm use stable
             nvm alias default stable
 
-            # Let the user know what version we are using
-            echo nvm version $(nvm --version)
-            echo node version $(node --version)
-            echo npm version $(npm --version)
-
             # Update npm
-            npm install --global npm
+            npm install --global npm yarn
+
+            # Let the user know what version we are using
+            echo "nvm version $(nvm --version)"
+            echo "node version $(node --version)"
+            echo "npm version $(npm --version)"
+            echo "yarn version $(yarn --version)"
 
             # Install our most used packages
-            npm install --global \
+            yarn global add \
                 firebase-tools \
                 gulp-cli \
                 httpster \
@@ -540,9 +541,7 @@ if [ ! -d .git ]; then
                 np \
                 npm-check \
                 phantomjs-prebuilt \
-                typescript \
-                typings \
-                yarn
+                typescript
 
             e_success "Successfully installed nvm..."
 

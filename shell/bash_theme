@@ -1,19 +1,5 @@
 #!/usr/bin/env bash
 
-# Determine if the git repo we are in has any changes in the working directory
-function parse_git_dirty() {
-    STATUS="$(git status 2> /dev/null | tail -n1)"
-    if [[ $STATUS != *"working directory clean"* && $STATUS != *"working tree clean"* ]]; then
-        echo "*"
-    fi
-}
-
-# If the current directory belongs is a descendant of a git repo, determine the
-# name of branch that is checked out
-function parse_git_branch() {
-    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
-}
-
 # If we are in Windows, we don't do any fancy color schemes.
 if [ $($DOTFILES_DIRECTORY/bin/is_win) == "no" ]; then
 
@@ -47,26 +33,27 @@ if [ $($DOTFILES_DIRECTORY/bin/is_win) == "no" ]; then
         tput sgr0
         if [[ $(tput colors) -ge 256 ]] 2>/dev/null; then
             BLACK=$(tput setaf 0)
+            BLUE=$(tput setaf 4)
+            CYAN=$(tput setaf 6)
+            GREEN=$(tput setaf 2)
             MAGENTA=$(tput setaf 9)
-            ORANGE=$(tput setaf 172)
-            YELLOW=$(tput setaf 190)
             PURPLE=$(tput setaf 141)
+            RED=$(tput setaf 1)
             WHITE=$(tput setaf 255)
+            YELLOW=$(tput setaf 190)
+            ORANGE=$(tput setaf 172)
         else
             BLACK=$(tput setaf 0)
-            RED=$(tput setaf 1)
-            GREEN=$(tput setaf 2)
-            YELLOW=$(tput setaf 3)
             BLUE=$(tput setaf 4)
-            PURPLE=$(tput setaf 5)
             CYAN=$(tput setaf 6)
+            GREEN=$(tput setaf 2)
+            MAGENTA=$(tput setaf 9)
+            PURPLE=$(tput setaf 5)
+            RED=$(tput setaf 1)
             WHITE=$(tput setaf 7)
-
-            MAGENTA=$RED
-            ORANGE=$GREEN
-
+            YELLOW=$(tput setaf 3)
+            ORANGE=$RED
         fi
-        BOLD=$(tput bold)
         RESET=$(tput sgr0)
     else
         BLACK="\033[1;30m"
@@ -75,7 +62,6 @@ if [ $($DOTFILES_DIRECTORY/bin/is_win) == "no" ]; then
         GREEN="\033[1;32m"
         PURPLE="\033[1;35m"
         WHITE="\033[1;37m"
-        BOLD=""
         RESET="\033[m"
     fi
 
@@ -87,7 +73,6 @@ else
     GREEN="\033[1;32m"
     PURPLE="\033[1;35m"
     WHITE="\033[1;37m"
-    BOLD=""
     RESET="\033[m"
 
 fi
@@ -98,19 +83,65 @@ export ORANGE
 export GREEN
 export PURPLE
 export WHITE
-export BOLD
 export RESET
 
-# Determine the look of our prompt. Eg
-#
-# whitneyit at MacBook in ~/Code/dotfiles on master
-# $ echo "Hello world" > hi.txt
-# whitneyit at MacBook in ~/Code/dotfiles on master*
-# $
-#
+function is_svn_repository {
+    svn log > /dev/null 2>&1
+}
+
+function is_hg_repository {
+    hg branch > /dev/null 2>&1
+}
+
+function is_git_repository {
+    git branch > /dev/null 2>&1
+}
+
+# If the current directory belongs is a descendant of a git repo, determine the
+# name of branch that is checked out
+function _git_prompt() {
+    STATUS="$(git status 2> /dev/null | tail -n1)"
+    IS_DIRTY=""
+    if [[ $STATUS != *"working directory clean"* && $STATUS != *"working tree clean"* ]]; then
+        IS_DIRTY="*"
+    fi
+    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$IS_DIRTY/"
+}
+
+function _hg_prompt() {
+    STATUS="$(hg status 2> /dev/null)"
+    IS_DIRTY=""
+    if [[ $STATUS != "" ]]; then
+        IS_DIRTY="*"
+    fi
+    hg branch 2> /dev/null | sed -e "s/\(.*\)/\1$IS_DIRTY/"
+}
+
+function _svn_prompt() {
+    REVISION="$(svn info 2> /dev/null | grep Revision | grep -Eo '[0-9]+$')"
+    STATUS="$(svn status 2> /dev/null)"
+    IS_DIRTY=""
+    if [[ $STATUS != "" ]]; then
+        IS_DIRTY="*"
+    fi
+    echo "$REVISION$IS_DIRTY"
+}
+
+function get_prompt() {
+    PROMPT=""
+    if is_git_repository ; then
+        PROMPT="$WHITE on $PURPLE$(_git_prompt)"
+    elif  is_hg_repository ; then
+        PROMPT="$WHITE on $GREEN$(_hg_prompt)"
+    elif  is_svn_repository ; then
+        PROMPT="$WHITE on $BLUE$(_svn_prompt)"
+    fi
+    echo "$PROMPT"
+}
+
 # If we are using MING, then we do nothing otherwise we set the $PS1
 if [ $($DOTFILES_DIRECTORY/bin/is_ming) == "no" ]; then
-    export PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]at \[$ORANGE\]\h \[$WHITE\]in \[$YELLOW\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n\$ \[$RESET\]"
+    export PS1="\[$MAGENTA\]\u \[$WHITE\]at \[$ORANGE\]\h \[$WHITE\]in \[$YELLOW\]\w\$(get_prompt)\n\[$WHITE\]\$ \[$RESET\]"
 fi
 
 # vim: set syn=sh :

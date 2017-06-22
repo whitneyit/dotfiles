@@ -10,6 +10,7 @@ ARGS="\
     --exclude-dir .sass-cache \
     --exclude-dir backups \
     --exclude-dir bower_components \
+    --exclude-dir build \
     --exclude-dir bundle \
     --exclude-dir completions \
     --exclude-dir coverage \

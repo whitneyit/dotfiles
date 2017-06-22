@@ -58,3 +58,5 @@ vnoremap >       >gv
 vnoremap <       <gv
 vnoremap <Tab>   >gv
 vnoremap <S-Tab> <gv
+
+" vim: set syn=vim :

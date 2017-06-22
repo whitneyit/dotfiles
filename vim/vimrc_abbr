@@ -11,3 +11,5 @@
 :iabbrev ture       true
 :iabbrev treu       true
 :iabbrev waht       what
+
+" vim: set syn=vim :

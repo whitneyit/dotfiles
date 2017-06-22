@@ -82,3 +82,5 @@ nnoremap <leader>T :edit TODO.md<CR>
 
 " Show indent guides
 nnoremap <Leader>g <Plug>IndentGuidesToggle
+
+" vim: set syn=vim :

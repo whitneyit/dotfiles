@@ -1,2 +1,4 @@
 " Improve the colour of "@recording"
 highlight clear ModeMsg
+
+" vim: set syn=vim :

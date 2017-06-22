@@ -33,3 +33,5 @@ function! RemoveFancyCharacters()
     :exe ":%s/".join(keys(typo), '\|').'/\=typo[submatch(0)]/ge'
 endfunction
 command! RemoveFancyCharacters :call RemoveFancyCharacters()
+
+" vim: set syn=vim :

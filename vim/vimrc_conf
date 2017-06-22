@@ -253,3 +253,5 @@ set viminfo+=n$HOME/.viminfo
 set nobackup
 set nowritebackup
 set noswapfile
+
+" vim: set syn=vim :

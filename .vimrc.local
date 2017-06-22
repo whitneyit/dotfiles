@@ -13,3 +13,5 @@ set wildignore+=*/.netrwhist
 
 " Nerdtree specific ignore
 let NERDTreeIgnore += ['^backups$', '^completions$', '^base16-shell$', '^fonts$', '^bundle$', '^plugins$', '^swaps$', '^undo$', '.netrwhist$']
+
+" vim: set syn=vim :

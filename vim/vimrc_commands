@@ -85,3 +85,5 @@ if has("user_commands")
     command! S !sudo tee > /dev/null %
 
 endif
+
+" vim: set syn=vim :

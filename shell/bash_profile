@@ -35,9 +35,9 @@ if [ -z "$DOTFILES_DIRECTORY" ]; then
     # Add the `$DOTFILES_DIRECTORY` directory to the `$PATH`
     export PATH="$DOTFILES_DIRECTORY/bin:$PATH"
 
-    # And here we boot of the scripts
-    source "$DOTFILES_DIRECTORY/bin/sauce"
-
 fi
+
+# And here we boot of the scripts
+source "$DOTFILES_DIRECTORY/bin/sauce"
 
 # vim: set syn=sh :

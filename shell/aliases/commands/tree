@@ -3,10 +3,12 @@
 ARGS="\
     --dirsfirst \
     -I ' \
+    |.hg| \
     |.git| \
     |.karma| \
     |.protractor| \
     |.sass-cache| \
+    |.svn| \
     |backups| \
     |bower_components| \
     |bundle| \

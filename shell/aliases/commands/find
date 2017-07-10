@@ -2,10 +2,12 @@
 
 fnd() {
     find * \
+        -not -path ".hg/**" \
         -not -path ".git/**" \
         -not -path ".karma/**" \
         -not -path ".protractor/**" \
         -not -path ".sass-cache/**" \
+        -not -path ".svn/**" \
         -not -path "backups/**" \
         -not -path "bower_components/**" \
         -not -path "bundle/**" \
@@ -25,10 +27,12 @@ fnd() {
 
 fndd() {
     find * \
+        -not -path ".hg/**" \
         -not -path ".git/**" \
         -not -path ".karma/**" \
         -not -path ".protractor/**" \
         -not -path ".sass-cache/**" \
+        -not -path ".svn/**" \
         -not -path "backups/**" \
         -not -path "bower_components/**" \
         -not -path "bundle/**" \
@@ -48,10 +52,12 @@ fndd() {
 
 fndf() {
     find * \
+        -not -path ".hg/**" \
         -not -path ".git/**" \
         -not -path ".karma/**" \
         -not -path ".protractor/**" \
         -not -path ".sass-cache/**" \
+        -not -path ".svn/**" \
         -not -path "backups/**" \
         -not -path "bower_components/**" \
         -not -path "bundle/**" \

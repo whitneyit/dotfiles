@@ -4,10 +4,12 @@ ARGS="\
     --color \
     --exclude *.map \
     --exclude npm-debug.log \
+    --exclude-dir .hg \
     --exclude-dir .git \
     --exclude-dir .karma \
     --exclude-dir .protractor \
     --exclude-dir .sass-cache \
+    --exclude-dir .svn \
     --exclude-dir backups \
     --exclude-dir bower_components \
     --exclude-dir build \

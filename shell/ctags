@@ -3,10 +3,12 @@
 
 --exclude=*.map
 --exclude=npm-debug.log
+--exclude=.hg
 --exclude=.git
 --exclude=.karma
 --exclude=.protractor
 --exclude=.sass-cache
+--exclude=.svn
 --exclude=bower_components
 --exclude=bundle
 --exclude=coverage

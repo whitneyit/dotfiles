@@ -311,6 +311,7 @@ if [ ! -d .git ]; then
             'coreutils'
             'ctags'
             'dos2unix'
+            'editorconfig'
             'findutils'
             'git'
             'gnu-sed'
@@ -421,10 +422,11 @@ if [ ! -d .git ]; then
         sudo apt-get install -y \
             build-essential \
             chromium-browser \
-            curl \
             ctags \
-            dos2unix \
+            curl \
             daemon \
+            dos2unix \
+            editorconfig \
             exuberant-ctags \
             gettext \
             git \

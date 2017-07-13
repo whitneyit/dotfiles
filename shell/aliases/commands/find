@@ -2,8 +2,9 @@
 
 fnd() {
     find * \
-        -not -path ".hg/**" \
+        -not -path ".chrome/**" \
         -not -path ".git/**" \
+        -not -path ".hg/**" \
         -not -path ".karma/**" \
         -not -path ".protractor/**" \
         -not -path ".sass-cache/**" \
@@ -27,8 +28,9 @@ fnd() {
 
 fndd() {
     find * \
-        -not -path ".hg/**" \
+        -not -path ".chrome/**" \
         -not -path ".git/**" \
+        -not -path ".hg/**" \
         -not -path ".karma/**" \
         -not -path ".protractor/**" \
         -not -path ".sass-cache/**" \
@@ -52,8 +54,9 @@ fndd() {
 
 fndf() {
     find * \
-        -not -path ".hg/**" \
+        -not -path ".chrome/**" \
         -not -path ".git/**" \
+        -not -path ".hg/**" \
         -not -path ".karma/**" \
         -not -path ".protractor/**" \
         -not -path ".sass-cache/**" \

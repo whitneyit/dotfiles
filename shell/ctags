@@ -3,8 +3,9 @@
 
 --exclude=*.map
 --exclude=npm-debug.log
---exclude=.hg
+--exclude=.chrome
 --exclude=.git
+--exclude=.hg
 --exclude=.karma
 --exclude=.protractor
 --exclude=.sass-cache

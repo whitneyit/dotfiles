@@ -1,6 +1,7 @@
 " Directories
-set wildignore+=*/.hg/**
+set wildignore+=*/.chrome/**
 set wildignore+=*/.git/**
+set wildignore+=*/.hg/**
 set wildignore+=*/.karma/**
 set wildignore+=*/.protractor/**
 set wildignore+=*/.sass-cache/**
@@ -31,6 +32,6 @@ set wildignore+=*.DS_Store
 set wildignore+=*Thumbs.db
 
 " Nerdtree specific ignore
-let NERDTreeIgnore = ['^.git$', '^.hg$', '^.git$', '^.karma$', '^.protractor$', '^.sass-cache$', '^.svn$', '^backups$', '^bower_components$', '^bundle$', '^completions$', '^coverage$', '^dist$', '^docs$', '^jspm_packages$', '^node_modules$', '^plugins$', '^reports$', '^typings$', '^undo$', '^vendor$', '^.sublime-workspace$', '^firebase-debug.log$', '^npm-debug.log$', '^phantomjsdriver.log$', '^.DS_Store$', '^Thumbs.db$']
+let NERDTreeIgnore = ['^.chrome$', '^.git$', '^.hg$', '^.karma$', '^.protractor$', '^.sass-cache$', '^.svn$', '^backups$', '^bower_components$', '^bundle$', '^completions$', '^coverage$', '^dist$', '^docs$', '^jspm_packages$', '^node_modules$', '^plugins$', '^reports$', '^typings$', '^undo$', '^vendor$', '^.sublime-workspace$', '^firebase-debug.log$', '^npm-debug.log$', '^phantomjsdriver.log$', '^.DS_Store$', '^Thumbs.db$']
 
 " vim: set syn=vim :

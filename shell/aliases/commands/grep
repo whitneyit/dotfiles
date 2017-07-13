@@ -5,8 +5,9 @@ ARGS="\
     --exclude *.map \
     --exclude *.lock \
     --exclude npm-debug.log \
-    --exclude-dir .hg \
+    --exclude-dir .chrome \
     --exclude-dir .git \
+    --exclude-dir .hg \
     --exclude-dir .karma \
     --exclude-dir .protractor \
     --exclude-dir .sass-cache \

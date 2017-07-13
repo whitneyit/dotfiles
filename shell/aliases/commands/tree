@@ -3,8 +3,9 @@
 ARGS="\
     --dirsfirst \
     -I ' \
-    |.hg| \
+    |.chrome| \
     |.git| \
+    |.hg| \
     |.karma| \
     |.protractor| \
     |.sass-cache| \

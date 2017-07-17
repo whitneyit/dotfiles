@@ -4,6 +4,7 @@
 declare -a to_delete=(
     .DS_Store
     .DS_Store?
+    .localized
     desktop.ini
     ehthumbs.db
     Thumbs.db

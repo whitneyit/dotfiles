@@ -120,7 +120,7 @@ if [ ! -d .git ]; then
     fi
 
     # Create our required folders
-    mkdir -p "$HOME/.config" "$HOME/.ssh" "$HOME/Archive" "$HOME/Code" "$HOME/Dev" "$HOME/go" "$HOME/OSS" "$HOME/Work"
+    mkdir -p "$HOME/.config" "$HOME/.ssh" "$HOME/Archive" "$HOME/Code" "$HOME/Dev" "$HOME/Go" "$HOME/OSS" "$HOME/Work"
 
     # Here we make sure that we have a `~/.bash_history` file.
     if [ ! -f "$HOME/.bash_history" ]; then
@@ -157,7 +157,7 @@ if [ ! -d .git ]; then
         chgrp -R Users "$HOME/Archive"
         chgrp -R Users "$HOME/Code"
         chgrp -R Users "$HOME/Dev"
-        chgrp -R Users "$HOME/go"
+        chgrp -R Users "$HOME/Go"
         chgrp -R Users "$HOME/OSS"
         chgrp -R Users "$HOME/Work"
         chgrp Users "$HOME/.bash_history"
@@ -172,7 +172,7 @@ if [ ! -d .git ]; then
         sudo chown -R vagrant:vagrant "$HOME/Archive"
         sudo chown -R vagrant:vagrant "$HOME/Code"
         sudo chown -R vagrant:vagrant "$HOME/Dev"
-        sudo chown -R vagrant:vagrant "$HOME/go"
+        sudo chown -R vagrant:vagrant "$HOME/Go"
         sudo chown -R vagrant:vagrant "$HOME/OSS"
         sudo chown -R vagrant:vagrant "$HOME/Work"
         sudo chown vagrant:vagrant "$HOME/.bash_history"
@@ -187,7 +187,7 @@ if [ ! -d .git ]; then
         chown -R `whoami` "$HOME/Archive"
         chown -R `whoami` "$HOME/Code"
         chown -R `whoami` "$HOME/Dev"
-        chown -R `whoami` "$HOME/go"
+        chown -R `whoami` "$HOME/Go"
         chown -R `whoami` "$HOME/OSS"
         chown -R `whoami` "$HOME/Work"
         chown `whoami` "$HOME/.bash_history"
@@ -483,7 +483,7 @@ if [ ! -d .git ]; then
         curl https://storage.googleapis.com/golang/go1.5.2.linux-amd64.tar.gz | tar -xz -C /usr/local
 
         # Configure the go environment
-        export GOPATH="$HOME/go"
+        export GOPATH="$HOME/Go"
         export GOROOT="/usr/local/go"
 
         # Install hub

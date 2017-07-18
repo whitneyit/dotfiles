@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Define were the go apps will be built
-export GOPATH="$HOME/go"
+export GOPATH="$HOME/Go"
 
 # Define were the go bin lives
 export GOROOT="/usr/local/go"

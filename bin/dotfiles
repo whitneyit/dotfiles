@@ -105,7 +105,7 @@ if [ ! -d .git ]; then
 
     # `is_vagrant`
     elif [ -d /home/vagrant ]; then
-        mkdir -p /etc/init.d /tmp
+        sudo mkdir -p /etc/init.d /tmp
         sudo chown -R vagrant:vagrant "/etc/init.d"
         sudo chown -R vagrant:vagrant "/tmp"
 
@@ -114,8 +114,8 @@ if [ ! -d .git ]; then
         e_info "Please enter your password to change ownership of /etc/init.d and /tmp..."
         sudo -v
         sudo mkdir -p /etc/init.d /tmp
-        chown -R `whoami` "/etc/init.d"
-        chown -R `whoami` "/tmp"
+        sudo chown -R `whoami` "/etc/init.d"
+        sudo chown -R `whoami` "/tmp"
 
     fi
 
@@ -369,7 +369,7 @@ if [ ! -d .git ]; then
             sudo echo "/usr/local/bin/bash" >> /etc/shells
 
             # Change the shell for the current user
-            chsh -s /usr/local/bin/bash
+            sudo chsh -s /usr/local/bin/bash
 
         fi
 

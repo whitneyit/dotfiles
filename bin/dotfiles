@@ -109,6 +109,14 @@ if [ ! -d .git ]; then
         sudo chown -R vagrant:vagrant "/etc/init.d"
         sudo chown -R vagrant:vagrant "/tmp"
 
+    # `is_mac`
+    # Check to see if we are running on a Mac
+    if [ "$(uname -s | grep -c Darwin)" -gt 0 ]; then
+        e_info "Please enter your password to change ownership of /etc/init.d..."
+        sudo -v
+        sudo mkdir -p /etc/init.d
+        sudo chown -R `whoami` "/etc/init.d"
+
     # Everyone else
     else
         e_info "Please enter your password to change ownership of /etc/init.d and /tmp..."

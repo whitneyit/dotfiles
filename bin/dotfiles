@@ -542,7 +542,7 @@ if [ ! -d .git ]; then
             echo "yarn version $(yarn --version)"
 
             # Install our most used packages
-            yarn global add \
+            npm install --global \
                 firebase-tools \
                 gulp-cli \
                 httpster \

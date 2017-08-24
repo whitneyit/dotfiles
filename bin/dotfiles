@@ -377,7 +377,7 @@ if [ ! -d .git ]; then
             sudo echo "/usr/local/bin/bash" >> /etc/shells
 
             # Change the shell for the current user
-            sudo chsh -s /usr/local/bin/bash
+            chsh -s /usr/local/bin/bash
 
         fi
 

@@ -33,17 +33,17 @@ alias                 gcf="git config"
 __git_complete        gcf _git_config
 alias                gcfl="git config --list"
 __git_complete       gcfl _git_config
-alias                 gcl="git clone"
+alias                 gcl="git clone  --progress --verbose"
 __git_complete        gcl _git_clone
-alias                 gcm="git commit --verbose" # -v
+alias                 gcm="git commit            --verbose" # -v
 __git_complete        gcm _git_commit
-alias                gcms="git commit --verbose --message" # -v -m, -vm
+alias                gcms="git commit            --verbose --message" # -v -m, -vm
 __git_complete       gcms _git_commit
-alias                gcma="git commit --verbose --amend"
+alias                gcma="git commit            --verbose --amend"
 __git_complete       gcma _git_commit
-alias               gcmas="git commit --verbose --amend --message"
+alias               gcmas="git commit            --verbose --amend --message"
 __git_complete      gcmas _git_commit
-alias               gcmac="git commit --verbose --amend --no-edit"
+alias               gcmac="git commit            --verbose --amend --no-edit"
 __git_complete      gcmac _git_commit
 alias                 gcn="git clean -d -x --force --dry-run" # no such thing as --directories, -x ignores .gitignore
 __git_complete        gcn _git_clean

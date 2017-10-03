@@ -69,16 +69,12 @@ alias                gcpc="git cherry-pick --continue"
 __git_complete       gcpc _git_cherry-pick
 alias                  gd="git diff"
 __git_complete         gd _git_diff
-alias                 gdl="git diff                      | $DOTFILES_DIRECTORY/shell/showlinenum/showlinenum.awk"
-__git_complete        gdl _git_diff
 alias                 gdn="git diff --name-only"
 __git_complete        gdn _git_diff
 alias                 gds="git diff --staged"
 __git_complete        gds _git_diff
 alias                gdbn="git status --porcelain | cut -c 4-" # git diff _both_ --name-only
 __git_complete       gdbn _git_status
-alias                gdsl="git diff --staged             | $DOTFILES_DIRECTORY/shell/showlinenum/showlinenum.awk"
-__git_complete       gdsl _git_diff
 alias                gdsn="git diff --name-only --staged"
 __git_complete       gdsn _git_diff
 alias                 gdt="git difftool"

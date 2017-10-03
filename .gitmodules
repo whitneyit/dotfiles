@@ -46,10 +46,6 @@
     ignore = dirty
     path = vim/bundle/snippets
     url = https://github.com/whitneyit/snippets.git
-[submodule "vim/bundle/typescript-vim"]
-    ignore = dirty
-    path = vim/bundle/typescript-vim
-    url = https://github.com/leafgarland/typescript-vim.git
 [submodule "vim/bundle/vim-blade"]
     ignore = dirty
     path = vim/bundle/vim-blade

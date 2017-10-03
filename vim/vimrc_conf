@@ -20,14 +20,16 @@ if has("autocmd")
     " Ensure the correct filetypes are used
     autocmd BufNewFile,BufRead *.aj         set filetype=java
     autocmd BufNewFile,BufRead *.cshtml     set filetype=html
-    autocmd BufNewFile,BufRead *.es6        set filetype=javascript
-    autocmd BufNewFile,BufRead *.es7        set filetype=javascript
+    autocmd BufNewFile,BufRead *.es6        set filetype=javascript.jsx
+    autocmd BufNewFile,BufRead *.es7        set filetype=javascript.jsx
     autocmd BufNewFile,BufRead *.gitignore  set filetype=sh
-    autocmd BufNewFile,BufRead *.jsx        set filetype=javascript
+    autocmd BufNewFile,BufRead *.jsx        set filetype=javascript.jsx
     autocmd BufNewFile,BufRead *.md         set filetype=markdown
     autocmd BufNewFile,BufRead *.ngdoc      set filetype=markdown
     autocmd BufNewFile,BufRead *.rb         set filetype=ruby
-    autocmd BufNewFile,BufRead Jakefile     set filetype=javascript
+    autocmd BufNewFile,BufRead *.ts         set filetype=javascript.jsx
+    autocmd BufNewFile,BufRead *.tsx        set filetype=javascript.jsx
+    autocmd BufNewFile,BufRead Jakefile     set filetype=javascript.jsx
     autocmd BufNewFile,BufRead minttyrc     set filetype=sh
     autocmd BufNewFile,BufRead Vagrantfile  set filetype=ruby
 

@@ -15,7 +15,6 @@
 " 10. NERDTreeTabs                                         "
 " 11. Powerline                                            "
 " 12. Syntastic                                            "
-" 13. Typescript                                           "
 "                                                          "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -232,14 +231,3 @@ let g:syntastic_aggregate_errors = 1
 
 " Don't perform checks when trying to quit a file
 let g:syntastic_check_on_wq = 0
-
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 13. Typescript                                           "
-" https://github.com/leafgarland/typescript-vim            "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-let g:typescript_compiler_options = ' --outDir ./.tsc --module amd'
-
-" vim: set syn=vim :

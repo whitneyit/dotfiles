@@ -102,8 +102,8 @@ nl() {
 
 nlg() {
     if [ "$(type -P yarn)" ]; then
-        echo "$ yarn global ls --depth=0 "$@""
-        yarn global ls --depth=0 "$@"
+        echo "$ yarn global list --depth=0 "$@""
+        yarn global list --depth=0 "$@"
     else
         echo "$ npm list --global --depth=0 "$@""
         npm list --global --depth=0 "$@"

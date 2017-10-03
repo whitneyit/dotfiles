@@ -66,7 +66,8 @@
             },
             {
                 "type": "string",
-                "highlight_group": ["background"],
+                "contents": "",
+                "highlight_groups": ["background"],
                 "draw_soft_divider": false,
                 "draw_hard_divider": false,
                 "width": "auto"
@@ -82,7 +83,8 @@
             },
             {
                 "type": "string",
-                "highlight_group": ["background"],
+                "contents": "",
+                "highlight_groups": ["background"],
                 "draw_soft_divider": false,
                 "draw_hard_divider": false,
                 "width": "auto"

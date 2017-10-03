@@ -295,7 +295,9 @@ alias                gsma="git submodule add"
 __git_complete       gsma _git_submodule
 alias                gsmc="git submodule foreach --recursive git checkout ."
 __git_complete       gsmc _git_submodule
-alias                gsmu="git submodule update --recursive --init"
+alias                gsmi="git submodule update --recursive --init"
+__git_complete       gsmi _git_submodule
+alias                gsmu="git pull --recurse-submodules && git submodule update --recursive --remote"
 __git_complete       gsmu _git_submodule
 alias               gsmfm="git submodule foreach git config core.fileMode false"
 __git_complete      gsmfm _git_submodule

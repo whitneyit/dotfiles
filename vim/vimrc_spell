@@ -15,5 +15,3 @@ highlight SpellLocal cterm=underline
 highlight SpellRare cterm=underline
 
 " vim: set syn=vim :
-
-" vim: set syn=vim :

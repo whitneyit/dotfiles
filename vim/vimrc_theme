@@ -45,5 +45,3 @@ if has("syntax")
 endif
 
 " vim: set syn=vim :
-
-" vim: set syn=vim :

@@ -4,6 +4,7 @@ ARGS="\
     --color \
     --exclude *.map \
     --exclude *.lock \
+    --exclude *lock.json \
     --exclude npm-debug.log \
     --exclude-dir .chrome \
     --exclude-dir .git \

@@ -32,6 +32,7 @@ if [ $($DOTFILES_DIRECTORY/bin/is_win) == "no" ]; then
     if tput setaf 1 &> /dev/null; then
         tput sgr0
         if [[ $(tput colors) -ge 256 ]] 2>/dev/null; then
+            GREY=$(tput setaf 8)
             BLACK=$(tput setaf 0)
             BLUE=$(tput setaf 4)
             CYAN=$(tput setaf 6)
@@ -43,6 +44,7 @@ if [ $($DOTFILES_DIRECTORY/bin/is_win) == "no" ]; then
             YELLOW=$(tput setaf 190)
             ORANGE=$(tput setaf 172)
         else
+            GREY=$(tput setaf 8)
             BLACK=$(tput setaf 0)
             BLUE=$(tput setaf 4)
             CYAN=$(tput setaf 6)
@@ -77,6 +79,7 @@ else
 
 fi
 
+export GREY
 export BLACK
 export MAGENTA
 export ORANGE

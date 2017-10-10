@@ -3,18 +3,18 @@
 ni() {
     if [ "$(type -P yarn)" ]; then
         if [ "$#" == "0" ]; then
-            echo "$ yarn install"
+            echo "$GREY$ yarn install$RESET"
             yarn install
         else
-            echo "$ yarn add "$@""
+            echo "$GREY$ yarn add "$@"$RESET"
             yarn add "$@"
         fi
     else
         if [ "$#" == "0" ]; then
-            echo "$ npm install"
+            echo "$GREY$ npm install$RESET"
             npm install
         else
-            echo "$ npm install --save "$@""
+            echo "$GREY$ npm install --save "$@"$RESET"
             npm install --save "$@"
         fi
     fi
@@ -22,90 +22,90 @@ ni() {
 
 nid() {
     if [ "$(type -P yarn)" ]; then
-        echo "$ yarn add --dev "$@""
+        echo "$GREY$ yarn add --dev "$@"$RESET"
         yarn add --dev "$@"
     else
-        echo "$ npm install --save-dev "$@""
+        echo "$GREY$ npm install --save-dev "$@"$RESET"
         npm install --save-dev "$@"
     fi
 }
 
 nig() {
     if [ "$(type -P yarn)" ]; then
-        echo "$ yarn global add "$@""
+        echo "$GREY$ yarn global add "$@"$RESET"
         yarn global add "$@"
     else
-        echo "$ npm install --global "$@""
+        echo "$GREY$ npm install --global "$@"$RESET"
         npm install --global "$@"
     fi
 }
 
 nu() {
     if [ "$(type -P yarn)" ]; then
-        echo "$ yarn remove "$@""
+        echo "$GREY$ yarn remove "$@"$RESET"
         yarn remove "$@"
     else
-        echo "$ npm uninstall --save "$@""
+        echo "$GREY$ npm uninstall --save "$@"$RESET"
         npm uninstall --save "$@"
     fi
 }
 
 nud() {
     if [ "$(type -P yarn)" ]; then
-        echo "$ yarn remove "$@""
+        echo "$GREY$ yarn remove "$@"$RESET"
         yarn remove "$@"
     else
-        echo "$ npm uninstall --save-dev "$@""
+        echo "$GREY$ npm uninstall --save-dev "$@"$RESET"
         npm uninstall --save-dev "$@"
     fi
 }
 
 nug() {
     if [ "$(type -P yarn)" ]; then
-        echo "$ yarn global remove "$@""
+        echo "$GREY$ yarn global remove "$@"$RESET"
         yarn global remove "$@"
     else
-        echo "$ npm uninstall --global "$@""
+        echo "$GREY$ npm uninstall --global "$@"$RESET"
         npm uninstall --global "$@"
     fi
 }
 
 ns() {
     if [ "$(type -P yarn)" ]; then
-        echo "$ yarn start "$@""
+        echo "$GREY$ yarn start "$@"$RESET"
         yarn start "$@"
     else
-        echo "$ npm start "$@""
+        echo "$GREY$ npm start "$@"$RESET"
         npm start "$@"
     fi
 }
 
 nt() {
     if [ "$(type -P yarn)" ]; then
-        echo "$ yarn test "$@""
+        echo "$GREY$ yarn test "$@"$RESET"
         yarn test "$@"
     else
-        echo "$ npm test "$@""
+        echo "$GREY$ npm test "$@"$RESET"
         npm test "$@"
     fi
 }
 
 nl() {
     if [ "$(type -P yarn)" ]; then
-        echo "$ yarn list --depth=0 "$@""
+        echo "$GREY$ yarn list --depth=0 "$@"$RESET"
         yarn list --depth=0 "$@"
     else
-        echo "$ npm list --depth=0 "$@""
+        echo "$GREY$ npm list --depth=0 "$@"$RESET"
         npm list --depth=0 "$@"
     fi
 }
 
 nlg() {
     if [ "$(type -P yarn)" ]; then
-        echo "$ yarn global list --depth=0 "$@""
+        echo "$GREY$ yarn global list --depth=0 "$@"$RESET"
         yarn global list --depth=0 "$@"
     else
-        echo "$ npm list --global --depth=0 "$@""
+        echo "$GREY$ npm list --global --depth=0 "$@"$RESET"
         npm list --global --depth=0 "$@"
     fi
 }
@@ -116,15 +116,29 @@ nupgrade() {
 }
 
 nv() {
-    if [ "$(type -P nvm)" ]; then
-        echo "nvm (windows) version $(nvm version)"
+    if [ ! -z "$NVM_DIR" ]; then
+        if [ "$(is_win)" == "yes" ]; then
+            echo "nvm  v$(nvm version)"
+        else
+            echo "nvm  v$(nvm --version)"
+        fi
     else
-        echo "nvm version $(nvm --version)"
+        echo "nvm [not installed]"
     fi
-    echo "node version $(node --version)"
-    echo "npm version $(npm --version)"
+    if [ "$(type -P node)" ]; then
+        echo "node $(node --version)"
+    else
+        echo "node [not installed]"
+    fi
+    if [ "$(type -P npm)" ]; then
+        echo "npm  v$(npm --version)"
+    else
+        echo "npm  [not installed]"
+    fi
     if [ "$(type -P yarn)" ]; then
-        echo "yarn version $(yarn --version)"
+        echo "yarn $(yarn --version)"
+    else
+        echo "yarn [not installed]"
     fi
 }
 

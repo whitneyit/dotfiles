@@ -41,10 +41,10 @@ alias                gcms="git commit            --verbose --message" # -v -m, -
 __git_complete       gcms _git_commit
 alias                gcma="git commit            --verbose --amend"
 __git_complete       gcma _git_commit
-alias               gcmas="git commit            --verbose --amend --message"
-__git_complete      gcmas _git_commit
-alias               gcmac="git commit            --verbose --amend --no-edit"
-__git_complete      gcmac _git_commit
+alias               gcmam="git commit            --verbose --amend --message"
+__git_complete      gcmam _git_commit
+alias               gcman="git commit            --verbose --amend --no-edit"
+__git_complete      gcman _git_commit
 alias                 gcn="git clean -d -x --force --dry-run" # no such thing as --directories, -x ignores .gitignore
 __git_complete        gcn _git_clean
 alias                gcnf="git clean -d -x --force"

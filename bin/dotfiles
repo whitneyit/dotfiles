@@ -111,7 +111,7 @@ if [ ! -d .git ]; then
 
     # `is_mac`
     # Check to see if we are running on a Mac
-    if [ "$(uname -s | grep -c Darwin)" -gt 0 ]; then
+    elif [ "$(uname -s | grep -c Darwin)" -gt 0 ]; then
         e_info "Please enter your password to change ownership of /etc/init.d..."
         sudo -v
         sudo mkdir -p /etc/init.d

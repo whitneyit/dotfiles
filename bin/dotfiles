@@ -326,6 +326,7 @@ if [ ! -d .git ]; then
             'gpg'
             'grep'
             'hub'
+            'jq'
             'tree'
             'vim'
             'wget'
@@ -438,6 +439,7 @@ if [ ! -d .git ]; then
             exuberant-ctags \
             gettext \
             git \
+            jq \
             lib32nss-mdns \
             libgnome2-bin \
             libncurses5-dev \

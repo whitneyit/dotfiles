@@ -1,7 +1,17 @@
 #!/usr/bin/env bash
 
+yarn-exists() {
+    if [ ! "$(type -P yarn)" ]; then
+        echo 0
+    elif [ ! -f "$(type -P yarn)" ]; then
+        echo 0
+    else
+        echo 1
+    fi
+}
+
 ni() {
-    if [ "$(type -P yarn)" ]; then
+    if [ "$(yarn-exists)" == "1" ]; then
         if [ "$#" == "0" ]; then
             echo "$GREY$ yarn install$RESET"
             yarn install
@@ -21,7 +31,7 @@ ni() {
 }
 
 nid() {
-    if [ "$(type -P yarn)" ]; then
+    if [ "$(yarn-exists)" == "1" ]; then
         echo "$GREY$ yarn add --dev "$@"$RESET"
         yarn add --dev "$@"
     else
@@ -31,7 +41,7 @@ nid() {
 }
 
 nig() {
-    if [ "$(type -P yarn)" ]; then
+    if [ "$(yarn-exists)" == "1" ]; then
         echo "$GREY$ yarn global add "$@"$RESET"
         yarn global add "$@"
     else
@@ -41,7 +51,7 @@ nig() {
 }
 
 nu() {
-    if [ "$(type -P yarn)" ]; then
+    if [ "$(yarn-exists)" == "1" ]; then
         echo "$GREY$ yarn remove "$@"$RESET"
         yarn remove "$@"
     else
@@ -51,7 +61,7 @@ nu() {
 }
 
 nud() {
-    if [ "$(type -P yarn)" ]; then
+    if [ "$(yarn-exists)" == "1" ]; then
         echo "$GREY$ yarn remove "$@"$RESET"
         yarn remove "$@"
     else
@@ -61,7 +71,7 @@ nud() {
 }
 
 nug() {
-    if [ "$(type -P yarn)" ]; then
+    if [ "$(yarn-exists)" == "1" ]; then
         echo "$GREY$ yarn global remove "$@"$RESET"
         yarn global remove "$@"
     else
@@ -71,7 +81,7 @@ nug() {
 }
 
 ns() {
-    if [ "$(type -P yarn)" ]; then
+    if [ "$(yarn-exists)" == "1" ]; then
         echo "$GREY$ yarn start "$@"$RESET"
         yarn start "$@"
     else
@@ -81,7 +91,7 @@ ns() {
 }
 
 nt() {
-    if [ "$(type -P yarn)" ]; then
+    if [ "$(yarn-exists)" == "1" ]; then
         echo "$GREY$ yarn test "$@"$RESET"
         yarn test "$@"
     else
@@ -91,7 +101,7 @@ nt() {
 }
 
 nl() {
-    if [ "$(type -P yarn)" ]; then
+    if [ "$(yarn-exists)" == "1" ]; then
         echo "$GREY$ yarn list --depth=0 "$@"$RESET"
         yarn list --depth=0 "$@"
     else
@@ -101,7 +111,7 @@ nl() {
 }
 
 nlg() {
-    if [ "$(type -P yarn)" ]; then
+    if [ "$(yarn-exists)" == "1" ]; then
         echo "$GREY$ yarn global list --depth=0 "$@"$RESET"
         yarn global list --depth=0 "$@"
     else
@@ -135,7 +145,7 @@ nv() {
     else
         echo "npm  [not installed]"
     fi
-    if [ "$(type -P yarn)" ]; then
+    if [ "$(yarn-exists)" == "1" ]; then
         echo "yarn $(yarn --version)"
     else
         echo "yarn [not installed]"

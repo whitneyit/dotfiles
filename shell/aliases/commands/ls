@@ -31,7 +31,6 @@ if [ "$(is_mac)" == "yes" ]; then
         # Define a `gls` specific `ls` command.
         function list () {
             command gls\
-                -f \
                 -h \
                 --color \
                 --ignore . \
@@ -45,7 +44,6 @@ if [ "$(is_mac)" == "yes" ]; then
         # Here we just fallback to the standard `ls`.
         function list () {
             command ls\
-                -f \
                 -h \
                 "$@"
         }
@@ -64,7 +62,6 @@ elif [ "$(is_win)" == "yes" ]; then
         # This allows the `ls` command to be run in cygwin without polluting the
         # output and creating a mess.
         command ls \
-            -f \
             -h \
             --color \
             --ignore="." \

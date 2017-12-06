@@ -2,8 +2,11 @@
 
 ARGS="\
     --color \
-    --exclude *.map \
     --exclude *.lock \
+    --exclude *.map \
+    --exclude *.min.css \
+    --exclude *.min.js \
+    --exclude *.svg \
     --exclude *lock.json \
     --exclude npm-debug.log \
     --exclude-dir .chrome \
@@ -21,10 +24,13 @@ ARGS="\
     --exclude-dir coverage \
     --exclude-dir dist \
     --exclude-dir docs \
+    --exclude-dir graph \
     --exclude-dir jspm_packages \
     --exclude-dir node_modules \
+    --exclude-dir out-tsc \
     --exclude-dir plugins \
     --exclude-dir reports \
+    --exclude-dir tmp \
     --exclude-dir typings \
     --exclude-dir undo \
     --exclude-dir vendor \

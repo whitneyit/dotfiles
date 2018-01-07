@@ -327,6 +327,7 @@ if [ ! -d .git ]; then
             'grep'
             'hub'
             'jq'
+            'ruby'
             'tree'
             'vim'
             'wget'

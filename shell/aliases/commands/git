@@ -309,6 +309,8 @@ alias                gsti="git status --untracked-files=all --ignored"
 __git_complete       gsti _git_status
 alias                  gt="git tag"
 __git_complete         gt _git_tag
+alias                 gtd="git tag --delete"
+__git_complete        gtd _git_tag
 alias                 gtl="git tag --list"
 __git_complete        gtl _git_tag
 alias                  gv="git --version" # No git complete for _git_version

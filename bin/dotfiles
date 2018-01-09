@@ -110,7 +110,6 @@ if [ ! -d .git ]; then
         sudo chown -R vagrant:vagrant "/tmp"
 
     # `is_mac`
-    # Check to see if we are running on a Mac
     elif [ "$(uname -s | grep -c Darwin)" -gt 0 ]; then
         e_info "Please enter your password to change ownership of /etc/init.d..."
         sudo -v
@@ -168,6 +167,7 @@ if [ ! -d .git ]; then
         chgrp -R Users "$HOME/Go"
         chgrp -R Users "$HOME/OSS"
         chgrp -R Users "$HOME/Work"
+        chgrp Users "/cygdrive/c/Windows/System32/drivers/etc/hosts"
         chgrp Users "$HOME/.bash_history"
         chgrp Users "$HOME/.config"
         chgrp Users "$HOME/.prev_dir"
@@ -188,6 +188,23 @@ if [ ! -d .git ]; then
         sudo chown vagrant:vagrant "$HOME/.prev_dir"
         sudo chown vagrant:vagrant "$HOME/.viminfo"
 
+    # `is_mac`
+    else
+        chown -R `whoami` .
+        chown -R `whoami` "$HOME/.ssh"
+        chown -R `whoami` "$HOME/Archive"
+        chown -R `whoami` "$HOME/Code"
+        chown -R `whoami` "$HOME/Dev"
+        chown -R `whoami` "$HOME/Go"
+        chown -R `whoami` "$HOME/OSS"
+        chown -R `whoami` "$HOME/Work"
+        chown `whoami` "/private/etc/hosts"
+        chown `whoami` "$HOME/.bash_history"
+        chown `whoami` "$HOME/.config"
+        chown `whoami` "$HOME/.prev_dir"
+        chown `whoami` "$HOME/.viminfo"
+    fi
+
     # Everyone else
     else
         chown -R `whoami` .
@@ -198,6 +215,7 @@ if [ ! -d .git ]; then
         chown -R `whoami` "$HOME/Go"
         chown -R `whoami` "$HOME/OSS"
         chown -R `whoami` "$HOME/Work"
+        chown `whoami` "/etc/hosts"
         chown `whoami` "$HOME/.bash_history"
         chown `whoami` "$HOME/.config"
         chown `whoami` "$HOME/.prev_dir"

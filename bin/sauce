@@ -15,6 +15,7 @@ declare -a mandatories=(
     $DOTFILES_DIRECTORY/shell/bash_exports
     $DOTFILES_DIRECTORY/shell/bash_locale
     $DOTFILES_DIRECTORY/shell/bash_options
+    $DOTFILES_DIRECTORY/shell/bash_history
     $DOTFILES_DIRECTORY/shell/bash_logout
     $DOTFILES_DIRECTORY/shell/aliases/os/*
     $DOTFILES_DIRECTORY/shell/aliases/general/*

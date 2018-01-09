@@ -331,6 +331,8 @@ alias                 gig="git ls-files --ignored --exclude-standard"
 __git_complete        gig _git_ls_files
 
 # Logging shortcuts
+alias                gco-="gco   -"
+__git_complete       gco- _git_checkout
 alias                  gl="gla   -10"
 __git_complete         gl _git_log
 alias                 gl1="gla   -1"

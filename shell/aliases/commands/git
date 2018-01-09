@@ -167,8 +167,14 @@ alias                 gmc="git commit" # no git merge --continue
 __git_complete        gmc _git_commit
 alias                 gmd="git merge --no-ff --progress --verbose develop"
 __git_complete        gmd _git_merge
+alias                gmdn="git merge --no-ff --progress --verbose develop --no-edit"
+__git_complete       gmdn _git_merge
 alias                 gmm="git merge --no-ff --progress --verbose master"
 __git_complete        gmm _git_merge
+alias                gmmn="git merge --no-ff --progress --verbose master  --no-edit"
+__git_complete       gmmn _git_merge
+alias                 gmn="git merge --no-ff --progress --verbose         --no-edit"
+__git_complete        gmn _git_merge
 alias                 gmv="git mv"
 __git_complete        gmv _git_mv
 alias                 gps="git push          --progress --verbose"

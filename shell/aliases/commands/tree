@@ -12,15 +12,19 @@ ARGS="\
     |.svn| \
     |backups| \
     |bower_components| \
+    |build| \
     |bundle| \
     |completions| \
     |coverage| \
     |dist| \
     |docs| \
+    |graph| \
     |jspm_packages| \
     |node_modules| \
+    |out-tsc| \
     |plugins| \
     |reports| \
+    |tmp| \
     |typings| \
     |undo| \
     |vendor| \
@@ -30,10 +34,10 @@ ARGS="\
 # d: directories only
 # L: depth
 
-alias   tr="tree -a         $ARGS"
-alias  trd="tree -a -d      $ARGS"
+alias   tre="tree -a         $ARGS"
+alias  tred="tree -a -d      $ARGS"
 
-alias  tr1="tree -a    -L 1 $ARGS"
-alias trd1="tree -a -d -L 1 $ARGS"
+alias  tre1="tree -a    -L 1 $ARGS"
+alias tred1="tree -a -d -L 1 $ARGS"
 
 # vim: set syn=sh :

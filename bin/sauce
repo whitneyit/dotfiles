@@ -9,21 +9,26 @@ declare -a precomps=(
 # This is the list of files that need to be `sourced` when the terminal boots
 declare -a mandatories=(
 
-    # Base scripts
-    $DOTFILES_DIRECTORY/shell/bash_environment
+    # Setup scripts
     $DOTFILES_DIRECTORY/shell/bash_paths
-    $DOTFILES_DIRECTORY/shell/bash_exports
+    $DOTFILES_DIRECTORY/shell/bash_environment
+    $DOTFILES_DIRECTORY/shell/bash_theme
+
+    # General settings
     $DOTFILES_DIRECTORY/shell/bash_locale
-    $DOTFILES_DIRECTORY/shell/bash_options
-    $DOTFILES_DIRECTORY/shell/bash_history
     $DOTFILES_DIRECTORY/shell/bash_logout
+    $DOTFILES_DIRECTORY/shell/bash_options
+    $DOTFILES_DIRECTORY/shell/bash_shell
+    $DOTFILES_DIRECTORY/shell/bash_ssh
+
+    # Order specific scripts
+    $DOTFILES_DIRECTORY/shell/bash_history
+    $DOTFILES_DIRECTORY/shell/bash_vim
+
+    # Alias scripts
     $DOTFILES_DIRECTORY/shell/aliases/os/*
     $DOTFILES_DIRECTORY/shell/aliases/general/*
     $DOTFILES_DIRECTORY/shell/aliases/commands/*
-    $DOTFILES_DIRECTORY/shell/bash_ssh
-    $DOTFILES_DIRECTORY/shell/bash_shell
-    $DOTFILES_DIRECTORY/shell/bash_theme
-    $DOTFILES_DIRECTORY/shell/bash_vim
 
 )
 
@@ -46,6 +51,7 @@ declare -a others=(
 
 # And these get sourced after the environment is setup
 declare -a postcomps=(
+    $DOTFILES_DIRECTORY/shell/completions/base16/base16.sh
     $DOTFILES_DIRECTORY/shell/completions/npm/lib/utils/completion.sh
 )
 

@@ -19,7 +19,7 @@ export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history"
 export HISTSIZE="100000"
 
 # This gives history entries a matching timestamp
-export HISTTIMEFORMAT="$GREEN [%a %d %b %Y %H:%M:%S %z] $RESET"
+export HISTTIMEFORMAT="$(echo -e $GREEN) [%a %d %b %Y %H:%M:%S %z] $(echo -e $RESET)"
 
 # Make new shells get the history lines from all previous
 # shells instead of the default "last window closed" history

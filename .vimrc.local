@@ -1,8 +1,9 @@
 " Directories
 set wildignore+=*/backups/**
-set wildignore+=*/completions/**
 set wildignore+=*/shell/fonts/**
+set wildignore+=*/shell/base16-iterm2/**
 set wildignore+=*/shell/base16-shell/**
+set wildignore+=*/shell/base16-xresources/**
 set wildignore+=*/vim/bundle/**
 set wildignore+=*/vim/plugins/**
 set wildignore+=*/vim/swaps/**
@@ -12,6 +13,6 @@ set wildignore+=*/vim/undo/**
 set wildignore+=*/.netrwhist
 
 " Nerdtree specific ignore
-let NERDTreeIgnore += ['^backups$', '^completions$', '^base16-shell$', '^fonts$', '^bundle$', '^plugins$', '^swaps$', '^undo$', '.netrwhist$']
+let NERDTreeIgnore += ['^backups$', '^base16-iterm2$', '^base16-shell$', '^base16-xresources$', '^fonts$', '^bundle$', '^plugins$', '^swaps$', '^undo$', '.netrwhist$']
 
 " vim: set syn=vim :

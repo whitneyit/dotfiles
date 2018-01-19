@@ -5,12 +5,17 @@ if [ $($DOTFILES_DIRECTORY/bin/is_win) == "yes" ]; then
     export VIM_BACKGROUND="dark"
     export VIM_THEME="NONE"
 
+# If we are using the Apple terminal, don't set a theme
+elif [ "$TERM_PROGRAM" == "Apple_Terminal" ]; then
+    export VIM_BACKGROUND="dark"
+    export VIM_THEME="NONE"
+
 # If no base16 theme has been set, don't set a theme for vim
 elif [ -z "$BASE16_THEME" ]; then
     export VIM_BACKGROUND="dark"
     export VIM_THEME="NONE"
 
-# Everyone else gets the default theme
+# Everyone else gets the base16 theme
 else
     export VIM_BACKGROUND="dark"
     export VIM_THEME="base16-$BASE16_THEME"

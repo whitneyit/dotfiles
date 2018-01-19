@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+[[ -f ~/.Xresources ]] && xrdb -merge -I/Users/whitneyit ~/.Xresources
+
+# vim: set syn=sh :

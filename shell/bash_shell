@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+# Set the global editor as vim
+export EDITOR="vim"
+export VISUAL="vim"
+
+# Automatically trim long paths in the prompt (requires Bash 4.x)
+export PROMPT_DIRTRIM="5"
+
 # This converts the input type of bash over to vim style
 set -o vi
 

@@ -1,107 +1,63 @@
 #!/usr/bin/env bash
 
-# If we are in Windows, we don't do any fancy color schemes.
-if [ $($DOTFILES_DIRECTORY/bin/is_win) == "no" ]; then
+# Define some variables for the base16 theme
+export BASE16_THEME="ocean"
+export BASE16_FILE="base16-$BASE16_THEME.sh"
+export BASE16_SHELL="$DOTFILES_DIRECTORY/shell/base16-shell"
 
-    # It seems that ChromeOS does not play nice with 256 colours. Until that is
-    # resolved, it looks like we can't use 256 color mode there.
-    if [ "$($DOTFILES_DIRECTORY/bin/is_chromeos)" == "no" ]; then
+# Example
+# $ echo -e "$GREEN$RED_BACKGROUND"foo
 
-        # Set 256 color profile where possible
-        if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
-            export TERM="gnome-256color"
-        elif infocmp xterm-256color >/dev/null 2>&1; then
-            export TERM="xterm-256color"
-        fi
+# Define the "reset" colour
+export              RESET="\033[m"
 
-    fi
+# Define the foreground colours
+export              BLACK="\033[0;30m"
+export                RED="\033[0;31m"
+export              GREEN="\033[0;32m"
+export             YELLOW="\033[0;33m"
+export               BLUE="\033[0;34m"
+export            MAGENTA="\033[0;35m"
+export               CYAN="\033[0;36m"
+export              WHITE="\033[0;37m"
 
-    # Define some variables for the base16 theme
-    export BASE16_THEME="ocean"
-    export BASE16_VARIANT="dark"
-    export BASE16_FILE="base16-$BASE16_THEME.$BASE16_VARIANT.sh"
-    export BASE16_DIRECTORY="$DOTFILES_DIRECTORY/shell/base16-shell"
+# Define the bright foreground colours
+export       BRIGHT_BLACK="\033[1;30m"
+export         BRIGHT_RED="\033[1;31m"
+export       BRIGHT_GREEN="\033[1;32m"
+export      BRIGHT_YELLOW="\033[1;33m"
+export        BRIGHT_BLUE="\033[1;34m"
+export     BRIGHT_MAGENTA="\033[1;35m"
+export        BRIGHT_CYAN="\033[1;36m"
+export       BRIGHT_WHITE="\033[1;37m"
 
-    # When the active base16 theme is located
-    export BASE16_ACTIVE_THEME_PATH="$BASE16_DIRECTORY/$BASE16_FILE"
+# Define the background colours
+export   BLACK_BACKGROUND="\033[40m"
+export     RED_BACKGROUND="\033[41m"
+export   GREEN_BACKGROUND="\033[42m"
+export  YELLOW_BACKGROUND="\033[43m"
+export    BLUE_BACKGROUND="\033[44m"
+export MAGENTA_BACKGROUND="\033[45m"
+export    CYAN_BACKGROUND="\033[46m"
+export   WHITE_BACKGROUND="\033[47m"
 
-    # Use the base16 colour scheme
-    [[ -s $BASE16_ACTIVE_THEME_PATH ]] && source $BASE16_ACTIVE_THEME_PATH
-
-    # Define the colours to use
-    if tput setaf 1 &> /dev/null; then
-        tput sgr0
-        if [[ $(tput colors) -ge 256 ]] 2>/dev/null; then
-            GREY=$(tput setaf 8)
-            BLACK=$(tput setaf 0)
-            BLUE=$(tput setaf 4)
-            CYAN=$(tput setaf 6)
-            GREEN=$(tput setaf 2)
-            MAGENTA=$(tput setaf 9)
-            PURPLE=$(tput setaf 141)
-            RED=$(tput setaf 1)
-            WHITE=$(tput setaf 255)
-            YELLOW=$(tput setaf 190)
-            ORANGE=$(tput setaf 172)
-        else
-            GREY=$(tput setaf 8)
-            BLACK=$(tput setaf 0)
-            BLUE=$(tput setaf 4)
-            CYAN=$(tput setaf 6)
-            GREEN=$(tput setaf 2)
-            MAGENTA=$(tput setaf 9)
-            PURPLE=$(tput setaf 5)
-            RED=$(tput setaf 1)
-            WHITE=$(tput setaf 7)
-            YELLOW=$(tput setaf 3)
-            ORANGE=$RED
-        fi
-        RESET=$(tput sgr0)
-    else
-        BLACK="\033[1;30m"
-        MAGENTA="\033[1;31m"
-        ORANGE="\033[1;33m"
-        GREEN="\033[1;32m"
-        PURPLE="\033[1;35m"
-        WHITE="\033[1;37m"
-        RESET="\033[m"
-    fi
-
-else
-
-    BLACK="\033[1;30m"
-    MAGENTA="\033[1;31m"
-    ORANGE="\033[1;33m"
-    GREEN="\033[1;32m"
-    PURPLE="\033[1;35m"
-    WHITE="\033[1;37m"
-    RESET="\033[m"
-
-fi
-
-export GREY
-export BLACK
-export MAGENTA
-export ORANGE
-export GREEN
-export PURPLE
-export WHITE
-export RESET
-
+# Detect if the current directory is a svn repo
 function is_svn_repository {
     svn log > /dev/null 2>&1
 }
 
+# Detect if the current directory is a mercurial repo
 function is_hg_repository {
     hg branch > /dev/null 2>&1
 }
 
+# Detect if the current directory is a git repo
 function is_git_repository {
     git branch > /dev/null 2>&1
 }
 
-# If the current directory belongs is a descendant of a git repo, determine the
-# name of branch that is checked out
+# If the current directory belongs to, or is a descendant of a git repo,
+# determine the name of branch that is checked out
 function _git_prompt() {
     STATUS="$(git status 2> /dev/null | tail -n1)"
     IS_DIRTY=""
@@ -111,6 +67,7 @@ function _git_prompt() {
     git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$IS_DIRTY/"
 }
 
+# Same as above, show the name of the current mercurial branch
 function _hg_prompt() {
     STATUS="$(hg status 2> /dev/null)"
     IS_DIRTY=""
@@ -120,6 +77,7 @@ function _hg_prompt() {
     hg branch 2> /dev/null | sed -e "s/\(.*\)/\1$IS_DIRTY/"
 }
 
+# Show which revision the svn repo is up to
 function _svn_prompt() {
     REVISION="$(svn info 2> /dev/null | grep Revision | grep -Eo '[0-9]+$')"
     STATUS="$(svn status 2> /dev/null)"
@@ -127,24 +85,30 @@ function _svn_prompt() {
     if [[ $STATUS != "" ]]; then
         IS_DIRTY="*"
     fi
-    echo "$REVISION$IS_DIRTY"
+    echo -e "$REVISION$IS_DIRTY"
 }
 
+# Determine which prompt to show
 function get_prompt() {
     PROMPT=""
     if is_git_repository ; then
-        PROMPT="$WHITE on $PURPLE$(_git_prompt)"
-    elif  is_hg_repository ; then
+        PROMPT="$WHITE on $CYAN$(_git_prompt)"
+    elif is_hg_repository ; then
         PROMPT="$WHITE on $GREEN$(_hg_prompt)"
-    elif  is_svn_repository ; then
-        PROMPT="$WHITE on $BLUE$(_svn_prompt)"
+    elif is_svn_repository ; then
+        PROMPT="$WHITE on $YELLOW$(_svn_prompt)"
     fi
-    echo "$PROMPT"
+    echo -e "$PROMPT"
 }
 
 # If we are using MING, then we do nothing otherwise we set the $PS1
 if [ $($DOTFILES_DIRECTORY/bin/is_ming) == "no" ]; then
-    export PS1="\[$MAGENTA\]\u \[$WHITE\]at \[$ORANGE\]\h \[$WHITE\]in \[$YELLOW\]\w\$(get_prompt)\n\[$WHITE\]\$ \[$RESET\]"
+    if [ "$TERM_PROGRAM" == "Apple_Terminal" ]; then
+        DOLLAR_COLOUR="$WHITE"
+    else
+        DOLLAR_COLOUR="$BRIGHT_BLACK"
+    fi
+    export PS1="\[$RED\]\u \[$WHITE\]at \[$MAGENTA\]\h \[$WHITE\]in \[$BLUE\]\w\$(get_prompt)\n\[$DOLLAR_COLOUR\]\$ \[$RESET\]"
 fi
 
 # vim: set syn=sh :

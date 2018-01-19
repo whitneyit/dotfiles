@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+# http://bluebirdjs.com/docs/api/environment-variables.html
+export BLUEBIRD_DEBUG="0"
+
+# Set the display
+export DISPLAY=":99"
+
 # Define were the go apps will be built
 export GOPATH="$HOME/Go"
 
@@ -11,6 +17,18 @@ export NODE_ENV="development"
 
 # Where nvm should be install to
 export NVM_DIR="$HOME/.nvm"
+
+# Set the chrome bin
+if [ "$(type -P google-chrome)" ]; then
+    CHROME_BIN="google-chrome"
+elif [ "$(type -P chromium-browser)" ]; then
+    CHROME_BIN="chromium-browser"
+fi
+
+# Fix git dates issues with windows
+if [ $($DOTFILES_DIRECTORY/bin/is_win) == "yes" ]; then
+    unset TZ;
+fi
 
 # If we are running `go` in Cygwin, convert the path to a Windows one
 if [ "$($DOTFILES_DIRECTORY/bin/is_win)" == "yes" ]; then
@@ -27,6 +45,7 @@ if [ "$($DOTFILES_DIRECTORY/bin/is_mac)" == "yes" ]; then
     export GPG_TTY=$(tty)
 fi
 
+# Define the java variables if we have it installed
 if [ "$(type -P java)" ]; then
     if [ -f "/usr/libexec/java_home" ]; then
         export JAVA_HOME="$(/usr/libexec/java_home 2>/dev/null)"

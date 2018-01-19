@@ -2,7 +2,9 @@
 
 # If $DOTFILES_DIRECTORY is zero length then source `.bash_profile`
 if [ -z "$DOTFILES_DIRECTORY" ]; then
-    source "$HOME/.bash_profile"
+    if [ -f "$DOTFILES_DIRECTORY/.bash_profile" ]; then
+        source "$HOME/.bash_profile"
+    fi
 fi
 
 # vim: set syn=sh :

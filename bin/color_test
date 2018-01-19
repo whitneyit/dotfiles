@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-# Run the base16 colortest
-baseDir="$(dirname $0)/../shell/base16-shell/";
-dir="$(realpath $baseDir)"
-bash "$dir/colortest" "$dir/base16-default.dark.sh"
-
-# vim: set syn=sh :

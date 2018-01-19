@@ -214,8 +214,8 @@ set rtp+=$HOME/.vim/bundle/powerline/powerline/bindings/vim
 " https://github.com/scrooloose/syntastic                  "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Enable `eslint` and `jscs` for JavaScript files
-let g:syntastic_javascript_checkers = ['eslint', 'jscs']
+" Enable `eslint` for JavaScript files
+let g:syntastic_javascript_checkers = ['eslint']
 
 " Specify the output directory and module type for TypeScript
 let g:syntastic_typescript_tsc_args = '--outDir ./.tsc --module amd'

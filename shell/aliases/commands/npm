@@ -13,18 +13,18 @@ yarn-exists() {
 ni() {
     if [ "$(yarn-exists)" == "1" ]; then
         if [ "$#" == "0" ]; then
-            echo "$GREY$ yarn install$RESET"
+            echo -e "$BRIGHT_BLACK$ yarn install$RESET"
             yarn install
         else
-            echo "$GREY$ yarn add "$@"$RESET"
+            echo -e "$BRIGHT_BLACK$ yarn add "$@"$RESET"
             yarn add "$@"
         fi
     else
         if [ "$#" == "0" ]; then
-            echo "$GREY$ npm install$RESET"
+            echo -e "$BRIGHT_BLACK$ npm install$RESET"
             npm install
         else
-            echo "$GREY$ npm install --save "$@"$RESET"
+            echo -e "$BRIGHT_BLACK$ npm install --save "$@"$RESET"
             npm install --save "$@"
         fi
     fi
@@ -32,90 +32,90 @@ ni() {
 
 nid() {
     if [ "$(yarn-exists)" == "1" ]; then
-        echo "$GREY$ yarn add --dev "$@"$RESET"
+        echo -e "$BRIGHT_BLACK$ yarn add --dev "$@"$RESET"
         yarn add --dev "$@"
     else
-        echo "$GREY$ npm install --save-dev "$@"$RESET"
+        echo -e "$BRIGHT_BLACK$ npm install --save-dev "$@"$RESET"
         npm install --save-dev "$@"
     fi
 }
 
 nig() {
     if [ "$(yarn-exists)" == "1" ]; then
-        echo "$GREY$ yarn global add "$@"$RESET"
+        echo -e "$BRIGHT_BLACK$ yarn global add "$@"$RESET"
         yarn global add "$@"
     else
-        echo "$GREY$ npm install --global "$@"$RESET"
+        echo -e "$BRIGHT_BLACK$ npm install --global "$@"$RESET"
         npm install --global "$@"
     fi
 }
 
 nu() {
     if [ "$(yarn-exists)" == "1" ]; then
-        echo "$GREY$ yarn remove "$@"$RESET"
+        echo -e "$BRIGHT_BLACK$ yarn remove "$@"$RESET"
         yarn remove "$@"
     else
-        echo "$GREY$ npm uninstall --save "$@"$RESET"
+        echo -e "$BRIGHT_BLACK$ npm uninstall --save "$@"$RESET"
         npm uninstall --save "$@"
     fi
 }
 
 nud() {
     if [ "$(yarn-exists)" == "1" ]; then
-        echo "$GREY$ yarn remove "$@"$RESET"
+        echo -e "$BRIGHT_BLACK$ yarn remove "$@"$RESET"
         yarn remove "$@"
     else
-        echo "$GREY$ npm uninstall --save-dev "$@"$RESET"
+        echo -e "$BRIGHT_BLACK$ npm uninstall --save-dev "$@"$RESET"
         npm uninstall --save-dev "$@"
     fi
 }
 
 nug() {
     if [ "$(yarn-exists)" == "1" ]; then
-        echo "$GREY$ yarn global remove "$@"$RESET"
+        echo -e "$BRIGHT_BLACK$ yarn global remove "$@"$RESET"
         yarn global remove "$@"
     else
-        echo "$GREY$ npm uninstall --global "$@"$RESET"
+        echo -e "$BRIGHT_BLACK$ npm uninstall --global "$@"$RESET"
         npm uninstall --global "$@"
     fi
 }
 
 ns() {
     if [ "$(yarn-exists)" == "1" ]; then
-        echo "$GREY$ yarn start "$@"$RESET"
+        echo -e "$BRIGHT_BLACK$ yarn start "$@"$RESET"
         yarn start "$@"
     else
-        echo "$GREY$ npm start "$@"$RESET"
+        echo -e "$BRIGHT_BLACK$ npm start "$@"$RESET"
         npm start "$@"
     fi
 }
 
 nt() {
     if [ "$(yarn-exists)" == "1" ]; then
-        echo "$GREY$ yarn test "$@"$RESET"
+        echo -e "$BRIGHT_BLACK$ yarn test "$@"$RESET"
         yarn test "$@"
     else
-        echo "$GREY$ npm test "$@"$RESET"
+        echo -e "$BRIGHT_BLACK$ npm test "$@"$RESET"
         npm test "$@"
     fi
 }
 
 nl() {
     if [ "$(yarn-exists)" == "1" ]; then
-        echo "$GREY$ yarn list --depth=0 "$@"$RESET"
+        echo -e "$BRIGHT_BLACK$ yarn list --depth=0 "$@"$RESET"
         yarn list --depth=0 "$@"
     else
-        echo "$GREY$ npm list --depth=0 "$@"$RESET"
+        echo -e "$BRIGHT_BLACK$ npm list --depth=0 "$@"$RESET"
         npm list --depth=0 "$@"
     fi
 }
 
 nlg() {
     if [ "$(yarn-exists)" == "1" ]; then
-        echo "$GREY$ yarn global list --depth=0 "$@"$RESET"
+        echo -e "$BRIGHT_BLACK$ yarn global list --depth=0 "$@"$RESET"
         yarn global list --depth=0 "$@"
     else
-        echo "$GREY$ npm list --global --depth=0 "$@"$RESET"
+        echo -e "$BRIGHT_BLACK$ npm list --global --depth=0 "$@"$RESET"
         npm list --global --depth=0 "$@"
     fi
 }

@@ -2,23 +2,18 @@
 let env_background = $VIM_BACKGROUND
 let env_theme = $VIM_THEME
 
+" Enable gui colors if they are supported
 if has("termguicolors")
     set termguicolors
 endif
 
-" Set the theme to xoria
-if env_theme == "xoria"
+" Set the theme to base16
+if filereadable(expand("~/.vimrc_background"))
     set t_Co=256
-    let &background = env_background
-    colorscheme xoria256
+    let base16colorspace=256
+    source ~/.vimrc_background
 
 " Set the theme to base16
-elseif env_theme =~ "base16"
-    set t_Co=256
-    let &background = env_background
-    colorscheme $VIM_THEME
-
-" Set the theme to default
 else
     let &background = env_background
     colorscheme default
@@ -29,19 +24,15 @@ if v:version > 702
     highlight ColorColumn ctermbg=235 guibg=#2c2d27
 endif
 
+" Adjust the colorscheme
 if has("autocmd")
-
-    " Adjust the colorscheme
     autocmd BufNewFile,BufRead * highlight clear NonText
     autocmd BufNewFile,BufRead * highlight NonText ctermfg=NONE
-
 endif
 
+" Enable syntax highlighting
 if has("syntax")
-
-    " Enable syntax highlighting
     syntax on
-
 endif
 
 " vim: set syn=vim :

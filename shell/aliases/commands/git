@@ -37,8 +37,8 @@ alias                 gcl="git clone  --progress --verbose"
 __git_complete        gcl _git_clone
 alias                 gcm="git commit            --verbose" # -v
 __git_complete        gcm _git_commit
-alias                gcms="git commit            --verbose --message" # -v -m, -vm
-__git_complete       gcms _git_commit
+alias                gcmm="git commit            --verbose --message" # -v -m, -vm
+__git_complete       gcmm _git_commit
 alias                gcma="git commit            --verbose --amend"
 __git_complete       gcma _git_commit
 alias               gcmam="git commit            --verbose --amend --message"

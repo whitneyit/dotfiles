@@ -93,19 +93,21 @@ alias               ghlsa="git stash list                     --stat  --date=for
 __git_complete      ghlsa _git_stash
 alias                 gin="git init"
 __git_complete        gin _git_init
-alias                  gf="git fetch --progress --verbose"
+alias                  gf="git fetch --all --progress --verbose"
 __git_complete         gf _git_fetch
-alias                 gfo="git fetch --progress --verbose origin"
+alias                 gfa="git fetch       --progress --verbose"
+__git_complete        gfa _git_fetch
+alias                 gfo="git fetch       --progress --verbose origin"
 __git_complete        gfo _git_fetch
-alias                gfod="git fetch --progress --verbose origin develop"
+alias                gfod="git fetch       --progress --verbose origin develop"
 __git_complete       gfod _git_fetch
-alias                gfom="git fetch --progress --verbose origin master"
+alias                gfom="git fetch       --progress --verbose origin master"
 __git_complete       gfom _git_fetch
-alias                 gfu="git fetch --progress --verbose upstream"
+alias                 gfu="git fetch       --progress --verbose upstream"
 __git_complete        gfu _git_fetch
-alias                gfud="git fetch --progress --verbose upstream develop"
+alias                gfud="git fetch       --progress --verbose upstream develop"
 __git_complete       gfud _git_fetch
-alias                gfum="git fetch --progress --verbose upstream master"
+alias                gfum="git fetch       --progress --verbose upstream master"
 __git_complete       gfum _git_fetch
 alias                 gla="git log --no-merges                        --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%<(8)%h%C(green)[%cd | %>(14)%cr] %C(cyan)%ae %C(white)%s%C(red)%d'"
 __git_complete        gla _git_log

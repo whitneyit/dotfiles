@@ -345,9 +345,9 @@ alias                 glc="glca  -10"
 __git_complete        glc _git_log
 alias                glc1="glca  -1"
 __git_complete       glc1 _git_log
-alias                 gld="glda  -10"
+alias                 gld="glda  -10 ':(exclude)package-lock.json' ':(exclude)yarn.lock'"
 __git_complete        gld _git_log
-alias                gld1="glda  -1"
+alias                gld1="glda  -1  ':(exclude)package-lock.json' ':(exclude)yarn.lock'"
 __git_complete       gld1 _git_log
 alias                glfd="glfda -10"
 __git_complete       glfd _git_log

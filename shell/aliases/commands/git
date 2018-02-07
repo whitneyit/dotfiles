@@ -271,18 +271,30 @@ alias               grsdh="git reset --hard 'HEAD^'"
 __git_complete      grsdh _git_reset
 alias               grssh="git reset --soft 'HEAD^'"
 __git_complete      grssh _git_reset
-alias                grso="git reset --hard origin"
-__git_complete       grso _git_reset
-alias               grsod="git reset --hard origin/develop"
-__git_complete      grsod _git_reset
-alias               grsom="git reset --hard origin/master"
-__git_complete      grsom _git_reset
-alias                grsu="git reset --hard upstream"
-__git_complete       grsu _git_reset
-alias               grsud="git reset --hard upstream/develop"
-__git_complete      grsud _git_reset
-alias               grsum="git reset --hard upstream/master"
-__git_complete      grsum _git_reset
+alias               grsdo="git reset --hard origin"
+__git_complete      grsdo _git_reset
+alias               grsso="git reset --soft origin"
+__git_complete      grsso _git_reset
+alias              grsdod="git reset --hard origin/develop"
+__git_complete     grsdod _git_reset
+alias              grssod="git reset --soft origin/develop"
+__git_complete     grssod _git_reset
+alias              grsdom="git reset --hard origin/master"
+__git_complete     grsdom _git_reset
+alias              grssom="git reset --soft origin/master"
+__git_complete     grssom _git_reset
+alias               grsdu="git reset --hard upstream"
+__git_complete      grsdu _git_reset
+alias               grssu="git reset --soft upstream"
+__git_complete      grssu _git_reset
+alias              grsdud="git reset --hard upstream/develop"
+__git_complete     grsdud _git_reset
+alias              grssud="git reset --soft upstream/develop"
+__git_complete     grssud _git_reset
+alias              grsdum="git reset --hard upstream/master"
+__git_complete     grsdum _git_reset
+alias              grssum="git reset --soft upstream/master"
+__git_complete     grssum _git_reset
 alias                 grm="git rm"
 __git_complete        grm _git_rm
 alias                grmf="git rm -f"

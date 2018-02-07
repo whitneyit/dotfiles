@@ -49,7 +49,7 @@ fndd() {
         -not -path "typings/**"          -not -path "**/typings/**" \
         -not -path "undo/**"             -not -path "**/undo/**" \
         -not -path "vendor/**"           -not -path "**/vendor/**" \
-        -type d -name "$1"
+        -type d -iname "$1"
 }
 
 fndf() {
@@ -75,7 +75,7 @@ fndf() {
         -not -path "typings/**"          -not -path "**/typings/**" \
         -not -path "undo/**"             -not -path "**/undo/**" \
         -not -path "vendor/**"           -not -path "**/vendor/**" \
-        -type f -name "$1"
+        -type f -iname "$1"
 }
 
 # vim: set syn=sh :

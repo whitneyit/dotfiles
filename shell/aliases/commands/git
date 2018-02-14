@@ -342,7 +342,7 @@ alias                gaul="git ls-files -v | grep '^h' | cut -c 3-"
 alias                 gig="git ls-files --ignored --exclude-standard"
 __git_complete        gig _git_ls_files
 
-# Logging shortcuts
+# Logging
 alias                gco-="gco   -"
 __git_complete       gco- _git_checkout
 alias                  gl="gla   -10"
@@ -470,7 +470,7 @@ __git_complete       grfg _git_log
 alias               grfg1="grfga -1"
 __git_complete      grfg1 _git_log
 
-# Stash shortcuts
+# Stash
 alias                 ghl="ghla -10"
 __git_complete        ghl _git_stash
 alias                ghl1="ghla -1"

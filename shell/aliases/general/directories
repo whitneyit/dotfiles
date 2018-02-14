@@ -5,6 +5,10 @@ alias        ..="cd ../"
 alias       ...="cd ../../"
 alias      ....="cd ../../../"
 alias     .....="cd ../../../../"
+alias    ......="cd ../../../../../"
+alias   .......="cd ../../../../../../"
+alias  ........="cd ../../../../../../../"
+alias .........="cd ../../../../../../../../"
 
 # Quickly jump to some system folders
 alias   desktop="cd ~/Desktop/"

@@ -9,7 +9,7 @@ alias                  ga="git add --ignore-removal"
 __git_complete         ga _git_add
 alias                 gaa="git add --all"
 __git_complete        gaa _git_add
-alias                 gap="git add --patch ':(exclude)package-lock.json' ':(exclude)yarn.lock'"
+alias                 gap="git add --patch"
 __git_complete        gap _git_add
 alias                 gbl="git blame --show-number --show-email"
 # No completion for `git blame`
@@ -67,13 +67,13 @@ alias                gcpa="git cherry-pick --abort"
 __git_complete       gcpa _git_cherry-pick
 alias                gcpc="git cherry-pick --continue"
 __git_complete       gcpc _git_cherry-pick
-alias                  gd="git diff                      ':(exclude)package-lock.json' ':(exclude)yarn.lock'"
+alias                  gd="git diff"
 __git_complete         gd _git_diff
-alias                 gdn="git diff --name-only          ':(exclude)package-lock.json' ':(exclude)yarn.lock'"
+alias                 gdn="git diff --name-only"
 __git_complete        gdn _git_diff
-alias                 gds="git diff             --staged ':(exclude)package-lock.json' ':(exclude)yarn.lock'"
+alias                 gds="git diff             --staged"
 __git_complete        gds _git_diff
-alias                gdsn="git diff --name-only --staged ':(exclude)package-lock.json' ':(exclude)yarn.lock'"
+alias                gdsn="git diff --name-only --staged"
 __git_complete       gdsn _git_diff
 alias                 gdt="git difftool"
 __git_complete        gdt _git_difftool
@@ -357,9 +357,9 @@ alias                 glc="glca  -10"
 __git_complete        glc _git_log
 alias                glc1="glca  -1"
 __git_complete       glc1 _git_log
-alias                 gld="glda  -10 ':(exclude)package-lock.json' ':(exclude)yarn.lock'"
+alias                 gld="glda  -10"
 __git_complete        gld _git_log
-alias                gld1="glda  -1  ':(exclude)package-lock.json' ':(exclude)yarn.lock'"
+alias                gld1="glda  -1"
 __git_complete       gld1 _git_log
 alias                glfd="glfda -10"
 __git_complete       glfd _git_log

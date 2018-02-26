@@ -61,6 +61,9 @@ function read_keys() {
                 continue
             fi
 
+            # The full path of the key
+            key="$HOME/.ssh/$key"
+
             # Here we test to see if the `key` provided by the `$KEYS`
             # file actually points to a file. If it does we will add it to the
             # `ssh-agent`

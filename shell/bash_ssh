@@ -56,6 +56,11 @@ function read_keys() {
             # Here we convert the line of the file into a real variable
             key=$(eval echo "$line")
 
+            # Handle empty lines or comments
+            if [ -z "$key" ]; then
+                continue
+            fi
+
             # Here we test to see if the `key` provided by the `$KEYS`
             # file actually points to a file. If it does we will add it to the
             # `ssh-agent`

@@ -156,6 +156,11 @@ ngp() {
     readlink -f "$(which ${1:-npm})"
 }
 
+ngd() {
+    path="$(ngp $1)"
+    echo "$(dirname "$path")"
+}
+
 if [ "$(is_win)" == "yes" ]; then
     alias npm="cmd /c npm"
 fi

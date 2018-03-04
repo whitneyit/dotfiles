@@ -452,6 +452,28 @@ __git_complete        gls _git_log
 alias                gls1="glsa  -1"
 __git_complete       gls1 _git_log
 
+# Rebase
+alias               grbi1="git rebase --interactive head~1"
+__git_complete      grbi1 _git_rebase
+alias               grbi2="git rebase --interactive head~2"
+__git_complete      grbi2 _git_rebase
+alias               grbi3="git rebase --interactive head~3"
+__git_complete      grbi3 _git_rebase
+alias               grbi4="git rebase --interactive head~4"
+__git_complete      grbi4 _git_rebase
+alias               grbi5="git rebase --interactive head~5"
+__git_complete      grbi5 _git_rebase
+alias               grbi6="git rebase --interactive head~6"
+__git_complete      grbi6 _git_rebase
+alias               grbi7="git rebase --interactive head~7"
+__git_complete      grbi7 _git_rebase
+alias               grbi8="git rebase --interactive head~8"
+__git_complete      grbi8 _git_rebase
+alias               grbi9="git rebase --interactive head~9"
+__git_complete      grbi9 _git_rebase
+alias              grbi10="git rebase --interactive head~10"
+__git_complete     grbi10 _git_rebase
+
 # Reflog
 alias                 grf="grfa  -10"
 __git_complete        grf _git_log

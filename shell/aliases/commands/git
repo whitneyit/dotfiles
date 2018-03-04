@@ -342,7 +342,65 @@ alias                gaul="git ls-files -v | grep '^h' | cut -c 3-"
 alias                 gig="git ls-files --ignored --exclude-standard"
 __git_complete        gig _git_ls_files
 
-# Logging
+# Commit: incoming
+alias                 gli="glia  -10"
+__git_complete        gli _git_log
+alias                gli1="glia  -1"
+__git_complete       gli1 _git_log
+alias                glis="glisa -10"
+__git_complete       glis _git_log
+alias               glis1="glisa -1"
+__git_complete      glis1 _git_log
+alias                glid="glida -10"
+__git_complete       glid _git_log
+alias               glid1="glida -1"
+__git_complete      glid1 _git_log
+alias                glig="gliga -10"
+__git_complete       glig _git_log
+alias               glig1="gliga -1"
+__git_complete      glig1 _git_log
+
+# Commit: outgoing
+alias                 glo="gloa  -10"
+__git_complete        glo _git_log
+alias                glo1="gloa  -1"
+__git_complete       glo1 _git_log
+alias                glos="glosa -10"
+__git_complete       glos _git_log
+alias               glos1="glosa -1"
+__git_complete      glos1 _git_log
+alias                glod="gloda -10"
+__git_complete       glod _git_log
+alias               glod1="gloda -1"
+__git_complete      glod1 _git_log
+alias                glog="gloga -10"
+__git_complete       glog _git_log
+alias               glog1="gloga -1"
+__git_complete      glog1 _git_log
+
+# Commit: user
+alias                 glu="glua  -10"
+__git_complete        glu _git_log
+alias                glu1="glua  -1"
+__git_complete       glu1 _git_log
+alias                gluc="gluca -10"
+__git_complete       gluc _git_log
+alias               gluc1="gluca -1"
+__git_complete      gluc1 _git_log
+alias                glud="gluda -10"
+__git_complete       glud _git_log
+alias               glud1="gluda -1"
+__git_complete      glud1 _git_log
+alias                glug="gluga -10"
+__git_complete       glug _git_log
+alias               glug1="gluga -1"
+__git_complete      glug1 _git_log
+alias                glus="glusa -10"
+__git_complete       glus _git_log
+alias               glus1="glusa -1"
+__git_complete      glus1 _git_log
+
+# Log
 alias                gco-="gco   -"
 __git_complete       gco- _git_checkout
 alias                  gl="gla   -10"
@@ -394,65 +452,7 @@ __git_complete        gls _git_log
 alias                gls1="glsa  -1"
 __git_complete       gls1 _git_log
 
-# Incoming commits
-alias                 gli="glia  -10"
-__git_complete        gli _git_log
-alias                gli1="glia  -1"
-__git_complete       gli1 _git_log
-alias                glis="glisa -10"
-__git_complete       glis _git_log
-alias               glis1="glisa -1"
-__git_complete      glis1 _git_log
-alias                glid="glida -10"
-__git_complete       glid _git_log
-alias               glid1="glida -1"
-__git_complete      glid1 _git_log
-alias                glig="gliga -10"
-__git_complete       glig _git_log
-alias               glig1="gliga -1"
-__git_complete      glig1 _git_log
-
-# Outgoing commits
-alias                 glo="gloa  -10"
-__git_complete        glo _git_log
-alias                glo1="gloa  -1"
-__git_complete       glo1 _git_log
-alias                glos="glosa -10"
-__git_complete       glos _git_log
-alias               glos1="glosa -1"
-__git_complete      glos1 _git_log
-alias                glod="gloda -10"
-__git_complete       glod _git_log
-alias               glod1="gloda -1"
-__git_complete      glod1 _git_log
-alias                glog="gloga -10"
-__git_complete       glog _git_log
-alias               glog1="gloga -1"
-__git_complete      glog1 _git_log
-
-# User commits
-alias                 glu="glua  -10"
-__git_complete        glu _git_log
-alias                glu1="glua  -1"
-__git_complete       glu1 _git_log
-alias                gluc="gluca -10"
-__git_complete       gluc _git_log
-alias               gluc1="gluca -1"
-__git_complete      gluc1 _git_log
-alias                glud="gluda -10"
-__git_complete       glud _git_log
-alias               glud1="gluda -1"
-__git_complete      glud1 _git_log
-alias                glug="gluga -10"
-__git_complete       glug _git_log
-alias               glug1="gluga -1"
-__git_complete      glug1 _git_log
-alias                glus="glusa -10"
-__git_complete       glus _git_log
-alias               glus1="glusa -1"
-__git_complete      glus1 _git_log
-
-# Reflogs
+# Reflog
 alias                 grf="grfa  -10"
 __git_complete        grf _git_log
 alias                grf1="grfa  -1"

@@ -373,6 +373,10 @@ if [ ! -d .git ]; then
 
         fi
 
+        # Install java
+        brew tap caskroom/versions
+        brew cask install java8
+
         # Remove outdated versions from the Cellar
         brew cleanup
 

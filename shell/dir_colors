@@ -82,9 +82,9 @@ EIGHTBIT 1
 BLK                      01;33;40    # block device driver
 CAPABILITY               00;30;41    # file with capability
 CHR                      01;33;40    # character device driver
-DIR                      01;34       # directory
+DIR                      00;34       # directory
 DOOR                     01;35       # door
-EXEC                     01;33       # This is for files with execute permission:
+EXEC                     00;33       # This is for files with execute permission:
 FIFO                     00;33;40    # pipe
 FILE                     00;32       # normal file
 LINK                     00;36       # symbolic link (If you set this to 'target' instead of a numerical value, the color is as for the file pointed to.)

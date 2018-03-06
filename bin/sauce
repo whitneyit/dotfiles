@@ -12,7 +12,11 @@ declare -a mandatories=(
     # Setup scripts
     $DOTFILES_DIRECTORY/shell/bash_paths
     $DOTFILES_DIRECTORY/shell/bash_environment
-    $DOTFILES_DIRECTORY/shell/bash_theme
+
+    # Theme setup
+    $DOTFILES_DIRECTORY/shell/bash_ansi
+    $DOTFILES_DIRECTORY/shell/bash_base16
+    $DOTFILES_DIRECTORY/shell/bash_ps1
 
     # General settings
     $DOTFILES_DIRECTORY/shell/bash_locale
@@ -51,7 +55,6 @@ declare -a others=(
 
 # And these get sourced after the environment is setup
 declare -a postcomps=(
-    $DOTFILES_DIRECTORY/shell/completions/base16/base16.sh
     $DOTFILES_DIRECTORY/shell/completions/npm/lib/utils/completion.sh
 )
 
@@ -61,7 +64,7 @@ do
     if [ -f $precomp ]; then
         . $precomp
     else
-        e_warning "Could not find completion: $precomp"
+        e_warn "Could not find completion: $precomp"
     fi
 done
 
@@ -71,7 +74,7 @@ do
     if [ -f $mandatory ]; then
         source $mandatory
     else
-        e_warning "Could not find mandatory to sauce: $mandatory"
+        e_warn "Could not find mandatory to sauce: $mandatory"
     fi
 done
 
@@ -89,7 +92,7 @@ do
     if [ -f $postcomp ]; then
         . $postcomp
     else
-        e_warning "Could not find completion: $postcomp"
+        e_warn "Could not find completion: $postcomp"
     fi
 done
 

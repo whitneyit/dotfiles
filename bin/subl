@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
 
-# Info logging
-function e_info() {
-    printf "$(tput setaf 6)%s$(tput sgr0)\n" "$@"
-}
-
 # Windows
 if [ "$(is_win)" == "yes" ]; then
 
@@ -48,6 +43,7 @@ elif [ "$(is_mac)" == "yes" ]; then
 # Everything else
 else
 
+    # lol
     e_info "Add support for linux you noob"
 
 fi

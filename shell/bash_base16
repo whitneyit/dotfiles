@@ -1,0 +1,106 @@
+#!/usr/bin/env bash
+
+# Define the location of base16
+export BASE16_SHELL="$DOTFILES_DIRECTORY/shell/base16-shell"
+
+# Load the base16 helper
+. $DOTFILES_DIRECTORY/shell/completions/base16/base16.sh
+
+# Check to make sure the correct theme has been loaded
+if [ ! -f "$HOME/.base16_theme" ]; then
+    e_error "No base16 has been set. Set one with one of the base16 aliases."
+    e_error "Eg 'base16_default-dark'"
+    break
+fi
+
+# Define the foreground colours
+export BASE16_00=$(printf "\x1b[38;5;0m")
+export BASE16_01=$(printf "\x1b[38;5;18m")
+export BASE16_02=$(printf "\x1b[38;5;19m")
+export BASE16_03=$(printf "\x1b[38;5;8m")
+export BASE16_04=$(printf "\x1b[38;5;20m")
+export BASE16_05=$(printf "\x1b[38;5;7m")
+export BASE16_06=$(printf "\x1b[38;5;21m")
+export BASE16_07=$(printf "\x1b[38;5;15m")
+export BASE16_08=$(printf "\x1b[38;5;1m")
+export BASE16_08=$(printf "\x1b[38;5;9m")
+export BASE16_09=$(printf "\x1b[38;5;16m")
+export BASE16_0A=$(printf "\x1b[38;5;11m")
+export BASE16_0A=$(printf "\x1b[38;5;3m")
+export BASE16_0B=$(printf "\x1b[38;5;10m")
+export BASE16_0B=$(printf "\x1b[38;5;2m")
+export BASE16_0C=$(printf "\x1b[38;5;14m")
+export BASE16_0C=$(printf "\x1b[38;5;6m")
+export BASE16_0D=$(printf "\x1b[38;5;12m")
+export BASE16_0D=$(printf "\x1b[38;5;4m")
+export BASE16_0E=$(printf "\x1b[38;5;13m")
+export BASE16_0E=$(printf "\x1b[38;5;5m")
+export BASE16_0F=$(printf "\x1b[38;5;17m")
+
+# Define the background colours
+export BASE16_00_BACKGROUND=$(printf "\x1b[48;5;0m")
+export BASE16_01_BACKGROUND=$(printf "\x1b[48;5;18m")
+export BASE16_02_BACKGROUND=$(printf "\x1b[48;5;19m")
+export BASE16_03_BACKGROUND=$(printf "\x1b[48;5;8m")
+export BASE16_04_BACKGROUND=$(printf "\x1b[48;5;20m")
+export BASE16_05_BACKGROUND=$(printf "\x1b[48;5;7m")
+export BASE16_06_BACKGROUND=$(printf "\x1b[48;5;21m")
+export BASE16_07_BACKGROUND=$(printf "\x1b[48;5;15m")
+export BASE16_08_BACKGROUND=$(printf "\x1b[48;5;1m")
+export BASE16_08_BACKGROUND=$(printf "\x1b[48;5;9m")
+export BASE16_09_BACKGROUND=$(printf "\x1b[48;5;16m")
+export BASE16_0A_BACKGROUND=$(printf "\x1b[48;5;11m")
+export BASE16_0A_BACKGROUND=$(printf "\x1b[48;5;3m")
+export BASE16_0B_BACKGROUND=$(printf "\x1b[48;5;10m")
+export BASE16_0B_BACKGROUND=$(printf "\x1b[48;5;2m")
+export BASE16_0C_BACKGROUND=$(printf "\x1b[48;5;14m")
+export BASE16_0C_BACKGROUND=$(printf "\x1b[48;5;6m")
+export BASE16_0D_BACKGROUND=$(printf "\x1b[48;5;12m")
+export BASE16_0D_BACKGROUND=$(printf "\x1b[48;5;4m")
+export BASE16_0E_BACKGROUND=$(printf "\x1b[48;5;13m")
+export BASE16_0E_BACKGROUND=$(printf "\x1b[48;5;5m")
+export BASE16_0F_BACKGROUND=$(printf "\x1b[48;5;17m")
+
+# Redefine the ansi colours with our base16 variants
+export BLACK="$BASE16_00"
+export RED="$BASE16_08"
+export GREEN="$BASE16_0B"
+export YELLOW="$BASE16_0A"
+export BLUE="$BASE16_0D"
+export MAGENTA="$BASE16_0E"
+export CYAN="$BASE16_0C"
+export WHITE="$BASE16_05"
+export BRIGHT_BLACK="$BASE16_03"
+export BRIGHT_RED="$BASE16_08"
+export BRIGHT_GREEN="$BASE16_0B"
+export BRIGHT_YELLOW="$BASE16_0A"
+export BRIGHT_BLUE="$BASE16_0D"
+export BRIGHT_MAGENTA="$BASE16_0E"
+export BRIGHT_CYAN="$BASE16_0C"
+export BRIGHT_WHITE="$BASE16_07"
+export BLACK_BACKGROUND="$BASE16_00_BACKGROUND"
+export RED_BACKGROUND="$BASE16_08_BACKGROUND"
+export GREEN_BACKGROUND="$BASE16_0B_BACKGROUND"
+export YELLOW_BACKGROUND="$BASE16_0A_BACKGROUND"
+export BLUE_BACKGROUND="$BASE16_0D_BACKGROUND"
+export MAGENTA_BACKGROUND="$BASE16_0E_BACKGROUND"
+export CYAN_BACKGROUND="$BASE16_0C_BACKGROUND"
+export WHITE_BACKGROUND="$BASE16_05_BACKGROUND"
+
+# Define the 256 colours
+export ORANGE="$BASE16_09"
+export BROWN="$BASE16_0F"
+export DARKEST_GREY="$BASE16_01"
+export DARK_GREY="$BASE16_02"
+export LIGHT_GREY="$BASE16_04"
+export LIGHTEST_GREY="$BASE16_06"
+export ORANGE_BACKGROUND="$BASE16_09_BACKGROUND"
+export BROWN_BACKGROUND="$BASE16_0F_BACKGROUND"
+export DARKEST_GREY_BACKGROUND="$BASE16_01_BACKGROUND"
+export DARK_GREY_BACKGROUND="$BASE16_02_BACKGROUND"
+export LIGHT_GREY_BACKGROUND="$BASE16_04_BACKGROUND"
+export LIGHTEST_GREY_BACKGROUND="$BASE16_06_BACKGROUND"
+
+colorstrip
+
+# vim: set syn=sh :

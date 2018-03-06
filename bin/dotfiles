@@ -1,28 +1,51 @@
 #!/usr/bin/env bash
 
+# Define the "reset" colour
+export RESET="\033[m"
+
 # Error logging
 function e_error() {
-    printf "$(tput setaf 1)✘ %s$(tput sgr0)\n" "$@"
+    if [ ! -z "$RED" ]; then
+        echo -e "$RED"✘ "$@""$RESET"
+    else
+        printf "$(tput setaf 1)✘ %s$(tput sgr0)\n" "$@""$RESET"
+    fi
 }
 
 # Header logging
 function e_header() {
-    printf "$(tput setaf 5)%s$(tput sgr0)\n" "$@"
+    if [ ! -z "$MAGENTA" ]; then
+        echo -e "$MAGENTA""$@""$RESET"
+    else
+        printf "$(tput setaf 5)%s$(tput sgr0)\n" "$@""$RESET"
+    fi
 }
 
 # Info logging
 function e_info() {
-    printf "$(tput setaf 6)%s$(tput sgr0)\n" "$@"
+    if [ ! -z "$CYAN" ]; then
+        echo -e "$CYAN"ℹ "$@""$RESET"
+    else
+        printf "$(tput setaf 6)ℹ %s$(tput sgr0)\n" "$@""$RESET"
+    fi
 }
 
 # Success logging
 function e_success() {
-    printf "$(tput setaf 2)✔ %s$(tput sgr0)\n" "$@"
+    if [ ! -z "$GREEN" ]; then
+        echo -e "$GREEN"✔ "$@""$RESET"
+    else
+        printf "$(tput setaf 2)✔ %s$(tput sgr0)\n" "$@""$RESET"
+    fi
 }
 
 # Warning logging
-function e_warning() {
-    printf "$(tput setaf 136)! %s$(tput sgr0)\n" "$@"
+function e_warn() {
+    if [ ! -z "$YELLOW" ]; then
+        echo -e "$YELLOW"⚠ "$@""$RESET"
+    else
+        printf "$(tput setaf 136)⚠ %s$(tput sgr0)\n" "$@""$RESET"
+    fi
 }
 
 # Check to see if a `brew` formulae is installed
@@ -537,7 +560,7 @@ if [ ! -d .git ]; then
         # If we are running in cygwin, we can't install nvm, it has to be done
         # via a different repo
         if [ "$(uname -s | grep -c Cygwin)" -gt 0 ]; then
-            e_warning "Could not install nvm. Use `https://github.com/coreybutler/nvm-windows` instead"
+            e_warn "Could not install nvm. Use `https://github.com/coreybutler/nvm-windows` instead"
 
         # If we can install nvm we do it here
         else
@@ -610,7 +633,7 @@ fi
 for opt in "$@"
 do
     case $opt in
-        -*|--*) e_warning "Warning: invalid option $opt" ;;
+        -*|--*) e_warn "Warning: invalid option $opt" ;;
     esac
 done
 

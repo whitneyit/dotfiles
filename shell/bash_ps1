@@ -1,0 +1,87 @@
+#!/usr/bin/env bash
+
+# Cannot use the following colours because of VSCODE
+# $ORANGE $BROWN
+
+# Define the PS1 colours to use
+export PS1_DIRECTORY_COLOR="$BLUE"
+export PS1_HOSTNAME_COLOR="$MAGENTA"
+export PS1_INPUT_COLOR="$RESET"
+export PS1_PROMPT_GIT_COLOR="$CYAN"
+export PS1_PROMPT_HG_COLOR="$YELLOW"
+export PS1_PROMPT_SNV_COLOR="$GREEN"
+export PS1_SYMBOL_COLOR="$BRIGHT_BLACK"
+export PS1_TEXT_COLOR="$WHITE"
+export PS1_USERNAME_COLOR="$RED"
+
+# Detect if the current directory is a svn repo
+function is_svn_repository {
+    svn log > /dev/null 2>&1
+}
+
+# Detect if the current directory is a mercurial repo
+function is_hg_repository {
+    hg branch > /dev/null 2>&1
+}
+
+# Detect if the current directory is a git repo
+function is_git_repository {
+    git branch > /dev/null 2>&1
+}
+
+# If the current directory belongs to, or is a descendant of a git repo,
+# determine the name of branch that is checked out
+function _git_prompt() {
+    STATUS="$(git status 2> /dev/null | tail -n1)"
+    IS_DIRTY=""
+    if [[ $STATUS != *"working directory clean"* && $STATUS != *"working tree clean"* ]]; then
+        IS_DIRTY="*"
+    fi
+    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$IS_DIRTY/"
+}
+
+# Same as above, show the name of the current mercurial branch
+function _hg_prompt() {
+    STATUS="$(hg status 2> /dev/null)"
+    IS_DIRTY=""
+    if [[ $STATUS != "" ]]; then
+        IS_DIRTY="*"
+    fi
+    hg branch 2> /dev/null | sed -e "s/\(.*\)/\1$IS_DIRTY/"
+}
+
+# Show which revision the svn repo is up to
+function _svn_prompt() {
+    REVISION="$(svn info 2> /dev/null | grep Revision | grep -Eo '[0-9]+$')"
+    STATUS="$(svn status 2> /dev/null)"
+    IS_DIRTY=""
+    if [[ $STATUS != "" ]]; then
+        IS_DIRTY="*"
+    fi
+    echo -e "$REVISION$IS_DIRTY"
+}
+
+# Determine which prompt to show
+function get_prompt() {
+    PROMPT=""
+    if is_git_repository ; then
+        PROMPT="$PS1_TEXT_COLOR on $PS1_PROMPT_GIT_COLOR$(_git_prompt)"
+    elif is_hg_repository ; then
+        PROMPT="$PS1_TEXT_COLOR on $PS1_PROMPT_HG_COLOR$(_hg_prompt)"
+    elif is_svn_repository ; then
+        PROMPT="$PS1_TEXT_COLOR on $PS1_PROMPT_SVN_COLOR$(_svn_prompt)"
+    fi
+    echo -e "$PROMPT"
+}
+
+# Define a function that can be used to reset the PS1 after one of the $PS1_* variables have been updated
+function set_ps1() {
+    export PS1="$RESET\[$PS1_USERNAME_COLOR\]\u \[$PS1_TEXT_COLOR\]at \[$PS1_HOSTNAME_COLOR\]\h \[$PS1_TEXT_COLOR\]in \[$PS1_DIRECTORY_COLOR\]\w\$(get_prompt)\n\[$PS1_SYMBOL_COLOR\]\$ \[$PS1_INPUT_COLOR\]"
+}
+
+# If we are using MING, then we do nothing otherwise we set the $PS1
+if [ $($DOTFILES_DIRECTORY/bin/is_ming) == "no" ]; then
+    set_ps1
+fi
+
+# vim: set syn=sh :

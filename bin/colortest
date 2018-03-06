@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
 # Run the base16 colortest
-bash "$BASE16_SHELL/colortest"
+if [ ! -z "$1" ]; then
+    bash "$BASE16_SHELL/colortest" "base16-$1.sh"
+else
+    bash "$BASE16_SHELL/colortest"
+fi
 
 # vim: set syn=sh :

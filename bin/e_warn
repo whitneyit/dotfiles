@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# Warn logging
+echo -e "$YELLOW"⚠ "$@""$RESET"
+
+# vim: set syn=sh :

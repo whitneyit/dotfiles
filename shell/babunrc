@@ -34,6 +34,7 @@
 # export CYGWIN="nodosfilewarning mintty detect_bloda"
 
 # Ensure that we use our prompt instead of babuns
-source "$DOTFILES_DIRECTORY"/shell/bash_theme
+source "$DOTFILES_DIRECTORY"/shell/bash_ansi
+source "$DOTFILES_DIRECTORY"/shell/bash_ps1
 
 # vim: set syn=sh :

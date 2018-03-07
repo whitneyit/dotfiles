@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+yi() {
+    if [ "$#" == "0" ]; then
+        echo -e "$BRIGHT_BLACK$ yarn install$RESET"
+        yarn install
+    else
+        echo -e "$BRIGHT_BLACK$ yarn add "$@"$RESET"
+        yarn add "$@"
+    fi
+}
+
+yid() {
+    echo -e "$BRIGHT_BLACK$ yarn add --dev "$@"$RESET"
+    yarn add --dev "$@"
+}
+
+yig() {
+    echo -e "$BRIGHT_BLACK$ yarn global add "$@"$RESET"
+    yarn global add "$@"
+}
+
+yu() {
+    echo -e "$BRIGHT_BLACK$ yarn remove "$@"$RESET"
+    yarn remove "$@"
+}
+
+yud() {
+    echo -e "$BRIGHT_BLACK$ yarn remove "$@"$RESET"
+    yarn remove "$@"
+}
+
+yug() {
+    echo -e "$BRIGHT_BLACK$ yarn global remove "$@"$RESET"
+    yarn global remove "$@"
+}
+
+ys() {
+    echo -e "$BRIGHT_BLACK$ yarn start "$@"$RESET"
+    yarn start "$@"
+}
+
+yt() {
+    echo -e "$BRIGHT_BLACK$ yarn test "$@"$RESET"
+    yarn test "$@"
+}
+
+yl() {
+    echo -e "$BRIGHT_BLACK$ yarn list --depth=0 "$@"$RESET"
+    yarn list --depth=0 "$@"
+}
+
+ylg() {
+    echo -e "$BRIGHT_BLACK$ yarn global list --depth=0 "$@"$RESET"
+    yarn global list --depth=0 "$@"
+}
+
+# vim: set tw=0:syn=sh :

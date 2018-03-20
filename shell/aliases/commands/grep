@@ -40,15 +40,21 @@ ARGS="\
 # i: case insensitive
 # l: list of filenames instead of contexts
 # n: line number
-# r: recursive
+# P: Perl-compatible regular expression
+# R: recursive
+# z: Treat the input as a set of lines
 
-alias    grp="grep -I -i    -n    $ARGS"
-alias   grpl="grep -I -i -l       $ARGS"
-alias   grps="grep -I       -n    $ARGS"
-alias  grpls="grep -I    -l       $ARGS"
-alias   grpr="grep -I -i    -n -r $ARGS"
-alias  grprl="grep -I -i -l    -r $ARGS"
-alias  grprs="grep -I       -n -r $ARGS"
-alias grprls="grep -I    -l    -r $ARGS"
+alias    grp="ggrep -I       -i    -n    $ARGS"
+alias   grpl="ggrep -I       -i -l       $ARGS"
+alias   grpm="ggrep -I -P -z -i    -n    $ARGS"
+alias   grps="ggrep -I             -n    $ARGS"
+alias  grpls="ggrep -I          -l       $ARGS"
+alias  grpms="ggrep -I -P -z       -n    $ARGS"
+alias   grpr="ggrep -I       -i    -n -R $ARGS"
+alias  grprl="ggrep -I       -i -l    -R $ARGS"
+alias  grprm="ggrep -I -P -z -i    -n -R $ARGS"
+alias  grprs="ggrep -I             -n -R $ARGS"
+alias grprls="ggrep -I          -l    -R $ARGS"
+alias grprms="ggrep -I -P -z       -n -R $ARGS"
 
 # vim: set syn=sh :

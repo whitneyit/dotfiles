@@ -87,8 +87,8 @@ alias                 ghp="git stash pop"
 __git_complete        ghp _git_stash
 alias                ghla="git stash list                             --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(cyan)%ae %C(white)%s%C(red)%d'"
 __git_complete       ghla _git_stash
-alias               ghlda="git stash list                     --patch --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(cyan)%ae %C(white)%s%C(red)%d'"
-__git_complete      ghlda _git_stash
+alias               ghlpa="git stash list                     --patch --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(cyan)%ae %C(white)%s%C(red)%d'"
+__git_complete      ghlpa _git_stash
 alias               ghlsa="git stash list                     --stat  --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(cyan)%ae %C(white)%s%C(red)%d'"
 __git_complete      ghlsa _git_stash
 alias                 gin="git init"
@@ -115,8 +115,6 @@ alias                glba="git log                                    --date=for
 __git_complete       glba _git_log
 alias                glca="git log --no-merges                        --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %cr] %C(cyan)%ae %C(reset) %n%B'"
 __git_complete       glca _git_log
-alias                glda="git log --no-merges                --patch --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %cr] %C(cyan)%ae %C(white)%s%C(red)%d'"
-__git_complete       glda _git_log
 alias               glfda="git log --no-merges                        --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(cyan)%ae %C(white)%s%C(red)%d' develop.."
 __git_complete      glfda _git_log
 alias               glfma="git log --no-merges                        --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(cyan)%ae %C(white)%s%C(red)%d' master.."
@@ -131,20 +129,22 @@ alias                glma="git log --merges                           --date=for
 __git_complete       glma _git_log
 alias                glna="git log --no-merges --name-only    --stat  --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:''"
 __git_complete       glna _git_log
+alias                glpa="git log --no-merges                --patch --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %cr] %C(cyan)%ae %C(white)%s%C(red)%d'"
+__git_complete       glpa _git_log
 alias                glsa="git log --no-merges                --stat  --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %cr] %C(cyan)%ae %C(white)%s%C(red)%d'"
 __git_complete       glsa _git_log
 alias                glia="git log                                    --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(cyan)%ae %C(white)%s%C(red)%d' ..@{upstream}"
 __git_complete       glia _git_log
-alias               glida="git log                            --patch --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(cyan)%ae %C(white)%s%C(red)%d' ..@{upstream}"
-__git_complete      glida _git_log
+alias               glipa="git log                            --patch --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(cyan)%ae %C(white)%s%C(red)%d' ..@{upstream}"
+__git_complete      glipa _git_log
 alias               gliga="git log                            --graph --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(cyan)%ae %C(white)%s%C(red)%d' ..@{upstream}"
 __git_complete      gliga _git_log
 alias               glisa="git log                            --stat  --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(cyan)%ae %C(white)%s%C(red)%d' ..@{upstream}"
 __git_complete      glisa _git_log
 alias                gloa="git log                                    --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(cyan)%ae %C(white)%s%C(red)%d'   @{upstream}.."
 __git_complete       gloa _git_log
-alias               gloda="git log                            --patch --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(cyan)%ae %C(white)%s%C(red)%d'   @{upstream}.."
-__git_complete      gloda _git_log
+alias               glopa="git log                            --patch --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(cyan)%ae %C(white)%s%C(red)%d'   @{upstream}.."
+__git_complete      glopa _git_log
 alias               gloga="git log                            --graph --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(cyan)%ae %C(white)%s%C(red)%d'   @{upstream}.."
 __git_complete      gloga _git_log
 alias               glosa="git log                            --stat  --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(cyan)%ae %C(white)%s%C(red)%d'   @{upstream}.."
@@ -153,8 +153,8 @@ alias                glua="git log --no-merges                        --date=for
 __git_complete       glua _git_log
 alias               gluca="git log --no-merges                        --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %cr] %C(cyan)%ae %C(reset) %n%B' --author='`git config --get user.name`'"
 __git_complete      gluca _git_log
-alias               gluda="git log --no-merges                --patch --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %cr] %C(cyan)%ae %C(white)%s%C(red)%d' --author='`git config --get user.name`'"
-__git_complete      gluda _git_log
+alias               glupa="git log --no-merges                --patch --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %cr] %C(cyan)%ae %C(white)%s%C(red)%d' --author='`git config --get user.name`'"
+__git_complete      glupa _git_log
 alias               gluga="git log                            --graph --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %cr] %C(cyan)%ae %C(white)%s%C(red)%d' --author='`git config --get user.name`'"
 __git_complete      gluga _git_log
 alias               glusa="git log --no-merges                --stat  --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %cr] %C(cyan)%ae %C(white)%s%C(red)%d' --author='`git config --get user.name`'"
@@ -253,8 +253,8 @@ alias               grbum="git rebase upstream/master"
 __git_complete      grbum _git_rebase
 alias                grfa="git reflog                                 --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(blue)%gs %C(cyan)%ae %C(white)%s%C(red)%d'"
 __git_complete       grfa _git_reflog
-alias               grfda="git reflog                         --patch --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(blue)%gs %C(cyan)%ae %C(white)%s%C(red)%d'"
-__git_complete      grfda _git_reflog
+alias               grfpa="git reflog                         --patch --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(blue)%gs %C(cyan)%ae %C(white)%s%C(red)%d'"
+__git_complete      grfpa _git_reflog
 alias               grfga="git reflog                         --graph --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(blue)%gs %C(cyan)%ae %C(white)%s%C(red)%d'"
 __git_complete      grfga _git_reflog
 alias               grfsa="git reflog                         --stat  --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(blue)%gs %C(cyan)%ae %C(white)%s%C(red)%d'"
@@ -351,10 +351,10 @@ alias                glis="glisa -10"
 __git_complete       glis _git_log
 alias               glis1="glisa -1"
 __git_complete      glis1 _git_log
-alias                glid="glida -10"
-__git_complete       glid _git_log
-alias               glid1="glida -1"
-__git_complete      glid1 _git_log
+alias                glip="glipa -10"
+__git_complete       glip _git_log
+alias               glip1="glipa -1"
+__git_complete      glip1 _git_log
 alias                glig="gliga -10"
 __git_complete       glig _git_log
 alias               glig1="gliga -1"
@@ -369,10 +369,10 @@ alias                glos="glosa -10"
 __git_complete       glos _git_log
 alias               glos1="glosa -1"
 __git_complete      glos1 _git_log
-alias                glod="gloda -10"
-__git_complete       glod _git_log
-alias               glod1="gloda -1"
-__git_complete      glod1 _git_log
+alias                glop="glopa -10"
+__git_complete       glop _git_log
+alias               glop1="glopa -1"
+__git_complete      glop1 _git_log
 alias                glog="gloga -10"
 __git_complete       glog _git_log
 alias               glog1="gloga -1"
@@ -387,10 +387,10 @@ alias                gluc="gluca -10"
 __git_complete       gluc _git_log
 alias               gluc1="gluca -1"
 __git_complete      gluc1 _git_log
-alias                glud="gluda -10"
-__git_complete       glud _git_log
-alias               glud1="gluda -1"
-__git_complete      glud1 _git_log
+alias                glup="glupa -10"
+__git_complete       glup _git_log
+alias               glup1="glupa -1"
+__git_complete      glup1 _git_log
 alias                glug="gluga -10"
 __git_complete       glug _git_log
 alias               glug1="gluga -1"
@@ -415,10 +415,6 @@ alias                 glc="glca  -10"
 __git_complete        glc _git_log
 alias                glc1="glca  -1"
 __git_complete       glc1 _git_log
-alias                 gld="glda  -10"
-__git_complete        gld _git_log
-alias                gld1="glpa  -1"
-__git_complete       gld1 _git_log
 alias                glfd="glfda -10"
 __git_complete       glfd _git_log
 alias               glfd1="glfda -1"
@@ -447,6 +443,10 @@ alias                 gln="glna  -10"
 __git_complete        gln _git_log
 alias                gln1="glna  -1"
 __git_complete       gln1 _git_log
+alias                 glp="glpa  -10"
+__git_complete        glp _git_log
+alias                glp1="glpa  -1"
+__git_complete       glp1 _git_log
 alias                 gls="glsa  -10"
 __git_complete        gls _git_log
 alias                gls1="glsa  -1"
@@ -483,10 +483,10 @@ alias                grfs="grfsa -10"
 __git_complete       grfs _git_log
 alias               grfs1="grfsa -1"
 __git_complete      grfs1 _git_log
-alias                grfd="grfda -10"
-__git_complete       grfd _git_log
-alias               grfd1="grfda -1"
-__git_complete      grfd1 _git_log
+alias                grfp="grfpa -10"
+__git_complete       grfp _git_log
+alias               grfp1="grfpa -1"
+__git_complete      grfp1 _git_log
 alias                grfg="grfga -10"
 __git_complete       grfg _git_log
 alias               grfg1="grfga -1"
@@ -497,10 +497,10 @@ alias                 ghl="ghla -10"
 __git_complete        ghl _git_stash
 alias                ghl1="ghla -1"
 __git_complete       ghl1 _git_stash
-alias                ghld="ghlda -10"
-__git_complete       ghld _git_stash
-alias               ghld1="ghlda -1"
-__git_complete      ghld1 _git_stash
+alias                ghlp="ghlpa -10"
+__git_complete       ghlp _git_stash
+alias               ghlp1="ghlpa -1"
+__git_complete      ghlp1 _git_stash
 alias                ghls="ghlsa -10"
 __git_complete       ghls _git_stash
 alias               ghls1="ghlsa -1"

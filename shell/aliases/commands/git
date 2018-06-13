@@ -329,6 +329,8 @@ alias                  gt="git tag"
 __git_complete         gt _git_tag
 alias                 gtd="git tag --delete"
 __git_complete        gtd _git_tag
+alias                 gtf="git tag --force"
+__git_complete        gtf _git_tag
 alias                 gtl="git tag --list"
 __git_complete        gtl _git_tag
 alias                  gv="git --version" # No git complete for _git_version

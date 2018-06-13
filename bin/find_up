@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# Die on first error
+set -e
+
+# The directory to start the search
+path="$PWD"
+
+# Loop through the paths
+while [[ $path != / ]]; do
+    find "$path" -maxdepth 1 -mindepth 1 "$@"
+    path="$(realpath -s "$path"/..)"
+done
+
+# vim: set syn=sh :

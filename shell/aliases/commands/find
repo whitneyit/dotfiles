@@ -23,7 +23,8 @@ fnd() {
         -not -path "typings/**"          -not -path "**/typings/**" \
         -not -path "undo/**"             -not -path "**/undo/**" \
         -not -path "vendor/**"           -not -path "**/vendor/**" \
-        "$@"
+        "$@" \
+        | sort
 }
 
 fndd() {
@@ -49,7 +50,8 @@ fndd() {
         -not -path "typings/**"          -not -path "**/typings/**" \
         -not -path "undo/**"             -not -path "**/undo/**" \
         -not -path "vendor/**"           -not -path "**/vendor/**" \
-        -type d -iname "$1"
+        -type d -iname "$1" \
+        | sort
 }
 
 fndf() {
@@ -75,7 +77,8 @@ fndf() {
         -not -path "typings/**"          -not -path "**/typings/**" \
         -not -path "undo/**"             -not -path "**/undo/**" \
         -not -path "vendor/**"           -not -path "**/vendor/**" \
-        -type f -iname "$1"
+        -type f -iname "$1" \
+        | sort
 }
 
 # vim: set syn=sh :

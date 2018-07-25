@@ -43,6 +43,7 @@ declare -a others=(
     $HOME/.rvm/scripts/rvm
     $HOME/.nvm/nvm.sh
     $HOME/.travis/travis.sh
+    $HOME/google-cloud-sdk/path.bash.inc
 
     # Locally copied files
     $HOME/.bash_proxy
@@ -56,6 +57,7 @@ declare -a others=(
 # And these get sourced after the environment is setup
 declare -a postcomps=(
     $DOTFILES_DIRECTORY/shell/completions/npm/lib/utils/completion.sh
+    $HOME/google-cloud-sdk/completion.bash.inc
 )
 
 # First we loop over the pre completions

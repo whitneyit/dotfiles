@@ -177,57 +177,63 @@ alias                 gmn="git merge --no-ff --progress --verbose         --no-e
 __git_complete        gmn _git_merge
 alias                 gmv="git mv"
 __git_complete        gmv _git_mv
+alias                gmvf="git mv --force"
+__git_complete       gmvf _git_mv
 alias                 gps="git push          --progress --verbose"
 __git_complete        gps _git_push
 alias                gpsa="git push          --progress --verbose --all"
 __git_complete       gpsa _git_push
-alias                gpsf="git push          --progress --verbose --force"
+alias                gpsf="git push          --progress --verbose                --force"
 __git_complete       gpsf _git_push
-alias                gpsd="git push          --progress --verbose --delete"
+alias                gpsd="git push          --progress --verbose       --delete"
 __git_complete       gpsd _git_push
-alias                gpst="git push          --progress --verbose --tags"
+alias               gpsdf="git push          --progress --verbose       --delete --force"
+__git_complete      gpsdf _git_push
+alias                gpst="git push          --progress --verbose                        --tags"
 __git_complete       gpst _git_push
-alias                gpsb="git push          --progress --verbose bitbucket"
-__git_complete       gpsb _git_push
-alias               gpsbd="git push          --progress --verbose bitbucket develop"
-__git_complete      gpsbd _git_push
-alias               gpsbm="git push          --progress --verbose bitbucket master"
-__git_complete      gpsbm _git_push
-alias                gpsg="git push          --progress --verbose github"
-__git_complete       gpsg _git_push
-alias               gpsgd="git push          --progress --verbose github develop"
-__git_complete      gpsgd _git_push
-alias               gpsgm="git push          --progress --verbose github master"
-__git_complete      gpsgm _git_push
-alias                gpso="git push          --progress --verbose origin"
+alias               gpstf="git push          --progress --verbose                --force --tags"
+__git_complete      gpstf _git_push
+alias                gpso="git push          --progress --verbose                               origin"
 __git_complete       gpso _git_push
-alias               gpsod="git push          --progress --verbose origin develop"
+alias               gpsof="git push          --progress --verbose                --force        origin"
+__git_complete      gpsof _git_push
+alias               gpsod="git push          --progress --verbose                               origin develop"
 __git_complete      gpsod _git_push
-alias               gpsom="git push          --progress --verbose origin master"
+alias              gpsodf="git push          --progress --verbose                --force        origin develop"
+__git_complete     gpsodf _git_push
+alias               gpsom="git push          --progress --verbose                               origin master"
 __git_complete      gpsom _git_push
-alias                gpsu="git push          --progress --verbose upstream"
+alias              gpsomf="git push          --progress --verbose                --force        origin master"
+__git_complete     gpsomf _git_push
+alias                gpsu="git push          --progress --verbose                               upstream"
 __git_complete       gpsu _git_push
-alias               gpsud="git push          --progress --verbose upstream develop"
+alias               gpsuf="git push          --progress --verbose                --force        upstream"
+__git_complete      gpsuf _git_push
+alias               gpsud="git push          --progress --verbose                               upstream develop"
 __git_complete      gpsud _git_push
-alias               gpsum="git push          --progress --verbose upstream master"
+alias              gpsudf="git push          --progress --verbose                --force        upstream develop"
+__git_complete     gpsudf _git_push
+alias               gpsum="git push          --progress --verbose                               upstream master"
 __git_complete      gpsum _git_push
+alias              gpsumf="git push          --progress --verbose                --force        upstream master"
+__git_complete     gpsumf _git_push
 alias                 gpl="git pull          --progress --verbose"
 __git_complete        gpl _git_pull
 alias                gpla="git pull          --progress --verbose --all"
 __git_complete       gpla _git_pull
-alias                gplf="git pull          --progress --verbose --force"
+alias                gplf="git pull          --progress --verbose                --force"
 __git_complete       gplf _git_pull
-alias                gplo="git pull          --progress --verbose origin"
+alias                gplo="git pull          --progress --verbose                               origin"
 __git_complete       gplo _git_pull
-alias               gplod="git pull          --progress --verbose origin develop"
+alias               gplod="git pull          --progress --verbose                               origin develop"
 __git_complete      gplod _git_pull
-alias               gplom="git pull          --progress --verbose origin master"
+alias               gplom="git pull          --progress --verbose                               origin master"
 __git_complete      gplom _git_pull
-alias                gplu="git pull          --progress --verbose upstream"
+alias                gplu="git pull          --progress --verbose                               upstream"
 __git_complete       gplu _git_pull
-alias               gplud="git pull          --progress --verbose upstream develop"
+alias               gplud="git pull          --progress --verbose                               upstream develop"
 __git_complete      gplud _git_pull
-alias               gplum="git pull          --progress --verbose upstream master"
+alias               gplum="git pull          --progress --verbose                               upstream master"
 __git_complete      gplum _git_pull
 alias                 grb="git rebase"
 __git_complete        grb _git_rebase

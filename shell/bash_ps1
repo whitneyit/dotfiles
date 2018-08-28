@@ -62,21 +62,34 @@ function _svn_prompt() {
 }
 
 # Determine which prompt to show
-function get_prompt() {
+function get_scm_prompt() {
     PROMPT=""
+    REF=""
     if is_git_repository ; then
-        PROMPT="$PS1_TEXT_COLOR on $PS1_PROMPT_GIT_COLOR$(_git_prompt)"
+        REF="$(_git_prompt)"
+        if [[ $REF == "" ]]; then
+            REF="<empty-repository>"
+        fi
+        PROMPT="$PS1_TEXT_COLOR on $PS1_PROMPT_GIT_COLOR$REF"
     elif is_hg_repository ; then
-        PROMPT="$PS1_TEXT_COLOR on $PS1_PROMPT_HG_COLOR$(_hg_prompt)"
+        REF="$(_hg_prompt)"
+        if [[ $REF == "" ]]; then
+            REF="<empty-repository>"
+        fi
+        PROMPT="$PS1_TEXT_COLOR on $PS1_PROMPT_HG_COLOR$REF"
     elif is_svn_repository ; then
-        PROMPT="$PS1_TEXT_COLOR on $PS1_PROMPT_SVN_COLOR$(_svn_prompt)"
+        REF="$(_svn_prompt)"
+        if [[ $REF == "" ]]; then
+            REF="<empty-repository>"
+        fi
+        PROMPT="$PS1_TEXT_COLOR on $PS1_PROMPT_SVN_COLOR$REF"
     fi
     echo -e "$PROMPT"
 }
 
 # Define a function that can be used to reset the PS1 after one of the $PS1_* variables have been updated
 function set_ps1() {
-    export PS1="$RESET\[$PS1_USERNAME_COLOR\]\u \[$PS1_TEXT_COLOR\]at \[$PS1_HOSTNAME_COLOR\]\h \[$PS1_TEXT_COLOR\]in \[$PS1_DIRECTORY_COLOR\]\w\$(get_prompt)\n\[$PS1_SYMBOL_COLOR\]\$ \[$PS1_INPUT_COLOR\]"
+    export PS1="$RESET\[$PS1_USERNAME_COLOR\]\u \[$PS1_TEXT_COLOR\]at \[$PS1_HOSTNAME_COLOR\]\h \[$PS1_TEXT_COLOR\]in \[$PS1_DIRECTORY_COLOR\]\w\$(get_scm_prompt)\n\[$PS1_SYMBOL_COLOR\]\$ \[$PS1_INPUT_COLOR\]"
 }
 
 # If we are using MING, then we do nothing otherwise we set the $PS1

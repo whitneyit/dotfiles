@@ -251,6 +251,24 @@ alias               grfga="git reflog                         --graph --date=for
 __git_complete      grfga _git_reflog
 alias               grfsa="git reflog                         --stat  --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(blue)%gs %C(cyan)%ae %C(white)%s%C(red)%d'"
 __git_complete      grfsa _git_reflog
+alias                 grt="git remote"
+__git_complete        grt _git_remote
+alias                grta="git remote --verbose add"
+__git_complete       grta _git_remote
+alias               grtao="git remote --verbose add origin"
+__git_complete      grtao _git_remote
+alias               grtau="git remote --verbose add upstream"
+__git_complete      grtau _git_remote
+alias                grtp="git remote --verbose prune"
+__git_complete       grtp _git_remote
+alias               grtpo="git remote --verbose prune origin"
+__git_complete      grtpo _git_remote
+alias               grtpu="git remote --verbose prune upstream"
+__git_complete      grtpu _git_remote
+alias                grtm="git remote --verbose rename"
+__git_complete       grtm _git_remote
+alias                grtd="git remote --verbose remove"
+__git_complete       grtd _git_remote
 alias                 grs="git reset"
 __git_complete        grs _git_reset
 alias                grsh="git reset 'HEAD^'"

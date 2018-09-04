@@ -352,3 +352,5 @@ arg
 catch
 exports
 auth
+MuiTheme
+rerender

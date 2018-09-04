@@ -29,26 +29,6 @@ alias               gbrdr="git branch --delete --remote"
 __git_complete      gbrdr _git_branch
 alias               gbrmf="git branch -M" # force move
 __git_complete      gbrmf _git_branch
-alias                 gcf="git config"
-__git_complete        gcf _git_config
-alias                gcfl="git config --list"
-__git_complete       gcfl _git_config
-alias                 gcl="git clone  --progress --verbose"
-__git_complete        gcl _git_clone
-alias                 gcm="git commit            --verbose" # -v
-__git_complete        gcm _git_commit
-alias                gcmm="git commit            --verbose --message" # -v -m, -vm
-__git_complete       gcmm _git_commit
-alias                gcma="git commit            --verbose --amend"
-__git_complete       gcma _git_commit
-alias               gcmam="git commit            --verbose --amend --message"
-__git_complete      gcmam _git_commit
-alias               gcman="git commit            --verbose --amend --no-edit"
-__git_complete      gcman _git_commit
-alias                 gcn="git clean -d -x --force --dry-run" # no such thing as --directories, -x ignores .gitignore
-__git_complete        gcn _git_clean
-alias                gcnf="git clean -d -x --force"
-__git_complete       gcnf _git_clean
 alias                 gco="git checkout"
 __git_complete        gco _git_checkout
 alias                gcom="git checkout master"
@@ -67,6 +47,26 @@ alias                gcpa="git cherry-pick --abort"
 __git_complete       gcpa _git_cherry-pick
 alias                gcpc="git cherry-pick --continue"
 __git_complete       gcpc _git_cherry-pick
+alias                 gcn="git clean -d -x --force --dry-run" # no such thing as --directories, -x ignores .gitignore
+__git_complete        gcn _git_clean
+alias                gcnf="git clean -d -x --force"
+__git_complete       gcnf _git_clean
+alias                 gcl="git clone  --progress --verbose"
+__git_complete        gcl _git_clone
+alias                 gcm="git commit            --verbose" # -v
+__git_complete        gcm _git_commit
+alias                gcmm="git commit            --verbose --message" # -v -m, -vm
+__git_complete       gcmm _git_commit
+alias                gcma="git commit            --verbose --amend"
+__git_complete       gcma _git_commit
+alias               gcmam="git commit            --verbose --amend --message"
+__git_complete      gcmam _git_commit
+alias               gcman="git commit            --verbose --amend --no-edit"
+__git_complete      gcman _git_commit
+alias                 gcf="git config"
+__git_complete        gcf _git_config
+alias                gcfl="git config --list"
+__git_complete       gcfl _git_config
 alias                  gd="git diff"
 __git_complete         gd _git_diff
 alias                 gdn="git diff --name-only"
@@ -77,8 +77,6 @@ alias                gdsn="git diff --name-only --staged"
 __git_complete       gdsn _git_diff
 alias                 gdt="git difftool"
 __git_complete        gdt _git_difftool
-alias                 gin="git init"
-__git_complete        gin _git_init
 alias                  gf="git fetch --all --progress --verbose"
 __git_complete         gf _git_fetch
 alias                 gfa="git fetch       --progress --verbose"
@@ -95,6 +93,8 @@ alias                gfud="git fetch       --progress --verbose upstream develop
 __git_complete       gfud _git_fetch
 alias                gfum="git fetch       --progress --verbose upstream master"
 __git_complete       gfum _git_fetch
+alias                 gin="git init"
+__git_complete        gin _git_init
 alias                 gla="git log --no-merges                        --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(cyan)%ae %C(white)%s%C(red)%d'"
 __git_complete        gla _git_log
 alias                glba="git log                                    --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(cyan)%ae %C(white)%s%C(red)%d'"
@@ -165,6 +165,24 @@ alias                 gmv="git mv"
 __git_complete        gmv _git_mv
 alias                gmvf="git mv --force"
 __git_complete       gmvf _git_mv
+alias                 gpl="git pull          --progress --verbose"
+__git_complete        gpl _git_pull
+alias                gpla="git pull          --progress --verbose --all"
+__git_complete       gpla _git_pull
+alias                gplf="git pull          --progress --verbose                --force"
+__git_complete       gplf _git_pull
+alias                gplo="git pull          --progress --verbose                               origin"
+__git_complete       gplo _git_pull
+alias               gplod="git pull          --progress --verbose                               origin develop"
+__git_complete      gplod _git_pull
+alias               gplom="git pull          --progress --verbose                               origin master"
+__git_complete      gplom _git_pull
+alias                gplu="git pull          --progress --verbose                               upstream"
+__git_complete       gplu _git_pull
+alias               gplud="git pull          --progress --verbose                               upstream develop"
+__git_complete      gplud _git_pull
+alias               gplum="git pull          --progress --verbose                               upstream master"
+__git_complete      gplum _git_pull
 alias                 gps="git push          --progress --verbose"
 __git_complete        gps _git_push
 alias                gpsa="git push          --progress --verbose --all"
@@ -203,24 +221,6 @@ alias               gpsum="git push          --progress --verbose               
 __git_complete      gpsum _git_push
 alias              gpsumf="git push          --progress --verbose                --force        upstream master"
 __git_complete     gpsumf _git_push
-alias                 gpl="git pull          --progress --verbose"
-__git_complete        gpl _git_pull
-alias                gpla="git pull          --progress --verbose --all"
-__git_complete       gpla _git_pull
-alias                gplf="git pull          --progress --verbose                --force"
-__git_complete       gplf _git_pull
-alias                gplo="git pull          --progress --verbose                               origin"
-__git_complete       gplo _git_pull
-alias               gplod="git pull          --progress --verbose                               origin develop"
-__git_complete      gplod _git_pull
-alias               gplom="git pull          --progress --verbose                               origin master"
-__git_complete      gplom _git_pull
-alias                gplu="git pull          --progress --verbose                               upstream"
-__git_complete       gplu _git_pull
-alias               gplud="git pull          --progress --verbose                               upstream develop"
-__git_complete      gplud _git_pull
-alias               gplum="git pull          --progress --verbose                               upstream master"
-__git_complete      gplum _git_pull
 alias                 grb="git rebase"
 __git_complete        grb _git_rebase
 alias                grba="git rebase --abort"
@@ -335,6 +335,12 @@ alias               ghlpa="git stash list                     --patch --date=for
 __git_complete      ghlpa _git_stash
 alias               ghlsa="git stash list                     --stat  --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(cyan)%ae %C(white)%s%C(red)%d'"
 __git_complete      ghlsa _git_stash
+alias                 gst="git status --untracked-files=all"
+__git_complete        gst _git_status
+alias                gstc="git status"
+__git_complete       gstc _git_status
+alias                gsti="git status --untracked-files=all --ignored"
+__git_complete       gsti _git_status
 alias                 gsm="git submodule"
 __git_complete        gsm _git_submodule
 alias                gsma="git submodule add"
@@ -347,12 +353,6 @@ alias                gsmu="git pull --recurse-submodules && git submodule update
 __git_complete       gsmu _git_submodule
 alias               gsmfm="git submodule foreach git config core.fileMode false"
 __git_complete      gsmfm _git_submodule
-alias                 gst="git status --untracked-files=all"
-__git_complete        gst _git_status
-alias                gstc="git status"
-__git_complete       gstc _git_status
-alias                gsti="git status --untracked-files=all --ignored"
-__git_complete       gsti _git_status
 alias                  gt="git tag"
 __git_complete         gt _git_tag
 alias                 gtd="git tag --delete"

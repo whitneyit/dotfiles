@@ -77,20 +77,6 @@ alias                gdsn="git diff --name-only --staged"
 __git_complete       gdsn _git_diff
 alias                 gdt="git difftool"
 __git_complete        gdt _git_difftool
-alias                  gh="git stash save"
-__git_complete         gh _git_stash
-alias                 ghc="git stash clear"
-__git_complete        ghc _git_stash
-alias                 ghd="git stash drop"
-__git_complete        ghd _git_stash
-alias                 ghp="git stash pop"
-__git_complete        ghp _git_stash
-alias                ghla="git stash list                             --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(cyan)%ae %C(white)%s%C(red)%d'"
-__git_complete       ghla _git_stash
-alias               ghlpa="git stash list                     --patch --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(cyan)%ae %C(white)%s%C(red)%d'"
-__git_complete      ghlpa _git_stash
-alias               ghlsa="git stash list                     --stat  --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(cyan)%ae %C(white)%s%C(red)%d'"
-__git_complete      ghlsa _git_stash
 alias                 gin="git init"
 __git_complete        gin _git_init
 alias                  gf="git fetch --all --progress --verbose"
@@ -313,6 +299,42 @@ alias                grmc="git rm --cached"
 __git_complete       grmc _git_rm
 alias               grmca="git rm --cached -r ."
 __git_complete      grmca _git_rm
+alias                  gh="git stash save"
+__git_complete         gh _git_stash
+alias                 gha="git stash apply"
+__git_complete        gha _git_stash
+alias                gha1="git stash apply stash@{0}"
+__git_complete       gha1 _git_stash
+alias                gha2="git stash apply stash@{1}"
+__git_complete       gha2 _git_stash
+alias                gha3="git stash apply stash@{2}"
+__git_complete       gha3 _git_stash
+alias                gha4="git stash apply stash@{3}"
+__git_complete       gha4 _git_stash
+alias                gha5="git stash apply stash@{4}"
+__git_complete       gha5 _git_stash
+alias                gha6="git stash apply stash@{5}"
+__git_complete       gha6 _git_stash
+alias                gha7="git stash apply stash@{6}"
+__git_complete       gha7 _git_stash
+alias                gha8="git stash apply stash@{7}"
+__git_complete       gha8 _git_stash
+alias                gha9="git stash apply stash@{8}"
+__git_complete       gha9 _git_stash
+alias               gha10="git stash apply stash@{9}"
+__git_complete      gha10 _git_stash
+alias                 ghc="git stash clear"
+__git_complete        ghc _git_stash
+alias                 ghd="git stash drop"
+__git_complete        ghd _git_stash
+alias                 ghp="git stash pop"
+__git_complete        ghp _git_stash
+alias                ghla="git stash list                             --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(cyan)%ae %C(white)%s%C(red)%d'"
+__git_complete       ghla _git_stash
+alias               ghlpa="git stash list                     --patch --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(cyan)%ae %C(white)%s%C(red)%d'"
+__git_complete      ghlpa _git_stash
+alias               ghlsa="git stash list                     --stat  --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(cyan)%ae %C(white)%s%C(red)%d'"
+__git_complete      ghlsa _git_stash
 alias                 gsm="git submodule"
 __git_complete        gsm _git_submodule
 alias                gsma="git submodule add"

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# Make a directory and create a file in it
+function touchp() {
+    DIR="$@"
+    echo $DIR
+}
+
+# vim: set syn=sh :

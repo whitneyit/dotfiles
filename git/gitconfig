@@ -12,6 +12,7 @@
     eol = lf
     excludesfile = ~/.gitignore_global
     filemode = true
+    pager = diff-highlight | less
     quotepath = false
 
 [commit]

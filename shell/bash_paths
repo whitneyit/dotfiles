@@ -23,6 +23,11 @@ declare -a DIRS_TO_APPEND=(
     "./vendor/bin"
 )
 
+# Directories to be appended to PATH only when `is_mac` is true
+declare -a MAC_DIRS_TO_APPEND=(
+    "/usr/local/opt/git/share/git-core/contrib/diff-highlight"
+)
+
 # Prepend directories to PATH
 for index in "${DIRS_TO_PREPEND[@]}"
 do
@@ -35,9 +40,20 @@ do
     PATH="$PATH:${index}"
 done
 
+# Now that we have sorted out $PATH, we can do platform specific stuff
+
+# Append the Mac directories
+if [ "$(is_mac)" == "yes" ]; then
+    for index in "${MAC_DIRS_TO_APPEND[@]}"
+    do
+        PATH="$PATH:${index}"
+    done
+fi
+
 # Unset the Array variables
 unset DIRS_TO_PREPEND
 unset DIRS_TO_APPEND
+unset MAC_DIRS_TO_PREPEND
 
 # Export the `$PATH` variable
 export PATH

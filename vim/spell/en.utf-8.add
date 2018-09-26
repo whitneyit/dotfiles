@@ -358,3 +358,4 @@ expiresAt
 setTimeout
 accessToken
 feat
+localStorage

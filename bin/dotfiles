@@ -595,13 +595,10 @@ if [ ! -d .git ]; then
             # Install our most used packages
             npm install --global \
                 firebase-tools \
-                gulp-cli \
                 httpster \
-                karma-cli \
                 node-inspector \
                 np \
                 npm-check \
-                phantomjs-prebuilt \
                 typescript
 
             e_success "Successfully installed nvm..."

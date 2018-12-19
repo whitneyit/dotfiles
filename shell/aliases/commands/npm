@@ -10,6 +10,11 @@ yarn-exists() {
     fi
 }
 
+nb() {
+    echo -e "$BRIGHT_BLACK$ npm run build "$@"$RESET"
+    npm run build "$@"
+}
+
 ni() {
     if [ "$#" == "0" ]; then
         echo -e "$BRIGHT_BLACK$ npm install$RESET"

@@ -191,6 +191,8 @@ alias                 gps="git push          --progress --verbose"
 __git_complete        gps _git_push
 alias                gpsa="git push          --progress --verbose --all"
 __git_complete       gpsa _git_push
+alias               gpsaf="git push          --progress --verbose --all          --force"
+__git_complete      gpsaf _git_push
 alias                gpsf="git push          --progress --verbose                --force"
 __git_complete       gpsf _git_push
 alias                gpsd="git push          --progress --verbose       --delete"

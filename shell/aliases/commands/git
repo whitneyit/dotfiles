@@ -93,6 +93,10 @@ alias                gfud="git fetch       --progress --verbose upstream develop
 __git_complete       gfud _git_fetch
 alias                gfum="git fetch       --progress --verbose upstream master"
 __git_complete       gfum _git_fetch
+alias                 gft="git fetch       --progress --verbose --tags"
+__git_complete        gft _git_fetch
+alias                gftf="git fetch       --progress --verbose --tags --force"
+__git_complete       gftf _git_fetch
 alias                 gin="git init"
 __git_complete        gin _git_init
 alias                 gla="git log --no-merges                        --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(cyan)%ae %C(white)%s%C(red)%d'"

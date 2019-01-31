@@ -15,6 +15,15 @@ nb() {
     npm run build "$@"
 }
 
+ngp() {
+    readlink -f "$(which ${1:-npm})"
+}
+
+ngd() {
+    path="$(ngp $1)"
+    echo "$(dirname "$path")"
+}
+
 ni() {
     if [ "$#" == "0" ]; then
         echo -e "$BRIGHT_BLACK$ npm install$RESET"
@@ -35,6 +44,36 @@ nig() {
     npm install --global "$@"
 }
 
+nl() {
+    if [ "$#" == "0" ]; then
+        echo -e "$BRIGHT_BLACK$ npm run lint$RESET"
+        npm run lint
+    else
+        echo -e "$BRIGHT_BLACK$ npm run lint:"$@"$RESET"
+        npm run lint:"$@"
+    fi
+}
+
+nls() {
+    echo -e "$BRIGHT_BLACK$ npm list --depth=0 "$@"$RESET"
+    npm list --depth=0 "$@"
+}
+
+nlsg() {
+    echo -e "$BRIGHT_BLACK$ npm list --global --depth=0 "$@"$RESET"
+    npm list --global --depth=0 "$@"
+}
+
+ns() {
+    echo -e "$BRIGHT_BLACK$ npm start "$@"$RESET"
+    npm start "$@"
+}
+
+nt() {
+    echo -e "$BRIGHT_BLACK$ npm test "$@"$RESET"
+    npm test "$@"
+}
+
 nu() {
     echo -e "$BRIGHT_BLACK$ npm uninstall --save "$@"$RESET"
     npm uninstall --save "$@"
@@ -48,26 +87,6 @@ nud() {
 nug() {
     echo -e "$BRIGHT_BLACK$ npm uninstall --global "$@"$RESET"
     npm uninstall --global "$@"
-}
-
-ns() {
-    echo -e "$BRIGHT_BLACK$ npm start "$@"$RESET"
-    npm start "$@"
-}
-
-nt() {
-    echo -e "$BRIGHT_BLACK$ npm test "$@"$RESET"
-    npm test "$@"
-}
-
-nl() {
-    echo -e "$BRIGHT_BLACK$ npm list --depth=0 "$@"$RESET"
-    npm list --depth=0 "$@"
-}
-
-nlg() {
-    echo -e "$BRIGHT_BLACK$ npm list --global --depth=0 "$@"$RESET"
-    npm list --global --depth=0 "$@"
 }
 
 nupgrade() {
@@ -100,15 +119,6 @@ nv() {
     else
         echo "yarn [not installed]"
     fi
-}
-
-ngp() {
-    readlink -f "$(which ${1:-npm})"
-}
-
-ngd() {
-    path="$(ngp $1)"
-    echo "$(dirname "$path")"
 }
 
 if [ "$(is_win)" == "yes" ]; then

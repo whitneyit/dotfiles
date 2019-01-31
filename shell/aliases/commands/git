@@ -81,6 +81,8 @@ alias                  gf="git fetch       --progress --verbose"
 __git_complete         gf _git_fetch
 alias                 gfa="git fetch --all --progress --verbose"
 __git_complete        gfa _git_fetch
+alias                gfaf="git fetch --all --progress --verbose --force"
+__git_complete       gfaf _git_fetch
 alias                 gfo="git fetch       --progress --verbose origin"
 __git_complete        gfo _git_fetch
 alias                gfod="git fetch       --progress --verbose origin develop"

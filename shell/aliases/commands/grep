@@ -9,6 +9,7 @@ ARGS="\
     --exclude *.svg \
     --exclude *lock.json \
     --exclude npm-debug.log \
+    --exclude-dir .cache \
     --exclude-dir .chrome \
     --exclude-dir .git \
     --exclude-dir .hg \

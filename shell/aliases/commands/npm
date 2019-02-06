@@ -75,13 +75,8 @@ nt() {
 }
 
 nu() {
-    echo -e "$BRIGHT_BLACK$ npm uninstall --save "$@"$RESET"
-    npm uninstall --save "$@"
-}
-
-nud() {
-    echo -e "$BRIGHT_BLACK$ npm uninstall --save-dev "$@"$RESET"
-    npm uninstall --save-dev "$@"
+    echo -e "$BRIGHT_BLACK$ npm uninstall "$@"$RESET"
+    npm uninstall "$@"
 }
 
 nug() {

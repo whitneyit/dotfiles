@@ -15,6 +15,11 @@ nb() {
     npm run build "$@"
 }
 
+nc() {
+    echo -e "$BRIGHT_BLACK$ npm run ci "$@"$RESET"
+    npm run ci "$@"
+}
+
 ngp() {
     readlink -f "$(which ${1:-npm})"
 }

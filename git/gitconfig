@@ -21,6 +21,11 @@
 [credential]
     helper = store
 
+[gc]
+    pruneExpire = never
+    reflogExpire = never
+    reflogExpireUnreachable = never
+
 [url "https://"]
     insteadOf = git://
 

@@ -151,6 +151,8 @@ alias               gluga="git log                            --graph --date=for
 __git_complete      gluga _git_log
 alias               glusa="git log --no-merges                --stat  --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %cr] %C(cyan)%ae %C(white)%s%C(red)%d' --author='`git config --get user.name`'"
 __git_complete      glusa _git_log
+alias                glra="git log --no-merges                        --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(cyan)%ae %C(white)%s'"
+__git_complete       glra _git_log
 alias                  gm="git merge --no-ff --progress --verbose"
 __git_complete         gm _git_merge
 alias                 gma="git merge --abort"
@@ -479,14 +481,18 @@ alias                glfm="glfma -10"
 __git_complete       glfm _git_log
 alias               glfm1="glfma -1"
 __git_complete      glfm1 _git_log
-alias              glfod="glfoda -10"
-__git_complete     glfod _git_log
-alias             glfod1="glfoda -1"
-__git_complete    glfod1 _git_log
-alias              glfom="glfoma -10"
-__git_complete     glfom _git_log
-alias             glfom1="glfoma -1"
-__git_complete    glfom1 _git_log
+alias               glfod="glfoda -10"
+__git_complete      glfod _git_log
+alias              glfod1="glfoda -1"
+__git_complete     glfod1 _git_log
+alias               glfom="glfoma -10"
+__git_complete      glfom _git_log
+alias              glfom1="glfoma -1"
+__git_complete     glfom1 _git_log
+alias                 glr="glra  -10"
+__git_complete        glr _git_log
+alias                glr1="glra  -1"
+__git_complete       glr1 _git_log
 alias                 glg="glga  -10"
 __git_complete        glg _git_log
 alias                glg1="glga  -1"

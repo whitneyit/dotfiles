@@ -20,6 +20,11 @@ nc() {
     npm run ci "$@"
 }
 
+nd() {
+    echo -e "$BRIGHT_BLACK$ npm run doc "$@"$RESET"
+    npm run doc "$@"
+}
+
 ngp() {
     readlink -f "$(which ${1:-npm})"
 }

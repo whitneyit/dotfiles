@@ -3,9 +3,12 @@
 # Assume that 256 is not supported
 SUPPORTS_256="no"
 
-# Check with terminals support 256
-if [ ! -z "$ITERM_SESSION_ID" ]; then
+if [ "$TERM_PROGRAM" == "iTerm.app" ]; then
     SUPPORTS_256="yes"
+fi
+
+if [ "$TERM_PROGRAM" == "vscode" ]; then
+    SUPPORTS_256="no"
 fi
 
 # Override the above checks if the $BASE16 variables have not been loaded

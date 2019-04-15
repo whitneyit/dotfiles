@@ -16,13 +16,6 @@ alias  pictures="cd ~/Pictures/"
 alias documents="cd ~/Documents/"
 alias downloads="cd ~/Downloads/"
 
-# Dev folders
-alias   archive="cd ~/Archive/"
-alias      code="cd ~/Code/"
-alias       dev="cd ~/Dev/"
-alias       oss="cd ~/OSS/"
-alias      work="cd ~/Work/"
-
 # Protect against typings
 alias        dc="cd"
 alias       cd-="cd -"

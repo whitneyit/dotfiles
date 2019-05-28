@@ -584,13 +584,12 @@ if [ ! -d .git ]; then
             nvm alias default stable
 
             # Update npm
-            npm install --global npm yarn
+            npm install --global npm
 
             # Let the user know what version we are using
             echo "nvm version $(nvm --version)"
             echo "node version $(node --version)"
             echo "npm version $(npm --version)"
-            echo "yarn version $(yarn --version)"
 
             # Install our most used packages
             npm install --global \

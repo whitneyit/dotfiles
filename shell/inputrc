@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Disable the bell
+set bell-style none
+
 # Use case-insensitive TAB autocompletion
 set completion-ignore-case on
 

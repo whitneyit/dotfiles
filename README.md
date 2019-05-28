@@ -15,6 +15,15 @@ To actually kick off the instalation run;
 $ bash -c "$(curl -fsSL https://raw.github.com/whitneyit/dotfiles/master/bin/dotfiles)"
 ```
 
+## Windows Subsystem for Linux (WSL)
+
+If you are using WSL, you will need to unmount, then remount the drive with the following command:
+
+```sh
+$ sudo umount /mnt/c
+$ sudo mount -t drvfs C: /mnt/c -o metadata,uid=1000,gid=1000,umask=22,fmask=111
+```
+
 ## How to update
 
 You should run the update when:

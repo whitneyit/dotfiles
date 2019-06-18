@@ -7,9 +7,11 @@ if [ "$TERM_PROGRAM" == "iTerm.app" ]; then
     SUPPORTS_256="yes"
 fi
 
-if [ "$TERM_PROGRAM" == "vscode" ]; then
-    SUPPORTS_256="no"
-fi
+# This has now been fixted
+# https://code.visualstudio.com/updates/v1_35#_integrated-terminal
+# if [ "$TERM_PROGRAM" == "vscode" ]; then
+#     SUPPORTS_256="no"
+# fi
 
 # Override the above checks if the $BASE16 variables have not been loaded
 if [ -z "$BASE16_00" ]; then

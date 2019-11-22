@@ -5,6 +5,7 @@
 declare -a DIRS_TO_PREPEND=(
     "$JAVA_HOME/bin"
     "/usr/local/bin"
+    "/usr/local/sbin"
     "/usr/local/heroku/bin"
 )
 

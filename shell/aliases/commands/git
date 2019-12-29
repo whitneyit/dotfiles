@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 # If we have hub installed, alias it now
-if [ "$(type -P hub)" ]; then
-    alias git="hub"
-fi
+# if [ "$(type -P hub)" ]; then
+#     alias git="hub"
+# fi
 
 alias                  ga="git add --ignore-removal"
 __git_complete         ga _git_add
@@ -391,6 +391,11 @@ alias                 gtl="git tag --list"
 __git_complete        gtl _git_tag
 alias                  gv="git --version" # No git complete for _git_version
 
+# Root commit
+gr() {
+    git rev-list --max-parents=0 HEAD
+}
+
 # Assume unchanged
 alias                 gau="git update-index --assume-unchanged"
 alias                gnau="git update-index --no-assume-unchanged"
@@ -515,6 +520,10 @@ alias                gls1="glsa  -1"
 __git_complete       gls1 _git_log
 
 # Rebase
+grbir() {
+    git rebase --interactive `gr`
+}
+
 alias               grbi1="git rebase --interactive head~1"
 __git_complete      grbi1 _git_rebase
 alias               grbi2="git rebase --interactive head~2"

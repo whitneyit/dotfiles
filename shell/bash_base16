@@ -8,9 +8,8 @@ export BASE16_SHELL="$DOTFILES_DIRECTORY/shell/base16-shell"
 
 # Check to make sure the correct theme has been loaded
 if [ ! -f "$HOME/.base16_theme" ]; then
-    e_error "No base16 has been set. Set one with one of the base16 aliases."
-    e_error "Eg 'base16_default-dark'"
-    break
+    e_warn "No base16 has been set. Setting to \"base16_ocean\"..."
+    base16_ocean
 fi
 
 # Define the foreground colours

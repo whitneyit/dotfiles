@@ -359,6 +359,7 @@ if [ ! -d .git ]; then
             'bash-completion'
             'coreutils'
             'ctags'
+            'curl'
             'dos2unix'
             'editorconfig'
             'findutils'

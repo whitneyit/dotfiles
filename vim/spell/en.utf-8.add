@@ -362,3 +362,4 @@ localStorage
 AddressEntity
 const
 redux
+cspell

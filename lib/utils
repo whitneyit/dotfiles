@@ -154,6 +154,9 @@ function link() {
 # here because we don't always want to link to the `$HOME` directory.
 function link_files() {
 
+    # Inform the user that we are linking their files
+    e_header "Linking files..."
+
     # Here we backup any previous versions of the files. Here `$1 refers to the
     # directory that was passed to `link_files`. This is dynamic because the
     # repo is not located in a fixed place.
@@ -252,12 +255,15 @@ function link_files() {
     fi
 
     # Now lets change the file permissions
+    chmod -R 755 "$TARGET_LINK_DIR/.git_templates"
     chmod 644 "$TARGET_LINK_DIR/.bash_proxy"
     chmod 644 "$TARGET_LINK_DIR/.editorconfig"
     chmod 644 "$TARGET_LINK_DIR/.gitconfig"
-    chmod -R 755 "$TARGET_LINK_DIR/.git_templates"
     chmod 644 "$TARGET_LINK_DIR/.keys"
     chmod 644 "$TARGET_LINK_DIR/.npmrc"
+
+    # Inform the user that we are installing daemons
+    e_header "Installing daemons ..."
 
     # Copy in our daemon files
     for my_daemon_path in "${my_daemon_paths[@]}"
@@ -267,6 +273,7 @@ function link_files() {
         my_daemon="$(basename "$my_daemon_path")"
 
         # Copy in our new daemons
+        e_info "Installing daemon \"$my_daemon\" to \"/etc/init.d/$my_daemon\""
         cp "$DOTFILES_DIRECTORY/init.d/$my_daemon" "/etc/init.d/$my_daemon"
 
         # Set the ownership

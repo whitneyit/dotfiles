@@ -212,7 +212,7 @@ if [ ! -d .git ]; then
         sudo chown vagrant:vagrant "$HOME/.viminfo"
 
     # `is_mac`
-    else
+    elif [ "$(uname -s | grep -c Darwin)" -gt 0 ]; then
         chown -R `whoami` .
         chown -R `whoami` "$HOME/.ssh"
         chown -R `whoami` "$HOME/Archive"
@@ -226,7 +226,6 @@ if [ ! -d .git ]; then
         chown `whoami` "$HOME/.config"
         chown `whoami` "$HOME/.prev_dir"
         chown `whoami` "$HOME/.viminfo"
-    fi
 
     # Everyone else
     else
@@ -289,7 +288,7 @@ if [ ! -d .git ]; then
     source ./lib/utils
 
     # Now we can update the submodules.
-        e_header "Fetching submodules..."
+    e_header "Fetching submodules..."
     git submodule update --recursive --init
 
     # This will set the appropriate tracking refs.
@@ -297,7 +296,6 @@ if [ ! -d .git ]; then
 
     # Now we can run our `link_files` script that we generate all the required
     # symbolic links between our repo directory and the `$HOME` folder.
-    e_header "Linking files..."
     link_files "$PWD"
 
     # Now we modify the origin url to use our `ssh` address. We do this so that
@@ -651,7 +649,6 @@ git submodule update --recursive --init
 git stash pop --quiet
 
 # Relink the files
-e_header "Linking files..."
 link_files "$PWD"
 
 # Update home brew if it exists

@@ -1,8 +1,15 @@
 #!/usr/bin/env bash
 
-# If $DOTFILES_DIRECTORY is zero length then source `.bash_profile`
+# If $DOTFILES_DIRECTORY is a zero length string then we know that we
+# have not run our `.bash_profile` setup
 if [ -z "$DOTFILES_DIRECTORY" ]; then
-    if [ -f "$DOTFILES_DIRECTORY/.bash_profile" ]; then
+
+    # Ensure that some base colors are exported
+    LS_COLORS="ow=01;36;40"
+    export LS_COLORS
+
+    # Run our `.bash_profile` setup
+    if [ -f "$HOME/.bash_profile" ]; then
         source "$HOME/.bash_profile"
     fi
 fi

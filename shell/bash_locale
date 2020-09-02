@@ -5,9 +5,9 @@ export LANGUAGE="en_AU"
 export LANG="en_AU"
 
 # Here we change the way files are sorted
-export LC_ALL="en_AU"
+export LC_ALL=""
 export LC_COLLATE="en_AU"
-export LC_CTYPE="en_AU"
+export LC_CTYPE="en_AU.UTF-8"
 export LC_MESSAGES="en_AU"
 export LC_MONETARY="en_AU"
 export LC_NUMERIC="en_AU"

@@ -2,24 +2,30 @@
 
 fnd() {
     find * \
+        -not -path ".cache/**"          -not -path "**/.cache/**" \
         -not -path ".chrome/**"          -not -path "**/.chrome/**" \
         -not -path ".git/**"             -not -path "**/.git/**" \
         -not -path ".hg/**"              -not -path "**/.hg/**" \
         -not -path ".karma/**"           -not -path "**/.karma/**" \
+        -not -path ".next/**"            -not -path "**/.next/**" \
         -not -path ".protractor/**"      -not -path "**/.protractor/**" \
         -not -path ".sass-cache/**"      -not -path "**/.sass-cache/**" \
         -not -path ".svn/**"             -not -path "**/.svn/**" \
         -not -path "backups/**"          -not -path "**/backups/**" \
         -not -path "bower_components/**" -not -path "**/bower_components/**" \
+        -not -path "build/**"           -not -path "**/build/**" \
         -not -path "bundle/**"           -not -path "**/bundle/**" \
         -not -path "completions/**"      -not -path "**/completions/**" \
         -not -path "coverage/**"         -not -path "**/coverage/**" \
         -not -path "dist/**"             -not -path "**/dist/**" \
         -not -path "docs/**"             -not -path "**/docs/**" \
+        -not -path "graph/**"             -not -path "**/graph/**" \
         -not -path "jspm_packages/**"    -not -path "**/jspm_packages/**" \
         -not -path "node_modules/**"     -not -path "**/node_modules/**" \
+        -not -path "out-tsc/**"          -not -path "**/out-tsc/**" \
         -not -path "plugins/**"          -not -path "**/plugins/**" \
         -not -path "reports/**"          -not -path "**/reports/**" \
+        -not -path "tmp/**"          -not -path "**/tmp/**" \
         -not -path "typings/**"          -not -path "**/typings/**" \
         -not -path "undo/**"             -not -path "**/undo/**" \
         -not -path "vendor/**"           -not -path "**/vendor/**" \
@@ -29,24 +35,30 @@ fnd() {
 
 fndd() {
     find * \
+        -not -path ".cache/**"          -not -path "**/.cache/**" \
         -not -path ".chrome/**"          -not -path "**/.chrome/**" \
         -not -path ".git/**"             -not -path "**/.git/**" \
         -not -path ".hg/**"              -not -path "**/.hg/**" \
         -not -path ".karma/**"           -not -path "**/.karma/**" \
+        -not -path ".next/**"            -not -path "**/.next/**" \
         -not -path ".protractor/**"      -not -path "**/.protractor/**" \
         -not -path ".sass-cache/**"      -not -path "**/.sass-cache/**" \
         -not -path ".svn/**"             -not -path "**/.svn/**" \
         -not -path "backups/**"          -not -path "**/backups/**" \
         -not -path "bower_components/**" -not -path "**/bower_components/**" \
+        -not -path "build/**"           -not -path "**/build/**" \
         -not -path "bundle/**"           -not -path "**/bundle/**" \
         -not -path "completions/**"      -not -path "**/completions/**" \
         -not -path "coverage/**"         -not -path "**/coverage/**" \
         -not -path "dist/**"             -not -path "**/dist/**" \
         -not -path "docs/**"             -not -path "**/docs/**" \
+        -not -path "graph/**"             -not -path "**/graph/**" \
         -not -path "jspm_packages/**"    -not -path "**/jspm_packages/**" \
         -not -path "node_modules/**"     -not -path "**/node_modules/**" \
+        -not -path "out-tsc/**"          -not -path "**/out-tsc/**" \
         -not -path "plugins/**"          -not -path "**/plugins/**" \
         -not -path "reports/**"          -not -path "**/reports/**" \
+        -not -path "tmp/**"          -not -path "**/tmp/**" \
         -not -path "typings/**"          -not -path "**/typings/**" \
         -not -path "undo/**"             -not -path "**/undo/**" \
         -not -path "vendor/**"           -not -path "**/vendor/**" \
@@ -56,24 +68,30 @@ fndd() {
 
 fndf() {
     find * \
+        -not -path ".cache/**"          -not -path "**/.cache/**" \
         -not -path ".chrome/**"          -not -path "**/.chrome/**" \
         -not -path ".git/**"             -not -path "**/.git/**" \
         -not -path ".hg/**"              -not -path "**/.hg/**" \
         -not -path ".karma/**"           -not -path "**/.karma/**" \
+        -not -path ".next/**"            -not -path "**/.next/**" \
         -not -path ".protractor/**"      -not -path "**/.protractor/**" \
         -not -path ".sass-cache/**"      -not -path "**/.sass-cache/**" \
         -not -path ".svn/**"             -not -path "**/.svn/**" \
         -not -path "backups/**"          -not -path "**/backups/**" \
         -not -path "bower_components/**" -not -path "**/bower_components/**" \
+        -not -path "build/**"           -not -path "**/build/**" \
         -not -path "bundle/**"           -not -path "**/bundle/**" \
         -not -path "completions/**"      -not -path "**/completions/**" \
         -not -path "coverage/**"         -not -path "**/coverage/**" \
         -not -path "dist/**"             -not -path "**/dist/**" \
         -not -path "docs/**"             -not -path "**/docs/**" \
+        -not -path "graph/**"             -not -path "**/graph/**" \
         -not -path "jspm_packages/**"    -not -path "**/jspm_packages/**" \
         -not -path "node_modules/**"     -not -path "**/node_modules/**" \
+        -not -path "out-tsc/**"          -not -path "**/out-tsc/**" \
         -not -path "plugins/**"          -not -path "**/plugins/**" \
         -not -path "reports/**"          -not -path "**/reports/**" \
+        -not -path "tmp/**"          -not -path "**/tmp/**" \
         -not -path "typings/**"          -not -path "**/typings/**" \
         -not -path "undo/**"             -not -path "**/undo/**" \
         -not -path "vendor/**"           -not -path "**/vendor/**" \

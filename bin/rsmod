@@ -2,19 +2,33 @@
 
 function reset_chmod() {
     find $(realpath $1) -type $2 \
+        -not -path "$(realpath -s .cache)/*" \
         -not -path "$(realpath -s .chrome)/*" \
         -not -path "$(realpath -s .git)/*" \
         -not -path "$(realpath -s .hg)/*" \
+        -not -path "$(realpath -s .karma)/*" \
+        -not -path "$(realpath -s .next)/*" \
+        -not -path "$(realpath -s .protractor)/*" \
         -not -path "$(realpath -s .sass-cache)/*" \
         -not -path "$(realpath -s .svn)/*" \
+        -not -path "$(realpath -s backups)/*" \
         -not -path "$(realpath -s bower_components)/*" \
+        -not -path "$(realpath -s build)/*" \
+        -not -path "$(realpath -s bundle)/*" \
+        -not -path "$(realpath -s completiomns)/*" \
         -not -path "$(realpath -s coverage)/*" \
         -not -path "$(realpath -s dist)/*" \
         -not -path "$(realpath -s docs)/*" \
+        -not -path "$(realpath -s graph)/*" \
         -not -path "$(realpath -s jspm_packages)/*" \
         -not -path "$(realpath -s node_modules)/*" \
+        -not -path "$(realpath -s out-tsc)/*" \
+        -not -path "$(realpath -s plugins)/*" \
         -not -path "$(realpath -s reports)/*" \
+        -not -path "$(realpath -s tmp)/*" \
         -not -path "$(realpath -s typings)/*" \
+        -not -path "$(realpath -s undo)/*" \
+        -not -path "$(realpath -s vendor)/*" \
         -not -perm $3 \
         -exec chmod $3 {} \+;
 }

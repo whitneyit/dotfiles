@@ -3,10 +3,12 @@
 ARGS="\
     --dirsfirst \
     -I ' \
+    |.cache| \
     |.chrome| \
     |.git| \
     |.hg| \
     |.karma| \
+    |.next| \
     |.protractor| \
     |.sass-cache| \
     |.svn| \

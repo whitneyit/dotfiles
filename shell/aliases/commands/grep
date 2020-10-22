@@ -14,6 +14,7 @@ ARGS="\
     --exclude-dir .git \
     --exclude-dir .hg \
     --exclude-dir .karma \
+    --exclude-dir .next \
     --exclude-dir .protractor \
     --exclude-dir .sass-cache \
     --exclude-dir .svn \

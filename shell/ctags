@@ -3,22 +3,32 @@
 
 --exclude=*.map
 --exclude=npm-debug.log
+--exclude=.cache
 --exclude=.chrome
 --exclude=.git
 --exclude=.hg
 --exclude=.karma
+--exclude=.next
 --exclude=.protractor
 --exclude=.sass-cache
 --exclude=.svn
+--exclude=backups
 --exclude=bower_components
+--exclude=build
 --exclude=bundle
+--exclude=completions
 --exclude=coverage
 --exclude=dist
 --exclude=docs
+--exclude=graph
 --exclude=jspm_packages
 --exclude=node_modules
+--exclude=out-tsc
+--exclude=plugins
 --exclude=reports
+--exclude=tmp
 --exclude=typings
+--exclude=undo
 --exclude=vendor"
 
 --langdef=TypeScript

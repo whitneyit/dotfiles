@@ -16,17 +16,29 @@ export PS1_USERNAME_COLOR="$RED"
 
 # Detect if the current directory is a svn repo
 function is_svn_repository {
-    svn log > /dev/null 2>&1
+    if [ "$(type -P svn)" ]; then
+        svn log > /dev/null 2>&1
+    else
+        exit 128
+    fi
 }
 
 # Detect if the current directory is a mercurial repo
 function is_hg_repository {
-    hg branch > /dev/null 2>&1
+    if [ "$(type -P hg)" ]; then
+        hg branch > /dev/null 2>&1
+    else
+        exit 128
+    fi
 }
 
 # Detect if the current directory is a git repo
 function is_git_repository {
-    git branch > /dev/null 2>&1
+    if [ "$(type -P git)" ]; then
+        git branch > /dev/null 2>&1
+    else
+        exit 128
+    fi
 }
 
 # If the current directory belongs to, or is a descendant of a git repo,

@@ -389,6 +389,96 @@ alias                 gtf="git tag --force"
 __git_complete        gtf _git_tag
 alias                 gtl="git tag --list"
 __git_complete        gtl _git_tag
+gta() {
+    local use_color="yes"
+    if [[ "$@" == *--no-color* ]]; then
+        use_color="no"
+    fi
+    local current_sha="$(git log --pretty=format:'%h' -1)"
+    local all_types=()
+    local all_tags=()
+    local all_shas=()
+    local all_commit_messages=()
+    for local_tag in $(git tag --list); do
+        local local_sha="$(git log --pretty=format:'%h' -1 ${local_tag})"
+        local local_commit_message="$(git log --pretty=format:'%s' -1 ${local_tag})"
+        all_types+=("local")
+        all_tags+=("${local_tag}")
+        all_shas+=("${local_sha}")
+        all_commit_messages+=("${local_commit_message}")
+    done
+    for remote in $(git remote); do
+        local remote_tags=""
+        readarray -t remote_tags <<< "$(git ls-remote --tags ${remote})"
+        for remote_line in "${remote_tags[@]}"; do
+            if [ -z "${remote_line}" ]; then
+                continue
+            fi
+            local _remote_parts=($remote_line);
+            local _remote_full_sha=${_remote_parts[0]}
+            local _remote_ref=${_remote_parts[1]}
+            local remote_tag=${_remote_ref##*/}
+            local remote_sha="$(git log --pretty=format:'%h' -1 ${_remote_full_sha})"
+            local remote_commit_message="$(git log --pretty=format:'%s' -1 ${_remote_full_sha})"
+            all_types+=("remote")
+            all_tags+=("remotes/${remote}/${remote_tag}")
+            all_shas+=("${remote_sha}")
+            all_commit_messages+=("${remote_commit_message}")
+        done
+    done
+    local widest_tag=-1
+    for tag in "${all_tags[@]}"; do
+        if [ ${#tag} -gt ${widest_tag} ]; then
+            widest_tag=${#tag}
+        fi
+    done
+    if [ ${widest_tag} -eq -1 ]; then
+        widest_tag=40
+    fi
+    local widest_sha=-1
+    for sha in "${all_shas[@]}"; do
+        if [ ${#sha} -gt ${widest_sha} ]; then
+            widest_sha=${#sha}
+        fi
+    done
+    if [ ${widest_sha} -eq -1 ]; then
+        widest_sha=10
+    fi
+    for index in "${!all_types[@]}"; do
+        local type="${all_types[$index]}"
+        local tag="${all_tags[$index]}"
+        local sha="${all_shas[$index]}"
+        local commit_message="${all_commit_messages[$index]}"
+        local status="  "
+        local separator=" "
+        if [ "${use_color}" == "yes" ]; then
+            local separator="${RESET} "
+            if [ "${type}" == "local" ]; then
+                if [ "${sha}" == "${current_sha}" ]; then
+                    status="* ${GREEN}"
+                else
+                    status="  ${YELLOW}"
+                fi
+            elif [ "${type}" == "remote" ]; then
+                # if [ "${sha}" == "${current_sha}" ]; then
+                #     status="* ${CYAN}"
+                # else
+                    status="  ${BLUE}"
+                # fi
+            fi
+        else
+            if [ "${type}" == "local" ]; then
+                if [ "${sha}" == "${current_sha}" ]; then
+                    status="* "
+                fi
+            fi
+        fi;
+        printf "${status}%-${widest_tag}s${separator}%-${widest_sha}s%s%s ${commit_message}\n" "${tag}" "${sha}"
+    done
+}
+__git_complete       gta _git_tag
+
+
 alias                  gv="git --version" # No git complete for _git_version
 
 # Root commit

@@ -105,22 +105,30 @@ nupgrade() {
 }
 
 nv() {
-    if [ ! -z "$NVM_DIR" ]; then
-        if [ "$(is_win)" == "yes" ]; then
-            echo "nvm  v$(nvm version)"
-        else
-            echo "nvm  v$(nvm --version)"
-        fi
-    else
-        echo "nvm [not installed]"
-    fi
     if [ "$(type -P node)" ]; then
-        echo "node $(node --version)"
+        local node_output="$(node --version)"
+        local node_bin_version="${node_output##v}"
+        local node_v8_version="$(node -p process.versions.v8)"
+        echo "node ${node_bin_version}"
+        echo "v8   ${node_v8_version}"
     else
         echo "node [not installed]"
     fi
+    if [ "$(is_win)" == "yes" ]; then
+        if [ "$(type -t nvm)" == "function" ]; then
+            echo "nvm  $(nvm version)"
+        else
+            echo "nvm [not installed]"
+        fi
+    else
+        if [ "$(type -t nvm)" == "function" ]; then
+            echo "nvm  $(nvm --version)"
+        else
+            echo "nvm [not installed]"
+        fi
+    fi
     if [ "$(type -P npm)" ]; then
-        echo "npm  v$(npm --version)"
+        echo "npm  $(npm --version)"
     else
         echo "npm  [not installed]"
     fi
@@ -128,6 +136,28 @@ nv() {
         echo "yarn $(yarn --version)"
     else
         echo "yarn [not installed]"
+    fi
+}
+
+dv() {
+    if [ "$(type -P deno)" ]; then
+        local deno_output=""
+        readarray -t deno_output <<< "$(deno --version)"
+        local deno_bin_version="$(echo "${deno_output[0]}" | sed -e 's/deno //g' -e 's/\s.*//g')"
+        local deno_v8_version="${deno_output[1]/v8 /}"
+        local deno_ts_version="${deno_output[2]/typescript /}"
+        echo "deno ${deno_bin_version}"
+        echo "v8   ${deno_v8_version}"
+        echo "ts   ${deno_ts_version}"
+    else
+        echo "deno [not installed]"
+    fi
+    if [ "$(type -P dvm)" ]; then
+        local dvm_output="$(dvm --version)"
+        local dvm_version="${dvm_output/dvm /}"
+        echo "dvm  ${dvm_version}"
+    else
+        echo "dvm  [not installed]"
     fi
 }
 

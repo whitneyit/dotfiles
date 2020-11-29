@@ -3,8 +3,14 @@
 # http://bluebirdjs.com/docs/api/environment-variables.html
 export BLUEBIRD_DEBUG="0"
 
+# Where deno should be install to
+export DENO_INSTALL="$HOME/.deno"
+
 # Set the display
 export DISPLAY=":99"
+
+# Where dvm should be install to
+export DVM_DIR="$HOME/.dvm"
 
 # Define were the go apps will be built
 export GOPATH="$HOME/Go"

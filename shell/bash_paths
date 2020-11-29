@@ -17,6 +17,8 @@ declare -a DIRS_TO_APPEND=(
     "/usr/local"
     "$HOME/bin"
     "$HOME/.composer/vendor/bin"
+    "$HOME/.deno/bin"
+    "$HOME/.dvm/bin"
     "$HOME/.rvm/bin"
     "$GOROOT/bin"
     "$GOPATH/bin"

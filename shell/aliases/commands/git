@@ -69,14 +69,14 @@ alias                gcfl="git config --list"
 __git_complete       gcfl _git_config
 alias                  gd="git diff"
 __git_complete         gd _git_diff
+alias                 gdl="git difftool"
+__git_complete        gdl _git_difftool
 alias                 gdn="git diff --name-only"
 __git_complete        gdn _git_diff
 alias                 gds="git diff             --staged"
 __git_complete        gds _git_diff
 alias                gdsn="git diff --name-only --staged"
 __git_complete       gdsn _git_diff
-alias                 gdt="git difftool"
-__git_complete        gdt _git_difftool
 alias                  gf="git fetch       --progress --verbose"
 __git_complete         gf _git_fetch
 alias                 gfa="git fetch --all --progress --verbose"

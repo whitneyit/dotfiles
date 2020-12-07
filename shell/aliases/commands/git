@@ -75,8 +75,16 @@ alias                 gdn="git diff --name-only"
 __git_complete        gdn _git_diff
 alias                 gds="git diff             --staged"
 __git_complete        gds _git_diff
+gdsx() {
+  git diff                                      --staged $@ -- . ':!package-lock.json' ':!**/package-lock.json' ':!yarn.lock' ':!**/yarn.lock'
+}
+__git_complete       gdsx _git_diff
 alias                 gdt="git diff             --stat"
 __git_complete        gdt _git_diff
+gdx() {
+  git diff                                               $@ -- . ':!package-lock.json' ':!**/package-lock.json' ':!yarn.lock' ':!**/yarn.lock'
+}
+__git_complete        gdx _git_diff
 alias                gdsn="git diff --name-only --staged"
 __git_complete       gdsn _git_diff
 alias                  gf="git fetch       --progress --verbose"
@@ -604,8 +612,12 @@ alias                gln1="glna  -1"
 __git_complete       gln1 _git_log
 alias                 glp="glpa  -10"
 __git_complete        glp _git_log
+alias                glpx="glpa  -10 -- . ':!package-lock.json' ':!**/package-lock.json' ':!yarn.lock' ':!**/yarn.lock'"
+__git_complete       glpx _git_log
 alias                glp1="glpa  -1"
 __git_complete       glp1 _git_log
+alias               glp1x="glpa  -1  -- . ':!package-lock.json' ':!**/package-lock.json' ':!yarn.lock' ':!**/yarn.lock'"
+__git_complete      glp1x _git_log
 alias                 gls="glsa  -10"
 __git_complete        gls _git_log
 alias                gls1="glsa  -1"

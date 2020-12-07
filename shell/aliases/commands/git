@@ -75,6 +75,8 @@ alias                 gdn="git diff --name-only"
 __git_complete        gdn _git_diff
 alias                 gds="git diff             --staged"
 __git_complete        gds _git_diff
+alias                 gdt="git diff             --stat"
+__git_complete        gdt _git_diff
 alias                gdsn="git diff --name-only --staged"
 __git_complete       gdsn _git_diff
 alias                  gf="git fetch       --progress --verbose"

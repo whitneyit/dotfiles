@@ -11,8 +11,13 @@ yarn-exists() {
 }
 
 nb() {
-    echo -e "$BRIGHT_BLACK$ npm run build "$@"$RESET"
-    npm run build "$@"
+    if [ "$#" == "0" ]; then
+        echo -e "$BRIGHT_BLACK$ npm run build$RESET"
+        npm run build
+    else
+        echo -e "$BRIGHT_BLACK$ npm run build:"$@"$RESET"
+        npm run build:"$@"
+    fi
 }
 
 nc() {
@@ -26,8 +31,13 @@ nc() {
 }
 
 nd() {
-    echo -e "$BRIGHT_BLACK$ npm run doc "$@"$RESET"
-    npm run doc "$@"
+    if [ "$#" == "0" ]; then
+        echo -e "$BRIGHT_BLACK$ npm run doc$RESET"
+        npm run doc
+    else
+        echo -e "$BRIGHT_BLACK$ npm run doc:"$@"$RESET"
+        npm run doc:"$@"
+    fi
 }
 
 ngp() {
@@ -80,13 +90,23 @@ nlsg() {
 }
 
 ns() {
-    echo -e "$BRIGHT_BLACK$ npm start "$@"$RESET"
-    npm start "$@"
+    if [ "$#" == "0" ]; then
+        echo -e "$BRIGHT_BLACK$ npm start$RESET"
+        npm start
+    else
+        echo -e "$BRIGHT_BLACK$ npm run start:"$@"$RESET"
+        npm run start:"$@"
+    fi
 }
 
 nt() {
-    echo -e "$BRIGHT_BLACK$ npm test "$@"$RESET"
-    npm test "$@"
+    if [ "$#" == "0" ]; then
+        echo -e "$BRIGHT_BLACK$ npm test$RESET"
+        npm test
+    else
+        echo -e "$BRIGHT_BLACK$ npm run test:"$@"$RESET"
+        npm run test:"$@"
+    fi
 }
 
 nu() {
@@ -97,11 +117,6 @@ nu() {
 nug() {
     echo -e "$BRIGHT_BLACK$ npm uninstall --global "$@"$RESET"
     npm uninstall --global "$@"
-}
-
-nupgrade() {
-    echo "upgrading npm..."
-    curl http://npmjs.org/install.sh | sudo sh
 }
 
 nv() {

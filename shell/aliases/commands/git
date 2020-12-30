@@ -129,8 +129,10 @@ alias                glga="git log                            --graph --date=for
 __git_complete       glga _git_log
 alias                glma="git log --merges                           --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(cyan)%ae %C(white)%s%C(red)%d'"
 __git_complete       glma _git_log
-alias                glna="git log --no-merges --name-only    --stat  --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:''"
+alias                glna="git log --no-merges --name-only    --stat  --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %cr] %C(cyan)%ae %C(white)%s%C(red)%d'"
 __git_complete       glna _git_log
+alias               glnoa="git log --no-merges --name-only    --stat  --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:''"
+__git_complete      glnoa _git_log
 alias                glpa="git log --no-merges                --patch --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %cr] %C(cyan)%ae %C(white)%s%C(red)%d'"
 __git_complete       glpa _git_log
 alias                glsa="git log --no-merges                --stat  --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %cr] %C(cyan)%ae %C(white)%s%C(red)%d'"
@@ -610,6 +612,10 @@ alias                 gln="glna  -10"
 __git_complete        gln _git_log
 alias                gln1="glna  -1"
 __git_complete       gln1 _git_log
+alias                glno="glnoa  -10"
+__git_complete       glno _git_log
+alias               glno1="glnoa  -1"
+__git_complete      glno1 _git_log
 alias                 glp="glpa  -10"
 __git_complete        glp _git_log
 alias                glpx="glpa  -10 -- . ':!package-lock.json' ':!**/package-lock.json' ':!yarn.lock' ':!**/yarn.lock'"

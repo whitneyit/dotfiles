@@ -117,6 +117,8 @@ alias                glba="git log                                    --date=for
 __git_complete       glba _git_log
 alias                glca="git log --no-merges                        --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %cr] %C(cyan)%ae %C(reset) %n%B'"
 __git_complete       glca _git_log
+alias               glcoa="git log --no-merges                                                                --pretty=format:'%B'"
+__git_complete      glcoa _git_log
 alias               glfda="git log --no-merges                        --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(cyan)%ae %C(white)%s%C(red)%d' develop.."
 __git_complete      glfda _git_log
 alias               glfma="git log --no-merges                        --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(cyan)%ae %C(white)%s%C(red)%d' master.."
@@ -580,6 +582,10 @@ alias                 glc="glca  -10"
 __git_complete        glc _git_log
 alias                glc1="glca  -1"
 __git_complete       glc1 _git_log
+alias                glco="glcoa  -10"
+__git_complete       glco _git_log
+alias               glco1="glcoa  -1"
+__git_complete      glco1 _git_log
 alias                glfd="glfda -10"
 __git_complete       glfd _git_log
 alias               glfd1="glfda -1"

@@ -251,6 +251,8 @@ alias                grba="git rebase --abort"
 __git_complete       grba _git_rebase
 alias                grbc="git rebase --continue"
 __git_complete       grbc _git_rebase
+alias               grbcn="GIT_EDITOR=true git rebase --continue" # There is no `--no-edit` option.
+__git_complete      grbcn _git_rebase
 alias                grbi="git rebase --interactive"
 __git_complete       grbi _git_rebase
 alias                grbs="git rebase --skip"

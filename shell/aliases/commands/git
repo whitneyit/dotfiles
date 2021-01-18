@@ -640,6 +640,10 @@ alias                 gls="glsa  -10"
 __git_complete        gls _git_log
 alias                gls1="glsa  -1"
 __git_complete       gls1 _git_log
+gls1x() {
+                           glsa  -1  $@ -- . ':!package-lock.json' ':!**/package-lock.json' ':!yarn.lock' ':!**/yarn.lock'
+}
+__git_complete      gls1x _git_log
 
 # Rebase
 grbir() {
@@ -694,9 +698,17 @@ alias                ghlp="ghlpa -10"
 __git_complete       ghlp _git_stash
 alias               ghlp1="ghlpa -1"
 __git_complete      ghlp1 _git_stash
+ghlp1x() {
+                           ghlpa  -1  $@ -- . ':!package-lock.json' ':!**/package-lock.json' ':!yarn.lock' ':!**/yarn.lock'
+}
+__git_complete     ghlp1x _git_stash
 alias                ghls="ghlsa -10"
 __git_complete       ghls _git_stash
 alias               ghls1="ghlsa -1"
 __git_complete      ghls1 _git_stash
+ghls1x() {
+                           ghlsa  -1  $@ --   ':!package-lock.json' ':!**/package-lock.json' ':!yarn.lock' ':!**/yarn.lock'
+}
+__git_complete     ghls1x _git_stash
 
 # vim: set cc=0:syn=sh :

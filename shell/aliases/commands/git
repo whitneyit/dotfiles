@@ -75,13 +75,13 @@ alias                 gdn="git diff --name-only"
 __git_complete        gdn _git_diff
 alias                 gds="git diff             --staged"
 __git_complete        gds _git_diff
-gdsx() {
+function gdsx() {
   git diff                                      --staged $@ -- . ':!package-lock.json' ':!**/package-lock.json' ':!yarn.lock' ':!**/yarn.lock'
 }
 __git_complete       gdsx _git_diff
 alias                 gdt="git diff             --stat"
 __git_complete        gdt _git_diff
-gdx() {
+function gdx() {
   git diff                                               $@ -- . ':!package-lock.json' ':!**/package-lock.json' ':!yarn.lock' ':!**/yarn.lock'
 }
 __git_complete        gdx _git_diff
@@ -405,7 +405,7 @@ alias                 gtf="git tag --force"
 __git_complete        gtf _git_tag
 alias                 gtl="git tag --list"
 __git_complete        gtl _git_tag
-gta() {
+function gta() {
     local use_color="yes"
     if [[ "$@" == *--no-color* ]]; then
         use_color="no"
@@ -498,7 +498,7 @@ __git_complete       gta _git_tag
 alias                  gv="git --version" # No git complete for _git_version
 
 # Root commit
-gr() {
+function gr() {
     git rev-list --max-parents=0 HEAD
 }
 
@@ -626,13 +626,13 @@ alias               glno1="glnoa  -1"
 __git_complete      glno1 _git_log
 alias                 glp="glpa  -10"
 __git_complete        glp _git_log
-glpx() {
+function glpx() {
                            glpa  -10 $@ -- . ':!package-lock.json' ':!**/package-lock.json' ':!yarn.lock' ':!**/yarn.lock'
 }
 __git_complete       glpx _git_log
 alias                glp1="glpa  -1"
 __git_complete       glp1 _git_log
-glp1x() {
+function glp1x() {
                            glpa  -1  $@ -- . ':!package-lock.json' ':!**/package-lock.json' ':!yarn.lock' ':!**/yarn.lock'
 }
 __git_complete      glp1x _git_log
@@ -640,13 +640,13 @@ alias                 gls="glsa  -10"
 __git_complete        gls _git_log
 alias                gls1="glsa  -1"
 __git_complete       gls1 _git_log
-gls1x() {
+function gls1x() {
                            glsa  -1  $@ -- . ':!package-lock.json' ':!**/package-lock.json' ':!yarn.lock' ':!**/yarn.lock'
 }
 __git_complete      gls1x _git_log
 
 # Rebase
-grbir() {
+function grbir() {
     git rebase --interactive `gr`
 }
 
@@ -698,7 +698,7 @@ alias                ghlp="ghlpa -10"
 __git_complete       ghlp _git_stash
 alias               ghlp1="ghlpa -1"
 __git_complete      ghlp1 _git_stash
-ghlp1x() {
+function ghlp1x() {
                            ghlpa  -1  $@ -- . ':!package-lock.json' ':!**/package-lock.json' ':!yarn.lock' ':!**/yarn.lock'
 }
 __git_complete     ghlp1x _git_stash
@@ -706,7 +706,7 @@ alias                ghls="ghlsa -10"
 __git_complete       ghls _git_stash
 alias               ghls1="ghlsa -1"
 __git_complete      ghls1 _git_stash
-ghls1x() {
+function ghls1x() {
                            ghlsa  -1  $@ --   ':!package-lock.json' ':!**/package-lock.json' ':!yarn.lock' ':!**/yarn.lock'
 }
 __git_complete     ghls1x _git_stash

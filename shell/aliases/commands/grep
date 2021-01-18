@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-ARGS="\
-    --color \
+alias _grep="ggrep \
+    --color='always' \
     --exclude *.lock \
     --exclude *.map \
     --exclude *.min.css \
@@ -46,17 +46,40 @@ ARGS="\
 # R: recursive
 # z: Treat the input as a set of lines
 
-alias    grp="ggrep -I       -i    -n    $ARGS"
-alias   grpl="ggrep -I       -i -l       $ARGS"
-alias   grpm="ggrep -I -P -z -i    -n    $ARGS"
-alias   grps="ggrep -I             -n    $ARGS"
-alias  grpls="ggrep -I          -l       $ARGS"
-alias  grpms="ggrep -I -P -z       -n    $ARGS"
-alias   grpr="ggrep -I       -i    -n -R $ARGS"
-alias  grprl="ggrep -I       -i -l    -R $ARGS"
-alias  grprm="ggrep -I -P -z -i    -n -R $ARGS"
-alias  grprs="ggrep -I             -n -R $ARGS"
-alias grprls="ggrep -I          -l    -R $ARGS"
-alias grprms="ggrep -I -P -z       -n -R $ARGS"
-
+function grp() {
+    _grep -I       -i    -n    $@ | sed 's/:/ /'
+}
+function grpl() {
+    _grep -I       -i -l       $@
+}
+function grpm() {
+    _grep -I -P -z -i    -n    $@ | sed 's/:/ /'
+}
+function grps() {
+    _grep -I             -n    $@ | sed 's/:/ /'
+}
+function grpls() {
+    _grep -I          -l       $@
+}
+function grpms() {
+    _grep -I -P -z       -n    $@ | sed 's/:/ /'
+}
+function grpr() {
+    _grep -I       -i    -n -R $@ | sed 's/:/ /'
+}
+function grprl() {
+    _grep -I       -i -l    -R $@ | sed 's/:/ /'
+}
+function grprm() {
+    _grep -I -P -z -i    -n -R $@ | sed 's/:/ /'
+}
+function grprs() {
+    _grep -I             -n -R $@ | sed 's/:/ /'
+}
+function grprls() {
+    _grep -I          -l    -R $@
+}
+function grprms() {
+    _grep -I -P -z       -n -R $@ | sed 's/:/ /'
+}
 # vim: set syn=sh :

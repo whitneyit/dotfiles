@@ -14,6 +14,124 @@ export PS1_SYMBOL_COLOR="$BRIGHT_BLACK"
 export PS1_TEXT_COLOR="$WHITE"
 export PS1_USERNAME_COLOR="$RED"
 
+# Helper function to read the first line of a file into a variable.
+# __git_eread requires 2 arguments, the file path and the name of the
+# variable, in that order.
+__git_eread () {
+    test -r "$1" && IFS=$'\r\n' read "$2" <"$1"
+}
+
+# If the current directory belongs to, or is a descendant of a git repo,
+# determine the name of branch that is checked out
+function _git_prompt() {
+    local exit=$?
+    local repo_info="$(git rev-parse --git-dir HEAD 2>/dev/null)"
+    repo_info="${repo_info%$'\n'*}"
+    local git_path="${repo_info%$'\n'*}"
+    local git_branch=""
+    local git_branch_tmp="$(git branch --no-color 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')"
+    local git_rebase_target=""
+    if [[ "$git_branch_tmp" == *"no branch"* ]]; then
+        git_rebase_target="${git_branch_tmp##no branch, rebasing }"
+    fi
+    local git_rebase_ref
+    local git_rebase_step=""
+    local git_rebase_total=""
+    if [ -d "${git_path}/rebase-merge" ]; then
+        __git_eread "$git_path/rebase-merge/head-name" git_rebase_ref
+        git_rebase_ref="${git_rebase_ref##refs/heads/}"
+        __git_eread "$git_path/rebase-merge/msgnum" git_rebase_step
+        __git_eread "$git_path/rebase-merge/end" git_rebase_total
+    elif [ -d "$git_path/rebase-apply" ]; then
+        __git_eread "$git_path/rebase-apply/head-name" git_rebase_ref
+        git_rebase_ref="${git_rebase_ref##refs/heads/}"
+        __git_eread "$git_path/rebase-apply/next" git_rebase_step
+        __git_eread "$git_path/rebase-apply/last" git_rebase_total
+    fi
+    local maybe_rebase=""
+    if [ -n "$git_rebase_step" ] && [ -n "$git_rebase_total" ]; then
+        local step=""
+        if [ -n "$git_rebase_target" ]; then
+            git_branch="REBASE|${git_rebase_ref}"
+        else
+            step="$PS1_PROMPT_GIT_COLOR$git_rebase_ref ${PS1_TEXT_COLOR}step "
+        fi
+        maybe_rebase="$PS1_TEXT_COLOR rebasing $step$PS1_PROMPT_GIT_COLOR$git_rebase_step/$git_rebase_total"
+    fi
+    if [ -z "$git_branch" ]; then
+        if [ -h "$git_path/HEAD" ]; then
+            # symlink symbolic ref
+            git_branch="$(git symbolic-ref HEAD 2>/dev/null)"
+        fi
+        if [ -z "$git_branch" ]; then
+            local git_head=""
+            if ! __git_eread "$git_path/HEAD" git_head; then
+                return $exit
+            fi
+            # is it a symbolic ref?
+            local git_sym_branch="${git_head#ref: }"
+            if [ "$git_sym_branch" = "$git_head" ]; then
+                git_branch="$(git describe --tags --exact-match HEAD 2>/dev/null)"
+            fi
+        fi
+        if [ -z "$git_branch" ]; then
+            git_branch="$(git branch --no-color 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')"
+        fi
+    fi
+    local maybe_dirty=""
+    local status="$(git status 2> /dev/null | tail -n1)"
+    if [[ $status != *"working directory clean"* && $status != *"working tree clean"* ]]; then
+        maybe_dirty="*"
+    fi
+    echo "$git_branch${maybe_rebase}${maybe_dirty}"
+}
+
+# Same as above, show the name of the current mercurial branch
+function _hg_prompt() {
+    local maybe_dirty=""
+    local status="$(hg status 2> /dev/null)"
+    if [[ $status != "" ]]; then
+        maybe_dirty="$*"
+    fi
+    hg branch 2> /dev/null | sed -e "s/\(.*\)/\1$maybe_dirty/"
+}
+
+# Show which revision the svn repo is up to
+function _svn_prompt() {
+    local maybe_dirty=""
+    local revision="$(svn info 2> /dev/null | grep Revision | grep -Eo '[0-9]+$')"
+    local status="$(svn status 2> /dev/null)"
+    if [[ $status != "" ]]; then
+        maybe_dirty="$*"
+    fi
+    echo -e "$revision$maybe_dirty"
+}
+
+# Determine which prompt to show
+function get_scm_prompt() {
+    local scm_prompt=""
+    if is_git_repository ; then
+        local git_prompt="$(_git_prompt)"
+        if [[ $git_prompt == "" ]]; then
+            git_prompt="<empty-repository>"
+        fi
+        scm_prompt="$PS1_TEXT_COLOR on $PS1_PROMPT_GIT_COLOR$git_prompt"
+    elif is_hg_repository ; then
+        local hg_prompt="$(_hg_prompt)"
+        if [[ $hg_prompt == "" ]]; then
+            hg_prompt="<empty-repository>"
+        fi
+        scm_prompt="$PS1_TEXT_COLOR on $PS1_PROMPT_HG_COLOR$hg_prompt"
+    elif is_svn_repository ; then
+        local svn_prompt="$(_svn_prompt)"
+        if [[ $svn_prompt == "" ]]; then
+            svn_prompt="<empty-repository>"
+        fi
+        scm_prompt="$PS1_TEXT_COLOR on $PS1_PROMPT_SVN_COLOR$svn_prompt"
+    fi
+    echo -e "$scm_prompt"
+}
+
 # Detect if the current directory is a svn repo
 function is_svn_repository {
     if [ "$(type -P svn)" ]; then
@@ -41,72 +159,19 @@ function is_git_repository {
     fi
 }
 
-# If the current directory belongs to, or is a descendant of a git repo,
-# determine the name of branch that is checked out
-function _git_prompt() {
-    STATUS="$(git status 2> /dev/null | tail -n1)"
-    IS_DIRTY=""
-    if [[ $STATUS != *"working directory clean"* && $STATUS != *"working tree clean"* ]]; then
-        IS_DIRTY="*"
-    fi
-    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$IS_DIRTY/"
-}
-
-# Same as above, show the name of the current mercurial branch
-function _hg_prompt() {
-    STATUS="$(hg status 2> /dev/null)"
-    IS_DIRTY=""
-    if [[ $STATUS != "" ]]; then
-        IS_DIRTY="*"
-    fi
-    hg branch 2> /dev/null | sed -e "s/\(.*\)/\1$IS_DIRTY/"
-}
-
-# Show which revision the svn repo is up to
-function _svn_prompt() {
-    REVISION="$(svn info 2> /dev/null | grep Revision | grep -Eo '[0-9]+$')"
-    STATUS="$(svn status 2> /dev/null)"
-    IS_DIRTY=""
-    if [[ $STATUS != "" ]]; then
-        IS_DIRTY="*"
-    fi
-    echo -e "$REVISION$IS_DIRTY"
-}
-
-# Determine which prompt to show
-function get_scm_prompt() {
-    PROMPT=""
-    REF=""
-    if is_git_repository ; then
-        REF="$(_git_prompt)"
-        if [[ $REF == "" ]]; then
-            REF="<empty-repository>"
-        fi
-        PROMPT="$PS1_TEXT_COLOR on $PS1_PROMPT_GIT_COLOR$REF"
-    elif is_hg_repository ; then
-        REF="$(_hg_prompt)"
-        if [[ $REF == "" ]]; then
-            REF="<empty-repository>"
-        fi
-        PROMPT="$PS1_TEXT_COLOR on $PS1_PROMPT_HG_COLOR$REF"
-    elif is_svn_repository ; then
-        REF="$(_svn_prompt)"
-        if [[ $REF == "" ]]; then
-            REF="<empty-repository>"
-        fi
-        PROMPT="$PS1_TEXT_COLOR on $PS1_PROMPT_SVN_COLOR$REF"
-    fi
-    echo -e "$PROMPT"
-}
-
 # Define a function that can be used to reset the PS1 after one of the $PS1_* variables have been updated
-function set_ps1() {
-    export PS1="$RESET\[$PS1_USERNAME_COLOR\]\u \[$PS1_TEXT_COLOR\]at \[$PS1_HOSTNAME_COLOR\]\h \[$PS1_TEXT_COLOR\]in \[$PS1_DIRECTORY_COLOR\]\w\$(get_scm_prompt)\n\[$PS1_SYMBOL_COLOR\]\$ \[$PS1_INPUT_COLOR\]"
+function prompt_command() {
+    local scm_prompt="$(get_scm_prompt)"
+    PS1="$RESET\[$PS1_USERNAME_COLOR\]\u \[$PS1_TEXT_COLOR\]at \[$PS1_HOSTNAME_COLOR\]\h \[$PS1_TEXT_COLOR\]in \[$PS1_DIRECTORY_COLOR\]\w$scm_prompt\n\[$PS1_SYMBOL_COLOR\]\$ \[$PS1_INPUT_COLOR\]"
 }
 
 # If we are using MING, then we do nothing otherwise we set the $PS1
-if [ $($DOTFILES_DIRECTORY/bin/is_ming) == "no" ]; then
-    set_ps1
+if [ -f "$DOTFILES_DIRECTORY/bin/is_ming" ]; then
+    if [ "$($DOTFILES_DIRECTORY/bin/is_ming)" == "no" ]; then
+        export PROMPT_COMMAND=prompt_command
+    fi
+else
+    export PROMPT_COMMAND=prompt_command
 fi
 
 # vim: set syn=sh :

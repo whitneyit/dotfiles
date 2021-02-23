@@ -65,7 +65,7 @@ function grpms() {
     _grep -I -P -z       -n    $@ | sed 's/:/ /'
 }
 function grpr() {
-    _grep -I       -i    -n -R $@ | sed 's/:/ /'
+    _grep -I       -i    -n -R $@
 }
 function grprl() {
     _grep -I       -i -l    -R $@ | sed 's/:/ /'

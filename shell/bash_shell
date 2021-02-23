@@ -7,9 +7,6 @@ export VISUAL="vim"
 # Automatically trim long paths in the prompt (requires Bash 4.x)
 export PROMPT_DIRTRIM="0"
 
-# This converts the input type of bash over to vim style
-set -o vi
-
 # Perform file completion in a case insensitive fashion
 bind "set completion-ignore-case on"
 
@@ -18,11 +15,5 @@ bind "set completion-map-case on"
 
 # Display matches for ambiguous patterns at first tab press
 bind "set show-all-if-ambiguous on"
-
-# Ensure that <C-l> Will clear the screen in insert mode
-bind -m vi-insert 'Control-l: clear-screen'
-
-# And also in command mode
-bind -m vi-command 'Control-l: clear-screen'
 
 # vim: set syn=sh :

@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
 
+# This converts the input type of bash over to vim style
+set -o vi
+
+# Ensure that <C-l> Will clear the screen in insert mode
+bind -m vi-insert 'Control-l: clear-screen'
+
+# And also in command mode
+bind -m vi-command 'Control-l: clear-screen'
+
 # If we are running on any flavour of windows, don't set a theme
 if [ $($DOTFILES_DIRECTORY/bin/is_win) == "yes" ]; then
     export VIM_BACKGROUND="dark"

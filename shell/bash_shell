@@ -7,6 +7,9 @@ export VISUAL="vim"
 # Automatically trim long paths in the prompt (requires Bash 4.x)
 export PROMPT_DIRTRIM="0"
 
+# Ensure the inputrc file is loaded
+bind -f "$HOME/.inputrc"
+
 # Perform file completion in a case insensitive fashion
 bind "set completion-ignore-case on"
 

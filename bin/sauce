@@ -22,12 +22,10 @@ declare -a mandatories=(
     $DOTFILES_DIRECTORY/shell/bash_locale
     $DOTFILES_DIRECTORY/shell/bash_logout
     $DOTFILES_DIRECTORY/shell/bash_options
+    $DOTFILES_DIRECTORY/shell/bash_vim
     $DOTFILES_DIRECTORY/shell/bash_shell
     $DOTFILES_DIRECTORY/shell/bash_ssh
-
-    # Order specific scripts
     $DOTFILES_DIRECTORY/shell/bash_history
-    $DOTFILES_DIRECTORY/shell/bash_vim
 
     # Alias scripts
     $DOTFILES_DIRECTORY/shell/aliases/os/*

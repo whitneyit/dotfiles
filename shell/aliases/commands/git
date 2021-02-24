@@ -39,7 +39,9 @@ alias                gcob="git checkout -b" # no such thing as --branch
 __git_complete       gcob _git_checkout
 alias                gcop="git checkout --patch" # -p
 __git_complete       gcop _git_checkout
-alias                gcoa="git checkout ." # This is a fake alias to git checkout --all which does not exist
+function gcoa() {
+    git checkout "$(dirname $(gp))"
+}
 __git_complete       gcoa _git_checkout
 alias                 gcp="git cherry-pick"
 __git_complete        gcp _git_cherry_pick

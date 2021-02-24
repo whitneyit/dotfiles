@@ -187,6 +187,7 @@ alias                 gmv="git mv"
 __git_complete        gmv _git_mv
 alias                gmvf="git mv --force"
 __git_complete       gmvf _git_mv
+alias                  gp="git rev-parse --git-dir"
 alias                 gpl="git pull          --progress --verbose"
 __git_complete        gpl _git_pull
 alias                gpla="git pull          --progress --verbose --all"

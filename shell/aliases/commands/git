@@ -5,6 +5,10 @@
 #     alias git="hub"
 # fi
 
+function cdg() {
+    cd "$(dirname $(gp))"
+}
+
 alias                  ga="git add --ignore-removal"
 __git_complete         ga _git_add
 alias                 gaa="git add --all"

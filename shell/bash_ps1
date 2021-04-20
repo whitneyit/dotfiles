@@ -79,11 +79,11 @@ function _git_prompt() {
         fi
     fi
     local maybe_dirty=""
-    local status="$(git status 2> /dev/null | tail -n1)"
-    if [[ $status != *"working directory clean"* && $status != *"working tree clean"* ]]; then
+    local status="$(git status 2> /dev/null)"
+    if [[ $status != *"working directory clean"* && $status != *"working tree clean"* && $status != *"No commits yet"* ]]; then
         maybe_dirty="*"
     fi
-    echo "$git_branch${maybe_rebase}${maybe_dirty}"
+    echo "${git_branch}${maybe_rebase}${maybe_dirty}"
 }
 
 # Same as above, show the name of the current mercurial branch

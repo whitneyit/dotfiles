@@ -652,10 +652,11 @@ function gls1x() {
 }
 __git_complete      gls1x _git_log
 
-# Rebase
+# Rebase up to the first, (root), commit.
 function grbir() {
     git rebase --interactive `gr`
 }
+alias              grbirr="git rebase --interactive --root"
 
 alias               grbi1="git rebase --interactive head~1"
 __git_complete      grbi1 _git_rebase

@@ -384,6 +384,8 @@ alias                ghla="git stash list                             --date=for
 __git_complete       ghla _git_stash
 alias               ghlna="git stash list      --name-only            --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(cyan)%ae %C(white)%s%C(red)%d'"
 __git_complete      ghlna _git_stash
+alias              ghlnoa="git stash list      --name-only            --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:''"
+__git_complete     ghlnoa _git_stash
 alias               ghlpa="git stash list                     --patch --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(cyan)%ae %C(white)%s%C(red)%d'"
 __git_complete      ghlpa _git_stash
 alias               ghlsa="git stash list                     --stat  --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(cyan)%ae %C(white)%s%C(red)%d'"
@@ -728,6 +730,10 @@ alias                ghln="ghlna -10"
 __git_complete       ghln _git_stash
 alias               ghln1="ghlna -1"
 __git_complete      ghln1 _git_stash
+alias               ghlno="ghlnoa -10"
+__git_complete      ghlno _git_stash
+alias              ghlno1="ghlnoa -1"
+__git_complete     ghlno1 _git_stash
 alias                ghlp="ghlpa -10"
 __git_complete       ghlp _git_stash
 alias               ghlp1="ghlpa -1"

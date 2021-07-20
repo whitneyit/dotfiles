@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#
+# Requires `npm install --global trash-cli`.
+alias rm="trash"
+
+# vim: set syn=sh :

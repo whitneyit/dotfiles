@@ -81,11 +81,13 @@ alias                 gdn="git diff --name-only"
 __git_complete        gdn _git_diff
 alias                 gds="git diff             --staged"
 __git_complete        gds _git_diff
+alias                gdst="git diff             --staged --text"
+__git_complete       gdst _git_diff
 function gdsx() {
   git diff                                      --staged $@ -- . ':!package-lock.json' ':!**/package-lock.json' ':!yarn.lock' ':!**/yarn.lock'
 }
 __git_complete       gdsx _git_diff
-alias                 gdt="git diff             --stat"
+alias                 gdt="git diff                      --text"
 __git_complete        gdt _git_diff
 function gdx() {
   git diff                                               $@ -- . ':!package-lock.json' ':!**/package-lock.json' ':!yarn.lock' ':!**/yarn.lock'

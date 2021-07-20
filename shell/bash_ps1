@@ -10,7 +10,8 @@ export PS1_INPUT_COLOR="$RESET"
 export PS1_PROMPT_GIT_COLOR="$CYAN"
 export PS1_PROMPT_HG_COLOR="$YELLOW"
 export PS1_PROMPT_SNV_COLOR="$GREEN"
-export PS1_SYMBOL_COLOR="$BRIGHT_BLACK"
+export PS1_SYMBOL_COLOR_NORMAL="$BRIGHT_BLACK"
+export PS1_SYMBOL_COLOR_ERROR="$YELLOW"
 export PS1_TEXT_COLOR="$WHITE"
 export PS1_USERNAME_COLOR="$RED"
 
@@ -108,6 +109,17 @@ function _svn_prompt() {
 }
 
 # Determine which prompt to show
+function get_ps1_symbol() {
+    local ps1_symbol="\$ "
+    if [ $1 == 0 ]; then
+        ps1_symbol="$PS1_SYMBOL_COLOR_NORMAL$ps1_symbol"
+    else
+        ps1_symbol="$PS1_SYMBOL_COLOR_ERROR$ps1_symbol"
+    fi
+    echo -e "$ps1_symbol"
+}
+
+# Determine which prompt to show
 function get_scm_prompt() {
     local scm_prompt=""
     if is_git_repository ; then
@@ -161,8 +173,10 @@ function is_git_repository {
 
 # Define a function that can be used to reset the PS1 after one of the $PS1_* variables have been updated
 function prompt_command() {
+    local did_last_command_fail="$?"
+    local ps1_symbol="$(get_ps1_symbol $did_last_command_fail)"
     local scm_prompt="$(get_scm_prompt)"
-    PS1="$RESET\[$PS1_USERNAME_COLOR\]\u \[$PS1_TEXT_COLOR\]at \[$PS1_HOSTNAME_COLOR\]\h \[$PS1_TEXT_COLOR\]in \[$PS1_DIRECTORY_COLOR\]\w$scm_prompt\n\[$PS1_SYMBOL_COLOR\]\$ \[$PS1_INPUT_COLOR\]"
+    PS1="$RESET\[$PS1_USERNAME_COLOR\]\u \[$PS1_TEXT_COLOR\]at \[$PS1_HOSTNAME_COLOR\]\h \[$PS1_TEXT_COLOR\]in \[$PS1_DIRECTORY_COLOR\]\w$scm_prompt\n$ps1_symbol\[$PS1_INPUT_COLOR\]"
 }
 
 # If we are using MING, then we do nothing otherwise we set the $PS1

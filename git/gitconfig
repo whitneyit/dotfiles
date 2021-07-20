@@ -42,6 +42,8 @@
 [branch]
     autosetupmerge = true
 [diff]
+    compactionHeuristic = true
+    colorMoved = zebra
     tool = vimdiff
 [difftool]
     prompt = false

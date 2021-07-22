@@ -16,6 +16,7 @@
     excludesfile = ~/.gitignore_global
     filemode = true
     quotepath = false
+    longpaths = true
     # pager = diff-highlight | less
 
 [credential]

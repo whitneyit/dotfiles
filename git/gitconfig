@@ -7,6 +7,7 @@
 #     gpgsign = true
 
 [init]
+    defaultBranch = master
     templatedir = ~/.git_templates
 
 [core]

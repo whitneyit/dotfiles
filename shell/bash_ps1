@@ -112,9 +112,9 @@ function _svn_prompt() {
 function get_ps1_symbol() {
     local ps1_symbol="\$ "
     if [ $1 == 0 ]; then
-        ps1_symbol="$PS1_SYMBOL_COLOR_NORMAL$ps1_symbol"
+        ps1_symbol="\[$PS1_SYMBOL_COLOR_NORMAL\]$ps1_symbol"
     else
-        ps1_symbol="$PS1_SYMBOL_COLOR_ERROR$ps1_symbol"
+        ps1_symbol="\[$PS1_SYMBOL_COLOR_ERROR\]$ps1_symbol"
     fi
     echo -e "$ps1_symbol"
 }
@@ -127,19 +127,19 @@ function get_scm_prompt() {
         if [[ $git_prompt == "" ]]; then
             git_prompt="<empty-repository>"
         fi
-        scm_prompt="$PS1_TEXT_COLOR on $PS1_PROMPT_GIT_COLOR$git_prompt"
+        scm_prompt="\[$PS1_TEXT_COLOR\] on \[$PS1_PROMPT_GIT_COLOR\]$git_prompt"
     elif is_hg_repository ; then
         local hg_prompt="$(_hg_prompt)"
         if [[ $hg_prompt == "" ]]; then
             hg_prompt="<empty-repository>"
         fi
-        scm_prompt="$PS1_TEXT_COLOR on $PS1_PROMPT_HG_COLOR$hg_prompt"
+        scm_prompt="\[$PS1_TEXT_COLOR\] on \[$PS1_PROMPT_HG_COLOR\]$hg_prompt"
     elif is_svn_repository ; then
         local svn_prompt="$(_svn_prompt)"
         if [[ $svn_prompt == "" ]]; then
             svn_prompt="<empty-repository>"
         fi
-        scm_prompt="$PS1_TEXT_COLOR on $PS1_PROMPT_SVN_COLOR$svn_prompt"
+        scm_prompt="\[$PS1_TEXT_COLOR\] on \[$PS1_PROMPT_SVN_COLOR\]$svn_prompt"
     fi
     echo -e "$scm_prompt"
 }

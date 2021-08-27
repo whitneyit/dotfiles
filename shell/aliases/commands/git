@@ -53,6 +53,8 @@ alias                gcpa="git cherry-pick --abort"
 __git_complete       gcpa _git_cherry_pick
 alias                gcpc="git cherry-pick --continue"
 __git_complete       gcpc _git_cherry_pick
+alias               gcpcn="GIT_EDITOR=true git cherry-pick --continue" # There is no `--no-edit` option."
+__git_complete      gcpcn _git_cherry_pick
 alias                gcps="git cherry-pick --skip"
 __git_complete       gcps _git_cherry_pick
 alias                 gcn="git clean -d -x --force --dry-run" # no such thing as --directories, -x ignores .gitignore

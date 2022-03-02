@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# https://apple.stackexchange.com/questions/371997/suppressing-the-default-interactive-shell-is-now-zsh-message-in-macos-catalina
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 # http://bluebirdjs.com/docs/api/environment-variables.html
 export BLUEBIRD_DEBUG="0"
 

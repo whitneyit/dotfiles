@@ -1,5 +1,15 @@
 #!/usr/bin/env bash
 
+n-exists() {
+    if [ ! "$(type -P n)" ]; then
+        echo 0
+    elif [ ! -f "$(type -P n)" ]; then
+        echo 0
+    else
+        echo 1
+    fi
+}
+
 yarn-exists() {
     if [ ! "$(type -P yarn)" ]; then
         echo 0
@@ -12,30 +22,30 @@ yarn-exists() {
 
 nb() {
     if [ "$#" == "0" ]; then
-        echo -e "$BRIGHT_BLACK$ npm run build$RESET"
+        echo -e "${BRIGHT_BLACK}$ npm run build${RESET}"
         npm run build
     else
-        echo -e "$BRIGHT_BLACK$ npm run build:"$@"$RESET"
+        echo -e "${BRIGHT_BLACK}$ npm run build:"$@"${RESET}"
         npm run build:"$@"
     fi
 }
 
 nc() {
     if [ "$#" == "0" ]; then
-        echo -e "$BRIGHT_BLACK$ npm run ci$RESET"
+        echo -e "${BRIGHT_BLACK}$ npm run ci${RESET}"
         npm run ci
     else
-        echo -e "$BRIGHT_BLACK$ npm run ci:"$@"$RESET"
+        echo -e "${BRIGHT_BLACK}$ npm run ci:"$@"${RESET}"
         npm run ci:"$@"
     fi
 }
 
 nd() {
     if [ "$#" == "0" ]; then
-        echo -e "$BRIGHT_BLACK$ npm run doc$RESET"
+        echo -e "${BRIGHT_BLACK}$ npm run doc${RESET}"
         npm run doc
     else
-        echo -e "$BRIGHT_BLACK$ npm run doc:"$@"$RESET"
+        echo -e "${BRIGHT_BLACK}$ npm run doc:"$@"${RESET}"
         npm run doc:"$@"
     fi
 }
@@ -51,71 +61,71 @@ ngd() {
 
 ni() {
     if [ "$#" == "0" ]; then
-        echo -e "$BRIGHT_BLACK$ npm install$RESET"
+        echo -e "${BRIGHT_BLACK}$ npm install${RESET}"
         npm install
     else
-        echo -e "$BRIGHT_BLACK$ npm install --save "$@"$RESET"
+        echo -e "${BRIGHT_BLACK}$ npm install --save "$@"${RESET}"
         npm install --save "$@"
     fi
 }
 
 nid() {
-    echo -e "$BRIGHT_BLACK$ npm install --save-dev "$@"$RESET"
+    echo -e "${BRIGHT_BLACK}$ npm install --save-dev "$@"${RESET}"
     npm install --save-dev "$@"
 }
 
 nig() {
-    echo -e "$BRIGHT_BLACK$ npm install --global "$@"$RESET"
+    echo -e "${BRIGHT_BLACK}$ npm install --global "$@"${RESET}"
     npm install --global "$@"
 }
 
 nl() {
     if [ "$#" == "0" ]; then
-        echo -e "$BRIGHT_BLACK$ npm run lint$RESET"
+        echo -e "${BRIGHT_BLACK}$ npm run lint${RESET}"
         npm run lint
     else
-        echo -e "$BRIGHT_BLACK$ npm run lint:"$@"$RESET"
+        echo -e "${BRIGHT_BLACK}$ npm run lint:"$@"${RESET}"
         npm run lint:"$@"
     fi
 }
 
 nls() {
-    echo -e "$BRIGHT_BLACK$ npm list --depth=0 "$@"$RESET"
+    echo -e "${BRIGHT_BLACK}$ npm list --depth=0 "$@"${RESET}"
     npm list --depth=0 "$@"
 }
 
 nlsg() {
-    echo -e "$BRIGHT_BLACK$ npm list --global --depth=0 "$@"$RESET"
+    echo -e "${BRIGHT_BLACK}$ npm list --global --depth=0 "$@"${RESET}"
     npm list --global --depth=0 "$@"
 }
 
 ns() {
     if [ "$#" == "0" ]; then
-        echo -e "$BRIGHT_BLACK$ npm start$RESET"
+        echo -e "${BRIGHT_BLACK}$ npm start${RESET}"
         npm start
     else
-        echo -e "$BRIGHT_BLACK$ npm run start:"$@"$RESET"
+        echo -e "${BRIGHT_BLACK}$ npm run start:"$@"${RESET}"
         npm run start:"$@"
     fi
 }
 
 nt() {
     if [ "$#" == "0" ]; then
-        echo -e "$BRIGHT_BLACK$ npm test$RESET"
+        echo -e "${BRIGHT_BLACK}$ npm test${RESET}"
         npm test
     else
-        echo -e "$BRIGHT_BLACK$ npm run test:"$@"$RESET"
+        echo -e "${BRIGHT_BLACK}$ npm run test:"$@"${RESET}"
         npm run test:"$@"
     fi
 }
 
 nu() {
-    echo -e "$BRIGHT_BLACK$ npm uninstall "$@"$RESET"
+    echo -e "${BRIGHT_BLACK}$ npm uninstall "$@"${RESET}"
     npm uninstall "$@"
 }
 
 nug() {
-    echo -e "$BRIGHT_BLACK$ npm uninstall --global "$@"$RESET"
+    echo -e "${BRIGHT_BLACK}$ npm uninstall --global "$@"${RESET}"
     npm uninstall --global "$@"
 }
 
@@ -124,33 +134,39 @@ nv() {
         local node_output="$(node --version)"
         local node_bin_version="${node_output##v}"
         local node_v8_version="$(node -p process.versions.v8)"
-        echo "node ${node_bin_version}"
-        echo "v8   ${node_v8_version}"
+        echo -e "    ${GREEN}node${RESET} : ${node_bin_version}"
+        echo -e "    ${GREEN}  v8${RESET} : ${node_v8_version}"
     else
-        echo "node [not installed]"
+        echo -e "    ${BLUE}node${RESET} ${BRIGHT_BLACK}not installed${RESET}"
+    fi
+    if [ "$(type -P npm)" ]; then
+        echo -e "    ${GREEN} npm${RESET} : $(npm --version)"
+    else
+        echo -e "    ${BLUE} npm${RESET} : ${BRIGHT_BLACK}not installed${RESET}"
+    fi
+    echo ""
+    if [ "$(n-exists)" == "1" ]; then
+        echo -e "    ${GREEN}   n${RESET} : $(n --version)"
+    else
+        echo -e "    ${BLUE}   n${RESET} : ${BRIGHT_BLACK}not installed${RESET}"
     fi
     if [ "$(is_win)" == "yes" ]; then
         if [ "$(type -t nvm)" == "function" ]; then
-            echo "nvm  $(nvm version)"
-        else
-            echo "nvm [not installed]"
+            echo -e "    ${GREEN} nvm${RESET} : $(nvm version)"
+
+            echo -e "    ${BLUE} nvm${RESET} : ${BRIGHT_BLACK}not installed${RESET}"
         fi
     else
         if [ "$(type -t nvm)" == "function" ]; then
-            echo "nvm  $(nvm --version)"
+            echo -e "    ${GREEN} nvm${RESET} : $(nvm --version)"
         else
-            echo "nvm [not installed]"
+            echo -e "    ${BLUE} nvm${RESET} : ${BRIGHT_BLACK}not installed${RESET}"
         fi
     fi
-    if [ "$(type -P npm)" ]; then
-        echo "npm  $(npm --version)"
-    else
-        echo "npm  [not installed]"
-    fi
     if [ "$(yarn-exists)" == "1" ]; then
-        echo "yarn $(yarn --version)"
+        echo -e "    ${GREEN}yarn${RESET} : $(yarn --version)"
     else
-        echo "yarn [not installed]"
+        echo -e "    ${BLUE}yarn${RESET} : ${BRIGHT_BLACK}not installed${RESET}"
     fi
 }
 
@@ -161,18 +177,18 @@ dv() {
         local deno_bin_version="$(echo "${deno_output[0]}" | sed -e 's/deno //g' -e 's/\s.*//g')"
         local deno_v8_version="${deno_output[1]/v8 /}"
         local deno_ts_version="${deno_output[2]/typescript /}"
-        echo "deno ${deno_bin_version}"
-        echo "v8   ${deno_v8_version}"
-        echo "ts   ${deno_ts_version}"
+        echo -e "    ${GREEN}deno${RESET} : ${deno_bin_version}"
+        echo -e "    ${GREEN}  v8${RESET} : ${deno_v8_version}"
+        echo -e "    ${GREEN}  ts${RESET} : ${deno_ts_version}"
     else
-        echo "deno [not installed]"
+        echo -e "    ${BLUE}deno${RESET} : ${BRIGHT_BLACK}not installed${RESET}"
     fi
     if [ "$(type -P dvm)" ]; then
         local dvm_output="$(dvm --version)"
         local dvm_version="${dvm_output/dvm /}"
-        echo "dvm  ${dvm_version}"
+        echo -e "    ${GREEN} dvm${RESET} : ${dvm_version}"
     else
-        echo "dvm  [not installed]"
+        echo -e "    ${BLUE} dvm${RESET} : ${BRIGHT_BLACK}not installed${RESET}"
     fi
 }
 

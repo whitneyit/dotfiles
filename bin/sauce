@@ -39,7 +39,7 @@ declare -a others=(
 
     # JavaScript runtimes
     # Can't use $NVM_DIR. It hasn't been initialised yet
-    $HOME/.nvm/nvm.sh
+    # $HOME/.nvm/nvm.sh
 
     # Third party overrides
     $HOME/.rvm/scripts/rvm

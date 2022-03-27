@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
-alias node="node --harmony"
+# No longer needed
+# alias node="node --harmony"
 
 # vim: set tw=0:syn=sh :

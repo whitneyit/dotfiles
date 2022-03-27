@@ -1,6 +1,20 @@
 #!/usr/bin/env bash
 
+trash-exists() {
+    if [ ! "$(type -P trash)" ]; then
+        echo 0
+    elif [ ! -f "$(type -P trash)" ]; then
+        echo 0
+    else
+        echo 1
+    fi
+}
+
 # Requires `npm install --global trash-cli`.
-alias rm="trash"
+if [ "$(trash-exists)" == "1" ]; then
+    alias rm="trash"
+else
+    echo -e "${BRIGHT_BLACK}Run \`npm install --global trash-cli\` for a safer \`rm\`.${RESET}"
+fi
 
 # vim: set syn=sh :

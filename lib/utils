@@ -47,6 +47,7 @@ function backup_prev() {
     # Define an array of items to backup
     declare -a items_to_backup=(
         "$TARGET_LINK_DIR/.babunrc"
+        "$TARGET_LINK_DIR/.bash_history"
         "$TARGET_LINK_DIR/.bash_logout"
         "$TARGET_LINK_DIR/.bash_profile"
         "$TARGET_LINK_DIR/.bash_proxy"

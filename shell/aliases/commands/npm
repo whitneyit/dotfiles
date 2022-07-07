@@ -137,7 +137,8 @@ nv() {
         echo -e "    ${GREEN}node${RESET} : ${node_bin_version}"
         echo -e "    ${GREEN}  v8${RESET} : ${node_v8_version}"
     else
-        echo -e "    ${BLUE}node${RESET} ${BRIGHT_BLACK}not installed${RESET}"
+        echo -e "    ${BLUE}node${RESET} : ${BRIGHT_BLACK}not installed${RESET}"
+        echo -e "    ${BLUE}  v8${RESET} : ${BRIGHT_BLACK}not installed${RESET}"
     fi
     if [ "$(type -P npm)" ]; then
         echo -e "    ${GREEN} npm${RESET} : $(npm --version)"

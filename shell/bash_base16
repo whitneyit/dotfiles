@@ -8,8 +8,12 @@ export BASE16_SHELL="$DOTFILES_DIRECTORY/shell/base16-shell"
 
 # Check to make sure the correct theme has been loaded
 if [ ! -f "$HOME/.base16_theme" ]; then
-    e_warn "No base16 has been set. Setting to \"base16_ocean\"..."
-    base16_ocean
+    if [ "$(type -P __git_complete)" ]; then
+        e_warn "No \"base16\" has been set. Setting to \"base16_ocean\"..."
+        base16_ocean
+    else
+        e_error "No \"base16\" has been installed."
+    fi
 fi
 
 # Define the foreground colours
@@ -99,7 +103,5 @@ export DARKEST_GREY_BACKGROUND="$BASE16_01_BACKGROUND"
 export DARK_GREY_BACKGROUND="$BASE16_02_BACKGROUND"
 export LIGHT_GREY_BACKGROUND="$BASE16_04_BACKGROUND"
 export LIGHTEST_GREY_BACKGROUND="$BASE16_06_BACKGROUND"
-
-colorstrip
 
 # vim: set syn=sh :

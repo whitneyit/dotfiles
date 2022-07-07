@@ -14,7 +14,7 @@ trash-exists() {
 if [ "$(trash-exists)" == "1" ]; then
     alias rm="trash"
 else
-    echo -e "${BRIGHT_BLACK}Run \`npm install --global trash-cli\` for a safer \`rm\`.${RESET}"
+    e_error "Could not find \"trash\". Run \`npm install --global trash-cli\` for a safer \`rm\`."
 fi
 
 # vim: set syn=sh :

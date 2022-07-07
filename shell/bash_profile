@@ -8,13 +8,18 @@ if [ -z "$DOTFILES_DIRECTORY" ]; then
     if [ -L "$HOME/.dotfiles" ]; then
         DOTFILES_DIRECTORY=$(readlink "$HOME/.dotfiles")
 
-    # Check if the dotfiles repo is a folder
+    # Check if the dotfiles repo is in the default folder
     elif [ -d "$HOME/.dotfiles" ]; then
         DOTFILES_DIRECTORY="$HOME/.dotfiles"
 
+    # Check if the dotfiles repo is a custom folder
+    elif [ -d "$HOME/Code/dotfiles" ]; then
+        DOTFILES_DIRECTORY="$HOME/Code/dotfiles"
+
     # We would end up here if we can't find the dotfiles repo
     else
-        e_error "Could not locate dotfiles folder"
+        # e_error
+        echo -e "$RED"✘ "$@""$RESET" "Could not locate dotfiles folder"
         exit 1
     fi
 
@@ -39,5 +44,8 @@ fi
 
 # And here we boot of the scripts
 source "$DOTFILES_DIRECTORY/bin/sauce"
+
+# Check that our theme has been applied correctly
+colorstrip
 
 # vim: set syn=sh :

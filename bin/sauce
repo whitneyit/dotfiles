@@ -3,7 +3,6 @@
 # Here we define a list of bash completion files that we will execute prior to
 # sourcing our setting anything up
 declare -a precomps=(
-    $DOTFILES_DIRECTORY/shell/completions/git/contrib/completion/git-completion.bash
 )
 
 # This is the list of files that need to be `sourced` when the terminal boots
@@ -12,11 +11,6 @@ declare -a mandatories=(
     # Setup scripts
     $DOTFILES_DIRECTORY/shell/bash_paths
     $DOTFILES_DIRECTORY/shell/bash_environment
-
-    # Theme setup
-    $DOTFILES_DIRECTORY/shell/bash_ansi
-    $DOTFILES_DIRECTORY/shell/bash_base16
-    $DOTFILES_DIRECTORY/shell/bash_ps1
 
     # General settings
     $DOTFILES_DIRECTORY/shell/bash_locale
@@ -27,24 +21,26 @@ declare -a mandatories=(
     $DOTFILES_DIRECTORY/shell/bash_ssh
     $DOTFILES_DIRECTORY/shell/bash_history
 
+    # Theme setup
+    $DOTFILES_DIRECTORY/shell/bash_ansi
+    $DOTFILES_DIRECTORY/shell/bash_base16
+    $DOTFILES_DIRECTORY/shell/bash_ps1
+
+    # Tools
+    $HOME/.nvm/nvm.sh
+
     # Alias scripts
     $DOTFILES_DIRECTORY/shell/aliases/os/*
     $DOTFILES_DIRECTORY/shell/aliases/general/*
     $DOTFILES_DIRECTORY/shell/aliases/commands/*
-
 )
 
 # Here we look for other scripts that may be installed
 declare -a others=(
 
-    # JavaScript runtimes
-    # Can't use $NVM_DIR. It hasn't been initialised yet
-    # $HOME/.nvm/nvm.sh
-
     # Third party overrides
     $HOME/.rvm/scripts/rvm
     $HOME/.travis/travis.sh
-    $HOME/google-cloud-sdk/path.bash.inc
 
     # Locally copied files
     $HOME/.bash_proxy
@@ -57,8 +53,8 @@ declare -a others=(
 
 # And these get sourced after the environment is setup
 declare -a postcomps=(
+    $DOTFILES_DIRECTORY/shell/completions/git/contrib/completion/git-completion.bash
     $DOTFILES_DIRECTORY/shell/completions/npm/lib/utils/completion.sh
-    $HOME/google-cloud-sdk/completion.bash.inc
 )
 
 # First we loop over the pre completions

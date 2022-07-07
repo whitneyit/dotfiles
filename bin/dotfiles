@@ -331,9 +331,8 @@ if [ ! -d .git ]; then
     if [ "$(uname -s | grep -c Darwin)" -gt 0 ]; then
 
         # Check to see if we are missing Homebrew and install it if it is missing.
-        # We can assume we have ruby and curl due to them being pre-installed
         if [ ! "$(type -P brew)" ]; then
-            ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+            bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         fi
 
         # Next we "tap" the brew versions of the standard OSX commands
@@ -368,7 +367,6 @@ if [ ! -d .git ]; then
             'hub'
             'jq'
             'pcre'
-            'ruby'
             'tree'
             'vim'
             'wget'
@@ -395,16 +393,28 @@ if [ ! -d .git ]; then
 
         fi
 
-        # Install java
-        brew tap caskroom/versions
-        brew cask install java8
 
         # Remove outdated versions from the Cellar
         brew cleanup
 
         # If the shells file does not exist, create it now
         if [ ! -f /etc/shells ]; then
-            touch /etc/shells
+            if [ "$(uname -s | grep -c Cygwin)" -gt 0 ]; then
+                sudo touch /etc/shells
+                chgrp Users "/etc/shells"
+
+            # `is_vagrant`
+            elif [ -d /home/vagrant ]; then
+                sudo touch /etc/shells
+                sudo chown vagrant:vagrant "/etc/shells"
+
+            # Everyone else
+            else
+                e_info "Please enter your password to create /etc/shells..."
+                sudo -v
+                sudo touch /etc/shells
+                sudo chown `whoami` "/etc/shells"
+            fi
         fi
 
         # Now we test to see if we already have the new bash shell installed
@@ -418,9 +428,7 @@ if [ ! -d .git ]; then
             e_info "Please enter your password to switch to new bash shell..."
             sudo -v
 
-            # Change the permission of the `shells` file and add the newly installed
-            # `bash` shell.
-            sudo chown `whoami` /etc/shells
+            # Add the newly installed `bash` shell.
             sudo echo "/usr/local/bin/bash" >> /etc/shells
 
             # Change the shell for the current user

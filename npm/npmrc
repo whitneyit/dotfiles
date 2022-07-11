@@ -1,2 +1,2 @@
 # https://github.com/npm/npm/issues/17722
-optional = false
+omit = optional

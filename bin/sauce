@@ -26,9 +26,6 @@ declare -a mandatories=(
     $DOTFILES_DIRECTORY/shell/bash_base16
     $DOTFILES_DIRECTORY/shell/bash_ps1
 
-    # Tools
-    $HOME/.nvm/nvm.sh
-
     # Alias scripts
     $DOTFILES_DIRECTORY/shell/aliases/os/*
     $DOTFILES_DIRECTORY/shell/aliases/general/*
@@ -37,6 +34,9 @@ declare -a mandatories=(
 
 # Here we look for other scripts that may be installed
 declare -a others=(
+
+    # Tools
+    $HOME/.nvm/nvm.sh
 
     # Third party overrides
     $HOME/.rvm/scripts/rvm

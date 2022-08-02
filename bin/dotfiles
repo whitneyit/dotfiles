@@ -561,57 +561,19 @@ if [ ! -d .git ]; then
 
     fi
 
-    # Check to see if nvm is installed
-    if [ ! -d "$HOME/.nvm" ]; then
+    # Check to see if n is installed
+    if [ ! -d "/usr/local/n" ]; then
 
-        # If we are running in cygwin, we can't install nvm, it has to be done
-        # via a different repo
-        if [ "$(uname -s | grep -c Cygwin)" -gt 0 ]; then
-            e_warn "Could not install nvm. Use `https://github.com/coreybutler/nvm-windows` instead"
+        curl -L https://raw.githubusercontent.com/tj/n/master/bin/n -o n
+        bash n lts
+        npm install --global n
+        rm n
 
-        # If we can install nvm we do it here
-        else
-
-            # Let the user know what is happening
-            e_info "Installing nvm..."
-
-            # First get the latest installer from master
-            curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-
-            # Clean the auto aliases that nvm adds
-            git checkout .
-
-            # Load nvm
-            export NVM_DIR="$HOME/.nvm"
-            [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-
-            # Install node
-            nvm install stable
-            nvm use stable
-            nvm alias default stable
-
-            # Update npm
-            npm install --global npm
-
-            # Let the user know what version we are using
-            echo "nvm version $(nvm --version)"
-            echo "node version $(node --version)"
-            echo "npm version $(npm --version)"
-
-            # Install our most used packages
-            npm install --global \
-                firebase-tools \
-                httpster \
-                node-inspector \
-                np \
-                npm-check \
-                typescript
-
-            e_success "Successfully installed nvm..."
-
-        fi
+        e_success "Successfully installed nvm..."
 
     fi
+
+    npm install --global trash-cli
 
     # And here we confirm to the User that we have completed Installing the
     # `dotfiles` repo.

@@ -113,6 +113,8 @@ function get_ps1_symbol() {
     local ps1_symbol="\$ "
     if [ $1 == 0 ]; then
         ps1_symbol="\[$PS1_SYMBOL_COLOR_NORMAL\]$ps1_symbol"
+    elif [ $1 == 130 ]; then
+        ps1_symbol="\[$PS1_SYMBOL_COLOR_NORMAL\]$ps1_symbol"
     else
         ps1_symbol="\[$PS1_SYMBOL_COLOR_ERROR\]$ps1_symbol"
     fi

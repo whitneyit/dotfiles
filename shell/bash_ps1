@@ -108,7 +108,18 @@ function _svn_prompt() {
     echo -e "$revision$maybe_dirty"
 }
 
-# Determine which prompt to show
+function get_ps1_error() {
+    local ps1_error=""
+    if [ $1 == 0 ]; then
+        ps1_error=""
+    elif [ $1 == 130 ]; then
+        ps1_error=""
+    else
+        ps1_error="\[$RESET\] exit \[$PS1_SYMBOL_COLOR_ERROR\]$1"
+    fi
+    echo -e "$ps1_error"
+}
+
 function get_ps1_symbol() {
     local ps1_symbol="\$ "
     if [ $1 == 0 ]; then
@@ -176,9 +187,10 @@ function is_git_repository {
 # Define a function that can be used to reset the PS1 after one of the $PS1_* variables have been updated
 function prompt_command() {
     local did_last_command_fail="$?"
+    local ps1_error="$(get_ps1_error $did_last_command_fail)"
     local ps1_symbol="$(get_ps1_symbol $did_last_command_fail)"
     local scm_prompt="$(get_scm_prompt)"
-    PS1="$RESET\[$PS1_USERNAME_COLOR\]\u \[$PS1_TEXT_COLOR\]at \[$PS1_HOSTNAME_COLOR\]\h \[$PS1_TEXT_COLOR\]in \[$PS1_DIRECTORY_COLOR\]\w$scm_prompt\n$ps1_symbol\[$PS1_INPUT_COLOR\]"
+    PS1="$RESET\[$PS1_USERNAME_COLOR\]\u \[$PS1_TEXT_COLOR\]at \[$PS1_HOSTNAME_COLOR\]\h \[$PS1_TEXT_COLOR\]in \[$PS1_DIRECTORY_COLOR\]\w$scm_prompt$ps1_error\n$ps1_symbol\[$PS1_INPUT_COLOR\]"
 }
 
 # If we are using MING, then we do nothing otherwise we set the $PS1

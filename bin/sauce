@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
 
-# Here we define a list of bash completion files that we will execute prior to
-# sourcing our setting anything up
-declare -a precomps=(
-)
-
 # This is the list of files that need to be `sourced` when the terminal boots
 declare -a mandatories=(
 
@@ -25,15 +20,21 @@ declare -a mandatories=(
     $DOTFILES_DIRECTORY/shell/bash_ansi
     $DOTFILES_DIRECTORY/shell/bash_base16
     $DOTFILES_DIRECTORY/shell/bash_ps1
+)
+
+# And these get sourced after the environment is setup
+declare -a completions=(
+    $DOTFILES_DIRECTORY/shell/completions/git/contrib/completion/git-completion.bash
+    $DOTFILES_DIRECTORY/shell/completions/npm/lib/utils/completion.sh
+)
+
+# Here we look for other scripts that may be installed
+declare -a others=(
 
     # Alias scripts
     $DOTFILES_DIRECTORY/shell/aliases/os/*
     $DOTFILES_DIRECTORY/shell/aliases/general/*
     $DOTFILES_DIRECTORY/shell/aliases/commands/*
-)
-
-# Here we look for other scripts that may be installed
-declare -a others=(
 
     # Tools
     $HOME/.nvm/nvm.sh
@@ -51,22 +52,6 @@ declare -a others=(
 
 )
 
-# And these get sourced after the environment is setup
-declare -a postcomps=(
-    $DOTFILES_DIRECTORY/shell/completions/git/contrib/completion/git-completion.bash
-    $DOTFILES_DIRECTORY/shell/completions/npm/lib/utils/completion.sh
-)
-
-# First we loop over the pre completions
-for precomp in "${precomps[@]}"
-do
-    if [ -f $precomp ]; then
-        . $precomp
-    else
-        e_warn "Could not find completion: $precomp"
-    fi
-done
-
 # Next we loop over the mandatory files
 for mandatory in "${mandatories[@]}"
 do
@@ -77,21 +62,21 @@ do
     fi
 done
 
+# Now we loop over the completions
+for completion in "${completions[@]}"
+do
+    if [ -f $completion ]; then
+        . $completion
+    else
+        e_warn "Could not find completion: $completion"
+    fi
+done
+
 # Then the other files. Don't produce a warning for these
 for other in "${others[@]}"
 do
     if [ -f $other ]; then
         . $other
-    fi
-done
-
-# Now we loop over the post completions
-for postcomp in "${postcomps[@]}"
-do
-    if [ -f $postcomp ]; then
-        . $postcomp
-    else
-        e_warn "Could not find completion: $postcomp"
     fi
 done
 

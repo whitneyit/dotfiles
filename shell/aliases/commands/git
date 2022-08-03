@@ -5,15 +5,6 @@
 #     alias git="hub"
 # fi
 
-
-# Don't crash if the `__git_complete` has not been sourced.
-if [ ! "$(type -P __git_complete)" ]; then
-    function __git_complete() {
-        # Do nothing
-        true
-    }
-fi
-
 function cdg() {
     cd "$(dirname $(gp))"
 }

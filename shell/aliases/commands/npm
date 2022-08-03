@@ -69,14 +69,34 @@ ni() {
     fi
 }
 
+nif() {
+    if [ "$#" == "0" ]; then
+        echo -e "${BRIGHT_BLACK}$ npm install --force ${RESET}"
+        npm install --force
+    else
+        echo -e "${BRIGHT_BLACK}$ npm install --force --save "$@"${RESET}"
+        npm install --force --save "$@"
+    fi
+}
+
 nid() {
     echo -e "${BRIGHT_BLACK}$ npm install --save-dev "$@"${RESET}"
     npm install --save-dev "$@"
 }
 
+nidf() {
+    echo -e "${BRIGHT_BLACK}$ npm install --force --save-dev "$@"${RESET}"
+    npm install --force --save-dev "$@"
+}
+
 nig() {
     echo -e "${BRIGHT_BLACK}$ npm install --global "$@"${RESET}"
     npm install --global "$@"
+}
+
+nigf() {
+    echo -e "${BRIGHT_BLACK}$ npm install --force --global "$@"${RESET}"
+    npm install --force --global "$@"
 }
 
 nl() {

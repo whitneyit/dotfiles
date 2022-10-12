@@ -40,16 +40,6 @@ nc() {
     fi
 }
 
-nd() {
-    if [ "$#" == "0" ]; then
-        echo -e "${BRIGHT_BLACK}$ npm run doc${RESET}"
-        npm run doc
-    else
-        echo -e "${BRIGHT_BLACK}$ npm run doc:"$@"${RESET}"
-        npm run doc:"$@"
-    fi
-}
-
 ngp() {
     readlink -f "$(which ${1:-npm})"
 }

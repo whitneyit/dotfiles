@@ -36,8 +36,7 @@
     panic        = !git log --graph --oneline --decorate $( git fsck --no-reflog | awk '/dangling commit/ {print $3}' )
     pr           = "!fn() { git fetch -fu ${2:-origin} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; fn"
     pr-clean     = "!fn() { git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done; }; fn"
-    start        = "!fn() { git init; git commit --allow-empty --message='chore: initial commit'; }; fn"
-    start-create = "!fn() { git init; git commit --allow-empty --message='chore: initial commit'; hub create; git push --all; }; fn"
+    start        = "!fn() { local email=${1:-james@whitney.io}; git init; git config user.email ${email}; git commit --allow-empty --no-gpg --message='chore: initial commit' --message='This commit was created with:\n\n```sh\ngit config user.email \"'${email}'\";\ngit commit --allow-empty --no-gpg --message=\"chore: initial commit\";\n```'; }; fn"
     unchangeable = !git ls-files -v | grep ^[a-z]
     untracked    = !git ls-files --others --exclude-standard
 

@@ -59,6 +59,11 @@ ni() {
     fi
 }
 
+nix() {
+    echo -e "${BRIGHT_BLACK}$ npm install --save --save-exact "$@"${RESET}"
+    npm install --save --save-exact "$@"
+}
+
 nif() {
     if [ "$#" == "0" ]; then
         echo -e "${BRIGHT_BLACK}$ npm install --force ${RESET}"
@@ -69,9 +74,19 @@ nif() {
     fi
 }
 
+nifx() {
+    echo -e "${BRIGHT_BLACK}$ npm install --force --save --save-exact "$@"${RESET}"
+    npm install --force --save --save-exact "$@"
+}
+
 nid() {
     echo -e "${BRIGHT_BLACK}$ npm install --save-dev "$@"${RESET}"
     npm install --save-dev "$@"
+}
+
+nidx() {
+    echo -e "${BRIGHT_BLACK}$ npm install --save-dev --save-exact "$@"${RESET}"
+    npm install --save-dev --save-exact "$@"
 }
 
 nidf() {
@@ -79,14 +94,29 @@ nidf() {
     npm install --force --save-dev "$@"
 }
 
+nidfx() {
+    echo -e "${BRIGHT_BLACK}$ npm install --force --save-dev --save-exact "$@"${RESET}"
+    npm install --force --save-dev --save-exact "$@"
+}
+
 nig() {
     echo -e "${BRIGHT_BLACK}$ npm install --global "$@"${RESET}"
     npm install --global "$@"
 }
 
+nigx() {
+    echo -e "${BRIGHT_BLACK}$ npm install --global --save-exact "$@"${RESET}"
+    npm install --global --save-exact "$@"
+}
+
 nigf() {
     echo -e "${BRIGHT_BLACK}$ npm install --force --global "$@"${RESET}"
     npm install --force --global "$@"
+}
+
+nigfx() {
+    echo -e "${BRIGHT_BLACK}$ npm install --force --global --save-exact "$@"${RESET}"
+    npm install --force --global --save-exact "$@"
 }
 
 nl() {

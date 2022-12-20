@@ -30,6 +30,7 @@ declare -a DIRS_TO_APPEND=(
 # Directories to be appended to PATH only when `is_mac` is true
 declare -a MAC_DIRS_TO_APPEND=(
     "/usr/local/opt/git/share/git-core/contrib/diff-highlight"
+    "$HOME/Library/Python/3.9/bin"
 )
 
 # Prepend directories to PATH

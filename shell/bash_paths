@@ -8,6 +8,7 @@ declare -a DIRS_TO_PREPEND=(
     "/usr/local/sbin"
     "/usr/local/heroku/bin"
     "/usr/local/opt/curl/bin"
+    "/opt/homebrew/bin"
 )
 
 # Directories to be appended to PATH

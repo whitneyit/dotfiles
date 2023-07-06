@@ -21,9 +21,6 @@ export GOPATH="$HOME/Go"
 # Define were the go bin lives
 export GOROOT="/usr/local/go"
 
-# Ensure that we have a default environment set for node
-export NODE_ENV="development"
-
 # Where nvm should be install to
 export NVM_DIR="$HOME/.nvm"
 

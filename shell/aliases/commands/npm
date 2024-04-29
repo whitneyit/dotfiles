@@ -20,6 +20,61 @@ yarn-exists() {
     fi
 }
 
+ngp() {
+    readlink -f "$(which ${1:-npm})"
+}
+
+ngd() {
+    path="$(ngp $1)"
+    echo "$(dirname "$path")"
+}
+
+ni() {
+    if [ "$#" == "0" ]; then
+        echo -e "${BRIGHT_BLACK}$ npm install${RESET}"
+        npm install
+    else
+        echo -e "${BRIGHT_BLACK}$ npm install --save --save-exact "$@"${RESET}"
+        npm install --save --save-exact "$@"
+    fi
+}
+
+nid() {
+    echo -e "${BRIGHT_BLACK}$ npm install --save-dev --save-exact "$@"${RESET}"
+    npm install --save-dev --save-exact "$@"
+}
+
+nig() {
+    echo -e "${BRIGHT_BLACK}$ npm install --global --save-exact "$@"${RESET}"
+    npm install --global --save-exact "$@"
+}
+
+nls() {
+    echo -e "${BRIGHT_BLACK}$ npm list --depth=0 "$@"${RESET}"
+    npm list --depth=0 "$@"
+}
+
+nlsg() {
+    echo -e "${BRIGHT_BLACK}$ npm list --global --depth=0 "$@"${RESET}"
+    npm list --global --depth=0 "$@"
+}
+
+nu() {
+    echo -e "${BRIGHT_BLACK}$ npm uninstall "$@"${RESET}"
+    npm uninstall "$@"
+}
+
+nug() {
+    echo -e "${BRIGHT_BLACK}$ npm uninstall --global "$@"${RESET}"
+    npm uninstall --global "$@"
+}
+
+####################
+#                  #
+#  npm run <task>  #
+#                  #
+####################
+
 nb() {
     if [ "$#" == "0" ]; then
         echo -e "${BRIGHT_BLACK}$ npm run build${RESET}"
@@ -40,83 +95,24 @@ nc() {
     fi
 }
 
-ngp() {
-    readlink -f "$(which ${1:-npm})"
-}
-
-ngd() {
-    path="$(ngp $1)"
-    echo "$(dirname "$path")"
-}
-
-ni() {
+nd() {
     if [ "$#" == "0" ]; then
-        echo -e "${BRIGHT_BLACK}$ npm install${RESET}"
-        npm install
+        echo -e "${BRIGHT_BLACK}$ npm run dev${RESET}"
+        npm run dev
     else
-        echo -e "${BRIGHT_BLACK}$ npm install --save "$@"${RESET}"
-        npm install --save "$@"
+        echo -e "${BRIGHT_BLACK}$ npm run dev:"$@"${RESET}"
+        npm run dev:"$@"
     fi
 }
 
-nix() {
-    echo -e "${BRIGHT_BLACK}$ npm install --save --save-exact "$@"${RESET}"
-    npm install --save --save-exact "$@"
-}
-
-nif() {
+nf() {
     if [ "$#" == "0" ]; then
-        echo -e "${BRIGHT_BLACK}$ npm install --force ${RESET}"
-        npm install --force
+        echo -e "${BRIGHT_BLACK}$ npm run format${RESET}"
+        npm run format
     else
-        echo -e "${BRIGHT_BLACK}$ npm install --force --save "$@"${RESET}"
-        npm install --force --save "$@"
+        echo -e "${BRIGHT_BLACK}$ npm run format:"$@"${RESET}"
+        npm run format:"$@"
     fi
-}
-
-nifx() {
-    echo -e "${BRIGHT_BLACK}$ npm install --force --save --save-exact "$@"${RESET}"
-    npm install --force --save --save-exact "$@"
-}
-
-nid() {
-    echo -e "${BRIGHT_BLACK}$ npm install --save-dev "$@"${RESET}"
-    npm install --save-dev "$@"
-}
-
-nidx() {
-    echo -e "${BRIGHT_BLACK}$ npm install --save-dev --save-exact "$@"${RESET}"
-    npm install --save-dev --save-exact "$@"
-}
-
-nidf() {
-    echo -e "${BRIGHT_BLACK}$ npm install --force --save-dev "$@"${RESET}"
-    npm install --force --save-dev "$@"
-}
-
-nidfx() {
-    echo -e "${BRIGHT_BLACK}$ npm install --force --save-dev --save-exact "$@"${RESET}"
-    npm install --force --save-dev --save-exact "$@"
-}
-
-nig() {
-    echo -e "${BRIGHT_BLACK}$ npm install --global "$@"${RESET}"
-    npm install --global "$@"
-}
-
-nigx() {
-    echo -e "${BRIGHT_BLACK}$ npm install --global --save-exact "$@"${RESET}"
-    npm install --global --save-exact "$@"
-}
-
-nigf() {
-    echo -e "${BRIGHT_BLACK}$ npm install --force --global "$@"${RESET}"
-    npm install --force --global "$@"
-}
-
-nigfx() {
-    echo -e "${BRIGHT_BLACK}$ npm install --force --global --save-exact "$@"${RESET}"
-    npm install --force --global --save-exact "$@"
 }
 
 nl() {
@@ -127,16 +123,6 @@ nl() {
         echo -e "${BRIGHT_BLACK}$ npm run lint:"$@"${RESET}"
         npm run lint:"$@"
     fi
-}
-
-nls() {
-    echo -e "${BRIGHT_BLACK}$ npm list --depth=0 "$@"${RESET}"
-    npm list --depth=0 "$@"
-}
-
-nlsg() {
-    echo -e "${BRIGHT_BLACK}$ npm list --global --depth=0 "$@"${RESET}"
-    npm list --global --depth=0 "$@"
 }
 
 ns() {
@@ -157,16 +143,6 @@ nt() {
         echo -e "${BRIGHT_BLACK}$ npm run test:"$@"${RESET}"
         npm run test:"$@"
     fi
-}
-
-nu() {
-    echo -e "${BRIGHT_BLACK}$ npm uninstall "$@"${RESET}"
-    npm uninstall "$@"
-}
-
-nug() {
-    echo -e "${BRIGHT_BLACK}$ npm uninstall --global "$@"${RESET}"
-    npm uninstall --global "$@"
 }
 
 nv() {

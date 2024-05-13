@@ -38,6 +38,7 @@ declare -a others=(
 
     # Tools
     $HOME/.nvm/nvm.sh
+    $HOME/.nvm/bash_completion
 
     # Third party overrides
     $HOME/.rvm/scripts/rvm

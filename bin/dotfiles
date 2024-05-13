@@ -150,7 +150,7 @@ if [ ! -d .git ]; then
     fi
 
     # Create our required folders
-    mkdir -p "$HOME/.config" "$HOME/.ssh" "$HOME/Archive" "$HOME/Code" "$HOME/Dev" "$HOME/Go" "$HOME/OSS" "$HOME/Work"
+    mkdir -p "$HOME/.config" "$HOME/.ssh" "$HOME/Code" "$HOME/Work"
 
     # Here we make sure that we have a `~/.bash_history` file.
     if [ ! -f "$HOME/.bash_history" ]; then
@@ -190,7 +190,7 @@ if [ ! -d .git ]; then
         chgrp -R Users "$HOME/Go"
         chgrp -R Users "$HOME/OSS"
         chgrp -R Users "$HOME/Work"
-        chgrp Users "/cygdrive/c/Windows/System32/drivers/etc/hosts"
+        # chgrp Users "/cygdrive/c/Windows/System32/drivers/etc/hosts"
         chgrp Users "$HOME/.bash_history"
         chgrp Users "$HOME/.config"
         chgrp Users "$HOME/.prev_dir"
@@ -221,7 +221,7 @@ if [ ! -d .git ]; then
         chown -R `whoami` "$HOME/Go"
         chown -R `whoami` "$HOME/OSS"
         chown -R `whoami` "$HOME/Work"
-        chown `whoami` "/private/etc/hosts"
+        # chown `whoami` "/private/etc/hosts"
         chown `whoami` "$HOME/.bash_history"
         chown `whoami` "$HOME/.config"
         chown `whoami` "$HOME/.prev_dir"
@@ -237,7 +237,7 @@ if [ ! -d .git ]; then
         chown -R `whoami` "$HOME/Go"
         chown -R `whoami` "$HOME/OSS"
         chown -R `whoami` "$HOME/Work"
-        chown `whoami` "/etc/hosts"
+        # chown `whoami:whoami` "/etc/hosts"
         chown `whoami` "$HOME/.bash_history"
         chown `whoami` "$HOME/.config"
         chown `whoami` "$HOME/.prev_dir"

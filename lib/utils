@@ -72,7 +72,6 @@ function backup_prev() {
         "$TARGET_LINK_DIR/.vim"
         "$TARGET_LINK_DIR/.vimrc"
         "$TARGET_LINK_DIR/.wgetrc"
-        "$TARGET_LINK_DIR/.Xresources"
     )
 
     # Backup the items that we are going to link

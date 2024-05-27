@@ -31,11 +31,6 @@ declare -a completions=(
 # Here we look for other scripts that may be installed
 declare -a others=(
 
-    # Alias scripts
-    $DOTFILES_DIRECTORY/shell/aliases/os/*
-    $DOTFILES_DIRECTORY/shell/aliases/general/*
-    $DOTFILES_DIRECTORY/shell/aliases/commands/*
-
     # Tools
     $HOME/.nvm/nvm.sh
     $HOME/.nvm/bash_completion
@@ -43,6 +38,11 @@ declare -a others=(
     # Third party overrides
     $HOME/.rvm/scripts/rvm
     $HOME/.travis/travis.sh
+
+    # Alias scripts
+    $DOTFILES_DIRECTORY/shell/aliases/os/*
+    $DOTFILES_DIRECTORY/shell/aliases/general/*
+    $DOTFILES_DIRECTORY/shell/aliases/commands/*
 
     # Locally copied files
     $HOME/.bash_proxy

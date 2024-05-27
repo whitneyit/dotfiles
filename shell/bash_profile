@@ -2,7 +2,7 @@
 
 # Only run this file once. If $DOTFILES_DIRECTORY is zero length then we will
 # proceed otherwise nothing will happen
-if [ -z "$DOTFILES_DIRECTORY" ]; then
+if [ -z "$DOTFILES_DIRECTORY" ] || [ ! "$(type -P prompt_command)" ]; then
 
     # Here we determine the location of the `.dotfiles` repo
     if [ -L "$HOME/.dotfiles" ]; then

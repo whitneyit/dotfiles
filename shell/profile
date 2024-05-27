@@ -5,7 +5,7 @@ if [ -n "$BASH_VERSION" ]; then
 
     # If $DOTFILES_DIRECTORY is a zero length string then we know that we
     # have not run our `.bash_profile` setup
-    if [ -z "$DOTFILES_DIRECTORY" ]; then
+    if [ -z "$DOTFILES_DIRECTORY" ] || [ ! "$(type -P prompt_command)" ]; then
 
         # Ensure that some base colors are exported
         LS_COLORS="ow=01;36;40"

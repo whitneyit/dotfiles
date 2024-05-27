@@ -49,6 +49,16 @@ nig() {
     npm install --global --save-exact "$@"
 }
 
+nio() {
+    if [ "$#" == "0" ]; then
+        echo -e "${BRIGHT_BLACK}$ npm install --include=\"optional\"${RESET}"
+        npm install --include="optional"
+    else
+        echo -e "${BRIGHT_BLACK}$ npm install --save-optional --save-exact "$@"${RESET}"
+        npm install --save-optional --save-exact "$@"
+    fi
+}
+
 nls() {
     echo -e "${BRIGHT_BLACK}$ npm list --depth=0 "$@"${RESET}"
     npm list --depth=0 "$@"

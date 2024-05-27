@@ -31,6 +31,7 @@ if [ "$(is_mac)" == "yes" ]; then
         # Define a `gls` specific `ls` command.
         function list () {
             command gls\
+                -A \
                 -h \
                 --color \
                 --ignore . \
@@ -44,6 +45,7 @@ if [ "$(is_mac)" == "yes" ]; then
         # Here we just fallback to the standard `ls`.
         function list () {
             command ls\
+                -A \
                 -h \
                 "$@"
         }
@@ -62,6 +64,7 @@ elif [ "$(is_win)" == "yes" ]; then
         # This allows the `ls` command to be run in cygwin without polluting the
         # output and creating a mess.
         command ls \
+            -A \
             -h \
             --color \
             --ignore="." \
@@ -86,7 +89,9 @@ else
     # Define a `ls` command for everywhere else
     function list () {
         command ls\
+            -A \
             -h \
+            -v \
             --color \
             --ignore . \
             --ignore .. \
@@ -100,7 +105,7 @@ OCTAL_PERMISSIONS="{k=0;for(i=0;i<=8;i++)k+=((substr(\$1,i+2,1)~/[rwx]/)*2^(8-i)
 
 # This is where we overrite the `ls` command.
 function ls () {
-    if [ $(command ls -l | grep -v '^total' | wc -l) == "0" ]; then
+    if [ $(command ls -la | grep -v '^total' | wc -l) == "0" ]; then
         echo "no directories, files, or links found"
     else
         list "$@"

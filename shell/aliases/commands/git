@@ -688,45 +688,45 @@ function grbir() {
 }
 alias              grbirr="git rebase --interactive --root"
 
-alias               grbi1="git rebase --interactive head~1"
+alias               grbi1="git rebase --interactive HEAD~1"
 __git_complete      grbi1 _git_rebase
-alias               grbi2="git rebase --interactive head~2"
+alias               grbi2="git rebase --interactive HEAD~2"
 __git_complete      grbi2 _git_rebase
-alias               grbi3="git rebase --interactive head~3"
+alias               grbi3="git rebase --interactive HEAD~3"
 __git_complete      grbi3 _git_rebase
-alias               grbi4="git rebase --interactive head~4"
+alias               grbi4="git rebase --interactive HEAD~4"
 __git_complete      grbi4 _git_rebase
-alias               grbi5="git rebase --interactive head~5"
+alias               grbi5="git rebase --interactive HEAD~5"
 __git_complete      grbi5 _git_rebase
-alias               grbi6="git rebase --interactive head~6"
+alias               grbi6="git rebase --interactive HEAD~6"
 __git_complete      grbi6 _git_rebase
-alias               grbi7="git rebase --interactive head~7"
+alias               grbi7="git rebase --interactive HEAD~7"
 __git_complete      grbi7 _git_rebase
-alias               grbi8="git rebase --interactive head~8"
+alias               grbi8="git rebase --interactive HEAD~8"
 __git_complete      grbi8 _git_rebase
-alias               grbi9="git rebase --interactive head~9"
+alias               grbi9="git rebase --interactive HEAD~9"
 __git_complete      grbi9 _git_rebase
-alias              grbi10="git rebase --interactive head~10"
+alias              grbi10="git rebase --interactive HEAD~10"
 __git_complete     grbi10 _git_rebase
-alias              grbi11="git rebase --interactive head~11"
+alias              grbi11="git rebase --interactive HEAD~11"
 __git_complete     grbi11 _git_rebase
-alias              grbi12="git rebase --interactive head~12"
+alias              grbi12="git rebase --interactive HEAD~12"
 __git_complete     grbi12 _git_rebase
-alias              grbi13="git rebase --interactive head~13"
+alias              grbi13="git rebase --interactive HEAD~13"
 __git_complete     grbi13 _git_rebase
-alias              grbi14="git rebase --interactive head~14"
+alias              grbi14="git rebase --interactive HEAD~14"
 __git_complete     grbi14 _git_rebase
-alias              grbi15="git rebase --interactive head~15"
+alias              grbi15="git rebase --interactive HEAD~15"
 __git_complete     grbi15 _git_rebase
-alias              grbi16="git rebase --interactive head~16"
+alias              grbi16="git rebase --interactive HEAD~16"
 __git_complete     grbi16 _git_rebase
-alias              grbi17="git rebase --interactive head~17"
+alias              grbi17="git rebase --interactive HEAD~17"
 __git_complete     grbi17 _git_rebase
-alias              grbi18="git rebase --interactive head~18"
+alias              grbi18="git rebase --interactive HEAD~18"
 __git_complete     grbi18 _git_rebase
-alias              grbi19="git rebase --interactive head~19"
+alias              grbi19="git rebase --interactive HEAD~19"
 __git_complete     grbi19 _git_rebase
-alias              grbi20="git rebase --interactive head~20"
+alias              grbi20="git rebase --interactive HEAD~20"
 __git_complete     grbi20 _git_rebase
 
 # Reflog

@@ -21,6 +21,11 @@ export GOPATH="$HOME/Go"
 # Define were the go bin lives
 export GOROOT="/usr/local/go"
 
+# Suppress any and all node deprecations
+# https://nodejs.org/api/cli.html#node_optionsoptions
+# Though `NODE_NO_WARNINGS`, exists. Thee is no `NODE_NO_DEPRECATIONS`.
+export NODE_OPTIONS="--no-deprecation"
+
 # Where nvm should be install to
 export NVM_DIR="$HOME/.nvm"
 

@@ -1,6 +1,6 @@
 [user]
     name = James Whitney
-    email = james@whitney.io
+    email = james.a.whitney@gmail.com
     # signingkey = `git config --global user.signingkey 1234ABCD`
 
 # [commit]

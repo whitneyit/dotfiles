@@ -125,6 +125,26 @@ nf() {
     fi
 }
 
+nfc() {
+    if [ "$#" == "0" ]; then
+        echo -e "${BRIGHT_BLACK}$ npm run format-check${RESET}"
+        npm run format-check
+    else
+        echo -e "${BRIGHT_BLACK}$ npm run format-check:"$@"${RESET}"
+        npm run format-check:"$@"
+    fi
+}
+
+nfw() {
+    if [ "$#" == "0" ]; then
+        echo -e "${BRIGHT_BLACK}$ npm run format-write${RESET}"
+        npm run format-write
+    else
+        echo -e "${BRIGHT_BLACK}$ npm run format-write:"$@"${RESET}"
+        npm run format-write:"$@"
+    fi
+}
+
 nl() {
     if [ "$#" == "0" ]; then
         echo -e "${BRIGHT_BLACK}$ npm run lint${RESET}"
@@ -159,7 +179,7 @@ nv() {
     if [ "$(type -P node)" ]; then
         local node_output="$(node --version)"
         local node_bin_version="${node_output##v}"
-        local node_v8_version="$(node -p process.versions.v8)"
+        local node_v8_version="$(node --print process.versions.v8)"
         echo -e "    ${GREEN}node${RESET} : ${node_bin_version}"
         echo -e "    ${GREEN}  v8${RESET} : ${node_v8_version}"
     else

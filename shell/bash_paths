@@ -3,13 +3,13 @@
 # Directories to be prepended to PATH
 # Ensure that this bin always takes precedence over `/usr/bin`
 declare -a DIRS_TO_PREPEND=(
-    "$JAVA_HOME/bin"
     "/usr/local/bin"
     "/usr/local/sbin"
     "/usr/local/heroku/bin"
     "/usr/local/opt/curl/bin"
     "/opt/homebrew/bin"
     "/opt/homebrew/sbin"
+    "$JAVA_HOME/bin"
     "$ANDROID_HOME/tools"
     "$ANDROID_HOME/platform-tools"
 )

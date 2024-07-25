@@ -64,7 +64,10 @@ fi
 
 # Define the java variables if we have it installed
 if [ "$(type -P java)" ]; then
-    if [ -d "/Library/Java/JavaVirtualMachines/jdk-11.0.17.jdk" ]; then
+    if [ -d "/usr/lib/jvm/java-8-openjdk-amd64" ]; then
+        export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
+        export JDK_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
+    elif [ -d "/Library/Java/JavaVirtualMachines/jdk-11.0.17.jdk" ]; then
         export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-11.0.17.jdk"
         export JDK_HOME="/Library/Java/JavaVirtualMachines/jdk-11.0.17.jdk"
     elif [ -d "/opt/homebrew/opt/openjdk@11" ]; then

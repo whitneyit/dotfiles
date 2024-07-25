@@ -268,6 +268,8 @@ alias               grbcn="GIT_EDITOR=true git rebase --continue" # There is no 
 __git_complete      grbcn _git_rebase
 alias                grbi="git rebase --interactive"
 __git_complete       grbi _git_rebase
+alias                grbp="git rebase --show-current-patch"
+__git_complete       grbp _git_rebase
 alias                grbs="git rebase --skip"
 __git_complete       grbs _git_rebase
 alias                grbd="git rebase develop"

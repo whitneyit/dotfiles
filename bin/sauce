@@ -38,6 +38,7 @@ declare -a others=(
     # Third party overrides
     $HOME/.rvm/scripts/rvm
     $HOME/.travis/travis.sh
+    $HOME/.sdkman/bin/sdkman-init.sh
 
     # Alias scripts
     $DOTFILES_DIRECTORY/shell/aliases/os/*

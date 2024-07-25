@@ -10,6 +10,8 @@ declare -a DIRS_TO_PREPEND=(
     "/usr/local/opt/curl/bin"
     "/opt/homebrew/bin"
     "/opt/homebrew/sbin"
+    "$ANDROID_HOME/tools"
+    "$ANDROID_HOME/platform-tools"
 )
 
 # Directories to be appended to PATH

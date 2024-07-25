@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Where Android should be install to
+export ANDROID_HOME="$HOME/Android"
+
 # https://apple.stackexchange.com/questions/371997/suppressing-the-default-interactive-shell-is-now-zsh-message-in-macos-catalina
 export BASH_SILENCE_DEPRECATION_WARNING=1
 

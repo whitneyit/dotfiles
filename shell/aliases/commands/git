@@ -358,6 +358,12 @@ alias                grmc="git rm --cached"
 __git_complete       grmc _git_rm
 alias               grmca="git rm --cached -r ."
 __git_complete      grmca _git_rm
+alias                 grv="git revert"
+__git_complete        grv _git_revert
+alias                grvh="git revert HEAD"
+__git_complete       grvh _git_revert
+alias               grvhn="git revert HEAD --no-edit"
+__git_complete      grvhn _git_revert
 alias                  gh="git stash save"
 __git_complete         gh _git_stash
 alias                 gha="git stash apply"

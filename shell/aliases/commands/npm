@@ -95,6 +95,26 @@ nb() {
     fi
 }
 
+nba() {
+    if [ "$#" == "0" ]; then
+        echo -e "${BRIGHT_BLACK}$ npm run build:apps${RESET}"
+        npm run build:apps
+    else
+        echo -e "${BRIGHT_BLACK}$ npm run build:apps:"$@"${RESET}"
+        npm run build:apps:"$@"
+    fi
+}
+
+nbl() {
+    if [ "$#" == "0" ]; then
+        echo -e "${BRIGHT_BLACK}$ npm run build:libs${RESET}"
+        npm run build:libs
+    else
+        echo -e "${BRIGHT_BLACK}$ npm run build:libs:"$@"${RESET}"
+        npm run build:libs:"$@"
+    fi
+}
+
 nc() {
     if [ "$#" == "0" ]; then
         echo -e "${BRIGHT_BLACK}$ npm run ci${RESET}"
@@ -125,6 +145,26 @@ nf() {
     fi
 }
 
+nfa() {
+    if [ "$#" == "0" ]; then
+        echo -e "${BRIGHT_BLACK}$ npm run format:apps${RESET}"
+        npm run format:apps
+    else
+        echo -e "${BRIGHT_BLACK}$ npm run format:apps:"$@"${RESET}"
+        npm run format:apps:"$@"
+    fi
+}
+
+nfl() {
+    if [ "$#" == "0" ]; then
+        echo -e "${BRIGHT_BLACK}$ npm run format:libs${RESET}"
+        npm run format:libs
+    else
+        echo -e "${BRIGHT_BLACK}$ npm run format:libs:"$@"${RESET}"
+        npm run format:libs:"$@"
+    fi
+}
+
 nfc() {
     if [ "$#" == "0" ]; then
         echo -e "${BRIGHT_BLACK}$ npm run format-check${RESET}"
@@ -132,6 +172,26 @@ nfc() {
     else
         echo -e "${BRIGHT_BLACK}$ npm run format-check:"$@"${RESET}"
         npm run format-check:"$@"
+    fi
+}
+
+nfca() {
+    if [ "$#" == "0" ]; then
+        echo -e "${BRIGHT_BLACK}$ npm run format-check:apps${RESET}"
+        npm run format-check:apps
+    else
+        echo -e "${BRIGHT_BLACK}$ npm run format-check:apps:"$@"${RESET}"
+        npm run format-check:apps:"$@"
+    fi
+}
+
+nfcl() {
+    if [ "$#" == "0" ]; then
+        echo -e "${BRIGHT_BLACK}$ npm run format-check:libs${RESET}"
+        npm run format-check:libs
+    else
+        echo -e "${BRIGHT_BLACK}$ npm run format-check:libs:"$@"${RESET}"
+        npm run format-check:libs:"$@"
     fi
 }
 
@@ -145,6 +205,26 @@ nfw() {
     fi
 }
 
+nfwa() {
+    if [ "$#" == "0" ]; then
+        echo -e "${BRIGHT_BLACK}$ npm run format-write:apps${RESET}"
+        npm run format-write:apps
+    else
+        echo -e "${BRIGHT_BLACK}$ npm run format-write:apps:"$@"${RESET}"
+        npm run format-write:apps:"$@"
+    fi
+}
+
+nfwl() {
+    if [ "$#" == "0" ]; then
+        echo -e "${BRIGHT_BLACK}$ npm run format-write:libs${RESET}"
+        npm run format-write:libs
+    else
+        echo -e "${BRIGHT_BLACK}$ npm run format-write:libs:"$@"${RESET}"
+        npm run format-write:libs:"$@"
+    fi
+}
+
 nl() {
     if [ "$#" == "0" ]; then
         echo -e "${BRIGHT_BLACK}$ npm run lint${RESET}"
@@ -152,6 +232,26 @@ nl() {
     else
         echo -e "${BRIGHT_BLACK}$ npm run lint:"$@"${RESET}"
         npm run lint:"$@"
+    fi
+}
+
+nla() {
+    if [ "$#" == "0" ]; then
+        echo -e "${BRIGHT_BLACK}$ npm run lint:apps${RESET}"
+        npm run lint:apps
+    else
+        echo -e "${BRIGHT_BLACK}$ npm run lint:apps:"$@"${RESET}"
+        npm run lint:apps:"$@"
+    fi
+}
+
+nll() {
+    if [ "$#" == "0" ]; then
+        echo -e "${BRIGHT_BLACK}$ npm run lint:libs${RESET}"
+        npm run lint:libs
+    else
+        echo -e "${BRIGHT_BLACK}$ npm run lint:libs:"$@"${RESET}"
+        npm run lint:libs:"$@"
     fi
 }
 
@@ -165,6 +265,26 @@ ns() {
     fi
 }
 
+nsa() {
+    if [ "$#" == "0" ]; then
+        echo -e "${BRIGHT_BLACK}$ npm run start:apps${RESET}"
+        npm run start:apps
+    else
+        echo -e "${BRIGHT_BLACK}$ npm run start:apps:"$@"${RESET}"
+        npm run start:apps:"$@"
+    fi
+}
+
+nsl() {
+    if [ "$#" == "0" ]; then
+        echo -e "${BRIGHT_BLACK}$ npm run start:libs${RESET}"
+        npm run start:libs
+    else
+        echo -e "${BRIGHT_BLACK}$ npm run start:libs:"$@"${RESET}"
+        npm run start:libs:"$@"
+    fi
+}
+
 nt() {
     if [ "$#" == "0" ]; then
         echo -e "${BRIGHT_BLACK}$ npm test${RESET}"
@@ -172,6 +292,26 @@ nt() {
     else
         echo -e "${BRIGHT_BLACK}$ npm run test:"$@"${RESET}"
         npm run test:"$@"
+    fi
+}
+
+nta() {
+    if [ "$#" == "0" ]; then
+        echo -e "${BRIGHT_BLACK}$ npm run test:apps${RESET}"
+        npm run test:apps
+    else
+        echo -e "${BRIGHT_BLACK}$ npm run test:apps:"$@"${RESET}"
+        npm run test:apps:"$@"
+    fi
+}
+
+ntl() {
+    if [ "$#" == "0" ]; then
+        echo -e "${BRIGHT_BLACK}$ npm run test:libs${RESET}"
+        npm run test:libs
+    else
+        echo -e "${BRIGHT_BLACK}$ npm run test:libs:"$@"${RESET}"
+        npm run test:libs:"$@"
     fi
 }
 
@@ -214,6 +354,26 @@ nv() {
         echo -e "    ${GREEN}yarn${RESET} : $(yarn --version)"
     else
         echo -e "    ${BLUE}yarn${RESET} : ${BRIGHT_BLACK}not installed${RESET}"
+    fi
+}
+
+nva() {
+    if [ "$#" == "0" ]; then
+        echo -e "${BRIGHT_BLACK}$ npm run verify:apps${RESET}"
+        npm run verify:apps
+    else
+        echo -e "${BRIGHT_BLACK}$ npm run verify:apps:"$@"${RESET}"
+        npm run verify:apps:"$@"
+    fi
+}
+
+nvl() {
+    if [ "$#" == "0" ]; then
+        echo -e "${BRIGHT_BLACK}$ npm run verify:libs${RESET}"
+        npm run verify:libs
+    else
+        echo -e "${BRIGHT_BLACK}$ npm run verify:libs:"$@"${RESET}"
+        npm run verify:libs:"$@"
     fi
 }
 

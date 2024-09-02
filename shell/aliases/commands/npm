@@ -255,6 +255,66 @@ nll() {
     fi
 }
 
+nlc() {
+    if [ "$#" == "0" ]; then
+        echo -e "${BRIGHT_BLACK}$ npm run lint-check${RESET}"
+        npm run lint-check
+    else
+        echo -e "${BRIGHT_BLACK}$ npm run lint-check:"$@"${RESET}"
+        npm run lint-check:"$@"
+    fi
+}
+
+nlca() {
+    if [ "$#" == "0" ]; then
+        echo -e "${BRIGHT_BLACK}$ npm run lint-check:apps${RESET}"
+        npm run lint-check:apps
+    else
+        echo -e "${BRIGHT_BLACK}$ npm run lint-check:apps:"$@"${RESET}"
+        npm run lint-check:apps:"$@"
+    fi
+}
+
+nlcl() {
+    if [ "$#" == "0" ]; then
+        echo -e "${BRIGHT_BLACK}$ npm run lint-check:libs${RESET}"
+        npm run lint-check:libs
+    else
+        echo -e "${BRIGHT_BLACK}$ npm run lint-check:libs:"$@"${RESET}"
+        npm run lint-check:libs:"$@"
+    fi
+}
+
+nlf() {
+    if [ "$#" == "0" ]; then
+        echo -e "${BRIGHT_BLACK}$ npm run lint-fix${RESET}"
+        npm run lint-fix
+    else
+        echo -e "${BRIGHT_BLACK}$ npm run lint-fix:"$@"${RESET}"
+        npm run lint-fix:"$@"
+    fi
+}
+
+nlfa() {
+    if [ "$#" == "0" ]; then
+        echo -e "${BRIGHT_BLACK}$ npm run lint-fix:apps${RESET}"
+        npm run lint-fix:apps
+    else
+        echo -e "${BRIGHT_BLACK}$ npm run lint-fix:apps:"$@"${RESET}"
+        npm run lint-fix:apps:"$@"
+    fi
+}
+
+nlfl() {
+    if [ "$#" == "0" ]; then
+        echo -e "${BRIGHT_BLACK}$ npm run lint-fix:libs${RESET}"
+        npm run lint-fix:libs
+    else
+        echo -e "${BRIGHT_BLACK}$ npm run lint-fix:libs:"$@"${RESET}"
+        npm run lint-fix:libs:"$@"
+    fi
+}
+
 ns() {
     if [ "$#" == "0" ]; then
         echo -e "${BRIGHT_BLACK}$ npm start${RESET}"

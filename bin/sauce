@@ -32,6 +32,7 @@ declare -a completions=(
 declare -a others=(
 
     # Tools
+    $HOME/.cargo/env
     $HOME/.nvm/nvm.sh
     $HOME/.nvm/bash_completion
 

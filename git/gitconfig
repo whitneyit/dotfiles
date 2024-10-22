@@ -37,7 +37,7 @@
     panic        = !git log --graph --oneline --decorate $( git fsck --no-reflog | awk '/dangling commit/ {print $3}' )
     pr           = "!fn() { git fetch -fu ${2:-origin} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; fn"
     pr-clean     = "!fn() { git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done; }; fn"
-    start        = "!fn() { local email=${1:-james@whitney.io}; git init; git config user.email ${email}; git commit --allow-empty --no-gpg --message='chore: initial commit' --message='This commit was created with:\n\n```sh\ngit config user.email \"'${email}'\";\ngit commit --allow-empty --no-gpg --message=\"chore: initial commit\";\n```'; }; fn"
+    start        = "!fn() { local email=$(git config --get user.email); git init; git config user.email ${email}; git commit --allow-empty --no-gpg --message='chore: initial commit' --message='This commit was created with:\n\n```sh\ngit config user.email \"'${email}'\";\ngit commit --allow-empty --no-gpg --message=\"chore: initial commit\";\n```'; }; fn"
     unchangeable = !git ls-files -v | grep ^[a-z]
     untracked    = !git ls-files --others --exclude-standard
 
@@ -52,7 +52,7 @@
 [help]
     autocorrect = 1
 [interactive]
-    diffFilter = delta --color-only --features=interactive
+    diffFilter = delta --color-only
 [merge]
     tool = vimdiff
     conflictstyle = diff3
@@ -97,18 +97,40 @@
     untracked = red
 
 [delta]
-    features = decorations
+    features = my-theme
+    navigate = true
+    side-by-side = false
 
-[delta "interactive"]
-    keep-plus-minus-markers = false
-
-# [delta "decorations"]
-#     commit-decoration-style = blue ol
-#     commit-style = raw
-#     file-style = omit
-#     hunk-header-decoration-style = blue box
-#     hunk-header-file-style = red
-#     hunk-header-line-number-style = "#067a00"
-#     hunk-header-style = file line-number syntax
+[delta "my-theme"]
+    # General
+    detect-dark-light = true
+    max-line-length = 218 # https://github.com/dandavison/delta/issues/299
+    syntax-theme = base16-256
+    # Commit :: Colours
+    commit-decoration-style = brightblack box ul
+    commit-style = yellow bold
+    # File :: Markers
+    file-added-label = [+]
+    file-copied-label = [==]
+    file-modified-label = [*]
+    file-removed-label = [-]
+    file-renamed-label = [->]
+    # File :: Colours
+    file-decoration-style = brightblack box ul
+    file-style = brightwhite line-number bold
+    # Hunk :: Colours
+    hunk-header-decoration-style = brightblack box
+    hunk-header-file-style = brightblack
+    hunk-header-style = omit
+    # Line Numbers :: Markers
+    line-numbers = true
+    line-numbers-left-format = " {nm:>3} │"
+    line-numbers-left-style = brightblack
+    line-numbers-right-format = " {np:>3} │"
+    line-numbers-right-style = brightblack
+    # Line Numbers :: Colours
+    line-numbers-minus-style = red
+    line-numbers-plus-style = green
+    line-numbers-zero-style = brightblack
 
 # vim: set syn=gitconfig :

@@ -6,7 +6,7 @@ if [ "$(type -P gdircolors)" ]; then
 elif [ "$(type -P dircolors)" ]; then
     eval `dircolors "$HOME/.dir_colors"`
 else
-    e_warn "Could not run \"dircolors\". Files and folders listed with \"ls\" will not be coloured."
+    e_warn "Could not run \"dircolors\". Files and folders listed with \"ls\" may not be coloured."
 fi
 
 # Because this file is in `$DOTFILES_DIRECTORY` and the directory is added
@@ -47,6 +47,7 @@ if [ "$(is_mac)" == "yes" ]; then
             command ls\
                 -A \
                 -h \
+                --color \
                 "$@"
         }
 

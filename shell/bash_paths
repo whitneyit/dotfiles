@@ -23,6 +23,7 @@ declare -a DIRS_TO_APPEND=(
     "$HOME/.composer/vendor/bin"
     "$HOME/.deno/bin"
     "$HOME/.dvm/bin"
+    "$HOME/.npm-global/bin"
     "$HOME/.rvm/bin"
     "$GOROOT/bin"
     "$GOPATH/bin"

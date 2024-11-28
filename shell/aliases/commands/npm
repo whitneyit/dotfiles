@@ -10,6 +10,16 @@ n-exists() {
     fi
 }
 
+pnpm-exists() {
+    if [ ! "$(type -P pnpm)" ]; then
+        echo 0
+    elif [ ! -f "$(type -P pnpm)" ]; then
+        echo 0
+    else
+        echo 1
+    fi
+}
+
 yarn-exists() {
     if [ ! "$(type -P yarn)" ]; then
         echo 0
@@ -409,6 +419,11 @@ nv() {
         else
             echo -e "    ${BLUE} nvm${RESET} : ${BRIGHT_BLACK}not installed${RESET}"
         fi
+    fi
+    if [ "$(pnpm-exists)" == "1" ]; then
+        echo -e "    ${GREEN}pnpm${RESET} : $(pnpm --version)"
+    else
+        echo -e "    ${BLUE}pnpm${RESET} : ${BRIGHT_BLACK}not installed${RESET}"
     fi
     if [ "$(yarn-exists)" == "1" ]; then
         echo -e "    ${GREEN}yarn${RESET} : $(yarn --version)"

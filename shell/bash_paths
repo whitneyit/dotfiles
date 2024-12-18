@@ -3,6 +3,15 @@
 # Directories to be prepended to PATH
 # Ensure that this bin always takes precedence over `/usr/bin`
 declare -a DIRS_TO_PREPEND=(
+    "./vendor/bin"
+    "$HOME/bin"
+    "$HOME/.composer/vendor/bin"
+    "$HOME/.deno/bin"
+    "$HOME/.dvm/bin"
+    "$HOME/.npm-global/bin"
+    "$HOME/.rvm/bin"
+    "$GOROOT/bin"
+    "$GOPATH/bin"
     "/usr/local/bin"
     "/usr/local/sbin"
     "/usr/local/heroku/bin"
@@ -19,17 +28,6 @@ declare -a DIRS_TO_APPEND=(
     "/sbin"
     "/usr/bin"
     "/usr/local"
-    "$HOME/bin"
-    "$HOME/.composer/vendor/bin"
-    "$HOME/.deno/bin"
-    "$HOME/.dvm/bin"
-    "$HOME/.npm-global/bin"
-    "$HOME/.rvm/bin"
-    "$GOROOT/bin"
-    "$GOPATH/bin"
-    "$ANDROID_TOOLS/tools"
-    "$ANDROID_TOOLS/platform-tools"
-    "./vendor/bin"
 )
 
 # Directories to be appended to PATH only when `is_mac` is true
@@ -38,19 +36,25 @@ declare -a MAC_DIRS_TO_APPEND=(
     "$HOME/Library/Python/3.9/bin"
 )
 
-# Prepend directories to PATH
+to_append=""
+to_prepend=""
+
+# Build up directions to prepend to PATH
 for index in "${DIRS_TO_PREPEND[@]}"
 do
-    PATH="${index}:$PATH"
+    to_prepend="${to_prepend}:${index}"
 done
 
-# Append directories to PATH
+to_prepend="${to_prepend:1}:"
+
+# Build up directions to append to PATH
 for index in "${DIRS_TO_APPEND[@]}"
 do
-    PATH="$PATH:${index}"
+    to_append="${to_append}:${index}"
 done
 
 # Now that we have sorted out $PATH, we can do platform specific stuff
+PATH="${to_prepend}${PATH}${to_append}"
 
 # Append the Mac directories
 if [ "$(is_mac)" == "yes" ]; then

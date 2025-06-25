@@ -5,7 +5,8 @@
 
 # Define the PS1 colours to use
 export PS1_DIRECTORY_COLOR="$BLUE"
-export PS1_HOSTNAME_COLOR="$MAGENTA"
+export PS1_HOSTENV_COLOR="$YELLOW"
+export PS1_HOSTNAME_COLOR="$RED"
 export PS1_INPUT_COLOR="$RESET"
 export PS1_PROMPT_GIT_COLOR="$CYAN"
 export PS1_PROMPT_HG_COLOR="$YELLOW"
@@ -13,7 +14,7 @@ export PS1_PROMPT_SNV_COLOR="$GREEN"
 export PS1_SYMBOL_COLOR_NORMAL="$BRIGHT_BLACK"
 export PS1_SYMBOL_COLOR_ERROR="$YELLOW"
 export PS1_TEXT_COLOR="$WHITE"
-export PS1_USERNAME_COLOR="$RED"
+export PS1_USERNAME_COLOR="$MAGENTA"
 
 # Helper function to read the first line of a file into a variable.
 # __git_eread requires 2 arguments, the file path and the name of the
@@ -157,6 +158,14 @@ function get_scm_prompt() {
     echo -e "$scm_prompt"
 }
 
+function get_host_env {
+    if [ -f "/etc/wsl.conf" ]; then
+        echo -e "${PS1_TEXT_COLOR} using ${PS1_HOSTENV_COLOR}WSL"
+    else
+        echo -e ""
+    fi
+}
+
 # Detect if the current directory is a svn repo
 function is_svn_repository {
     if [ "$(type -P svn)" ]; then
@@ -190,7 +199,8 @@ function prompt_command() {
     local ps1_error="$(get_ps1_error $did_last_command_fail)"
     local ps1_symbol="$(get_ps1_symbol $did_last_command_fail)"
     local scm_prompt="$(get_scm_prompt)"
-    PS1="$RESET\[$PS1_USERNAME_COLOR\]\u \[$PS1_TEXT_COLOR\]at \[$PS1_HOSTNAME_COLOR\]\h \[$PS1_TEXT_COLOR\]in \[$PS1_DIRECTORY_COLOR\]\w$scm_prompt$ps1_error\n$ps1_symbol\[$PS1_INPUT_COLOR\]"
+    local host_env="$(get_host_env)"
+    PS1="$RESET\[$PS1_HOSTNAME_COLOR\]\h$host_env \[$PS1_TEXT_COLOR\]as \[$PS1_USERNAME_COLOR\]\u \[$PS1_TEXT_COLOR\]in \[$PS1_DIRECTORY_COLOR\]\w$scm_prompt$ps1_error\n$ps1_symbol\[$PS1_INPUT_COLOR\]"
 }
 
 # If we are using MING, then we do nothing otherwise we set the $PS1

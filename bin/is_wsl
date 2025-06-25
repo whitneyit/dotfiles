@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Determine if we are running inside WSL
+if [ -f "/etc/wsl.conf" ]; then
+    echo "yes"
+else
+    echo "no"
+fi
+
+# vim: set syn=sh :

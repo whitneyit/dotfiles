@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Ensure that these aliases are only ever processed if we are in an mac box.
+if [ "$(is_wsl)" == "yes" ]; then
+
+    alias pbcopy='xclip -selection clipboard'
+    alias pbpaste='xclip -selection clipboard -o'
+
+fi
+
+# vim: set syn=sh :

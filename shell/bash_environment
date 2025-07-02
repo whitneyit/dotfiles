@@ -13,7 +13,7 @@ export BLUEBIRD_DEBUG="0"
 export DENO_INSTALL="$HOME/.deno"
 
 # Set the display
-export DISPLAY=":99"
+export DISPLAY=":0"
 
 # Where dvm should be install to
 export DVM_DIR="$HOME/.dvm"

@@ -9,8 +9,48 @@ function cdg() {
     cd "$(dirname $(gp))"
 }
 
-alias                  ga="git add --ignore-removal"
+alias                  ga="git add"
 __git_complete         ga _git_add
+function ga1() {
+    git add $(git status --porcelain | sed s/^...// | sed -n '1p')
+}
+__git_complete        ga1 _git_add
+function ga2() {
+    git add $(git status --porcelain | sed s/^...// | sed -n '2p')
+}
+__git_complete        ga2 _git_add
+function ga3() {
+    git add $(git status --porcelain | sed s/^...// | sed -n '3p')
+}
+__git_complete        ga3 _git_add
+function ga4() {
+    git add $(git status --porcelain | sed s/^...// | sed -n '4p')
+}
+__git_complete        ga4 _git_add
+function ga5() {
+    git add $(git status --porcelain | sed s/^...// | sed -n '5p')
+}
+__git_complete        ga5 _git_add
+function ga6() {
+    git add $(git status --porcelain | sed s/^...// | sed -n '6p')
+}
+__git_complete        ga6 _git_add
+function ga7() {
+    git add $(git status --porcelain | sed s/^...// | sed -n '7p')
+}
+__git_complete        ga7 _git_add
+function ga8() {
+    git add $(git status --porcelain | sed s/^...// | sed -n '8p')
+}
+__git_complete        ga8 _git_add
+function ga9() {
+    git add $(git status --porcelain | sed s/^...// | sed -n '9p')
+}
+__git_complete        ga9 _git_add
+function ga10() {
+    git add $(git status --porcelain | sed s/^...// | sed -n '10p')
+}
+__git_complete        ga10 _git_add
 alias                 gaa="git add --all"
 __git_complete        gaa _git_add
 alias                 gap="git add --patch"

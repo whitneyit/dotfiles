@@ -9,8 +9,44 @@ function cdg() {
     cd "$(dirname $(gp))"
 }
 
-alias                  ga="git add --ignore-removal"
+alias                  ga="git add"
 __git_complete         ga _git_add
+function ga1() {
+    git add $(git status --porcelain | sed s/^...// | head -n 1)
+}
+__git_complete        ga1 _git_add
+function ga2() {
+    git add $(git status --porcelain | sed s/^...// | head -n 2)
+}
+__git_complete        ga2 _git_add
+function ga3() {
+    git add $(git status --porcelain | sed s/^...// | head -n 3)
+}
+__git_complete        ga3 _git_add
+function ga4() {
+    git add $(git status --porcelain | sed s/^...// | head -n 4)
+}
+__git_complete        ga4 _git_add
+function ga5() {
+    git add $(git status --porcelain | sed s/^...// | head -n 5)
+}
+__git_complete        ga5 _git_add
+function ga6() {
+    git add $(git status --porcelain | sed s/^...// | head -n 6)
+}
+__git_complete        ga6 _git_add
+function ga7() {
+    git add $(git status --porcelain | sed s/^...// | head -n 7)
+}
+__git_complete        ga7 _git_add
+function ga8() {
+    git add $(git status --porcelain | sed s/^...// | head -n 8)
+}
+__git_complete        ga8 _git_add
+function ga9() {
+    git add $(git status --porcelain | sed s/^...// | head -n 9)
+}
+__git_complete        ga9 _git_add
 alias                 gaa="git add --all"
 __git_complete        gaa _git_add
 alias                 gap="git add --patch"

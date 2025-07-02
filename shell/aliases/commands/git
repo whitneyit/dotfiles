@@ -113,6 +113,14 @@ alias               gcmam="git commit            --verbose --amend --message"
 __git_complete      gcmam _git_commit
 alias               gcman="git commit            --verbose --amend --no-edit"
 __git_complete      gcman _git_commit
+function gcmx() {
+    pbpaste | git commit --verbose --file -
+}
+__git_complete       gcmx _git_commit
+function gcmax() {
+    pbpaste | git commit --verbose --amend --file -
+}
+__git_complete      gcmax _git_commit
 alias                 gcf="git config"
 __git_complete        gcf _git_config
 alias                gcfl="git config --list"

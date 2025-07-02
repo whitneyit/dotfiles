@@ -615,7 +615,37 @@ function gta() {
         printf "${status}%-${widest_tag}s${separator}%-${widest_sha}s%s%s ${commit_message}\n" "${tag}" "${sha}"
     done
 }
-__git_complete       gta _git_tag
+__git_complete        gta _git_tag
+function gxc1() {
+    git log --no-merges --pretty=format:"%B" HEAD~0 -1 | pbcopy
+}
+function gxc2() {
+    git log --no-merges --pretty=format:"%B" HEAD~1 -1 | pbcopy
+}
+function gxc3() {
+    git log --no-merges --pretty=format:"%B" HEAD~2 -1 | pbcopy
+}
+function gxc4() {
+    git log --no-merges --pretty=format:"%B" HEAD~3 -1 | pbcopy
+}
+function gxc5() {
+    git log --no-merges --pretty=format:"%B" HEAD~4 -1 | pbcopy
+}
+function gxc6() {
+    git log --no-merges --pretty=format:"%B" HEAD~5 -1 | pbcopy
+}
+function gxc7() {
+    git log --no-merges --pretty=format:"%B" HEAD~6 -1 | pbcopy
+}
+function gxc8() {
+    git log --no-merges --pretty=format:"%B" HEAD~7 -1 | pbcopy
+}
+function gxc9() {
+    git log --no-merges --pretty=format:"%B" HEAD~8 -1 | pbcopy
+}
+function gxc10() {
+    git log --no-merges --pretty=format:"%B" HEAD~9 -1 | pbcopy
+}
 
 
 alias                  gv="git --version" # No git complete for _git_version

@@ -54,6 +54,16 @@ nid() {
     npm install --save-dev --save-exact "$@"
 }
 
+nif() {
+    if [ "$#" == "0" ]; then
+        echo -e "${BRIGHT_BLACK}$ npm install --force${RESET}"
+        npm install --force
+    else
+        echo -e "${BRIGHT_BLACK}$ npm install --force --save --save-exact "$@"${RESET}"
+        npm install --force --save --save-exact "$@"
+    fi
+}
+
 nig() {
     echo -e "${BRIGHT_BLACK}$ npm install --global --save-exact "$@"${RESET}"
     npm install --global --save-exact "$@"

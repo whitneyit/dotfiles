@@ -684,6 +684,46 @@ function gxh9() {
 function gxh10() {
     git log --no-merges --pretty=format:"%h" HEAD~9 -1 | pbcopy
 }
+function gxr() {
+    local start="$(git log --no-merges --pretty=format:"%h" HEAD~$2 -1)"
+    local end="$(git log --no-merges --pretty=format:"%h" HEAD~$1 -1)"
+    if [ "${start}" == "${end}" ]; then
+        echo "${start}" | pbcopy
+    else
+        local range="${start}^..${end}"
+        echo "${range}" | pbcopy
+    fi
+}
+function gxr1() {
+    gxr 0 0
+}
+function gxr2() {
+    gxr 0 1
+}
+function gxr3() {
+    gxr 0 2
+}
+function gxr4() {
+    gxr 0 3
+}
+function gxr5() {
+    gxr 0 4
+}
+function gxr6() {
+    gxr 0 5
+}
+function gxr7() {
+    gxr 0 6
+}
+function gxr8() {
+    gxr 0 7
+}
+function gxr9() {
+    gxr 0 8
+}
+function gxr10() {
+    gxr 0 9
+}
 
 
 alias                  gv="git --version" # No git complete for _git_version

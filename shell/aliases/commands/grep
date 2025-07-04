@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
-alias _grep="ggrep \
+if [ "$(type -P ggrep)" ]; then
+    alias grep="ggrep"
+fi
+
+alias _grep="grep \
     --color='always' \
     --exclude *.lock \
     --exclude *.map \

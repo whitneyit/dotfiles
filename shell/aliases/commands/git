@@ -654,6 +654,36 @@ function gxc9() {
 function gxc10() {
     git log --no-merges --pretty=format:"%B" HEAD~9 -1 | pbcopy
 }
+function gxh1() {
+    git log --no-merges --pretty=format:"%h" HEAD~0 -1 | pbcopy
+}
+function gxh2() {
+    git log --no-merges --pretty=format:"%h" HEAD~1 -1 | pbcopy
+}
+function gxh3() {
+    git log --no-merges --pretty=format:"%h" HEAD~2 -1 | pbcopy
+}
+function gxh4() {
+    git log --no-merges --pretty=format:"%h" HEAD~3 -1 | pbcopy
+}
+function gxh5() {
+    git log --no-merges --pretty=format:"%h" HEAD~4 -1 | pbcopy
+}
+function gxh6() {
+    git log --no-merges --pretty=format:"%h" HEAD~5 -1 | pbcopy
+}
+function gxh7() {
+    git log --no-merges --pretty=format:"%h" HEAD~6 -1 | pbcopy
+}
+function gxh8() {
+    git log --no-merges --pretty=format:"%h" HEAD~7 -1 | pbcopy
+}
+function gxh9() {
+    git log --no-merges --pretty=format:"%h" HEAD~8 -1 | pbcopy
+}
+function gxh10() {
+    git log --no-merges --pretty=format:"%h" HEAD~9 -1 | pbcopy
+}
 
 
 alias                  gv="git --version" # No git complete for _git_version

@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 
+# If we are running in WSL
+if [ "$(is_wsl)" == "yes" ]; then
+
+    /mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe "$(wslpath -w $(realpath $@))"
+
 # If we are running on Windows
-if [ "$(is_win)" == "yes" ]; then
+elif [ "$(is_win)" == "yes" ]; then
 
     # This needs to be updated to get the absolute windows style path
     cygstart /cygdrive/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe "$@"

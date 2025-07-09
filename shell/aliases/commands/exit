@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+alias e0="exit 0"
+alias e1="exit 1"
+alias e2="exit 2"
+alias e3="exit 3"
+alias e4="exit 4"
+alias e5="exit 5"
+alias e6="exit 6"
+alias e7="exit 7"
+alias e8="exit 8"
+alias e9="exit 9"
+
+# vim: set tw=0:syn=sh :

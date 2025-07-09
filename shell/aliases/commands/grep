@@ -5,7 +5,7 @@ if [ "$(type -P ggrep)" ]; then
 fi
 
 alias _grep="grep \
-    --color='always' \
+    --color='auto' \
     --exclude *.lock \
     --exclude *.map \
     --exclude *.min.css \

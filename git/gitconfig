@@ -22,7 +22,9 @@
     pager = delta
 
 [credential]
-    helper = store
+    helper = store --file ~/.git-credentials
+    # helper = /usr/local/bin/git-credential-manager
+    # helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
 
 # [gc]
 #    pruneExpire = never

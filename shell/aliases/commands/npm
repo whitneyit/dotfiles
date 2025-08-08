@@ -146,14 +146,14 @@ nbl() {
 
 nc() {
     if [ "$#" == "0" ]; then
-        echo -e "${BRIGHT_BLACK}$ npm run ci${RESET}"
-        npm run ci
+        echo -e "${BRIGHT_BLACK}$ npm run clean${RESET}"
+        npm run clean
     elif [ "$1" == "--" ]; then
-        echo -e "${BRIGHT_BLACK}$ npm run ci "$@"${RESET}"
-        npm run ci "$@"
+        echo -e "${BRIGHT_BLACK}$ npm run clean "$@"${RESET}"
+        npm run clean "$@"
     else
-        echo -e "${BRIGHT_BLACK}$ npm run ci:"$@"${RESET}"
-        npm run ci:"$@"
+        echo -e "${BRIGHT_BLACK}$ npm run clean:"$@"${RESET}"
+        npm run clean:"$@"
     fi
 }
 

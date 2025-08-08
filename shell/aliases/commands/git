@@ -97,6 +97,9 @@ alias               gcpcn="GIT_EDITOR=true git cherry-pick --continue" # There i
 __git_complete      gcpcn _git_cherry_pick
 alias                gcps="git cherry-pick --skip"
 __git_complete       gcps _git_cherry_pick
+function gcpx() {
+    git cherry-pick "$(pbpaste)"
+}
 alias                 gcn="git clean -d -x --force --dry-run" # no such thing as --directories, -x ignores .gitignore
 __git_complete        gcn _git_clean
 alias                gcnf="git clean -d -x --force"

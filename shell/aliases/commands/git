@@ -449,10 +449,28 @@ alias               grmca="git rm --cached -r ."
 __git_complete      grmca _git_rm
 alias                 grv="git revert"
 __git_complete        grv _git_revert
-alias                grvh="git revert HEAD"
+alias                grvh="git reset --hard 'HEAD^' --no-edit"
 __git_complete       grvh _git_revert
-alias               grvhn="git revert HEAD --no-edit"
-__git_complete      grvhn _git_revert
+alias                grv1="git revert        HEAD~0 --no-edit"
+__git_complete       grv1 _git_revert
+alias                grv2="git revert        HEAD~1 --no-edit"
+__git_complete       grv2 _git_revert
+alias                grv3="git revert        HEAD~2 --no-edit"
+__git_complete       grv3 _git_revert
+alias                grv4="git revert        HEAD~3 --no-edit"
+__git_complete       grv4 _git_revert
+alias                grv5="git revert        HEAD~4 --no-edit"
+__git_complete       grv5 _git_revert
+alias                grv6="git revert        HEAD~5 --no-edit"
+__git_complete       grv6 _git_revert
+alias                grv7="git revert        HEAD~6 --no-edit"
+__git_complete       grv7 _git_revert
+alias                grv8="git revert        HEAD~7 --no-edit"
+__git_complete       grv8 _git_revert
+alias                grv9="git revert        HEAD~8 --no-edit"
+__git_complete       grv9 _git_revert
+alias               grv10="git revert        HEAD~9 --no-edit"
+__git_complete      grv10 _git_revert
 alias                  gh="git stash save"
 __git_complete         gh _git_stash
 alias                 gha="git stash apply"

@@ -391,25 +391,25 @@ alias                grss="git reset --soft"
 __git_complete       grss _git_reset
 alias               grssh="git reset --soft 'HEAD^'"
 __git_complete      grssh _git_reset
-alias               grss1="git reset --soft HEAD@{0}"
+alias               grss1="git reset --soft HEAD~0"
 __git_complete      grsh1 _git_reset
-alias               grss2="git reset --soft HEAD@{1}"
+alias               grss2="git reset --soft HEAD~1"
 __git_complete      grss2 _git_reset
-alias               grss3="git reset --soft HEAD@{2}"
+alias               grss3="git reset --soft HEAD~2"
 __git_complete      grss3 _git_reset
-alias               grss4="git reset --soft HEAD@{3}"
+alias               grss4="git reset --soft HEAD~3"
 __git_complete      grss4 _git_reset
-alias               grss5="git reset --soft HEAD@{4}"
+alias               grss5="git reset --soft HEAD~4"
 __git_complete      grss5 _git_reset
-alias               grss6="git reset --soft HEAD@{5}"
+alias               grss6="git reset --soft HEAD~5"
 __git_complete      grss6 _git_reset
-alias               grss7="git reset --soft HEAD@{6}"
+alias               grss7="git reset --soft HEAD~6"
 __git_complete      grss7 _git_reset
-alias               grss8="git reset --soft HEAD@{7}"
+alias               grss8="git reset --soft HEAD~7"
 __git_complete      grss8 _git_reset
-alias               grss9="git reset --soft HEAD@{8}"
+alias               grss9="git reset --soft HEAD~8"
 __git_complete      grss9 _git_reset
-alias              grss10="git reset --soft HEAD@{9}"
+alias              grss10="git reset --soft HEAD~9"
 __git_complete     grss10 _git_reset
 alias               grsho="git reset --hard origin"
 __git_complete      grsho _git_reset

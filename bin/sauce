@@ -4,8 +4,8 @@
 declare -a mandatories=(
 
     # Setup scripts
-    $DOTFILES_DIRECTORY/shell/bash_paths
     $DOTFILES_DIRECTORY/shell/bash_environment
+    $DOTFILES_DIRECTORY/shell/bash_paths
 
     # General settings
     $DOTFILES_DIRECTORY/shell/bash_locale

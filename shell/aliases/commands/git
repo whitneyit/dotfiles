@@ -745,7 +745,36 @@ function gxr9() {
 function gxr10() {
     gxr 0 9
 }
-
+function gxr11() {
+    gxr 0 10
+}
+function gxr12() {
+    gxr 0 11
+}
+function gxr13() {
+    gxr 0 12
+}
+function gxr14() {
+    gxr 0 13
+}
+function gxr15() {
+    gxr 0 14
+}
+function gxr16() {
+    gxr 0 15
+}
+function gxr17() {
+    gxr 0 16
+}
+function gxr18() {
+    gxr 0 17
+}
+function gxr19() {
+    gxr 0 18
+}
+function gxr20() {
+    gxr 0 19
+}
 
 alias                  gv="git --version" # No git complete for _git_version
 

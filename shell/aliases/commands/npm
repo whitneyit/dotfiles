@@ -54,6 +54,11 @@ nid() {
     npm install --save-dev --save-exact "$@"
 }
 
+nidf() {
+    echo -e "${BRIGHT_BLACK}$ npm install --force --save-dev --save-exact "$@"${RESET}"
+    npm install --force --save-dev --save-exact "$@"
+}
+
 nif() {
     if [ "$#" == "0" ]; then
         echo -e "${BRIGHT_BLACK}$ npm install --force${RESET}"
@@ -77,6 +82,16 @@ nio() {
         echo -e "${BRIGHT_BLACK}$ npm install --save-optional --save-exact "$@"${RESET}"
         npm install --save-optional --save-exact "$@"
     fi
+}
+
+nip() {
+    echo -e "${BRIGHT_BLACK}$ npm install --save-peer --save-exact "$@"${RESET}"
+    npm install --save-peer --save-exact "$@"
+}
+
+nipf() {
+    echo -e "${BRIGHT_BLACK}$ npm install --force --save-peer --save-exact "$@"${RESET}"
+    npm install --force --save-peer --save-exact "$@"
 }
 
 nls() {

@@ -335,13 +335,13 @@ alias               grbud="git rebase upstream/develop"
 __git_complete      grbud _git_rebase
 alias               grbum="git rebase upstream/master"
 __git_complete      grbum _git_rebase
-alias                grfa="git reflog                                 --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(blue)%gs %C(cyan)%ae %C(white)%s%C(red)%d'"
+alias                grfa="git reflog                                 --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(blue)%gs %C(cyan)%ae %C(white)%s%C(red)%d%C(reset)'"
 __git_complete       grfa _git_reflog
-alias               grfpa="git reflog                         --patch --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(blue)%gs %C(cyan)%ae %C(white)%s%C(red)%d'"
+alias               grfpa="git reflog                         --patch --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'>%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(blue)%gs %C(cyan)%ae %C(white)%s%C(red)%d%C(reset)'"
 __git_complete      grfpa _git_reflog
-alias               grfga="git reflog                         --graph --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(blue)%gs %C(cyan)%ae %C(white)%s%C(red)%d'"
+alias               grfga="git reflog                         --graph --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(blue)%gs %C(cyan)%ae %C(white)%s%C(red)%d%C(reset)'"
 __git_complete      grfga _git_reflog
-alias               grfsa="git reflog                         --stat  --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(blue)%gs %C(cyan)%ae %C(white)%s%C(red)%d'"
+alias               grfsa="git reflog                         --stat  --date=format:'%a %d %b %Y %H:%M:%S %z' --pretty=format:'%C(yellow)%>(10)%h %C(green)[%cd | %>(14)%cr] %C(blue)%gs %C(cyan)%ae %C(white)%s%C(red)%d%C(reset)'"
 __git_complete      grfsa _git_reflog
 alias                 grt="git remote"
 __git_complete        grt _git_remote

@@ -62,7 +62,7 @@ if [ ! "$(type -P git)" ]; then
     exit 1
 fi
 
-# Check if the `dotfiles` repo is stored within the `.dotfiles` directory.
+# Check if the `dotfiles` repo is NOT stored within the `.dotfiles` directory.
 if [ ! -d "$HOME/.dotfiles" ]; then
 
     # Test to see if there is a symbolic link to the directory. If this fails
@@ -91,7 +91,7 @@ fi
 # Check to see if we already know where to find our dotfiles
 if [ -z "$DOTFILES_DIRECTORY" ]; then
 
-    # Here we define a global variable that will act as the "pointer" for where
+    # Here we define a global variable that will act as the symlink for where
     # our repo is located. The first line is testing to see if the repo is
     # symbolically linked to another location, and if it is, that will be the
     # value for `$DOTFILES_DIRECTORY`. Otherwise it must be in the fallback
@@ -109,7 +109,7 @@ if [ -z "$DOTFILES_DIRECTORY" ]; then
         exit 1
     fi
 
-    # With the "pointer" now defined, we can `export` it.
+    # With the symlink now defined, we can `export` it.
     export DOTFILES_DIRECTORY
 
 fi
@@ -184,11 +184,7 @@ if [ ! -d .git ]; then
     if [ "$(uname -s | grep -c Cygwin)" -gt 0 ]; then
         chgrp -R Users .
         chgrp -R Users "$HOME/.ssh"
-        chgrp -R Users "$HOME/Archive"
         chgrp -R Users "$HOME/Code"
-        chgrp -R Users "$HOME/Dev"
-        chgrp -R Users "$HOME/Go"
-        chgrp -R Users "$HOME/OSS"
         chgrp -R Users "$HOME/Work"
         # chgrp Users "/cygdrive/c/Windows/System32/drivers/etc/hosts"
         chgrp Users "$HOME/.bash_history"
@@ -200,11 +196,7 @@ if [ ! -d .git ]; then
     elif [ -d /home/vagrant ]; then
         sudo chown -R vagrant:vagrant .
         sudo chown -R vagrant:vagrant "$HOME/.ssh"
-        sudo chown -R vagrant:vagrant "$HOME/Archive"
         sudo chown -R vagrant:vagrant "$HOME/Code"
-        sudo chown -R vagrant:vagrant "$HOME/Dev"
-        sudo chown -R vagrant:vagrant "$HOME/Go"
-        sudo chown -R vagrant:vagrant "$HOME/OSS"
         sudo chown -R vagrant:vagrant "$HOME/Work"
         sudo chown vagrant:vagrant "$HOME/.bash_history"
         sudo chown vagrant:vagrant "$HOME/.config"
@@ -215,13 +207,9 @@ if [ ! -d .git ]; then
     elif [ "$(uname -s | grep -c Darwin)" -gt 0 ]; then
         chown -R `whoami` .
         chown -R `whoami` "$HOME/.ssh"
-        chown -R `whoami` "$HOME/Archive"
         chown -R `whoami` "$HOME/Code"
-        chown -R `whoami` "$HOME/Dev"
-        chown -R `whoami` "$HOME/Go"
-        chown -R `whoami` "$HOME/OSS"
         chown -R `whoami` "$HOME/Work"
-        # chown `whoami` "/private/etc/hosts"
+        chown `whoami` "/private/etc/hosts"
         chown `whoami` "$HOME/.bash_history"
         chown `whoami` "$HOME/.config"
         chown `whoami` "$HOME/.prev_dir"
@@ -335,17 +323,12 @@ if [ ! -d .git ]; then
             bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         fi
 
-        # Next we "tap" the brew versions of the standard OSX commands
-        if [ ! -d "/usr/local/Library/Taps/homebrew/homebrew-dupes" ]; then
-            brew tap homebrew/dupes
-        fi
-
         # Make sure we have the most up to date version of homebrew
         e_header "Updating Homebrew..."
         brew update
 
         # Update any existing formulae
-        brew upgrade --all
+        brew upgrade
 
         # Determine a list of formulae to install
         declare LIST_FORMULAE
@@ -360,11 +343,13 @@ if [ ! -d .git ]; then
             'dos2unix'
             'editorconfig'
             'findutils'
+            'font-fira-code'
             'git'
+            'git-credential-manager'
+            'git-delta'
             'gnu-sed'
             'gpg'
             'grep'
-            'hub'
             'jq'
             'pcre'
             'tree'
@@ -429,7 +414,7 @@ if [ ! -d .git ]; then
             sudo -v
 
             # Add the newly installed `bash` shell.
-            sudo echo "/usr/local/bin/bash" >> /etc/shells
+            sudo echo "/opt/homebrew/bin/bash" >> /etc/shells
 
             # Change the shell for the current user
             chsh -s /usr/local/bin/bash
@@ -552,17 +537,10 @@ if [ ! -d .git ]; then
         export GOPATH="$HOME/Go"
         export GOROOT="/usr/local/go"
 
-        # Install hub
-        git clone https://github.com/github/hub.git /tmp/hub
-        cd /tmp/hub
-        ./script/build
-        cp bin/hub /usr/local/bin/hub
-        cd "$DOTFILES_DIRECTORY"
-
     fi
 
     # Check to see if n is installed
-    if [ ! -d "/usr/local/n" ]; then
+    if [ ! -f "/usr/local/bin/n" ]; then
 
         curl -L https://raw.githubusercontent.com/tj/n/master/bin/n -o n
         bash n lts

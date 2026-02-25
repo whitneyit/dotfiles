@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+export prev_http_proxy="${http_proxy:-${prev_http_proxy:-"http://user:password@website.com:1234"}}"
+export prev_https_proxy="${https_proxy:-${prev_https_proxy:-"https://user:password@website.com:1234"}}"
+
+export http_proxy="${1:-${prev_http_proxy}}"
+export https_proxy="${1:-${prev_https_proxy}}"
+echo "Set \$http_proxy=\"${http_proxy}\""
+echo "Set \$https_proxy=\"${http_proxy}\""
+
+echo "#!/usr/bin/env bash"                           >  "$HOME/.bash_proxy"
+echo ""                                              >> "$HOME/.bash_proxy"
+echo "export prev_http_proxy=\"$prev_http_proxy\""   >> "$HOME/.bash_proxy"
+echo "export prev_https_proxy=\"$prev_https_proxy\"" >> "$HOME/.bash_proxy"
+echo "export http_proxy=\"$http_proxy\""             >> "$HOME/.bash_proxy"
+echo "export https_proxy=\"$https_proxy\""           >> "$HOME/.bash_proxy"
+echo ""                                              >> "$HOME/.bash_proxy"
+echo "# vim: set syn=sh :"                           >> "$HOME/.bash_proxy"
+
+# vim: set syn=sh :

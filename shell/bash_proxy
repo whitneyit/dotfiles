@@ -1,19 +1,8 @@
 #!/usr/bin/env bash
 
-# Fill in these variables if you are using a proxy
-
-function proxy_set() {
-  export http_proxy="http://user:password@website.com:1234"
-  export https_proxy="https://user:password@website.com:1234"
-  echo "Set \$http_proxy=\"${http_proxy}\""
-  echo "Set \$https_proxy=\"${http_proxy}\""
-}
-
-function proxy_unset() {
-  unset  http_proxy
-  unset https_proxy
-  echo "Unset \$http_proxy"
-  echo "Unset \$https_proxy"
-}
+export prev_http_proxy="http://user:password@website.com:1234"
+export prev_https_proxy="http://user:password@website.com:1234"
+export http_proxy=""
+export https_proxy=""
 
 # vim: set syn=sh :
